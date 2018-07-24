@@ -9,7 +9,6 @@ import { BookIn } from './booking.model';
 export class BookingComponent implements OnInit {
   onBookInForm: FormGroup;
   userBook: BookIn;
-  typeofshoot:['international','national'];
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -20,7 +19,6 @@ export class BookingComponent implements OnInit {
     this.onBookInForm = this.fb.group({
       phoneNumber: ['', Validators.required],
       name: ['', Validators.required],
-      typeofshoot:['international']
     });
   }
   
