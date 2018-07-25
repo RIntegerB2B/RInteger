@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-welcome',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  mobileNo: string;
 
-  constructor() { }
+  constructor(private router: Router, private localStorageService: LocalStorageService ) { }
 
   ngOnInit() {
+
+  }
+
+  getStatus() {
+    this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.router.navigate(['/statusView',  this.mobileNo]);
   }
 
 }

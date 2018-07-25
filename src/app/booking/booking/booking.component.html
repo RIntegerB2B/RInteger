@@ -3,21 +3,50 @@
       <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="form-group">
-                <input class="form-control required" required placeholder="Phone Number" style="margin-bottom:5px" formControlName="phoneNumber" type="text">
-                <div *ngIf="onBookInForm.controls['phoneNumber'].errors
-                                                 && !onBookInForm.controls['phoneNumber'].pristine" class="alert alert-danger">
-                  <div [hidden]="!onBookInForm.controls['phoneNumber'].errors.required">Mobile Number is required.</div>  
-                </div>
-                  <input class="form-control required" required placeholder="Name" style="margin-bottom:5px" formControlName="name" type="text">
-                  <div *ngIf="onBookInForm.controls['name'].errors
-                                     && !onBookInForm.controls[ 'name'].pristine" class="alert alert-danger">
-                <div [hidden]="!onBookInForm.controls['name'].errors.required">Name is required.</div>
-                </div>
-                <input class="form-control required" required placeholder="Quality" style="margin-bottom:5px" formControlName="quality" type="text">            
-                <input class="form-control required" required placeholder="Product Description" style="margin-bottom:5px" formControlName="productDescription" type="text">
-              <input class="form-control required" required placeholder="Quality Description" style="margin-bottom:5px" formControlName="qualityDescription" type="text">
-              <input class="form-control required" required placeholder="Type of Shoot" style="margin-bottom:5px" formControlName="typeofShoot" type="text">
+
               
+                <input class="form-control required" required placeholder="Mobile Number" style="margin-bottom:5px" formControlName="mobileNumber" type="text" #mobileNum>
+                <div *ngIf="onBookInForm.controls['mobileNumber'].errors
+                                                 && !onBookInForm.controls['mobileNumber'].pristine" class="alert alert-danger">
+                  <div [hidden]="!onBookInForm.controls['mobileNumber'].errors.required">Mobile Number is required.</div>  
+                </div>
+              
+                <input class="form-control required" required placeholder="Name" style="margin-bottom:5px" formControlName="name" type="text" #name>
+                <div *ngIf="onBookInForm.controls['name'].errors
+                                   && !onBookInForm.controls[ 'name'].pristine" class="alert alert-danger">
+              <div [hidden]="!onBookInForm.controls['name'].errors.required">Name is required.</div>
+              </div>
+
+              
+
+
+                
+
+
+             
+                <label>Model Type</label>
+                <div class="radio" *ngFor="let modelType of modelTypes">
+                    <label>
+                      <input type="radio" formControlName="modelType" [value]="modelType">{{modelType}}
+                    </label>
+                  </div>
+                
+
+                <input class="form-control required" required placeholder="Product Description" style="margin-bottom:5px" formControlName="productDescription" type="text">
+                  <div *ngIf="onBookInForm.controls['productDescription'].errors
+                                     && !onBookInForm.controls[ 'productDescription'].pristine" class="alert alert-danger">
+                <div [hidden]="!onBookInForm.controls['productDescription'].errors.required">Product Description is required.</div>
+                </div>
+
+                <input class="form-control required" required placeholder="Quantity Description" style="margin-bottom:5px" formControlName="quantityDescription" type="text">
+                <div *ngIf="onBookInForm.controls['quantityDescription'].errors
+                                   && !onBookInForm.controls[ 'quantityDescription'].pristine" class="alert alert-danger">
+              <div [hidden]="!onBookInForm.controls['quantityDescription'].errors.required">Quantity Description is required.</div>
+              </div>
+
+                <input class="form-control required" required placeholder="Type of Shoot" style="margin-bottom:5px" formControlName="shootType" type="text">          
+                
+                <input  type="checkbox" name="remember" value="rememberMe" (click)="saveData(onBookInForm,mobileNum.value,name.value)">Remember Me<br>
                <input class="btn btn-primary btn-block" value="Book Now" type="submit" [disabled]='!onBookInForm.valid'>
         </div>
         </div>

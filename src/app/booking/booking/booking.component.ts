@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BookIn } from './booking.model';
+import {FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LocalStorageService } from 'ngx-webstorage';
+import { Booking } from './booking.model';
+import {BookingService } from '../booking.service';
+import { BookingId} from './bookingId.model';
+
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -8,26 +13,68 @@ import { BookIn } from './booking.model';
 })
 export class BookingComponent implements OnInit {
   onBookInForm: FormGroup;
-  userBook: BookIn;
-  constructor(private fb: FormBuilder) { }
+  userBook: Booking ;
+  id: BookingId;
+  modelTypes = ['National', 'InterNational'];
+  userName: string;
+  mobileNo: string;
+  hideMobileNo: boolean;
+  constructor(private fb: FormBuilder, private router: Router,
+    private bookingService: BookingService, private localStorageService: LocalStorageService ) { }
 
   ngOnInit() {
-    this.bookForm();
+    this.createForm();
+    // this.checkData();
   }
 
-  bookForm() {
+  createForm() {
     this.onBookInForm = this.fb.group({
-      phoneNumber: ['', Validators.required],
+      mobileNumber: ['', Validators.required],
       name: ['', Validators.required],
+      productDescription: ['', Validators.required],
+      quantityDescription: ['', Validators.required],
+      shootType: new FormControl(''),
+      modelType: [''],
+      rememberMe: ['']
+
     });
   }
-  
   bookSubmit(onBookInForm: FormGroup) {
-    
-    this.userBook = new BookIn(
+    this.userBook = new Booking(
       onBookInForm.controls.name.value,
-      onBookInForm.controls.phoneNumber.value,
+      onBookInForm.controls.mobileNumber.value,
+      onBookInForm.controls.productDescription.value,
+      onBookInForm.controls.quantityDescription.value,
+      onBookInForm.controls.shootType.value,
+      onBookInForm.controls.modelType.value,
     );
     console.log(this.userBook);
+    this.onBookInForm.reset();
+    this.bookingService.addBooking(this.userBook).subscribe(data => {
+this.id = data;
+this.router.navigate(['/status', this.id._id]);
+      console.log(this.id);
+
+
+    }, error => {
+      console.log(error);
+    });
   }
+
+
+
+  saveData(onBookInForm: FormGroup, mobileNum: any, name: any) {
+    this.localStorageService.store('mobileno', mobileNum);
+    this.localStorageService.store('name', name);
+  }
+
+  /* checkData() {
+    this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.userName = this.localStorageService.retrieve('name');
+    if ( this.mobileNo == null && this.userName == null ) {
+      this.hideMobileNo = true;
+    } else {
+      this.hideMobileNo = false;
+    }
+  } */
 }
