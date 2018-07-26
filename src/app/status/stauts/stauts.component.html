@@ -5,7 +5,7 @@
 
         <div class="row" *ngFor="let data of status">
 
-          <div class="col-md-6 form-group">
+          <div class="col-md-12  form-group">
             <p>Your booking Id is
               <b> {{data._id}}</b>
             </p>
@@ -14,42 +14,48 @@
 
         </div>
 
-        <div class="row">
-          <div class="col-md-3 form-group">
-            <p>Booking ID </p>
-          </div>
-
-          <div class="col-md-3 form-group">
-            <p>Booking Date </p>
-          </div>
-
-          <div class="col-md-3 form-group">
-            <p>Status </p>
-          </div>
-
-          <div class="col-md-3 form-group">
-            <p>Order </p>
-          </div>
-        </div>
-
+        
         <div class="row" *ngFor="let data of status">
-          <div class="col-md-3 form-group">
-            <p>{{data._id}} </p>
+          <div class="col-md-6 col-sm-6 form-group">
+            <p style="padding-left:20px">Booking ID </p>
+            <div class="col-md-12 form-group">
+                <p>{{data._id}} </p>
+            </div>
+          </div>
+          
+  
+          <div class="col-md-2 col-sm-6 form-group">
+              <p style="padding-left:20px">Booking Date</p>
+              <div class="col-md-12 form-group">
+                  <p>{{data.bookingDate}} </p>
+                </div>
+          </div>
+          
+          <div class="col-md-2 col-sm-6 form-group">
+            <p style="padding-left:20px">Status </p>
+            <div class="col-md-12  form-group">
+                <button class="btn btn-success pull-right btn-sm" (click)="statusView()">View</button>
+    
+              </div>
           </div>
 
-          <div class="col-md-3 form-group">
-            <p>{{data.bookingDate}} </p>
+          <div class="col-md-2 col-sm-6 form-group">
+            <p style="padding-left:20px">Order</p>
+            <div class="col-md-12  float-right form-group" *ngIf="progress">
+                <button class="btn  btn-danger pull-right btn-sm" >Progress</button>
+            </div>
           </div>
+        
+        
 
-          <div class="col-md-3 form-group">
-            <button class="btn btn-success pull-right" (click)="statusView()">View</button>
+       
+          
+          
 
-          </div>
+          
 
 
-          <div class="col-md-2 form-group" *ngIf="progress">
-              <button class="btn btn-danger pull-right" >Progress</button>
-          </div>
+          
 
 
 
@@ -66,10 +72,10 @@
               <p> Material Picked Up</p>
           </div>
             <div class="col-md-8" *ngIf = "materialPicked">
-                <button class="btn btn-danger pull-right" >Not completed</button>
+                <button class="btn btn-danger pull-right btn-sm" >Not completed</button>
             </div>
             <div class="col-md-8" *ngIf = "materialPickedTrue">
-                <button class="btn btn-success pull-right" > completed</button>
+                <button class="btn btn-success pull-right btn-sm" > completed</button>
           </div>
           </div> 
 
@@ -78,10 +84,10 @@
                 <p>Shoot Completed </p>
               </div>
             <div class="col-md-8" *ngIf = "shootCompleted">
-                <button class="btn btn-danger pull-right" >Not completed</button>
+                <button class="btn btn-danger pull-right btn-sm" >Not completed</button>
             </div>
-            <div class="col-md-8" *ngIf = "shootCompletedTrue">
-                <button class="btn btn-success pull-right" > completed</button>
+            <div class="col-md-8" *ngIf ="shootCompletedTrue">
+                <button class="btn btn-success pull-right btn-sm" > completed</button>
             </div>
           </div>
 
@@ -90,11 +96,11 @@
             <p>Image Editing</p>
             </div>
             <div class="col-md-8" *ngIf = "imageEditing">
-                <button class="btn btn-danger pull-right" >Not completed</button>
+                <button class="btn btn-danger pull-right btn-sm" >Not completed</button>
             </div>
 
             <div class="col-md-8" *ngIf = "imageEditingTrue">
-                <button class="btn btn-success pull-right" > completed</button>
+                <button class="btn btn-success pull-right btn-sm" > completed</button>
             </div>
           </div>
 
@@ -103,11 +109,11 @@
               <p>Delivery</p>
               </div>
               <div class="col-md-8" *ngIf = "delivery">
-                  <button class="btn btn-danger pull-right" >Not completed</button>
+                  <button class="btn btn-danger pull-right btn-sm" >Not completed</button>
               </div>
   
               <div class="col-md-8" *ngIf = "deliveryTrue">
-                  <button class="btn btn-success pull-right" > completed</button>
+                  <button class="btn btn-success pull-right btn-sm" > completed</button>
               </div>
             </div>
 
@@ -116,11 +122,11 @@
                 <p>Payment</p>
                 </div>
                 <div class="col-md-8" *ngIf = "payment">
-                    <button class="btn btn-danger pull-right" >Not completed</button>
+                    <button class="btn btn-danger pull-right btn-sm" >Not completed</button>
                 </div>
     
                 <div class="col-md-8" *ngIf = "paymentTrue">
-                    <button class="btn btn-success pull-right" > completed</button>
+                    <button class="btn btn-success pull-right btn-sm" > completed</button>
                 </div>
               </div>
               <div class="row">
@@ -128,17 +134,17 @@
                   <p>MaterialReturn</p>
                 </div>
                   <div class="col-md-8" *ngIf = "materialReturn">
-                      <button class="btn btn-danger pull-right" >Not completed</button>
+                      <button class="btn btn-danger pull-right btn-sm" >Not completed</button>
                   </div>
       
                   <div class="col-md-8" *ngIf = "materialReturnTrue">
-                      <button class="btn btn-success pull-right" > completed</button>
+                      <button class="btn btn-success pull-right btn-sm" > completed</button>
                   </div>
                 </div>
 
         </div>
 
-        
+        <a  [routerLink]="['/welcome']">Back</a>
       </div>
     </div>
   </div>

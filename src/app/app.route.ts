@@ -9,6 +9,7 @@ const routes: Routes = [
     { path: 'booking', component: BookingComponent },
     { path: 'status/:id', component: StautsComponent },
     { path: 'statusView/:no', component: StautsViewComponent },
+    { path: 'statusView', component: StautsViewComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
 ];
 

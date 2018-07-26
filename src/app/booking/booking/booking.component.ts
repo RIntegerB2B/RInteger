@@ -24,7 +24,7 @@ export class BookingComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    // this.checkData();
+     this.checkData();
   }
 
   createForm() {
@@ -48,14 +48,10 @@ export class BookingComponent implements OnInit {
       onBookInForm.controls.shootType.value,
       onBookInForm.controls.modelType.value,
     );
-    console.log(this.userBook);
     this.onBookInForm.reset();
     this.bookingService.addBooking(this.userBook).subscribe(data => {
 this.id = data;
 this.router.navigate(['/status', this.id._id]);
-      console.log(this.id);
-
-
     }, error => {
       console.log(error);
     });
@@ -68,13 +64,8 @@ this.router.navigate(['/status', this.id._id]);
     this.localStorageService.store('name', name);
   }
 
-  /* checkData() {
+  checkData() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');
-    if ( this.mobileNo == null && this.userName == null ) {
-      this.hideMobileNo = true;
-    } else {
-      this.hideMobileNo = false;
-    }
-  } */
+  }
 }

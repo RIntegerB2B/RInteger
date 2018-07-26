@@ -4,26 +4,21 @@
         <div class="col-md-6 mx-auto">
             <div class="form-group">
 
-              
-                <input class="form-control required" required placeholder="Mobile Number" style="margin-bottom:5px" formControlName="mobileNumber" type="text" #mobileNum>
+                <input class="form-control required" required placeholder="Mobile Number"    [(ngModel)]="mobileNo" style="margin-bottom:5px" formControlName="mobileNumber" type="phone" #mobileNum>
                 <div *ngIf="onBookInForm.controls['mobileNumber'].errors
                                                  && !onBookInForm.controls['mobileNumber'].pristine" class="alert alert-danger">
                   <div [hidden]="!onBookInForm.controls['mobileNumber'].errors.required">Mobile Number is required.</div>  
+                  <div [hidden]="!onBookInForm.controls['mobileNumber'].errors.minlength">Mobile Number length 10 is required.</div>
                 </div>
               
-                <input class="form-control required" required placeholder="Name" style="margin-bottom:5px" formControlName="name" type="text" #name>
+                <input class="form-control required" required placeholder="Name"  [(ngModel)]="userName" style="margin-bottom:5px" formControlName="name" type="text" #name>
                 <div *ngIf="onBookInForm.controls['name'].errors
                                    && !onBookInForm.controls[ 'name'].pristine" class="alert alert-danger">
               <div [hidden]="!onBookInForm.controls['name'].errors.required">Name is required.</div>
               </div>
-
-              
-
-
-                
-
-
-             
+              <div>
+                <input class="form-control required" required placeholder="Type of Shoot" style="margin-bottom:5px" formControlName="shootType" type="text">          
+              </div>
                 <label>Model Type</label>
                 <div class="radio" *ngFor="let modelType of modelTypes">
                     <label>
@@ -43,11 +38,19 @@
                                    && !onBookInForm.controls[ 'quantityDescription'].pristine" class="alert alert-danger">
               <div [hidden]="!onBookInForm.controls['quantityDescription'].errors.required">Quantity Description is required.</div>
               </div>
+             
 
-                <input class="form-control required" required placeholder="Type of Shoot" style="margin-bottom:5px" formControlName="shootType" type="text">          
-                
+              <div>
                 <input  type="checkbox" name="remember" value="rememberMe" (click)="saveData(onBookInForm,mobileNum.value,name.value)">Remember Me<br>
-               <input class="btn btn-primary btn-block" value="Book Now" type="submit" [disabled]='!onBookInForm.valid'>
+              </div> 
+              <div>
+              <input class="btn btn-primary btn-block" value="Book Now" type="submit" [disabled]='!onBookInForm.valid'>
+              <a  [routerLink]="['/welcome']">Back</a>
+            </div>
+
+               <div>
+               
+               </div>
         </div>
         </div>
       </div>
