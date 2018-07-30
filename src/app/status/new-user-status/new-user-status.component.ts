@@ -156,6 +156,5 @@ export class NewUserStatusComponent implements OnInit {
       console.log(error);
     }
    );
-   
      }
 }
