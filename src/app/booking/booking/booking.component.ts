@@ -5,6 +5,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { Booking } from './booking.model';
 import {BookingService } from '../booking.service';
 import { BookingId} from './bookingId.model';
+import {mobileNumber} from './validation';
 
 @Component({
   selector: 'app-booking',

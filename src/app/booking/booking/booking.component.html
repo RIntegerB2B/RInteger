@@ -5,6 +5,10 @@
             <div class="form-group">
 
                 <input class="form-control required" required placeholder="Mobile Number"    [(ngModel)]="mobileNo" style="margin-bottom:5px" formControlName="mobileNumber" type="phone" #mobileNum>
+               <!--  <div *ngIf="onBookInForm.controls['mobileNumber'].errors
+                                                 && !onBookInForm.controls['mobileNumber'].pristine" class="alert alert-danger">
+                                                 Enter 10 digit mobile number
+                  <div [hidden]="!onBookInForm.controls.mobileNumber.valid">Mobile Number is required.</div> -->
                 <div *ngIf="onBookInForm.controls['mobileNumber'].errors
                                                  && !onBookInForm.controls['mobileNumber'].pristine" class="alert alert-danger">
                   <div [hidden]="!onBookInForm.controls['mobileNumber'].errors.required">Mobile Number is required.</div>  

@@ -10,7 +10,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 export class WelcomeComponent implements OnInit {
   mobileNo: string;
 
-  constructor(private router: Router, private localStorageService: LocalStorageService ) { }
+  constructor(private router: Router, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
 
@@ -18,12 +18,12 @@ export class WelcomeComponent implements OnInit {
 
   getStatus() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
-    this.router.navigate(['/statusView',  this.mobileNo]);
-   const len =  this.mobileNo.length ;
-   console.log(len);
-   if ( len === 0) {
-    this.router.navigate(['/booking']);
-   }
+    this.router.navigate(['/statusView', this.mobileNo]);
+    const len = this.mobileNo.length;
+    console.log(len);
+    if (len === 0) {
+      this.router.navigate(['/booking']);
+    }
   }
 
 }
