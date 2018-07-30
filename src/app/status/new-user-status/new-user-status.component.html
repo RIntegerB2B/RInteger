@@ -1,0 +1,155 @@
+<form [formGroup]="newUserForm" style="padding-top:90px" novalidate>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="form-group col-sm-12 col-md-4">
+
+        <div class="textContainer">
+          <input type="text" placeholder="Phone Number" class="form-control required appTextBox" required formControlName="mobileNumber"
+            #mobileNum/>
+
+        </div>
+        <div *ngIf="newUserForm.controls['mobileNumber'].errors
+                               && !newUserForm.controls['mobileNumber'].pristine" class="alert alert-danger">
+          <div [hidden]="!newUserForm.controls['mobileNumber'].errors.required">Phone Number is required</div>
+        </div>
+      </div>
+      <div class="form-group col-sm-12 col-md-4">
+
+            <div class="textContainer">
+              <input type="text" placeholder="Name" class="form-control required appTextBox" required formControlName="name"
+                #name/>
+    
+            </div>
+            <div *ngIf="newUserForm.controls['name'].errors
+                                   && !newUserForm.controls['name'].pristine" class="alert alert-danger">
+              <div [hidden]="!newUserForm.controls['name'].errors.required">Name is required</div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-2 ">
+                <input class="btn  btn-primary btn-block" value="Check" type="submit"  (click)="findStatus(newUserForm ,mobileNum.value ,name.value)" [disabled]='!newUserForm.valid'>
+              </div>   
+
+             
+    </div>
+    <div *ngIf="!hideStatus">
+    <div class="row  gridRow"  *ngIf="show">
+            <div class="col-md-3 form-group">
+              <p>Booking ID </p>
+            </div>
+  
+            <div class="col-md-3 form-group">
+              <p>Booking Date </p>
+            </div>
+  
+           <!--  <div class="col-md-3 form-group">
+              <p>Status </p>
+            </div> -->
+  
+            <div class="col-md-3 form-group">
+              <p>Order Status </p>
+            </div>
+          </div>
+        </div>
+  
+          <div *ngIf="!hideStatus">
+          <div class="row"   *ngFor="let data of status">
+            <div class="col-md-3 form-group">
+              <p>{{data._id}} </p>
+            </div>
+  
+            <div class="col-md-3 form-group">
+              <p>{{data.bookingDate}} </p>
+            </div>
+            <!-- <div class="col-md-3 form-group">
+              <p>{{data.order}} </p>
+            </div> -->
+            <input class="form-control"  hidden type="text" formControlName="order" [value]="data._id" #id/>
+            <div class="col-md-3 form-group">
+              <button class="btn btn-success" (click)="statusView(newUserForm,id.value)">View</button>
+  
+            </div></div>
+           
+    
+           
+          </div>  
+          <div *ngIf="displayStatus">
+                <div class="row ">
+                  <div class="col-md-4">
+                    <p> Material Picked Up</p>
+                  </div>
+                  <div class="col-md-8" *ngIf="materialPicked">
+                    <button class="btn btn-danger ">Not completed</button>
+                  </div>
+                  <div class="col-md-8" *ngIf="materialPickedTrue">
+                    <button class="btn btn-success "> completed</button>
+                  </div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Shoot Completed </p>
+                  </div>
+                  <div class="col-md-8" *ngIf="shootCompleted">
+                    <button class="btn btn-danger ">Not completed</button>
+                  </div>
+                  <div class="col-md-8" *ngIf="shootCompletedTrue">
+                    <button class="btn btn-success "> completed</button>
+                  </div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Image Editing</p>
+                  </div>
+                  <div class="col-md-8" *ngIf="imageEditing">
+                    <button class="btn btn-danger ">Not completed</button>
+                  </div>
+      
+                  <div class="col-md-8" *ngIf="imageEditingTrue">
+                    <button class="btn btn-success"> completed</button>
+                  </div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Delivery</p>
+                  </div>
+                  <div class="col-md-8" *ngIf="delivery">
+                    <button class="btn btn-danger ">Not completed</button>
+                  </div>
+      
+                  <div class="col-md-8" *ngIf="deliveryTrue">
+                    <button class="btn btn-success "> completed</button>
+                  </div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>Payment</p>
+                  </div>
+                  <div class="col-md-8" *ngIf="payment">
+                    <button class="btn btn-danger ">Not completed</button>
+                  </div>
+      
+                  <div class="col-md-8" *ngIf="paymentTrue">
+                    <button class="btn btn-success"> completed</button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p>MaterialReturn</p>
+                  </div>
+                  <div class="col-md-8" *ngIf="materialReturn">
+                    <button class="btn btn-danger ">Not completed</button>
+                  </div>
+      
+                  <div class="col-md-8" *ngIf="materialReturnTrue">
+                    <button class="btn btn-success "> completed</button>
+                  </div>
+                  
+                </div>
+                <button class="btn  btn-pink " (click)="showStatus()">back</button>
+              </div>
+            
+  </div>
+</form>

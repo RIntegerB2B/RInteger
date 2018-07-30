@@ -33,6 +33,7 @@ orders;
   paymentTrue: boolean;
   materialReturn: boolean;
   materialReturnTrue: boolean;
+  hideStatus: boolean;
 
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService ) {
@@ -51,9 +52,13 @@ orders;
       order: ['']
     });
   }
-
+  showStatus() {
+    this.hideStatus = false;
+    this.displayStatus = false;
+  }
   statusView(statusViewForm: FormGroup, id: any) {
  this.displayStatus = true;
+ this.hideStatus = true;
  this.statusService.getStatusById( this.no, id).subscribe(data => {
   this.StatusForOne = data;
 
@@ -148,6 +153,7 @@ orders;
    console.log(error);
  }
 );
+
   }
 
 orderDisplay() {

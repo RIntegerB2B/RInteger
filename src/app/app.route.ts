@@ -5,6 +5,7 @@ import { StautsComponent } from './status/stauts/stauts.component';
 import { StautsViewComponent } from './status/stauts-view/stauts-view.component';
 import { HeaderComponent } from './home/header/header.component';
 import { BannerComponent } from './home/banner/banner.component';
+import {NewUserStatusComponent } from './status/new-user-status/new-user-status.component';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
     { path: 'status/:id', component: StautsComponent },
     { path: 'statusView/:no', component: StautsViewComponent },
     { path: 'statusView', component: StautsViewComponent },
+    { path: 'newUser', component: NewUserStatusComponent },
     { path: 'banner', component: BannerComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
 ];

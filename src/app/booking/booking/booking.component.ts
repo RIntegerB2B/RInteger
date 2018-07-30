@@ -17,6 +17,7 @@ export class BookingComponent implements OnInit {
   userBook: Booking ;
   id: BookingId;
   modelTypes = ['National', 'InterNational'];
+  shootTypes = ['Male', 'Female'];
   userName: string;
   mobileNo: string;
   hideMobileNo: boolean;
@@ -30,11 +31,11 @@ export class BookingComponent implements OnInit {
 
   createForm() {
     this.onBookInForm = this.fb.group({
-      mobileNumber: ['', Validators.required],
+      mobileNumber: ['', mobileNumber],
       name: ['', Validators.required],
       productDescription: ['', Validators.required],
       quantityDescription: ['', Validators.required],
-      shootType: new FormControl(''),
+      shootType: [''],
       modelType: [''],
       rememberMe: ['']
 

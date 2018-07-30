@@ -20,6 +20,8 @@ import {Routing} from './app.route';
 import { HeaderComponent } from './home/header/header.component';
 import { BannerComponent } from './home/banner/banner.component';
 import { ProductComponent } from './home/product/product.component';
+import { FooterComponent } from './home/footer/footer.component';
+import { NewUserStatusComponent } from './status/new-user-status/new-user-status.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { ProductComponent } from './home/product/product.component';
     StautsViewComponent,
     HeaderComponent,
     BannerComponent,
-    ProductComponent
+    ProductComponent,
+    FooterComponent,
+    NewUserStatusComponent
   ],
   imports: [
     BrowserModule,

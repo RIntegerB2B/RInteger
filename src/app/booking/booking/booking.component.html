@@ -1,28 +1,29 @@
-  <form [formGroup]="onBookInForm" (ngSubmit)="bookSubmit(onBookInForm)" novalidate style="padding-top:60px">
-    <div class="container-fluid">
+<form [formGroup]="onBookInForm" (ngSubmit)="bookSubmit(onBookInForm)" novalidate style="padding-top:60px">
+    <div class="container-fluid ">
       <div class="row">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-6  mx-auto">
+            <div class="text-center text-secondary">
+             <h4> New Booking</h4>
+              </div>          
             <div class="form-group">
 
                 <input class="form-control required" required placeholder="Mobile Number"    [(ngModel)]="mobileNo" style="margin-bottom:5px" formControlName="mobileNumber" type="phone" #mobileNum>
-               <!--  <div *ngIf="onBookInForm.controls['mobileNumber'].errors
+               <div *ngIf="onBookInForm.controls['mobileNumber'].errors
                                                  && !onBookInForm.controls['mobileNumber'].pristine" class="alert alert-danger">
                                                  Enter 10 digit mobile number
-                  <div [hidden]="!onBookInForm.controls.mobileNumber.valid">Mobile Number is required.</div> -->
-                <div *ngIf="onBookInForm.controls['mobileNumber'].errors
-                                                 && !onBookInForm.controls['mobileNumber'].pristine" class="alert alert-danger">
-                  <div [hidden]="!onBookInForm.controls['mobileNumber'].errors.required">Mobile Number is required.</div>  
-                  <div [hidden]="!onBookInForm.controls['mobileNumber'].errors.minlength">Mobile Number length 10 is required.</div>
                 </div>
-              
+                  
                 <input class="form-control required" required placeholder="Name"  [(ngModel)]="userName" style="margin-bottom:5px" formControlName="name" type="text" #name>
                 <div *ngIf="onBookInForm.controls['name'].errors
                                    && !onBookInForm.controls[ 'name'].pristine" class="alert alert-danger">
               <div [hidden]="!onBookInForm.controls['name'].errors.required">Name is required.</div>
               </div>
-              <div>
-                <input class="form-control required" required placeholder="Type of Shoot" style="margin-bottom:5px" formControlName="shootType" type="text">          
-              </div>
+              <label>Type of Shoot</label>
+                <div class="radio" *ngFor="let shootType of shootTypes">
+                    <label>
+                      <input type="radio" formControlName="shootType" [value]="shootType">{{shootType}}
+                    </label>
+                  </div>
                 <label>Model Type</label>
                 <div class="radio" *ngFor="let modelType of modelTypes">
                     <label>
@@ -48,16 +49,13 @@
                 <input  type="checkbox" name="remember" value="rememberMe" (click)="saveData(onBookInForm,mobileNum.value,name.value)">Remember Me<br>
               </div> 
               <div>
-              <input class="btn btn-primary btn-block" value="Book Now" type="submit" [disabled]='!onBookInForm.valid'>
-              <a  [routerLink]="['/welcome']">Back</a>
+              <input class="btn booking btn-block text-white"  value="Book Now" type="submit" [disabled]='!onBookInForm.valid'>
+              
             </div>
 
-               <div>
                
-               </div>
         </div>
         </div>
       </div>
-  </div>
-  
+  </div> 
   </form>

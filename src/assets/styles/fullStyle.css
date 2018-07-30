@@ -1,0 +1,15 @@
+html,
+body {
+  height: 100%;
+  background-color: white;
+}
+.booking {
+    width: 100%;
+    background: purple;
+    margin: 0px auto;
+  }
+  .booking:hover {
+    width: 100%;
+    background: #8B008B;
+    margin: 0px auto;
+  }
