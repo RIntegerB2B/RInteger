@@ -6,6 +6,9 @@ import { Booking } from './booking.model';
 import {BookingService } from '../booking.service';
 import { BookingId} from './bookingId.model';
 import {mobileNumber} from './validation';
+import {Notification} from './notification.model';
+
+import { SwPush, SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-booking',
@@ -17,12 +20,15 @@ export class BookingComponent implements OnInit {
   userBook: Booking ;
   id: BookingId;
   modelTypes = ['National', 'InterNational'];
-  shootTypes = ['Male', 'Female'];
+  shootTypes = ['Men', 'Women', 'Kids'];
   userName: string;
   mobileNo: string;
   hideMobileNo: boolean;
+  notificationModel: Notification;
+  readonly VAPID_PUBLIC_KEY = 'BIvwBoUek8ZLiE2HRr_srixb0Qi-Ql6CVBhhhvIuuZ5PMFYrfP0zSkNRrHD-uvIBhJ3_BDmzSFedMzu5ZuaVVRM';
   constructor(private fb: FormBuilder, private router: Router,
-    private bookingService: BookingService, private localStorageService: LocalStorageService ) { }
+    private bookingService: BookingService, private localStorageService: LocalStorageService ,
+    private swUpdate: SwUpdate, private swPush: SwPush) { }
 
   ngOnInit() {
     this.createForm();
@@ -57,8 +63,18 @@ this.router.navigate(['/status', this.id._id]);
     }, error => {
       console.log(error);
     });
+    this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.subscribe( this.mobileNo);
   }
-
+  subscribe(no) {
+    alert('subscribe');
+    this.swPush.requestSubscription({
+      serverPublicKey: this.VAPID_PUBLIC_KEY
+    })
+      .then(sub => this.bookingService.addPushSubscriber(sub, no).subscribe())
+      .catch(err => console.error('Could not subscribe to notifications', err));
+     /*  console.log( no); */
+  }
 
 
   saveData(onBookInForm: FormGroup, mobileNum: any, name: any) {

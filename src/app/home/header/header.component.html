@@ -1,6 +1,6 @@
 <nav  class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
     <a class="navbar-brand">
-      <img src= "../../../assets/images/logo.png" class="iamge-responsive" style ="max-height: 35px; width: 50px;">
+      <img src= "../../../assets/images/logo.png" [routerLink]="['/welcome']" class="iamge-responsive" style ="max-height: 35px; width: 50px;">
     </a>
     <button class="navbar-toggler" type="button"  (click)="collapseMenu()">
         <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,7 @@
                 <a class="nav-link text-light"  [routerLink]="['/welcome']" (click)="collapseMenu()">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" [routerLink]="['/about']" (click)="collapseMenu()">About us</a>
+                <a class="nav-link text-light" [routerLink]="['/aboutUs']" (click)="collapseMenu()">About us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-light" [routerLink]="['/contact']" (click)="collapseMenu()">Contact</a>
