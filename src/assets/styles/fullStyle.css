@@ -2,14 +2,45 @@ html,
 body {
   height: 100%;
   background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #777;
+  font-size: 14px;
 }
 .booking {
     width: 100%;
-    background: purple;
+    background-color: #777;
     margin: 0px auto;
   }
   .booking:hover {
     width: 100%;
-    background: #8B008B;
+    background-color: #777;
+    margin: 0px auto;
+  }
+  .navbar-nav li
+  {
+    padding-right:15px;
+    padding-left:15px;
+  }
+  .navbar-nav li a
+  {
+    color: #777;
+  }
+  .navbar-brand
+  {
+    font-size:25px;
+  }
+  a:hover
+  {
+    color: #777;
+    text-decoration: none;
+  }
+  a
+  {
+    color: #777;;
+  }
+  .studio
+  {
+    width: 100%;
+    background-color: #777;
     margin: 0px auto;
   }

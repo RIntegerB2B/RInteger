@@ -1,25 +1,13 @@
 <div class="container">
-  <div class="container-fluid">
-    <app-header></app-header>
-  </div>
-</div>
-
-<app-banner></app-banner>
-
-
-<div class="container-fluid bg-primary">
-  <div class="row" style="padding-top:40px">
-    <div class="col-md-5 col-sm-5 mx-auto ">
-      <button [routerLink]="['/booking']" class="btn btn-block booking btn-primary" value="" type="submit">New Booking</button>
+  <div class="row" style="margin-top:40px; margin-bottom:40px;">
+    <div class="col-md-6 col-sm-12  mx-auto text-center">
+      <button style="padding-top:60px; padding-bottom:60px; margin-top:40px; margin-bottom:40px;" [routerLink]="['/booking']" class="btn booking text-white" value="" type="submit">New Booking</button>
     </div>
-    <div class="col-md-2 col-sm-2 " style="padding-top:20px">
-
-    </div>
-    <div class="col-md-5 col-sm-5">
-      <button class="btn btn-block booking  btn-primary" value="" (click)="getStatus()" type="submit">Booking Status</button>
+  </div><br>
+  <div class="row" style="margin-bottom:80px;">
+  <div class="col-md-6 col-sm-12  mx-auto text-center">
+      <button style="padding-top:60px; padding-bottom:60px;" (click)="getStatus()" class="btn booking text-white" value="" type="submit">Booking Status</button>
     </div>
   </div>
-  <br>
 </div>
-<app-product></app-product>
 <app-footer></app-footer>

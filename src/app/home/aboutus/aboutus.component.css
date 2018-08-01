@@ -1,0 +1,7 @@
+.text {
+    width: 100%;
+    background: #777;
+    margin: 0px auto;
+    position: relative;
+    text-align: justify;
+  }

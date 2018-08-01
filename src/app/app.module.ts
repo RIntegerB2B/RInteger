@@ -5,7 +5,7 @@ import { BookingService} from './booking/booking.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { Ng2Webstorage, LocalStorageService } from 'ngx-webstorage';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap';
 import { AngularFontAwesomeModule} from 'angular-font-awesome';
 
@@ -16,12 +16,15 @@ import { BookingComponent } from './booking/booking/booking.component';
 import { WelcomeComponent } from './home/welcome/welcome.component';
 import { StautsComponent } from './status/stauts/stauts.component';
 import { StautsViewComponent } from './status/stauts-view/stauts-view.component';
-import {Routing} from './app.route';
+import { Routing } from './app.route';
 import { HeaderComponent } from './home/header/header.component';
 import { BannerComponent } from './home/banner/banner.component';
 import { ProductComponent } from './home/product/product.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { NewUserStatusComponent } from './status/new-user-status/new-user-status.component';
+import { AboutusComponent } from './home/aboutus/aboutus.component';
+import { ContactComponent } from './home/contact/contact.component';
+import { StudioComponent } from './home/product/studio/studio.component';
 
 
 @NgModule({
@@ -35,7 +38,10 @@ import { NewUserStatusComponent } from './status/new-user-status/new-user-status
     BannerComponent,
     ProductComponent,
     FooterComponent,
-    NewUserStatusComponent
+    NewUserStatusComponent,
+    AboutusComponent,
+    ContactComponent,
+    StudioComponent
   ],
   imports: [
     BrowserModule,

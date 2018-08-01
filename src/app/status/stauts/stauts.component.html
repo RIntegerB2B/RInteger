@@ -1,4 +1,4 @@
-<form [formGroup]="statusForm" style="padding-top:60px" novalidate>
+<!-- <form [formGroup]="statusForm" style="padding-top:60px" novalidate>
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12  mx-auto">
@@ -13,35 +13,34 @@
 
 
         </div>
+</div>
 
-        
+       
         <div class="row" *ngFor="let data of status">
-          <div class="col-md-6 col-sm-6 form-group">
-            <p style="padding-left:20px">Booking ID </p>
-            <div class="col-md-12 form-group">
+          <div class="col-md-5 col form-group">
+              <div  >Booking ID</div>
+            <div class="col-md-5 col form-group">
                 <p>{{data._id}} </p>
             </div>
           </div>
-          
-  
-          <div class="col-md-2 col-sm-6 form-group">
-              <p style="padding-left:20px">Booking Date</p>
-              <div class="col-md-12 form-group">
-                  <p>{{data.bookingDate}} </p>
+          <div class="col-md-3 form-group">
+              <div>Booking Date</div>
+              <div class="col-md-3 col form-group">
+                  <p>{{data.bookingDate}}</p>
                 </div>
           </div>
           
-          <div class="col-md-2 col-sm-6 form-group">
-            <p style="padding-left:20px">Status </p>
-            <div class="col-md-12  form-group">
+          <div class="col-md-3 col form-group">
+              <div>Status</div>
+            <div class="col-md-3 col  form-group">
                 <button class="btn btn-success  btn-sm" (click)="statusView()">View</button>
     
               </div>
           </div>
 
-          <div class="col-md-2 col-sm-6 form-group">
-            <p style="padding-left:20px">Order</p>
-            <div class="col-md-12  float-right form-group" *ngIf="progress">
+          <div class="col-md-3 col form-group">
+              <div>Order</div>
+            <div class="col-md-3 col form-group" *ngIf="progress">
                 <button class="btn  btn-danger  btn-sm" >Progress</button>
             </div>
           </div>
@@ -126,14 +125,121 @@
                   </div>
       
                   <div class="col-md-8" *ngIf = "materialReturnTrue">
-                      <button class="btn btn-success  btn-sm" > completed</button>
+                      <button class="btn btn-success  btn-sm" >completed</button>
                   </div>
                 </div>
 
         </div>
-
-        
-      </div>
     </div>
   </div>
+</form> -->
+<form [formGroup]="statusForm" style="padding-top:60px" novalidate>
+<div class="container">
+    
+  <div class="row"  *ngFor="let data of status">
+    <div class="col-md-4 col form-group" style="padding: 0px;" >
+            <div>Booking ID</div>
+          <div style="padding: 10px;">
+              <p>{{data._id}}</p>
+          </div>
+    </div>
+    <div class="col-md-4 col form-group"  style="padding: 0px;">
+        <div>Booking Date</div>
+      <div style="padding: 10px;" class="form-group">
+        <p>{{data.bookingDate}}</p>
+      </div>
+    </div>
+    <div class=" col-md-4 col form-group"  style="padding: 0px;">
+        <div>Status</div>
+      <div style="padding: 10px;" class="form-group">
+          <button class="btn btn-success  btn-sm" (click)="statusView()">View</button>
+      </div>
+</div>   
+<!-- <div class="list-group col-md-3 col form-group"  style="padding: 0px;">
+    <div  >Order</div>
+  <div class="form-group" *ngIf="progress">
+      <button class="btn  btn-danger  btn-sm" >Progress</button>
+  </div>  
+  <div class="col-md-1 form-group" *ngIf="completed">
+      <p>Completed </p>
+    </div>  
+</div>    -->
+</div>
+<div   *ngIf="displayStatus">
+    <div class="row">
+      <div class="col-md-4 col">
+        <p> Material Picked Up</p>
+    </div>
+      <div class="col-md-8 col" *ngIf = "materialPicked">
+          <button class="btn btn-danger  btn-sm" >Not completed</button>
+      </div>
+      <div class="col-md-8 col" *ngIf = "materialPickedTrue">
+          <button class="btn btn-success  btn-sm" > completed</button>
+    </div>
+    </div> 
+
+    <div class="row">
+        <div class="col-md-4 col">
+          <p>Shoot Completed </p>
+        </div>
+      <div class="col-md-8 col" *ngIf = "shootCompleted">
+          <button class="btn btn-danger  btn-sm" >Not completed</button>
+      </div>
+      <div class="col-md-8 col" *ngIf ="shootCompletedTrue">
+          <button class="btn btn-success  btn-sm" > completed</button>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col">
+      <p>Image Editing</p>
+      </div>
+      <div class="col-md-8 col" *ngIf = "imageEditing">
+          <button class="btn btn-danger btn-sm" >Not completed</button>
+      </div>
+
+      <div class="col-md-8 col" *ngIf = "imageEditingTrue">
+          <button class="btn btn-success  btn-sm" > completed</button>
+      </div>
+    </div>
+  
+  <div class="row">
+      <div class="col-md-4 col">
+      <p>Delivery</p>
+      </div>
+      <div class="col-md-8 col" *ngIf = "delivery">
+          <button class="btn btn-danger  btn-sm" >Not completed</button>
+      </div>
+
+      <div class="col-md-8 col" *ngIf = "deliveryTrue">
+          <button class="btn btn-success  btn-sm" > completed</button>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col">
+        <p>Payment</p>
+        </div>
+        <div class="col-md-8 col" *ngIf = "payment">
+            <button class="btn btn-danger  btn-sm" >Not completed</button>
+        </div>
+
+        <div class="col-md-8 col" *ngIf = "paymentTrue">
+            <button class="btn btn-success btn-sm" > completed</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col">
+          <p>MaterialReturn</p>
+        </div>
+          <div class="col-md-8 col" *ngIf = "materialReturn">
+              <button class="btn btn-danger btn-sm" >Not completed</button>
+          </div>
+
+          <div class="col-md-8 col" *ngIf = "materialReturnTrue">
+              <button class="btn btn-success  btn-sm" >completed</button>
+          </div>
+        </div>
+</div>
+</div>
 </form>

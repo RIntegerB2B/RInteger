@@ -6,6 +6,9 @@ import { StautsViewComponent } from './status/stauts-view/stauts-view.component'
 import { HeaderComponent } from './home/header/header.component';
 import { BannerComponent } from './home/banner/banner.component';
 import {NewUserStatusComponent } from './status/new-user-status/new-user-status.component';
+import { AboutusComponent} from './home/aboutus/aboutus.component';
+import { ContactComponent } from './home/contact/contact.component';
+import { StudioComponent } from './home/product/studio/studio.component';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
@@ -16,6 +19,9 @@ const routes: Routes = [
     { path: 'statusView', component: StautsViewComponent },
     { path: 'newUser', component: NewUserStatusComponent },
     { path: 'banner', component: BannerComponent },
+    { path: 'aboutUs', component: AboutusComponent },
+    { path: 'contact', component: ContactComponent },
+    { path: 'studio', component: StudioComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
 ];
 

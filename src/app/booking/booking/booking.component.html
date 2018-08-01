@@ -37,12 +37,14 @@
                                      && !onBookInForm.controls[ 'productDescription'].pristine" class="alert alert-danger">
                 <div [hidden]="!onBookInForm.controls['productDescription'].errors.required">Product Description is required.</div>
                 </div>
+                <div class="text-danger"><p>Ex: shirts, pants</p></div>
 
                 <input class="form-control required" required placeholder="Quantity Description" style="margin-bottom:5px" formControlName="quantityDescription" type="text">
                 <div *ngIf="onBookInForm.controls['quantityDescription'].errors
                                    && !onBookInForm.controls[ 'quantityDescription'].pristine" class="alert alert-danger">
               <div [hidden]="!onBookInForm.controls['quantityDescription'].errors.required">Quantity Description is required.</div>
               </div>
+              <div class="text-danger"><p>Ex: 10 shirts, 10 pants</p></div>
              
 
               <div>

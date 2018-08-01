@@ -17,7 +17,7 @@ export class BookingComponent implements OnInit {
   userBook: Booking ;
   id: BookingId;
   modelTypes = ['National', 'InterNational'];
-  shootTypes = ['Male', 'Female'];
+  shootTypes = ['Men', 'Women', 'Kids'];
   userName: string;
   mobileNo: string;
   hideMobileNo: boolean;

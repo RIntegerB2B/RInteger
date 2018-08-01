@@ -1,6 +1,6 @@
-.booking {
-    width: 100%;
-    background: purple;
-    margin: 0px auto;
-    position: relative;
-  }
+@media only screen and (max-width: 767px) {
+    /* Add your Mobile Styles here */
+    .div{
+        padding: 0px;
+        }
+    }

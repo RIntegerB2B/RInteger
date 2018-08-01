@@ -1,45 +1,69 @@
 <form [formGroup]="statusViewForm" style="padding-top:80px"  novalidate>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12  mx-auto">
+      <div class="col-md-12">
+        
+                  <div *ngIf="!hideStatus">
+                    <div class="col-md-12 col-sm-1">
+        
+                            Booking ID
+                        
+                    </div>
+                    <div class="col-md-12 col-sm-1">
+                        Booking Date
+                    </div>
+                    <div class="col-md-12 col-sm-1">Status</div>
+                  </div>
+        
+        
+                
+                <div *ngIf="!hideStatus">
+                  <div *ngFor="let data of Status">
+                    <div>{{data._id}}</div>
+                    <div>{{data.bookingDate}}</div>
+                    <div>
+                      <input class="form-control"   hidden type="text" formControlName="order" [value]="data._id" #id/>
+                      <button class="btn btn-success " (click)="statusView(statusViewForm,id.value)">View</button></div>
+                    </div>
+                </div>
+        
+         
+      </div>
         <!--sample-->
-       
-
-        <div class="row " *ngIf="!hideStatus">
-          <div class="col-md-3 form-group">
+        <!-- <div class="row"  *ngIf="!hideStatus">
+          <div class="col-md-6 form-group">
             <p>Booking ID </p>
           </div>
 
-          <div class="col-md-3 form-group">
-            <p>Booking Date </p>
+          <div class="col-md-4 col-sm-4 form-group">
+              <p>Booking Date </p>
           </div>
 
-          <div class="col-md-3 form-group">
-            <p>Status </p>
+          <div class="col-md-2 col-sm-2 form-group">
+              <p>Status </p>
           </div>
 
-         <!--  <div class="col-md-3 form-group">
+         <div class="col-md-3 form-group">
             <p>Order </p>
-          </div> -->
-        </div>
-<div  *ngIf="!hideStatus">
+          </div>        </div>> -->
+<!-- <div  *ngIf="!hideStatus">
         <div class="row" *ngFor="let data of Status">
-          <div class="col-md-3 form-group">
+          <div class="col-md-6 col-sm-3 form-group">
             <p>{{data._id}} </p>
           </div>
 
-          <div class="col-md-3 form-group">
+          <div class="col-md-4 col-sm-3 form-group">
             <p>{{data.bookingDate}} </p>
           </div>
-         <!--  <div class="col-md-3 form-group">
-            <p>{{data.order}} </p>
-          </div> -->
-          <input class="form-control"  hidden type="text" formControlName="order" [value]="data._id" #id/>
           <div class="col-md-3 form-group">
+            <p>{{data.order}} </p>
+          </div>
+          
+          <div class="col-md-2 col-sm-3 form-group">
             <button class="btn btn-success " (click)="statusView(statusViewForm,id.value)">View</button>
           </div> 
           </div>
-        </div>
+        </div> -->
           <div *ngIf="displayStatus">
             <div class="row" >
               
@@ -56,7 +80,7 @@
   
             <div class="row">
               <div class="col-md-4">
-                <p>Shoot Completed </p>
+                <p>Shoot Completed</p>
               </div>
               <div class="col-md-8" *ngIf="shootCompleted">
                 <button class="btn btn-danger ">Not completed</button>
@@ -132,11 +156,11 @@
             <button class="btn btn-success pull-right">Completed</button>
           </div> -->
         
-
+         
         
        
        
-      </div>
     </div>
   </div>
+  
 </form>
