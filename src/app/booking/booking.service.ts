@@ -33,5 +33,9 @@ export class BookingService {
     const url: string = this.serviceUrl + bookurl;
     return this.httpClient.post<Booking>(url, data);
   }
-
+  addPushSubscriber(sub: any , no: any) {
+    const notificationUrl = 'subscribe';
+    const url: string = this.serviceUrl + notificationUrl;
+    return this.http.post(url, sub, no);
+}
 }

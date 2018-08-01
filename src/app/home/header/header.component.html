@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 <nav  class="navbar navbar-expand-lg  border-bottom border-dark">
     <a  [routerLink]="['/welcome']" class="navbar-brand">
       <img src="../../../assets/images/logo.jpg" style ="width:100px; height:50px">
+=======
+<nav  class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
+    <a class="navbar-brand">
+      <img src= "../../../assets/images/logo.png" [routerLink]="['/welcome']" class="iamge-responsive" style ="max-height: 35px; width: 50px;">
+>>>>>>> eb327a5400d8d8995d23d7a0437bad35399f7c5c
     </a>
     <button class="navbar-toggler" type="button"  (click)="collapseMenu()">
         <span class=""><i class="fa fa-navicon"></i></span>
@@ -14,7 +20,11 @@
                 <a class="nav-link"  [routerLink]="['/welcome']" (click)="collapseMenu()">Home</a>
             </li>
             <li class="nav-item">
+<<<<<<< HEAD
                 <a class="nav-link" [routerLink]="['/aboutUs']" (click)="collapseMenu()">About us</a>
+=======
+                <a class="nav-link text-light" [routerLink]="['/aboutUs']" (click)="collapseMenu()">About us</a>
+>>>>>>> eb327a5400d8d8995d23d7a0437bad35399f7c5c
             </li>
             <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/studio']" (click)="collapseMenu()">Services</a>
