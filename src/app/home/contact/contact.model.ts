@@ -1,15 +1,15 @@
-export class Send {
+export class CustomerQuery {
     mobileNumber: number;
     name: string;
-    typeYourMessage: string;
+    message: string;
     constructor(
         name: string,
         mobileNumber: number ,
-        typeYourMessage: string
+        message: string
 ) {
         this.name = name;
         this.mobileNumber = mobileNumber;
-        this.typeYourMessage = typeYourMessage;
+        this.message = message;
 
     }
 }

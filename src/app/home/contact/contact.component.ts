@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Send} from './contact.model';
+import { CustomerQuery} from './contact.model';
+import {ContactService} from './contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,9 +11,9 @@ import { Send} from './contact.model';
 })
 export class ContactComponent implements OnInit {
   onSendInForm: FormGroup;
-  userSend: Send ;
+  userQuery: CustomerQuery ;
 
-  constructor(private fb: FormBuilder, private router: Router ) { }
+  constructor(private fb: FormBuilder, private router: Router, private contactService: ContactService ) { }
 
   ngOnInit() {
     this.createForm();
@@ -25,13 +26,16 @@ export class ContactComponent implements OnInit {
     });
   }
   sendSubmit(onSendInForm: FormGroup) {
-    this.userSend = new Send(
+    this.userQuery = new CustomerQuery(
       onSendInForm.controls.name.value,
       onSendInForm.controls.mobileNumber.value,
       onSendInForm.controls.typeYourMessage.value
     );
-    this.onSendInForm.reset();
+    this.contactService.addQuery(this.userQuery).subscribe(data => {
+    }, error => {
+      console.log(error);
+    });
+  this.onSendInForm.reset();
   }
-
 
 }
