@@ -18,10 +18,6 @@ export class WelcomeComponent implements OnInit {
   }
 
   getStatus() {
-    /* this.mobileNo = this.localStorageService.retrieve('mobileno');
-    this.router.navigate(['/statusView', this.mobileNo]);
-    const len = this.mobileNo.length;
-    console.log(len); */
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     console.log(this.mobileNo);
     if ( this.mobileNo === null) {

@@ -1,5 +1,6 @@
 export class Status {
     _id: Number;
+    bookingOrderId: string;
     mobileNumber: Number;
     bookingId: Number;
     bookingDate: String;
@@ -12,6 +13,7 @@ export class Status {
     materialReturn: Boolean;
     constructor(
         _id: Number,
+        bookingOrderId: string,
         mobileNumber: Number,
         bookingId: Number,
         bookingDate: String,
@@ -24,6 +26,7 @@ export class Status {
         materialReturn: Boolean
     ) {
         this._id = _id;
+        this.bookingOrderId = bookingOrderId;
         this.mobileNumber = mobileNumber;
         this.bookingId = bookingId;
         this.bookingDate = bookingDate;

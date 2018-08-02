@@ -39,15 +39,17 @@ export class BookingComponent implements OnInit {
     this.onBookInForm = this.fb.group({
       mobileNumber: ['', mobileNumber],
       name: ['', Validators.required],
-      productDescription: ['', Validators.required],
-      quantityDescription: ['', Validators.required],
+      productDescription: [''],
+      quantityDescription: [''],
       shootType: [''],
       modelType: [''],
       rememberMe: ['']
 
     });
   }
-  bookSubmit(onBookInForm: FormGroup) {
+  bookSubmit(onBookInForm: FormGroup, mobileNum: any, name: any) {
+    this.localStorageService.store('mobileno', mobileNum);
+    this.localStorageService.store('name', name);
     this.userBook = new Booking(
       onBookInForm.controls.name.value,
       onBookInForm.controls.mobileNumber.value,
@@ -73,14 +75,13 @@ this.router.navigate(['/status', this.id._id]);
     })
       .then(sub => this.bookingService.addPushSubscriber(sub, no).subscribe())
       .catch(err => console.error('Could not subscribe to notifications', err));
-     /*  console.log( no); */
   }
 
 
-  saveData(onBookInForm: FormGroup, mobileNum: any, name: any) {
+ /*  saveData(onBookInForm, mobileNum, name) {
     this.localStorageService.store('mobileno', mobileNum);
     this.localStorageService.store('name', name);
-  }
+  } */
 
   checkData() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');

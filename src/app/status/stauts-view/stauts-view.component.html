@@ -1,25 +1,25 @@
-<form [formGroup]="statusViewForm" style="padding-top:80px" novalidate>
+<form [formGroup]="statusViewForm" style="padding-top:80px"  novalidate>
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         
                   <div *ngIf="!hideStatus">
-                    <div class="col-md-12 col-sm-1">
+                    <div class="col-md-4">
         
                             Booking ID
                         
                     </div>
-                    <div class="col-md-12 col-sm-1">
+                    <div class="col-md-4">
                         Booking Date
                     </div>
-                    <div class="col-md-12 col-sm-1">Status</div>
+                    <div class="col-md-4">Status</div>
                   </div>
         
         
                 
                 <div *ngIf="!hideStatus">
                   <div *ngFor="let data of Status">
-                    <div>{{data._id}}</div>
+                    <div>{{data.bookingOrderId}}</div>
                     <div>{{data.bookingDate}}</div>
                     <div>
                       <input class="form-control"   hidden type="text" formControlName="order" [value]="data._id" #id/>
@@ -30,15 +30,8 @@
          
       </div>
         <!--sample-->
-<<<<<<< HEAD
         <!-- <div class="row"  *ngIf="!hideStatus">
           <div class="col-md-6 form-group">
-=======
-
-
-        <div class="row " *ngIf="!hideStatus">
-          <div class="col-md-3 form-group">
->>>>>>> eb327a5400d8d8995d23d7a0437bad35399f7c5c
             <p>Booking ID </p>
           </div>
 
@@ -50,7 +43,6 @@
               <p>Status </p>
           </div>
 
-<<<<<<< HEAD
          <div class="col-md-3 form-group">
             <p>Order </p>
           </div>        </div>> -->
@@ -150,113 +142,11 @@
               
             </div>
             <button class="btn" (click)="showStatus()">back</button>
-=======
-          <!--  <div class="col-md-3 form-group">
-            <p>Order </p>
-          </div> -->
-        </div>
-        <div *ngIf="!hideStatus">
-          <div class="row" *ngFor="let data of Status">
-            <div class="col-md-3 form-group">
-              <p>{{data._id}} </p>
-            </div>
-
-            <div class="col-md-3 form-group">
-              <p>{{data.bookingDate}} </p>
-            </div>
-            <!--  <div class="col-md-3 form-group">
-            <p>{{data.order}} </p>
-          </div> -->
-            <input class="form-control" hidden type="text" formControlName="order" [value]="data._id" #id/>
-            <div class="col-md-3 form-group">
-              <button class="btn btn-success " (click)="statusView(statusViewForm,id.value)">View</button>
-            </div>
           </div>
-        </div>
-        <div *ngIf="displayStatus">
-          <div class="row">
-
-            <div class="col-md-4">
-              <p> Material Picked Up</p>
-            </div>
-            <div class="col-md-8" *ngIf="materialPicked">
-              <button class="btn btn-danger">Not completed</button>
-            </div>
-            <div class="col-md-8" *ngIf="materialPickedTrue">
-              <button class="btn btn-success "> completed</button>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <p>Shoot Completed </p>
-            </div>
-            <div class="col-md-8" *ngIf="shootCompleted">
-              <button class="btn btn-danger ">Not completed</button>
-            </div>
-            <div class="col-md-8" *ngIf="shootCompletedTrue">
-              <button class="btn btn-success "> completed</button>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <p>Image Editing</p>
-            </div>
-            <div class="col-md-8" *ngIf="imageEditing">
-              <button class="btn btn-danger ">Not completed</button>
-            </div>
-
-            <div class="col-md-8" *ngIf="imageEditingTrue">
-              <button class="btn btn-success "> completed</button>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <p>Delivery</p>
-            </div>
-            <div class="col-md-8" *ngIf="delivery">
-              <button class="btn btn-danger ">Not completed</button>
-            </div>
-
-            <div class="col-md-8" *ngIf="deliveryTrue">
-              <button class="btn btn-success "> completed</button>
-            </div>
->>>>>>> eb327a5400d8d8995d23d7a0437bad35399f7c5c
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <p>Payment</p>
-            </div>
-            <div class="col-md-8" *ngIf="payment">
-              <button class="btn btn-danger ">Not completed</button>
-            </div>
-
-            <div class="col-md-8" *ngIf="paymentTrue">
-              <button class="btn btn-success "> completed</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <p>MaterialReturn</p>
-            </div>
-            <div class="col-md-8" *ngIf="materialReturn">
-              <button class="btn btn-danger ">Not completed</button>
-            </div>
-
-            <div class="col-md-8" *ngIf="materialReturnTrue">
-              <button class="btn btn-success "> completed</button>
-            </div>
-
-          </div>
-          <button class="btn" (click)="showStatus()">back</button>
-        </div>
-
-
-
-        <!-- <div class="col-md-2 form-group" *ngIf="progress">
+  
+        
+         
+ <!-- <div class="col-md-2 form-group" *ngIf="progress">
             <button class="btn btn-danger pull-right">progress</button>
           </div>
 
@@ -265,20 +155,11 @@
           <div class="col-md-1 form-group" *ngIf="completed">
             <button class="btn btn-success pull-right">Completed</button>
           </div> -->
-<<<<<<< HEAD
         
          
         
        
        
-=======
-
-
-
-
-
-      </div>
->>>>>>> eb327a5400d8d8995d23d7a0437bad35399f7c5c
     </div>
   </div>
   

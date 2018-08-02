@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./studio.component.css']
 })
 export class StudioComponent implements OnInit {
-<<<<<<< HEAD
   hideEcommerce = false;
   hideFashion = false;
   hideCreate = false;
@@ -39,12 +38,6 @@ export class StudioComponent implements OnInit {
     this.hideFashion = false;
     this.hideCreate = false;
     this.hideShoot = true;
-=======
-
-  constructor() { }
-
-  ngOnInit() {
->>>>>>> eb327a5400d8d8995d23d7a0437bad35399f7c5c
   }
 
 }

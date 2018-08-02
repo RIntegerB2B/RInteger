@@ -1,27 +1,11 @@
-<<<<<<< HEAD
 <div class="container" style = "margin-top: 60px">
   <div class="row" >
     <div class="col-md-4">
       <p class="text-secondary "><strong>Rinteger Technology</strong></p>
-=======
-<!-- <div class="container-fluid " style="margin-top: 60px">
-  <div class="row">
-    <div class="col-md-12">
-      <h3 class="text-secondary text-center">Contact Us</h3>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-4 address">
-      <p class="text-secondary ">
-        <strong>Rinteger Technology</strong>
-      </p>
->>>>>>> eb327a5400d8d8995d23d7a0437bad35399f7c5c
       <ul class="list-unstyled">
         <li class="font-weight-light">5th Phase, Jarganahalli,</li>
         <li class="font-weight-light">P Nagar Phase 6, JP Nagar, Bengaluru,</li>
         <li class="font-weight-light"> Karnataka 560078</li>
-<<<<<<< HEAD
         <li class="font-weight-light"> Email:<a class="text-primary" href="mailto:rintegeroperations@gmail.com"> rintegeroperations@gmail.com</a></li>
         <li class="font-weight-light">Phone: <strong class="text-dark">+91-9035671333</strong></li>
         <li class="font-weight-light">Phone: <strong class="text-dark">+91-9035671666</strong></li>
@@ -30,16 +14,14 @@
     <div class="col-md-8">
         <form [formGroup]="onSendInForm" (ngSubmit)="sendSubmit(onSendInForm)" novalidate>
               <div class="form-group">
-                
-        
-                        <input class="form-control required" required placeholder="Mobile Number"    [(ngModel)]="mobileNo" style="margin-bottom:5px" formControlName="mobileNumber" type="phone">
+                        <input class="form-control required" required placeholder="Mobile Number"     style="margin-bottom:5px" formControlName="mobileNumber" type="phone">
                        <div *ngIf="onSendInForm.controls['mobileNumber'].errors
                                                          && !onSendInForm.controls['mobileNumber'].pristine" class="alert alert-danger">
                                                          Enter 10 digit mobile number
                         </div>
                   </div>
                  <div class="form-group">
-                        <input class="form-control required" required placeholder="Name"  [(ngModel)]="userName" style="margin-bottom:5px" formControlName="name" type="text" #name>
+                        <input class="form-control required" required placeholder="Name"   style="margin-bottom:5px" formControlName="name" type="text" #name>
                         <div *ngIf="onSendInForm.controls['name'].errors
                                            && !onSendInForm.controls[ 'name'].pristine" class="alert alert-danger">
                       <div [hidden]="!onSendInForm.controls['name'].errors.required">Name is required.</div>
@@ -60,51 +42,3 @@
           </form>
         </div>
 </div>
-=======
-        <li class="font-weight-light"> Email:
-          <a class="text-primary" href="mailto:rintegeroperations@gmail.com"> rintegeroperations@gmail.com</a>
-        </li>
-        <li class="font-weight-light">Phone:
-          <strong class="text-dark">+91-9035671333</strong>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-8">
-      <form [formGroup]="onSendInForm" (ngSubmit)="sendSubmit(onSendInForm)" novalidate>
-        <div class="container-fluid ">
-          <div class="row">
-            <div class="col-md-6  mx-auto">
-              <div class="text-center text-secondary">
-                <h4> </h4>
-              </div>
-              <div class="form-group">
-
-                <input class="form-control required" required placeholder="Mobile Number" [(ngModel)]="mobileNo" style="margin-bottom:5px"
-                  formControlName="mobileNumber" type="phone">
-                <div *ngIf="onSendInForm.controls['mobileNumber'].errors
-                                                         && !onSendInForm.controls['mobileNumber'].pristine" class="alert alert-danger">
-                  Enter 10 digit mobile number
-                </div>
-
-                <input class="form-control required" required placeholder="Name" [(ngModel)]="userName" style="margin-bottom:5px" formControlName="name"
-                  type="text" #name>
-                <div *ngIf="onSendInForm.controls['name'].errors
-                                           && !onSendInForm.controls[ 'name'].pristine" class="alert alert-danger">
-                  <div [hidden]="!onSendInForm.controls['name'].errors.required">Name is required.</div>
-                </div>
-                <input class="form-control required" required placeholder="Product Description" style="margin-bottom:5px" formControlName="productDescription"
-                  type="text">
-                <div *ngIf="onSendInForm.controls['productDescription'].errors
-                                             && !onSendInForm.controls[ 'productDescription'].pristine" class="alert alert-danger">
-                  <div [hidden]="!onSendInForm.controls['productDescription'].errors.required">Product Description is required.</div>
-                </div>
-                <input class="btn booking btn-block text-white" value="Send" type="submit" [disabled]='!onSendInForm.valid'>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div> -->
->>>>>>> eb327a5400d8d8995d23d7a0437bad35399f7c5c

@@ -1,5 +1,6 @@
 export class StatusDetails {
     _id: Number;
+    bookingOrderId: string;
     mobileNumber: Number;
     bookingId: Number;
     bookingDate: String;
