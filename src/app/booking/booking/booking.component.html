@@ -1,12 +1,12 @@
-<form [formGroup]="onBookInForm" (ngSubmit)="bookSubmit(onBookInForm,mobileNum.value,name.value)" novalidate style="padding-top:60px">
-  <div class="container-fluid ">
+<form [formGroup]="onBookInForm" (ngSubmit)="bookSubmit(onBookInForm,mobileNum.value,name.value,location.value)" novalidate style="padding-top:60px; padding-bottom:80px">
+  <div class="container-fluid  ">
     <div class="row">
       <div class="col-md-6  mx-auto">
         <div class="text-center text-secondary">
-          <h4> New Booking</h4>
+          <h4> PhotoShoot Booking</h4>
         </div>
         <div class="form-group">
-
+          <div class="col-md-12">
           <input class="form-control required" required placeholder="Mobile Number" [(ngModel)]="mobileNo" style="margin-bottom:5px"
             formControlName="mobileNumber" type="phone" #mobileNum>
           <div *ngIf="onBookInForm.controls['mobileNumber'].errors
@@ -20,43 +20,51 @@
                                    && !onBookInForm.controls[ 'name'].pristine" class="alert alert-danger">
             <div [hidden]="!onBookInForm.controls['name'].errors.required">Name is required.</div>
           </div>
-          <label>Type of Shoot</label>
-          <div class="radio" *ngFor="let shootType of shootTypes">
-            <label>
-              <input type="radio" formControlName="shootType" [value]="shootType">{{shootType}}
+          <input class="form-control required" required placeholder="Location"     [(ngModel)]="locat"  style="margin-bottom:5px" formControlName="location"
+            type="text" #location>
+        </div>
+          <div class="col-md-12">
+          <label>Type of Category</label>
+          <div class="col-sm-6 radio">
+            <label  class="pr-2" *ngFor="let shootType of shootTypes">
+              <input  type="radio" formControlName="shootType" [value]="shootType"><small>{{shootType}}</small>
             </label>
           </div>
-          <label>Model Type</label>
-          <div class="radio" *ngFor="let modelType of modelTypes">
-            <label>
-              <input type="radio" formControlName="modelType" [value]="modelType">{{modelType}}
-            </label>
+            <label>Type of Model</label>
+            <div class="col-sm-6 radio">
+                <label class="pr-2" *ngFor="let modelType of modelTypes">
+                  <input type="radio" formControlName="modelType" [value]="modelType"><small>{{modelType}}</small>
+                </label>
+              </div>
           </div>
-
-
-          <input class="form-control required" placeholder="Product Description" style="margin-bottom:5px" formControlName="productDescription"
-            type="text">
+          <div class="col-md-12 mb-2 mt-2">
+              <label>Product Shoot</label>
+              <div class="col-sm-6 radio">
+                  <label class="pr-2" *ngFor="let productType of productTypes">
+                    <input type="radio" formControlName="productType" [value]="productType"><small>{{productType}}</small>
+                  </label>
+                </div>
+            </div>
+            <textarea class="form-control required" required placeholder="Product Description" style="margin-bottom:5px" rows=3 formControlName="productDescription" type="text"></textarea>
+         <!--  <input class="form-control required" placeholder="Product Description" style="margin-bottom:5px" formControlName="productDescription"
+            type="text"> -->
 
           <div class="text-danger">
             <p>Ex: shirts, pants</p>
           </div>
 
-          <input class="form-control required" placeholder="Quantity Description" style="margin-bottom:5px" formControlName="quantityDescription"
-            type="text">
-
+            <textarea class="form-control required" required placeholder="Quantity Description" style="margin-bottom:5px" rows=3 formControlName="quantityDescription" type="text"></textarea>
           <div class="text-danger">
             <p>Ex: 10 shirts, 10 pants</p>
           </div>
-
+        
 
 
           <div>
             <input class="btn booking btn-block text-white" value="Book Now" type="submit" [disabled]='!onBookInForm.valid'>
 
           </div>
-
-
-        </div>
+      </div>
       </div>
     </div>
   </div>

@@ -1,6 +1,3 @@
-
-
-
 export class Notification {
     userSubscriptions: Object;
     mobileNumber: Number;

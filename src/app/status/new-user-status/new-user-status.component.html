@@ -1,10 +1,10 @@
-<form [formGroup]="newUserForm" style="padding-top:90px" novalidate>
+<form [formGroup]="newUserForm" style="padding-top:90px; margin-bottom: 400px;" novalidate>
   <div class="container-fluid">
     <div class="row">
       <div class="form-group col-sm-12 col-md-4">
 
         <div class="textContainer">
-          <input type="text" placeholder="Phone Number" class="form-control required appTextBox" required formControlName="mobileNumber"
+          <input type="text" placeholder="Phone Number" class="form-control required" required formControlName="mobileNumber"
             #mobileNum/>
 
         </div>
@@ -14,9 +14,8 @@
         </div>
       </div>
       <div class="form-group col-sm-12 col-md-4">
-
             <div class="textContainer">
-              <input type="text" placeholder="Name" class="form-control required appTextBox" required formControlName="name"
+              <input type="text" placeholder="Name" class="form-control required" required formControlName="name"
                 #name/>
     
             </div>
@@ -26,130 +25,107 @@
             </div>
           </div>
           <div class="col-sm-12 col-md-2 ">
-                <input class="btn  btn-primary btn-block" value="Check" type="submit"  (click)="findStatus(newUserForm ,mobileNum.value ,name.value)" [disabled]='!newUserForm.valid'>
+                <input class="booking text-white" value="Check" type="submit"  (click)="findStatus(newUserForm ,mobileNum.value ,name.value)" [disabled]='!newUserForm.valid'>
               </div>   
 
              
     </div>
-    <div *ngIf="!hideStatus">
-    <div class="row  gridRow"  *ngIf="show">
-            <div class="col-md-3 form-group">
-              <p>Booking ID </p>
-            </div>
-  
-            <div class="col-md-3 form-group">
-              <p>Booking Date </p>
-            </div>
-  
-           <!--  <div class="col-md-3 form-group">
-              <p>Status </p>
-            </div> -->
-  
-            <div class="col-md-3 form-group">
-              <p>Order Status </p>
-            </div>
+        <div class="row" *ngIf="!hideStatus">
+            <div class=" col-sm-12 d-flex  flex-row" *ngIf="show">
+                <div class=" col-sm-4 col p-2 border"><b>Booking ID</b></div>
+                <div class="col-sm-4  col p-2 border"><b>Booking Date</b></div>
+                <div class="col-sm-4  col p-2 border"><b>Status</b></div>
+            </div>   
           </div>
+        <div  *ngIf="!hideStatus">
+          <div class=" col-sm-12 d-flex  flex-row" *ngFor="let data of status">
+              <div class="col-sm-4 col p-2 text-center ">{{data._id}}</div>
+              <div class="col-sm-4 col p-2 text-center">{{data.bookingDate}}</div>
+              <div class=" col-sm-4 col p-2"> <input class="form-control"   hidden type="text" formControlName="order" [value]="data._id" #id/>
+                <button class="btn btn-success btn-sm" (click)="statusView(newUserForm,id.value)">View</button>
+        
+          </div>
+        </div>     
         </div>
-  
-          <div *ngIf="!hideStatus">
-          <div class="row"   *ngFor="let data of status">
-            <div class="col-md-3 form-group">
-              <p>{{data.bookingOrderId}} </p>
-            </div>
-  
-            <div class="col-md-3 form-group">
-              <p>{{data.bookingDate}} </p>
-            </div>
-            <!-- <div class="col-md-3 form-group">
-              <p>{{data.order}} </p>
-            </div> -->
-            <input class="form-control"  hidden type="text" formControlName="order" [value]="data._id" #id/>
-            <div class="col-md-3 form-group">
-              <button class="btn btn-success" (click)="statusView(newUserForm,id.value)">View</button>
-  
-            </div></div>
-           
-    
-           
-          </div>  
-          <div *ngIf="displayStatus">
-                <div class="row ">
-                  <div class="col-md-4">
-                    <p> Material Picked Up</p>
-                  </div>
-                  <div class="col-md-8" *ngIf="materialPicked">
-                    <button class="btn btn-danger ">Not completed</button>
-                  </div>
-                  <div class="col-md-8" *ngIf="materialPickedTrue">
-                    <button class="btn btn-success "> completed</button>
-                  </div>
-                </div>
-      
-                <div class="row">
-                  <div class="col-md-4">
-                    <p>Shoot Completed </p>
-                  </div>
-                  <div class="col-md-8" *ngIf="shootCompleted">
-                    <button class="btn btn-danger ">Not completed</button>
-                  </div>
-                  <div class="col-md-8" *ngIf="shootCompletedTrue">
-                    <button class="btn btn-success "> completed</button>
-                  </div>
-                </div>
-      
-                <div class="row">
-                  <div class="col-md-4">
-                    <p>Image Editing</p>
-                  </div>
-                  <div class="col-md-8" *ngIf="imageEditing">
-                    <button class="btn btn-danger ">Not completed</button>
-                  </div>
-      
-                  <div class="col-md-8" *ngIf="imageEditingTrue">
-                    <button class="btn btn-success"> completed</button>
-                  </div>
-                </div>
-      
-                <div class="row">
-                  <div class="col-md-4">
-                    <p>Delivery</p>
-                  </div>
-                  <div class="col-md-8" *ngIf="delivery">
-                    <button class="btn btn-danger ">Not completed</button>
-                  </div>
-      
-                  <div class="col-md-8" *ngIf="deliveryTrue">
-                    <button class="btn btn-success "> completed</button>
-                  </div>
-                </div>
-      
-                <div class="row">
-                  <div class="col-md-4">
-                    <p>Payment</p>
-                  </div>
-                  <div class="col-md-8" *ngIf="payment">
-                    <button class="btn btn-danger ">Not completed</button>
-                  </div>
-      
-                  <div class="col-md-8" *ngIf="paymentTrue">
-                    <button class="btn btn-success"> completed</button>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4">
-                    <p>MaterialReturn</p>
-                  </div>
-                  <div class="col-md-8" *ngIf="materialReturn">
-                    <button class="btn btn-danger ">Not completed</button>
-                  </div>
-      
-                  <div class="col-md-8" *ngIf="materialReturnTrue">
-                    <button class="btn btn-success "> completed</button>
-                  </div>
-                  
-                </div>
-                <button class="btn  btn-pink " (click)="showStatus()">back</button>
+        <div *ngIf="displayStatus">
+            <div class="row">
+                <div class="offset-md-2 col-md-4 col">
+                  <p> Material Picked Up</p>
               </div>
-            
-  </div>
+                <div class="col-md-6  col" *ngIf = "materialPicked">
+                    <button class="btn btn-danger  btn-sm" >Not completed</button>
+                </div>
+                <div class="col-md-6 col" *ngIf = "materialPickedTrue">
+                    <button class="btn btn-success  btn-sm" > completed</button>
+              </div>
+              </div> 
+  
+            <div class="row">
+              <div class="offset-md-2 col-md-4 col">
+                <p>Shoot Completed</p>
+              </div>
+              <div class="col-md-6 col" *ngIf="shootCompleted">
+                <button class="btn btn-danger btn-sm">Not completed</button>
+              </div>
+              <div class="col-md-6 col" *ngIf="shootCompletedTrue">
+                <button class="btn btn-success btn-sm "> completed</button>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="offset-md-2 col-md-4 col">
+                <p>Image Editing</p>
+              </div>
+              <div class="col-md-6 col" *ngIf="imageEditing">
+                <button class="btn btn-danger btn-sm ">Not completed</button>
+              </div>
+  
+              <div class="col-md-6 col" *ngIf="imageEditingTrue">
+                <button class="btn btn-success btn-sm"> completed</button>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="offset-md-2 col-md-4 col">
+                <p>Delivery</p>
+              </div>
+              <div class="col-md-6 col" *ngIf="delivery">
+                <button class="btn btn-danger btn-sm">Not completed</button>
+              </div>
+  
+              <div class="col-md-6 col" *ngIf="deliveryTrue">
+                <button class="btn btn-success btn-sm"> completed</button>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="offset-md-2 col-md-4 col">
+                <p>Payment</p>
+              </div>
+              <div class="col-md-6 col" *ngIf="payment">
+                <button class="btn btn-danger btn-sm">Not completed</button>
+              </div>
+  
+              <div class="col-md-6 col" *ngIf="paymentTrue">
+                <button class="btn btn-success btn-sm "> completed</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="offset-md-2 col-md-4 col">
+                <p>MaterialReturn</p>
+              </div>
+              <div class="col-md-6 col" *ngIf="materialReturn">
+                <button class="btn btn-danger btn-sm">Not completed</button>
+              </div>
+  
+              <div class="col-md-6 col" *ngIf="materialReturnTrue">
+                <button class="btn btn-success btn-sm "> completed</button>
+              </div>
+              
+            </div>
+            <button class="btn" (click)="showStatus()">back</button>
+        </div>
+       
+</div>
 </form>
+

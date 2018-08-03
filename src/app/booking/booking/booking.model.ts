@@ -5,13 +5,15 @@ export class Booking {
     quantityDescription: string;
     shootType: string;
     modelType: string;
+    productType: string;
     constructor(
         name: string,
         mobileNumber: number ,
         productDescription: string,
         quantityDescription: string,
         shootType: string,
-        modelType: string
+        modelType: string,
+        productType: string
 ) {
         this.name = name;
         this.mobileNumber = mobileNumber;
@@ -19,6 +21,7 @@ export class Booking {
         this.quantityDescription = quantityDescription;
         this.shootType = shootType;
         this.modelType = modelType;
+        this.productType = productType;
 
     }
 }

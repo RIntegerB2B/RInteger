@@ -1,166 +1,101 @@
-<form [formGroup]="statusViewForm" style="padding-top:80px"  novalidate>
-  <div class="container-fluid">
+<form [formGroup]="statusViewForm" style="padding-top:80px; margin-bottom:300px;"  novalidate>
+  <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        
-                  <div *ngIf="!hideStatus">
-                    <div class="col-md-4">
-        
-                            Booking ID
-                        
-                    </div>
-                    <div class="col-md-4">
-                        Booking Date
-                    </div>
-                    <div class="col-md-4">Status</div>
-                  </div>
-        
-        
-                
-                <div *ngIf="!hideStatus">
-                  <div *ngFor="let data of Status">
-                    <div>{{data.bookingOrderId}}</div>
-                    <div>{{data.bookingDate}}</div>
-                    <div>
-                      <input class="form-control"   hidden type="text" formControlName="order" [value]="data._id" #id/>
-                      <button class="btn btn-success " (click)="statusView(statusViewForm,id.value)">View</button></div>
-                    </div>
-                </div>
-        
-         
+        <div class=" col-sm-12 d-flex  flex-row" *ngIf="!hideStatus">
+            <div class=" col-sm-4 col p-2 border"><b>Booking ID</b></div>
+            <div class="col-sm-4 col p-2 border"><b>Booking Date</b></div>
+            <div class="col-sm-4 col p-2 border"><b>Status</b></div>
+        </div>   
       </div>
-        <!--sample-->
-        <!-- <div class="row"  *ngIf="!hideStatus">
-          <div class="col-md-6 form-group">
-            <p>Booking ID </p>
-          </div>
-
-          <div class="col-md-4 col-sm-4 form-group">
-              <p>Booking Date </p>
-          </div>
-
-          <div class="col-md-2 col-sm-2 form-group">
-              <p>Status </p>
-          </div>
-
-         <div class="col-md-3 form-group">
-            <p>Order </p>
-          </div>        </div>> -->
-<!-- <div  *ngIf="!hideStatus">
-        <div class="row" *ngFor="let data of Status">
-          <div class="col-md-6 col-sm-3 form-group">
-            <p>{{data._id}} </p>
-          </div>
-
-          <div class="col-md-4 col-sm-3 form-group">
-            <p>{{data.bookingDate}} </p>
-          </div>
-          <div class="col-md-3 form-group">
-            <p>{{data.order}} </p>
-          </div>
-          
-          <div class="col-md-2 col-sm-3 form-group">
-            <button class="btn btn-success " (click)="statusView(statusViewForm,id.value)">View</button>
-          </div> 
-          </div>
-        </div> -->
+  <div  *ngIf="!hideStatus">
+      <div class=" col-sm-12 d-flex  flex-row" *ngFor="let data of Status">
+          <div class="col-sm-4 col p-2  ">{{data.bookingOrderId}}</div>
+          <div class="col-sm-4 col p-2 ">{{data.bookingDate}}</div>
+          <div class=" col-sm-4 col p-2"> <input class="form-control"   hidden type="text" formControlName="order" [value]="data._id" #id/>
+            <button class="btn btn-success btn-sm" (click)="statusView(statusViewForm,id.value)">View</button>
+    
+      </div>
+    </div>     
+  </div>
           <div *ngIf="displayStatus">
-            <div class="row" >
-              
-              <div class="col-md-4">
-                <p> Material Picked Up</p>
+            <div class="row">
+                <div class="offset-md-2 col-md-4 col">
+                  <p> Material Picked Up</p>
               </div>
-              <div class="col-md-8" *ngIf="materialPicked">
-                <button class="btn btn-danger">Not completed</button>
+                <div class="col-md-6  col" *ngIf = "materialPicked">
+                    <button class="btn btn-danger  btn-sm" >Not completed</button>
+                </div>
+                <div class="col-md-6 col" *ngIf = "materialPickedTrue">
+                    <button class="btn btn-success  btn-sm" > completed</button>
               </div>
-              <div class="col-md-8" *ngIf="materialPickedTrue">
-                <button class="btn btn-success "> completed</button>
-              </div>
-            </div>
+              </div> 
   
             <div class="row">
-              <div class="col-md-4">
+              <div class="offset-md-2 col-md-4 col">
                 <p>Shoot Completed</p>
               </div>
-              <div class="col-md-8" *ngIf="shootCompleted">
-                <button class="btn btn-danger ">Not completed</button>
+              <div class="col-md-6 col" *ngIf="shootCompleted">
+                <button class="btn btn-danger btn-sm">Not completed</button>
               </div>
-              <div class="col-md-8" *ngIf="shootCompletedTrue">
-                <button class="btn btn-success "> completed</button>
+              <div class="col-md-6 col" *ngIf="shootCompletedTrue">
+                <button class="btn btn-success btn-sm "> completed</button>
               </div>
             </div>
   
             <div class="row">
-              <div class="col-md-4">
+              <div class="offset-md-2 col-md-4 col">
                 <p>Image Editing</p>
               </div>
-              <div class="col-md-8" *ngIf="imageEditing">
-                <button class="btn btn-danger ">Not completed</button>
+              <div class="col-md-6 col" *ngIf="imageEditing">
+                <button class="btn btn-danger btn-sm ">Not completed</button>
               </div>
   
-              <div class="col-md-8" *ngIf="imageEditingTrue">
-                <button class="btn btn-success "> completed</button>
+              <div class="col-md-6 col" *ngIf="imageEditingTrue">
+                <button class="btn btn-success btn-sm"> completed</button>
               </div>
             </div>
   
             <div class="row">
-              <div class="col-md-4">
+              <div class="offset-md-2 col-md-4 col">
                 <p>Delivery</p>
               </div>
-              <div class="col-md-8" *ngIf="delivery">
-                <button class="btn btn-danger ">Not completed</button>
+              <div class="col-md-6 col" *ngIf="delivery">
+                <button class="btn btn-danger btn-sm">Not completed</button>
               </div>
   
-              <div class="col-md-8" *ngIf="deliveryTrue">
-                <button class="btn btn-success "> completed</button>
+              <div class="col-md-6 col" *ngIf="deliveryTrue">
+                <button class="btn btn-success btn-sm"> completed</button>
               </div>
             </div>
   
             <div class="row">
-              <div class="col-md-4">
+              <div class="offset-md-2 col-md-4 col">
                 <p>Payment</p>
               </div>
-              <div class="col-md-8" *ngIf="payment">
-                <button class="btn btn-danger ">Not completed</button>
+              <div class="col-md-6 col" *ngIf="payment">
+                <button class="btn btn-danger btn-sm">Not completed</button>
               </div>
   
-              <div class="col-md-8" *ngIf="paymentTrue">
-                <button class="btn btn-success "> completed</button>
+              <div class="col-md-6 col" *ngIf="paymentTrue">
+                <button class="btn btn-success btn-sm "> completed</button>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-4">
+              <div class="offset-md-2 col-md-4 col">
                 <p>MaterialReturn</p>
               </div>
-              <div class="col-md-8" *ngIf="materialReturn">
-                <button class="btn btn-danger ">Not completed</button>
+              <div class="col-md-6 col" *ngIf="materialReturn">
+                <button class="btn btn-danger btn-sm">Not completed</button>
               </div>
   
-              <div class="col-md-8" *ngIf="materialReturnTrue">
-                <button class="btn btn-success "> completed</button>
+              <div class="col-md-6 col" *ngIf="materialReturnTrue">
+                <button class="btn btn-success btn-sm "> completed</button>
               </div>
               
             </div>
             <button class="btn" (click)="showStatus()">back</button>
-          </div>
-  
-        
+          </div>      
          
- <!-- <div class="col-md-2 form-group" *ngIf="progress">
-            <button class="btn btn-danger pull-right">progress</button>
-          </div>
-
-
-
-          <div class="col-md-1 form-group" *ngIf="completed">
-            <button class="btn btn-success pull-right">Completed</button>
-          </div> -->
-        
-         
-        
-       
-       
-    </div>
   </div>
   
 </form>
