@@ -6,6 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
 import { Status} from './stauts/status.model';
 import {StatusDetails} from './new-user-status/status.model';
+import {BookingDetail} from './stauts-view/booking-detail.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,8 +16,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class StatusService {
-
-
   serviceUrl: string = AppSetting.serviceUrl;
   headers: Headers = new Headers({
     'Content-Type': 'application/json; charset=utf-8'
@@ -42,10 +41,14 @@ export class StatusService {
     const url: string = this.serviceUrl + statusUrl + id ;
     return this.httpClient.get<Status>(url);
   }
-  getStatusById( no , id): Observable<any> {
-    const statusUrl = 'bookingStatus/';
-    const viewUrl = '/view/';
-    const url: string = this.serviceUrl + statusUrl + no  + viewUrl + id;
+  getStatusById(id): Observable<any> {
+    const statusUrl = 'bookingStatusView/';
+    const url: string = this.serviceUrl + statusUrl +  id ;
     return this.httpClient.get<Status>(url);
+  }
+  getBookingDetail(id): Observable<any> {
+    const statusUrl = 'bookingDetails/';
+    const url: string = this.serviceUrl + statusUrl + id ;
+    return this.httpClient.get<BookingDetail>(url);
   }
 }

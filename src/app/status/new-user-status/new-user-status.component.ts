@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
+
 import {StatusService} from '../status.service';
 import {StatusDetails} from './status.model';
+import {BookingDetails} from './booking-detail.model';
+import {mobileNumber} from './validation';
 
 @Component({
   selector: 'app-new-user-status',
@@ -32,6 +35,7 @@ export class NewUserStatusComponent implements OnInit {
   materialReturn: boolean;
   materialReturnTrue: boolean;
   hideStatus: boolean;
+  Detail: BookingDetails[] = [];
 
   constructor(private fb: FormBuilder, private router: Router,
     private statusService: StatusService, private localStorageService: LocalStorageService) { }
@@ -41,7 +45,7 @@ export class NewUserStatusComponent implements OnInit {
   }
   createForm() {
     this.newUserForm = this.fb.group({
-      mobileNumber: ['', Validators.required],
+      mobileNumber: ['', mobileNumber],
       name: ['', Validators.required],
       order: []
     });
@@ -66,9 +70,9 @@ export class NewUserStatusComponent implements OnInit {
   statusView(statusViewForm: FormGroup, id: any) {
     this.displayStatus = true;
     this.hideStatus = true;
-    this.mobileNo = this.localStorageService.retrieve('mobileno');
-    this.statusService.getStatusById(this.mobileNo, id).subscribe(data => {
-     this.StatusForOne = data;
+    this.statusService.getStatusById( id).subscribe(data => {
+      console.log(data);
+     this.Detail = data;
      switch (data.order) {
        case false: {
          this.progress = true;
@@ -156,5 +160,16 @@ export class NewUserStatusComponent implements OnInit {
       console.log(error);
     }
    );
+   this.bookingDetail(id);
      }
+     bookingDetail(num) {
+      console.log(num);
+      this.statusService.getBookingDetail(num).subscribe(statusData => {
+        this.Detail = statusData;
+        console.log(this.Detail);
+        console.log(statusData);
+           }, error => {
+             console.log(error);
+           });
+    }
 }

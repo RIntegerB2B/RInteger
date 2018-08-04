@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {StatusService} from '../status.service';
 import { StatusView } from './status-view.model';
 import {StatusDetail } from './status-detail.model';
+import {BookingDetail} from './booking-detail.model';
 
 @Component({
   selector: 'app-stauts-view',
@@ -16,6 +17,7 @@ export class StautsViewComponent implements OnInit {
   // statusDisplay: string;
 orders;
  StatusForOne: StatusDetail;
+ Details: BookingDetail[] = [];
   Status: StatusView [] = [];
   statusViewForm: FormGroup;
   progress: boolean;
@@ -57,9 +59,10 @@ orders;
     this.displayStatus = false;
   }
   statusView(statusViewForm: FormGroup, id: any) {
+    console.log(id);
  this.displayStatus = true;
  this.hideStatus = true;
- this.statusService.getStatusById( this.no, id).subscribe(data => {
+ this.statusService.getStatusById(id).subscribe(data => {
   this.StatusForOne = data;
 
   switch (data.order) {
@@ -153,7 +156,7 @@ orders;
    console.log(error);
  }
 );
-
+this.bookingDetail(id) ;
   }
 
 orderDisplay() {
@@ -162,20 +165,18 @@ orderDisplay() {
   status(no) {
     this.statusService.getStatusByNum(no).subscribe(statusData => {
        this.Status = statusData;
-      /* for ( const data of statusData) {
-        this.orders = data;
-        if ( this.orders.order === false) {
-          this.progress = true;
-          this.completed = false;
-        } else if (this.orders.order === true) {
-        this.completed = true;
-        this.progress = false;
-        }
-}*/
           }, error => {
             console.log(error);
           });
-
-
+  }
+  bookingDetail(num) {
+    console.log(num);
+    this.statusService.getBookingDetail(num).subscribe(statusData => {
+      this.Details = statusData;
+      console.log(this.Details);
+      console.log(statusData);
+         }, error => {
+           console.log(error);
+         });
   }
 }

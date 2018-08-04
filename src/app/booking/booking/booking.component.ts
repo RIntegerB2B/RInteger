@@ -21,8 +21,8 @@ export class BookingComponent implements OnInit {
   userBook: Booking;
   id: BookingId;
   modelTypes = ['National', 'InterNational'];
-  shootTypes = ['Men', 'Women', 'Kids'];
-  productTypes = ['Mannequin', 'TableTop'];
+  shootTypes = ['Men', 'Women', 'Kids', 'Others'];
+  productTypes = ['Mannequin', 'TableTop', 'Others'];
   userName: string;
   mobileNo: string;
   locat: string;
@@ -43,7 +43,7 @@ export class BookingComponent implements OnInit {
     this.onBookInForm = this.fb.group({
       mobileNumber: ['', mobileNumber],
       name: ['', Validators.required],
-      location: ['', Validators.required],
+      location: [''],
       productDescription: [''],
       quantityDescription: [''],
       shootType: [''],
@@ -77,7 +77,6 @@ export class BookingComponent implements OnInit {
     this.subscribe(this.mobileNo);
   }
   subscribe(no) {
-    alert('subscribe');
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY
     })

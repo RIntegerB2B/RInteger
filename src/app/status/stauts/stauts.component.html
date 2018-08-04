@@ -1,5 +1,8 @@
 <form [formGroup]="statusForm" style="margin-top:60px; margin-bottom:300px" novalidate>
     <div class="container">
+            <div class="text-center " style ="padding-bottom:20px" *ngIf="!hideStatus">
+                    <h3>Current Booking</h3> 
+                   </div>
             <div class="row">
                     <div class=" col-sm-12 d-flex  flex-row" >
                         <div class=" col-sm-4 col p-2 border"><b>Booking ID</b></div>
@@ -15,10 +18,10 @@
                 </div>
               </div> 
         
-    <div   *ngIf="displayStatus">
+    <div   *ngIf="displayStatus" style="margin-top:40px">
         <div class="row">
           <div class="offset-md-2 col-md-4 col">
-            <p> Material Picked Up</p>
+            <p> Material Pick Up Status</p>
         </div>
           <div class="col-md-6 col" *ngIf = "materialPicked">
               <button class="btn btn-danger  btn-sm" >Not completed</button>
@@ -30,7 +33,7 @@
     
         <div class="row">
             <div class="offset-md-2 col-md-4 col">
-              <p>Shoot Completed </p>
+              <p>PhotoShoot Status </p>
             </div>
           <div class="col-md-6 col" *ngIf = "shootCompleted">
               <button class="btn btn-danger  btn-sm" >Not completed</button>
@@ -42,7 +45,7 @@
     
         <div class="row">
             <div class="offset-md-2 col-md-4 col">
-          <p>Image Editing</p>
+          <p>Image Editing Status</p>
           </div>
           <div class="col-md-6 col" *ngIf = "imageEditing">
               <button class="btn btn-danger btn-sm" >Not completed</button>
@@ -55,7 +58,7 @@
       
       <div class="row">
           <div class="offset-md-2 col-md-4 col">
-          <p>Delivery</p>
+          <p>Image Delivery Status</p>
           </div>
           <div class="col-md-6 col" *ngIf = "delivery">
               <button class="btn btn-danger  btn-sm" >Not completed</button>
@@ -68,7 +71,7 @@
     
         <div class="row">
             <div class="offset-md-2 col-md-4 col">
-            <p>Payment</p>
+            <p>Payment Status</p>
             </div>
             <div class="col-md-6 col" *ngIf = "payment">
                 <button class="btn btn-danger  btn-sm" >Not completed</button>
@@ -80,7 +83,7 @@
           </div>
           <div class="row">
             <div class="offset-md-2 col-md-4 col">
-              <p>MaterialReturn</p>
+              <p>Material Return Status</p>
             </div>
               <div class="col-md-6 col" *ngIf = "materialReturn">
                   <button class="btn btn-danger btn-sm" >Not completed</button>
@@ -90,7 +93,9 @@
                   <button class="btn btn-success  btn-sm" >completed</button>
               </div>
             </div>
+            <button class="btn" [routerLink]="['/welcome']" >back</button> 
     </div>
+    
     </div>
     </form>
     
