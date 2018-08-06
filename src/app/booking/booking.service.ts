@@ -35,8 +35,9 @@ export class BookingService {
   }
   addPushSubscriber(sub: any , no: any) {
     const notificationUrl = 'subscribe';
-    const url: string = this.serviceUrl + notificationUrl;
-    return this.http.post(url, sub, no);
+    let url: string = this.serviceUrl + notificationUrl;
+    url = 'http://localhost:3012/pushnotificationsubscribe';
+    return this.http.post(url, sub);
 }
 addCustomerDetail(cust: Customer) {
   const notificationUrl = 'customer';

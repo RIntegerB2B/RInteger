@@ -29,7 +29,7 @@ export class BookingComponent implements OnInit {
   hideMobileNo: boolean;
   notificationModel: Notification;
   customer: Customer;
-  readonly VAPID_PUBLIC_KEY = 'BIvwBoUek8ZLiE2HRr_srixb0Qi-Ql6CVBhhhvIuuZ5PMFYrfP0zSkNRrHD-uvIBhJ3_BDmzSFedMzu5ZuaVVRM';
+  readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private fb: FormBuilder, private router: Router,
     private bookingService: BookingService, private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private swPush: SwPush) { }
