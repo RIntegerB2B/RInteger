@@ -15,6 +15,7 @@ const httpOptions = {
 })
 export class BookingService {
   serviceUrl: string = AppSetting.serviceUrl;
+  adminServiceUrl: string = AppSetting.adminServiceUrl;
   headers: Headers = new Headers({
     'Content-Type': 'application/json; charset=utf-8'
   });
@@ -34,9 +35,8 @@ export class BookingService {
     return this.httpClient.post<Booking>(url, data);
   }
   addPushSubscriber(sub: any , no: any) {
-    const notificationUrl = 'subscribe';
-    let url: string = this.serviceUrl + notificationUrl;
-    url = 'http://localhost:3012/pushnotificationsubscribe';
+    const notificationUrl = 'pushnotificationsubscribe';
+    const url: string = this.adminServiceUrl + notificationUrl;
     return this.http.post(url, sub);
 }
 addCustomerDetail(cust: Customer) {
