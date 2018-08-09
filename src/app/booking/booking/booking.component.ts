@@ -29,7 +29,9 @@ export class BookingComponent implements OnInit {
   hideMobileNo: boolean;
   notificationModel: Notification;
   customer: Customer;
-  readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
+   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
+  // readonly VAPID_PUBLIC_KEY = 'BKt65eGjjxVC8EDZj-9awfTMKLydA0jxM6mhren6Hz1UBIduWTFEtIXB7thtCN9nnMZlJsvkYqTn7rUKo8mmGxw';
+
   constructor(private fb: FormBuilder, private router: Router,
     private bookingService: BookingService, private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private swPush: SwPush) { }
@@ -86,7 +88,7 @@ export class BookingComponent implements OnInit {
         this.notificationModel.isAdmin = false;
         this.notificationModel.userSubscriptions = sub;
         this.notificationModel.mobileNumber = mobNo;
-        this.bookingService.addPushSubscriber(notificationModel).subscribe();
+        this.bookingService.addPushSubscriber(this.notificationModel).subscribe();
       })
       .catch(err => console.error('Could not subscribe to notifications', err));
   }
