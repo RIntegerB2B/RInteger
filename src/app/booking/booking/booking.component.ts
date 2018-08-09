@@ -7,7 +7,7 @@ import { BookingService } from '../booking.service';
 import { BookingId } from './bookingId.model';
 import { mobileNumber } from './validation';
 import { Notification } from './notification.model';
-import { Customer} from './customer.model';
+import { Customer } from './customer.model';
 
 import { SwPush, SwUpdate } from '@angular/service-worker';
 
@@ -24,7 +24,7 @@ export class BookingComponent implements OnInit {
   shootTypes = ['Men', 'Women', 'Kids', 'Others'];
   productTypes = ['Mannequin', 'TableTop', 'Others'];
   userName: string;
-  mobileNo: string;
+  mobileNo: number;
   locat: string;
   hideMobileNo: boolean;
   notificationModel: Notification;
@@ -76,11 +76,18 @@ export class BookingComponent implements OnInit {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.subscribe(this.mobileNo);
   }
-  subscribe(no) {
+
+  subscribe(mobNo) {
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY
     })
-      .then(sub => this.bookingService.addPushSubscriber(sub, no).subscribe())
+      .then(sub => {
+        this.notificationModel = new Notification();
+        this.notificationModel.isAdmin = false;
+        this.notificationModel.userSubscriptions = sub;
+        this.notificationModel.mobileNumber = mobNo;
+        this.bookingService.addPushSubscriber(notificationModel).subscribe();
+      })
       .catch(err => console.error('Could not subscribe to notifications', err));
   }
   checkData() {

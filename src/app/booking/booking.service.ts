@@ -5,7 +5,9 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
 import { Booking } from '../booking/booking/booking.model';
-import { Customer} from './booking/customer.model';
+import { Customer } from './booking/customer.model';
+import { Notification } from './booking/notification.model';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -34,14 +36,14 @@ export class BookingService {
     const url: string = this.serviceUrl + bookurl;
     return this.httpClient.post<Booking>(url, data);
   }
-  addPushSubscriber(sub: any , no: any) {
+  addPushSubscriber(notificationModel: Notification) {
     const notificationUrl = 'pushnotificationsubscribe';
     const url: string = this.adminServiceUrl + notificationUrl;
-    return this.http.post(url, sub);
-}
-addCustomerDetail(cust: Customer) {
-  const notificationUrl = 'customer';
-  const url: string = this.serviceUrl + notificationUrl;
-  return this.http.post(url, cust);
-}
+    return this.http.post(url, notificationModel);
+  }
+  addCustomerDetail(cust: Customer) {
+    const notificationUrl = 'customer';
+    const url: string = this.serviceUrl + notificationUrl;
+    return this.http.post(url, cust);
+  }
 }
