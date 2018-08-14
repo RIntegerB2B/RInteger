@@ -104,6 +104,7 @@ export class BookingComponent implements OnInit {
       onBookInForm.controls.location.value,
       onBookInForm.controls.shootType.value,
       onBookInForm.controls.modelType.value,
+      onBookInForm.controls.productDescription.value
     );
     this.bookingService.addCustomerDetail(this.customer).subscribe(data => {
       console.log(data);

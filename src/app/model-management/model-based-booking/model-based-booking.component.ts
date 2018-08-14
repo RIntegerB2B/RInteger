@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import {ModelManagementService} from '../model-management.service';
 import {ModelDetail} from './model.model';
 import {ModelBooking} from './model-booking.model';
+import {CustomerDetail} from '../model-based-booking/customer-detail.model';
 
 @Component({
   selector: 'app-model-based-booking',
@@ -21,6 +22,7 @@ userName: string;
 mobileNo: number;
 locat: string;
 bookingModel: ModelBooking;
+customerModel: CustomerDetail;
   constructor( private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
     private modelService: ModelManagementService, private localStorageService: LocalStorageService) {
        this.id = this.activatedRoute.snapshot.paramMap.get('modelId');
@@ -69,11 +71,24 @@ bookSubmit(bookModelForm: FormGroup , modelsId: any, modelNm: any) {
   );
   this.bookingModel.modelId = modelsId;
   this.bookingModel.modelsName = modelNm;
- /*  this.saveCustomerDetail(bookModelForm); */
+  this.saveCustomerDetail(bookModelForm);
   this.bookModelForm.reset();
   this.modelService.addModelBooking(this.bookingModel).subscribe(data => {
     this.id = data;
     this.router.navigate(['/status', this.id._id]);
+  }, error => {
+    console.log(error);
+  });
+}
+saveCustomerDetail(bookModelForm: FormGroup) {
+  this.customerModel = new CustomerDetail(
+    bookModelForm.controls.mobileNumber.value,
+    bookModelForm.controls.name.value,
+    bookModelForm.controls.location.value,
+    bookModelForm.controls.productDescription.value
+  );
+  this.modelService.addCustomerDetail(this.customerModel).subscribe(data => {
+    console.log(data);
   }, error => {
     console.log(error);
   });

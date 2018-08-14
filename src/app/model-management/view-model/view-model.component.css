@@ -1,0 +1,23 @@
+@media screen and (max-width: 600px) {
+    .image{
+        width: 90px;
+        height: 125px;
+        float: left;
+        padding: 5px;
+       
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .image{
+        width:180px;
+        height:245px ;
+        float:left; 
+        padding: 5px;
+    }
+}
+.column{
+    float: left;
+    width: 50px;
+    padding-left: 0%
+}

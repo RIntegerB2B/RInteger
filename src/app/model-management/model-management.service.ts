@@ -8,6 +8,7 @@ import { AppSetting } from '../config/appSetting';
 import {Model} from './view-model/model.model';
 import {ServiceProviders} from './view-model/service-provider.model';
 import {ModelBooking} from './model-based-booking/model-booking.model';
+import { CustomerDetail } from './model-based-booking/customer-detail.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -65,6 +66,11 @@ export class ModelManagementService {
     const bookurl = 'modelbooking/';
     const url: string = this.serviceUrl + bookurl;
     return this.httpClient.post<ModelBooking>(url, data);
+  }
+  addCustomerDetail(cust: CustomerDetail) {
+    const notificationUrl = 'customer';
+    const url: string = this.serviceUrl + notificationUrl;
+    return this.http.post(url, cust);
   }
 /*   addModelBooking */
  /*  getServiceProviders(): Observable<any> {
