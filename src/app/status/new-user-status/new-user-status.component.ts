@@ -70,7 +70,8 @@ export class NewUserStatusComponent implements OnInit {
   statusView(statusViewForm: FormGroup, id: any) {
     this.displayStatus = true;
     this.hideStatus = true;
-    this.statusService.getStatusById( id).subscribe(data => {
+    this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.statusService.getStatusById(  this.mobileNo, id).subscribe(data => {
       console.log(data);
      this.Detail = data;
      switch (data.order) {

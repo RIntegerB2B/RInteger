@@ -62,7 +62,7 @@ orders;
     console.log(id);
  this.displayStatus = true;
  this.hideStatus = true;
- this.statusService.getStatusById(id).subscribe(data => {
+ this.statusService.getStatusById( this.no, id).subscribe(data => {
   this.StatusForOne = data;
 
   switch (data.order) {

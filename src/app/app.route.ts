@@ -9,6 +9,8 @@ import {NewUserStatusComponent } from './status/new-user-status/new-user-status.
 import { AboutusComponent} from './home/aboutus/aboutus.component';
 import { ContactComponent } from './home/contact/contact.component';
 import { StudioComponent } from './home/product/studio/studio.component';
+import {ModelBasedBookingComponent} from './model-management/model-based-booking/model-based-booking.component';
+import {ViewModelComponent} from './model-management/view-model/view-model.component';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
@@ -22,6 +24,8 @@ const routes: Routes = [
     { path: 'aboutUs', component: AboutusComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'studio', component: StudioComponent },
+    { path: 'modelBooking/:modelId', component: ModelBasedBookingComponent },
+    { path: 'models', component: ViewModelComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
 ];
 

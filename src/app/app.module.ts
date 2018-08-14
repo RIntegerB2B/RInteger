@@ -8,6 +8,8 @@ import { Ng2Webstorage, LocalStorageService } from 'ngx-webstorage';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap';
 import { AngularFontAwesomeModule} from 'angular-font-awesome';
+import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule,
+  MatInputModule, MatSelectModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -25,6 +27,8 @@ import { NewUserStatusComponent } from './status/new-user-status/new-user-status
 import { AboutusComponent } from './home/aboutus/aboutus.component';
 import { ContactComponent } from './home/contact/contact.component';
 import { StudioComponent } from './home/product/studio/studio.component';
+import { ModelBasedBookingComponent } from './model-management/model-based-booking/model-based-booking.component';
+import { ViewModelComponent } from './model-management/view-model/view-model.component';
 
 
 @NgModule({
@@ -41,7 +45,9 @@ import { StudioComponent } from './home/product/studio/studio.component';
     NewUserStatusComponent,
     AboutusComponent,
     ContactComponent,
-    StudioComponent
+    StudioComponent,
+    ModelBasedBookingComponent,
+    ViewModelComponent
   ],
   imports: [
     BrowserModule,
