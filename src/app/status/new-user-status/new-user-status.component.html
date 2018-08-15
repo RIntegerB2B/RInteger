@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="col-sm-12 col-md-2 ">
-                <input class="booking text-white" value="Check" type="submit"  (click)="findStatus(newUserForm ,mobileNum.value ,name.value)" [disabled]='!newUserForm.mobilenumber.valid'>
+                <input class="booking text-white" value="Check" type="submit"  (click)="findStatus(newUserForm ,mobileNum.value ,name.value)" [disabled]='!newUserForm.valid'>
               </div>   
               <div class="col-sm-12 col-md-2 ">
                 <button class="btn" [routerLink]="['/welcome']">back</button>
