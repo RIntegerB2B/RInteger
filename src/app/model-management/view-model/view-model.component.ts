@@ -36,31 +36,26 @@ allModels()
 menModels() {
   this.modelService.getMenDetails().subscribe(data => {
     this.Detail = data;
-    console.log(data);
   });
 }
 womenModels() {
   this.modelService.getWomenDetails().subscribe(data => {
     this.Detail = data;
-    console.log(data);
   });
 }
 nationalModels() {
   this.modelService.getNationalModels().subscribe(data => {
     this.Detail = data;
-    console.log(data);
   });
 }
 interNationalModels() {
   this.modelService.getInterNationalModels().subscribe(data => {
     this.Detail = data;
-    console.log(data);
   });
 }
 modelDetails() {
   this.modelService.getModelDetails().subscribe(data => {
     this.Detail = data;
-console.log(data);
   });
 }
 bookModel(viewModelForm: FormGroup, modelId: any) {

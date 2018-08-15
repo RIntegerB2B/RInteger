@@ -1,18 +1,33 @@
+<<<<<<< HEAD
 @media screen and (max-width: 992px) {
     .image{
         width: 130px;
         height: 130px;
+=======
+@media screen and (max-width: 600px) {
+    .image{
+        width: 90px;
+        height: 125px;
+>>>>>>> 49a94f0b277d3a66f4bd1589e4795004adb08f68
         float: left;
         padding: 5px;
        
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> 49a94f0b277d3a66f4bd1589e4795004adb08f68
 }
 
 @media screen and (min-width: 992px) {
     .image{
+<<<<<<< HEAD
         height:200px;
         width:200px;
+=======
+        width:180px;
+        height:245px ;
+>>>>>>> 49a94f0b277d3a66f4bd1589e4795004adb08f68
         float:left; 
         padding: 5px;
     }
@@ -21,4 +36,8 @@
     float: left;
     width: 50px;
     padding-left: 0%
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 49a94f0b277d3a66f4bd1589e4795004adb08f68
