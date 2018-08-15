@@ -8,8 +8,6 @@ import { Ng2Webstorage, LocalStorageService } from 'ngx-webstorage';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap';
 import { AngularFontAwesomeModule} from 'angular-font-awesome';
-import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule,
-  MatInputModule, MatSelectModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -29,6 +27,7 @@ import { ContactComponent } from './home/contact/contact.component';
 import { StudioComponent } from './home/product/studio/studio.component';
 import { ModelBasedBookingComponent } from './model-management/model-based-booking/model-based-booking.component';
 import { ViewModelComponent } from './model-management/view-model/view-model.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -58,6 +57,7 @@ import { ViewModelComponent } from './model-management/view-model/view-model.com
     ReactiveFormsModule,
     AngularFontAwesomeModule,
     Ng2Webstorage,
+    BrowserAnimationsModule,
     NgbModule.forRoot(),
     CarouselModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })

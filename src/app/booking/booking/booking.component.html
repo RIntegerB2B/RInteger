@@ -14,13 +14,13 @@
             Enter 10 digit mobile number
           </div>
 
-          <input class="form-control required" required placeholder="Name" [(ngModel)]="userName" style="margin-bottom:5px" formControlName="name"
+          <input class="form-control required" required placeholder="Name" [(ngModel)]="userName" maxlength="20" style="margin-bottom:5px" formControlName="name"
             type="text" #name>
           <div *ngIf="onBookInForm.controls['name'].errors
                                    && !onBookInForm.controls[ 'name'].pristine" class="alert alert-danger">
             <div [hidden]="!onBookInForm.controls['name'].errors.required">Name is required.</div>
           </div>
-          <input class="form-control required"  placeholder="Location"     [(ngModel)]="locat"  style="margin-bottom:5px" formControlName="location"
+          <input class="form-control required"  placeholder="Location" maxlength="20"    [(ngModel)]="locat"  style="margin-bottom:5px" formControlName="location"
             type="text" #location>
         </div>
           <div class="col-md-12">
@@ -56,7 +56,8 @@
             <p>Ex: 10 shirts, 10 pants</p>
           </div>
           <div>
-            <input class="btn booking btn-block text-white" value="Book Now" type="submit" [disabled]='!onBookInForm.valid'>
+            <input class="btn booking btn-block text-white"
+             value="Book Now" [disabled]='!onBookInForm.valid' type="submit">
 
           </div>
       </div>

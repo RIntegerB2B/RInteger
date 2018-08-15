@@ -29,6 +29,10 @@ createForm() {
     id: ['']
   });
 }
+allModels()
+{
+  this.modelDetails();
+}
 menModels() {
   this.modelService.getMenDetails().subscribe(data => {
     this.Detail = data;
