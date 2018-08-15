@@ -44,3 +44,8 @@ body {
     background-color: #777;
     margin: 0px auto;
   }
+  @media screen and (max-width: 992px) { /*Small */
+    .status {
+      font-size:10px;
+    }
+}

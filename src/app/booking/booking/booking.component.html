@@ -1,10 +1,11 @@
-<form [formGroup]="onBookInForm" (ngSubmit)="bookSubmit(onBookInForm,mobileNum.value,name.value,location.value)" novalidate style="padding-top:60px; padding-bottom:80px">
-  <div class="container-fluid  ">
-    <div class="row">
-      <div class="col-md-6  mx-auto">
-        <div class="text-center text-secondary">
-          <h4> PhotoShoot Booking</h4>
-        </div>
+<form class="signInMasterDiv" [formGroup]="onBookInForm"  (ngSubmit)="bookSubmit(onBookInForm,mobileNum.value,name.value,location.value)" novalidate style="padding-bottom:60px">
+  <div class="container-fluid">
+      
+    <div class="row" >
+      <div class="col-md-6 mx-auto">
+          <div class="text-center text-secondary" style="padding:15px;">
+              <h6><strong>PHOTOSHOOT BOOKING</strong></h6>
+            </div>
         <div class="form-group">
           <div class="col-md-12">
           <input class="form-control required" required placeholder="Mobile Number"  maxlength="10"  [(ngModel)]="mobileNo" style="margin-bottom:5px"
@@ -13,38 +14,44 @@
                                                  && !onBookInForm.controls['mobileNumber'].pristine" class="alert alert-danger">
             Enter 10 digit mobile number
           </div>
+          
+          <div class="text-danger">
+            <p>Ex: 9234567892</p>
+          </div>
 
           <input class="form-control required" required placeholder="Name" [(ngModel)]="userName" maxlength="20" style="margin-bottom:5px" formControlName="name"
             type="text" #name>
           <div *ngIf="onBookInForm.controls['name'].errors
-                                   && !onBookInForm.controls[ 'name'].pristine" class="alert alert-danger">
-            <div [hidden]="!onBookInForm.controls['name'].errors.required">Name is required.</div>
+                                   && !onBookInForm.controls['name'].pristine" class="alert alert-danger">
+            <div>Name is required.</div>
           </div>
           <input class="form-control required"  placeholder="Location" maxlength="20"    [(ngModel)]="locat"  style="margin-bottom:5px" formControlName="location"
             type="text" #location>
-        </div>
-          <div class="col-md-12">
+            <div *ngIf="onBookInForm.controls['location'].errors
+                                   && !onBookInForm.controls['location'].pristine" class="alert alert-danger">
+            <div>Location is required</div>
+          </div>
           <label>Type of Category</label>
-          <div class="col-sm-6 radio">
+          <div class="col-sm-12 radio">
             <label  class="pr-2 " *ngFor="let shootType of shootTypes">
-              <input  type="radio"    formControlName="shootType" [value]="shootType"><small>&nbsp;&nbsp;{{ shootType}}</small>
+              <input  type="radio"    formControlName="shootType" [value]="shootType">&nbsp;&nbsp;{{ shootType}}
             </label>
           </div>
             <label >Type of Model</label>
-            <div class="col-sm-6 radio">
+            <div class="col-sm-12 radio">
                 <label class="pr-2" *ngFor="let modelType of modelTypes">
-                  <input type="radio" formControlName="modelType"  [value]="modelType"><small>&nbsp;&nbsp;{{modelType}}</small>
+                  <input type="radio" formControlName="modelType"  [value]="modelType">&nbsp;&nbsp;{{modelType}}
                 </label>
               </div>
-          </div>
-          <div class="col-md-12 mb-2 mt-2">
+         
+          
               <label>Product Shoot</label>
-              <div class="col-sm-6 radio">
+              <div class="col-sm-12 radio">
                   <label class="pr-2" *ngFor="let productType of productTypes">
-                    <input type="radio"   formControlName="productType" [value]="productType"><small>&nbsp;&nbsp;{{productType}}</small>
+                    <input type="radio"   formControlName="productType" [value]="productType">&nbsp;&nbsp;{{productType}}
                   </label>
                 </div>
-            </div>
+            
             <textarea class="form-control required"  maxlength="150" placeholder="Product Description" style="margin-bottom:5px" rows=3 formControlName="productDescription" type="text"></textarea>
          
           <div class="text-danger">
@@ -57,11 +64,12 @@
           </div>
           <div>
             <input class="btn booking btn-block text-white"
-             value="Book Now" [disabled]='!onBookInForm.valid' type="submit">
-
+             value="Book Now" (click)='onSubmit()' type="submit">
           </div>
       </div>
       </div>
     </div>
+    </div>
   </div>
+
 </form>
