@@ -28,6 +28,8 @@ import { StudioComponent } from './home/product/studio/studio.component';
 import { ModelBasedBookingComponent } from './model-management/model-based-booking/model-based-booking.component';
 import { ViewModelComponent } from './model-management/view-model/view-model.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -58,6 +60,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AngularFontAwesomeModule,
     Ng2Webstorage,
     BrowserAnimationsModule,
+    MatCardModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FlexLayoutModule,
     NgbModule.forRoot(),
     CarouselModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
