@@ -78,7 +78,7 @@ export class BookingComponent implements OnInit {
       console.log(error);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
-   /*  this.subscribe(this.mobileNo); */
+     this.subscribe(this.mobileNo);
   }
   onSubmit() {
     if (this.onBookInForm.valid) {
@@ -88,11 +88,7 @@ export class BookingComponent implements OnInit {
       console.log('form submitted');
     }
   }
-  
-
-  
-
- /*  subscribe(mobNo) {
+  subscribe(mobNo) {
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY
     })
@@ -104,7 +100,7 @@ export class BookingComponent implements OnInit {
         this.bookingService.addPushSubscriber(this.notificationModel).subscribe();
       })
       .catch(err => console.error('Could not subscribe to notifications', err));
-  } */
+  }
   checkData() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');
