@@ -1,6 +1,6 @@
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 600px) {
     .image{
-        width: 130px;
+        width: 90px;
         height: 130px;
         float: left;
         padding: 5px;
@@ -12,7 +12,7 @@
 @media screen and (min-width: 992px) {
     .image{
         height:200px;
-        width:200px;
+        width:180px;
         float:left; 
         padding: 5px;
     }

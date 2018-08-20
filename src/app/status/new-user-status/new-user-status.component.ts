@@ -50,9 +50,8 @@ export class NewUserStatusComponent implements OnInit {
       order: []
     });
   }
-  findStatus(newUserForm: FormGroup,  mobileNum: any, name: any) {
+  findStatus(newUserForm: FormGroup,  mobileNum: any) {
     this.localStorageService.store('mobileno', mobileNum);
-    this.localStorageService.store('name', name);
     this.statusService.getStatusByNum( mobileNum).subscribe(data => {
        this.status  = data;
       this.show = true;
