@@ -54,7 +54,6 @@ export class BookingComponent implements OnInit {
 
     });
   }
- 
   bookSubmit(onBookInForm: FormGroup, mobileNum: any, name: any, location: any) {
     this.localStorageService.store('mobileno', mobileNum);
     this.localStorageService.store('name', name);
@@ -68,7 +67,6 @@ export class BookingComponent implements OnInit {
       onBookInForm.controls.modelType.value,
       onBookInForm.controls.productType.value
     );
-    
     this.saveCustomerDetail(onBookInForm);
     this.onBookInForm.reset();
     this.bookingService.addBooking(this.userBook).subscribe(data => {
@@ -80,14 +78,14 @@ export class BookingComponent implements OnInit {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
      this.subscribe(this.mobileNo);
   }
-  onSubmit() {
+/*   onSubmit() {
     if (this.onBookInForm.valid) {
       console.log('form submitted');
     } else {
       // validate all form fields
       console.log('form submitted');
     }
-  }
+  } */
   subscribe(mobNo) {
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY

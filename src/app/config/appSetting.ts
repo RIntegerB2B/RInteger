@@ -3,6 +3,6 @@ export const AppSetting: AppSettingType = {
     local3010BuyerServiceUrl: 'http://localhost:3011/',
      serviceUrl: 'https://rinteger.com/service',
    // serviceUrl: 'http://localhost:3011/',
-  // adminServiceUrl: 'http://localhost:3012/'
-      adminServiceUrl: 'https://rinteger.com/adminservice/'
+   // adminServiceUrl: 'http://localhost:3012/'
+     adminServiceUrl: 'https://rinteger.com/adminservice/'
 };
