@@ -9,6 +9,7 @@ import {Model} from './view-model/model.model';
 import {ServiceProviders} from './view-model/service-provider.model';
 import {ModelBooking} from './model-based-booking/model-booking.model';
 import { CustomerDetail } from './model-based-booking/customer-detail.model';
+import {ModelBookingNotification} from './model-based-booking/notification.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,7 +20,7 @@ const httpOptions = {
 })
 export class ModelManagementService {
   serviceUrl: string = AppSetting.serviceUrl;
-  /*  adminServiceUrl: string = AppSetting.adminServiceUrl; */
+  adminServiceUrl: string = AppSetting.adminServiceUrl;
    headers: Headers = new Headers({
      'Content-Type': 'application/json; charset=utf-8'
    });
@@ -72,10 +73,9 @@ export class ModelManagementService {
     const url: string = this.serviceUrl + notificationUrl;
     return this.http.post(url, cust);
   }
-/*   addModelBooking */
- /*  getServiceProviders(): Observable<any> {
-    const statusUrl = 'serviceProviders/';
-    const url: string = this.serviceUrl + statusUrl ;
-    return this.httpClient.get<ServiceProviders>(url);
-  } */
+  addPushSubscriber(notificationModel: ModelBookingNotification) {
+    const notificationUrl = 'pushnotificationsubscribe';
+    const url: string = this.adminServiceUrl + notificationUrl;
+    return this.http.post(url, notificationModel);
+  }
 }

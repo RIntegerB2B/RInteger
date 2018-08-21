@@ -30,6 +30,7 @@ import { ViewModelComponent } from './model-management/view-model/view-model.com
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SubscribeComponent } from './home/subscribe/subscribe.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ContactComponent,
     StudioComponent,
     ModelBasedBookingComponent,
-    ViewModelComponent
+    ViewModelComponent,
+    SubscribeComponent
   ],
   imports: [
     BrowserModule,

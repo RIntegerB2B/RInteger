@@ -44,7 +44,7 @@ export class BookingComponent implements OnInit {
   createForm() {
     this.onBookInForm = this.fb.group({
       mobileNumber: ['', mobileNumber],
-      name: ['', Validators.required],
+      name: [''],
       location: [''],
       productDescription: [''],
       quantityDescription: [''],
@@ -78,14 +78,6 @@ export class BookingComponent implements OnInit {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
      this.subscribe(this.mobileNo);
   }
-/*   onSubmit() {
-    if (this.onBookInForm.valid) {
-      console.log('form submitted');
-    } else {
-      // validate all form fields
-      console.log('form submitted');
-    }
-  } */
   subscribe(mobNo) {
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY
