@@ -38,11 +38,13 @@
         
         </div>
           </div>
-              <form [formGroup]="viewModelForm" novalidate style="padding-top:60px">
+              <form [formGroup]="viewModelForm" novalidate style="padding-top:20px">
                 <div class="col" *ngFor="let model of Detail" >
                     <input type="text" hidden [value]="model._id" formControlName="id" #modelId>
                     <a (click)="bookModel(viewModelForm,modelId.value)">
-                      <img class="image" [src]="this.model?.portfolioImageName"/>
+                      <mat-card class="example-card image">
+                            <img mat-card-image [src]="this.model?.portfolioImageName">       
+                    </mat-card>
                     </a>
                   </div>
               </form>
