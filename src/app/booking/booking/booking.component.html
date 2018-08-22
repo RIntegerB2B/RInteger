@@ -7,7 +7,7 @@
               </div>
               <div class="col-md-12">
                   <div class="form-group">
-                      <mat-form-field class="example-full-width">
+                      <mat-form-field [ngStyle]="new" class="example-full-width">
                           <input matInput  placeholder="Mobile Number"  maxlength="10"  [(ngModel)]="mobileNo"
                           formControlName="mobileNumber" type="phone" #mobileNum required>
                        <button mat-button  matSuffix mat-icon-button aria-label="Mobile Number">
@@ -23,8 +23,8 @@
                           </mat-error>
                      </mat-form-field>
                      <div class="text-danger">
-                        <p>Ex: 9638347899</p>
-                      </div>
+                      <p>Ex: 9638347899</p>
+                    </div>
                    </div>
                       <div class="form-group">
                           <mat-form-field class="example-full-width">
@@ -60,7 +60,7 @@
           </div>
             <label >Type of Model</label>
             <div class="col-sm-12 radio">
-                <label class="pr-2" *ngFor="let modelType of modelTypes">
+                <label class="pr-3" *ngFor="let modelType of modelTypes">
                   <input type="radio" formControlName="modelType"  [value]="modelType">&nbsp;&nbsp;{{modelType}}
                 </label>
               </div>

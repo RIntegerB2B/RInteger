@@ -13,6 +13,7 @@ import {Subscribe} from './subscribe.model';
 export class HeaderComponent implements OnInit {
   subscribeModel: Subscribe;
   mobNum: number;
+  mobNo;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   toggleBar = 'colapseMenuBar';
   constructor(private headerService: HeaderService, private localStorageService: LocalStorageService,
@@ -25,9 +26,9 @@ export class HeaderComponent implements OnInit {
     this.toggleBar = this.toggleBar === 'colapseMenuBar' ? 'expandMenuBar' : 'colapseMenuBar';
   }
   subscribe() {
-   const  mobNo =  prompt('Enter the mobile number');
-  this.mobNum = parseInt(mobNo, 10);
-  this.localStorageService.store('mobileno', this.mobNum);
+   this.  mobNo =  window.prompt('Enter the mobile number');
+  this.mobNum = parseInt(this.mobNo, 10);
+  this.localStorageService.store('mobileno', this.mobNo);
     console.log(this.mobNum);
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY

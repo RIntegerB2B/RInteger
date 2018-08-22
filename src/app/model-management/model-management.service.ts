@@ -38,7 +38,7 @@ export class ModelManagementService {
     const url: string = this.serviceUrl + statusUrl  ;
     return this.httpClient.get<Model>(url);
   }
-  getMenDetails(): Observable<any> {
+ /*  getMenDetails(): Observable<any> {
     const statusUrl = 'menmodels/';
     const url: string = this.serviceUrl + statusUrl  ;
     return this.httpClient.get<Model>(url);
@@ -47,14 +47,24 @@ export class ModelManagementService {
     const statusUrl = 'womenmodels/';
     const url: string = this.serviceUrl + statusUrl  ;
     return this.httpClient.get<Model>(url);
-  }
-  getNationalModels(): Observable<any> {
-    const statusUrl = 'nationalmodels/';
+  } */
+  getNationalMenModels(): Observable<any> {
+    const statusUrl = 'nationalmenmodels/';
     const url: string = this.serviceUrl + statusUrl  ;
     return this.httpClient.get<Model>(url);
   }
-  getInterNationalModels(): Observable<any> {
-    const statusUrl = 'internationalmodels/';
+  getNationalWomenModels(): Observable<any> {
+    const statusUrl = 'nationalwomenmodels/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
+  }
+  getInterNationalMenModels(): Observable<any> {
+    const statusUrl = 'internationalmenmodels/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
+  }
+  getInterNationalWomenModels(): Observable<any> {
+    const statusUrl = 'internationalwomenmodels/';
     const url: string = this.serviceUrl + statusUrl  ;
     return this.httpClient.get<Model>(url);
   }

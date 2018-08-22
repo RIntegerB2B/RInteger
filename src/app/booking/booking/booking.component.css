@@ -1,13 +1,29 @@
-.signInMasterDiv {
-  width: 70%;
-  background: white;
-  padding-bottom: 10px;
-  margin: 80px auto;
-  position: relative;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+
 .mat-form-field {
   display: block;
   position: relative;
   text-align: left;
 }
+
+@media screen and (max-width: 600px) {
+  .signInMasterDiv {
+    width: 90%;
+    background: white;
+    padding-bottom: 10px;
+    margin: 20px auto;
+    position: relative;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .signInMasterDiv {
+    width: 70%;
+    background: white;
+    padding-bottom: 10px;
+    margin: 20px auto;
+    position: relative;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+

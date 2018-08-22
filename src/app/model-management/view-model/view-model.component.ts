@@ -14,6 +14,7 @@ import {Model} from './model.model';
 export class ViewModelComponent implements OnInit {
   viewModelForm: FormGroup;
   Detail: Model;
+  selected = 'All';
   constructor(private fb: FormBuilder, private router: Router, private modelService: ModelManagementService)  { }
   ngOnInit() {
    this.modelDetails();
@@ -33,7 +34,7 @@ allModels()
 {
   this.modelDetails();
 }
-menModels() {
+/* menModels() {
   this.modelService.getMenDetails().subscribe(data => {
     this.Detail = data;
   });
@@ -43,13 +44,24 @@ womenModels() {
     this.Detail = data;
   });
 }
-nationalModels() {
-  this.modelService.getNationalModels().subscribe(data => {
+ */
+nationalMenModels() {
+  this.modelService.getNationalMenModels().subscribe(data => {
     this.Detail = data;
   });
 }
-interNationalModels() {
-  this.modelService.getInterNationalModels().subscribe(data => {
+nationalWomenModels() {
+  this.modelService.getNationalWomenModels().subscribe(data => {
+    this.Detail = data;
+  });
+}
+interNationalMenModels() {
+  this.modelService.getInterNationalMenModels().subscribe(data => {
+    this.Detail = data;
+  });
+}
+interNationalWomenModels() {
+  this.modelService.getInterNationalWomenModels().subscribe(data => {
     this.Detail = data;
   });
 }

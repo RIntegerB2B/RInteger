@@ -28,7 +28,8 @@ import { StudioComponent } from './home/product/studio/studio.component';
 import { ModelBasedBookingComponent } from './model-management/model-based-booking/model-based-booking.component';
 import { ViewModelComponent } from './model-management/view-model/view-model.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SubscribeComponent } from './home/subscribe/subscribe.component';
 
@@ -67,7 +68,9 @@ import { SubscribeComponent } from './home/subscribe/subscribe.component';
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatTabsModule,
     MatInputModule,
+    MatSelectModule,
     FlexLayoutModule,
     NgbModule.forRoot(),
     CarouselModule.forRoot(),
