@@ -36,6 +36,7 @@ export class SubscribeComponent implements OnInit {
     this. mobNo  = mobileNo;
     console.log(this.mobNo);
    this.localStorageService.store('mobileno', this.mobNo);
+   this.router.navigate(['/welcome']);
      this.swPush.requestSubscription({
        serverPublicKey: this.VAPID_PUBLIC_KEY
      })
