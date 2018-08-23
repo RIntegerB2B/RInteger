@@ -1,1 +1,18 @@
 
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding:0px;
+    justify-content: start;
+    background-color: #EEEEEE;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .newBar
+    {
+        display:none;
+    }
+    
+}

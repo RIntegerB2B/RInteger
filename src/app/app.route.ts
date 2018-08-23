@@ -11,6 +11,7 @@ import { ContactComponent } from './home/contact/contact.component';
 import { StudioComponent } from './home/product/studio/studio.component';
 import {ModelBasedBookingComponent} from './model-management/model-based-booking/model-based-booking.component';
 import {ViewModelComponent} from './model-management/view-model/view-model.component';
+import {SubscribeComponent} from './subscribe/subscribe.component';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
     { path: 'studio', component: StudioComponent },
     { path: 'modelBooking/:modelId', component: ModelBasedBookingComponent },
     { path: 'models', component: ViewModelComponent },
+    { path: 'subscribe', component: SubscribeComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
 ];
 

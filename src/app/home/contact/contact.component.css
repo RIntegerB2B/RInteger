@@ -3,3 +3,16 @@
     padding-right: 50px;
     padding-left: 50px;
 }
+.mat-form-field {
+    display: block;
+    position: relative;
+    text-align: left;
+  }
+  .mat-form-field-appearance-legacy .mat-hint
+  {
+    color: red;
+  }
+  .mat-form-field-appearance-outline .mat-hint
+  {
+    color: red;
+  }

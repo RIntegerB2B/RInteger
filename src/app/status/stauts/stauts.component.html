@@ -32,7 +32,10 @@
               <button class="btn btn-danger  btn-sm" >Not completed</button>
           </div>
           <div class="col-md-6 col" *ngIf = "materialPickedTrue">
-              <button class="btn btn-success  btn-sm" > completed</button>
+              <button class="btn btn-success  btn-sm" > Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="materialPickedProgress">
+            <button class="btn btn-info btn-sm"> Progress</button>
         </div>
         </div> 
     
@@ -44,8 +47,11 @@
               <button class="btn btn-danger  btn-sm" >Not completed</button>
           </div>
           <div class="col-md-6 col" *ngIf ="shootCompletedTrue">
-              <button class="btn btn-success  btn-sm" > completed</button>
+              <button class="btn btn-success  btn-sm" > Completed</button>
           </div>
+          <div class="col-md-6 col" *ngIf="shootCompletedProgress">
+            <button class="btn btn-info btn-sm"> Progress</button>
+        </div>
         </div>
     
         <div class="row">
@@ -57,21 +63,27 @@
           </div>
     
           <div class="col-md-6 col" *ngIf = "imageEditingTrue">
-              <button class="btn btn-success  btn-sm" > completed</button>
+              <button class="btn btn-success  btn-sm" > Completed</button>
           </div>
+          <div class="col-md-6 col" *ngIf="imageEditingProgress">
+            <button class="btn btn-info btn-sm"> Progress</button>
+        </div>
         </div>
       
       <div class="row">
           <div class="offset-md-2 col-md-4 col">
-          <p>Image Delivery Status</p>
+          <p>QC & Image Delivery Status</p>
           </div>
           <div class="col-md-6 col" *ngIf = "delivery">
               <button class="btn btn-danger  btn-sm" >Not completed</button>
           </div>
     
           <div class="col-md-6 col" *ngIf = "deliveryTrue">
-              <button class="btn btn-success  btn-sm" > completed</button>
+              <button class="btn btn-success  btn-sm" > Completed</button>
           </div>
+          <div class="col-md-6 col" *ngIf="deliveryProgress">
+            <button class="btn btn-info btn-sm"> Progress</button>
+        </div>
         </div>
     
         <div class="row">
@@ -83,7 +95,11 @@
             </div>
     
             <div class="col-md-6 col" *ngIf = "paymentTrue">
-                <button class="btn btn-success btn-sm" > completed</button>
+                <button class="btn btn-success btn-sm" > Completed</button>
+            </div>
+            <div class="col-md-6 col" *ngIf="paymentProgress">
+                <button class="btn btn-info btn-sm"> Progress</button>
+              
             </div>
           </div>
           <div class="row">
@@ -95,8 +111,12 @@
               </div>
     
               <div class="col-md-6 col" *ngIf = "materialReturnTrue">
-                  <button class="btn btn-success  btn-sm" >completed</button>
+                  <button class="btn btn-success  btn-sm" >Completed</button>
               </div>
+              <div class="col-md-6 col" *ngIf=" materialReturnProgress">
+                <button class="btn btn-info btn-sm"> Progress</button>
+            
+            </div>
             </div>
             <button class="btn" [routerLink]="['/welcome']" >back</button> 
     </div>

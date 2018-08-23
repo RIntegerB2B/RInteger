@@ -4,17 +4,13 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { AppSetting } from '../../config/appSetting';
+import { AppSetting } from '../config/appSetting';
 import {Subscribe} from './subscribe.model';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
 
 @Injectable({
   providedIn: 'root'
 })
-export class HeaderService {
+export class SubscribeService {
   serviceUrl: string = AppSetting.serviceUrl;
   adminServiceUrl: string = AppSetting.adminServiceUrl;
   headers: Headers = new Headers({

@@ -30,8 +30,7 @@ createForm() {
     id: ['']
   });
 }
-allModels()
-{
+allModels() {
   this.modelDetails();
 }
 /* menModels() {

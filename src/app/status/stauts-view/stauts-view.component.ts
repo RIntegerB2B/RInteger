@@ -25,16 +25,22 @@ orders;
   displayStatus: boolean;
   materialPicked: boolean;
   materialPickedTrue: boolean;
+  materialPickedProgress: boolean;
   shootCompleted: boolean;
   shootCompletedTrue: boolean;
+  shootCompletedProgress: boolean;
   imageEditing: boolean;
   imageEditingTrue: boolean;
+  imageEditingProgress: boolean;
   delivery: boolean;
   deliveryTrue: boolean;
+  deliveryProgress: boolean;
   payment: boolean;
   paymentTrue: boolean;
+  paymentProgress: boolean;
   materialReturn: boolean;
   materialReturnTrue: boolean;
+  materialReturnProgress: boolean;
   hideStatus: boolean;
 
   constructor(private fb: FormBuilder,
@@ -66,88 +72,136 @@ orders;
   this.StatusForOne = data;
 
   switch (data.order) {
-    case false: {
+    case 0: {
       this.progress = true;
       break;
     }
-    case true: {
+    case 1: {
       this.completed = true;
       break;
     }
   }
 
  switch (data.materialPickedUp) {
-    case false: {
+    case 0: {
       this.materialPicked = true;
       this.materialPickedTrue = false;
+      this.materialPickedProgress = false;
       break;
     }
-    case true: {
+    case 1: {
       this.materialPicked = false;
+      this.materialPickedProgress = false;
       this.materialPickedTrue = true;
+      break;
+    }
+    case 2: {
+      this.materialPicked = false;
+      this.materialPickedProgress = true;
+      this.materialPickedTrue = false;
       break;
     }
 
   }
 
   switch (data.shootCompleted) {
-    case false: {
+    case 0: {
       this.shootCompleted = true;
       this.shootCompletedTrue = false;
+      this.shootCompletedProgress = false;
       break;
     }
-    case true: {
+    case 1: {
       this.shootCompleted = false;
+      this.shootCompletedProgress = false;
       this.shootCompletedTrue = true;
+      break;
+    }
+    case 2: {
+      this.shootCompleted = false;
+      this.shootCompletedProgress = true;
+      this.shootCompletedTrue = false ;
       break;
     }
   }
 
   switch (data.imageEditing) {
-    case false: {
+    case 0: {
       this.imageEditing = true;
       this.imageEditingTrue = false;
+      this.imageEditingProgress = false;
       break;
     }
-    case true: {
+    case 1: {
       this.imageEditing = false;
+      this.imageEditingProgress = false;
       this.imageEditingTrue = true;
+      break;
+    }
+    case 2: {
+      this.imageEditing = false;
+      this.imageEditingProgress = true;
+      this.imageEditingTrue = false;
       break;
     }
   }
   switch (data.delivery) {
-    case false: {
+    case 0: {
       this.delivery = true;
       this.deliveryTrue = false;
+      this.deliveryProgress = false;
       break;
     }
-    case true: {
+    case 1: {
       this.deliveryTrue = true;
       this.delivery = false;
+      this.deliveryProgress = false;
+      break;
+    }
+    case 2: {
+      this.deliveryTrue = false;
+      this.delivery = false;
+      this.deliveryProgress = true;
       break;
     }
   }
   switch (data.payment) {
-    case false: {
+    case 0: {
       this.payment = true;
       this.paymentTrue = false;
+      this.paymentProgress = false;
       break;
     }
-    case true: {
+    case 1: {
       this.payment = false;
       this.paymentTrue = true;
+      this.paymentProgress = false;
+      break;
+    }
+    case 2: {
+      this.payment = false;
+      this.paymentTrue = false;
+      this.paymentProgress = true;
       break;
     }
   }
   switch (data.materialReturn) {
-    case false: {
+    case 0: {
+      this.materialReturnProgress = false;
       this.materialReturn = true;
       this.materialReturnTrue = false;
       break;
     }
-    case true: {
+    case 1: {
+      this.materialReturnProgress = false;
       this.materialReturn = false;
       this.materialReturnTrue = true;
+      break;
+    }
+    case 2: {
+      this.materialReturnProgress = true;
+      this.materialReturn = false;
+      this.materialReturnTrue = false;
       break;
     }
   }

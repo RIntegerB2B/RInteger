@@ -1,0 +1,30 @@
+<div class="container" style="margin-top: 60px; margin-bottom: 250px;">
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+      <form [formGroup]="subscribeForm" (ngSubmit)="subscribeForm.valid && subscribe(subscribeForm,mobileNum.value) " novalidate >
+
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Mobile Number" maxlength="10" [(ngModel)]="mobileNo" formControlName="mobileNumber" 
+              #mobileNum required>
+            <button mat-button matSuffix mat-icon-button aria-label="Mobile Number">
+              <mat-icon>phone</mat-icon>
+            </button>
+            <mat-hint color="primary">Ex: 9638347899</mat-hint>
+            <mat-error *ngIf="subscribeForm.controls['mobileNumber'].errors?.required">
+              Mobile Number is
+              <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="!subscribeForm.controls['mobileNumber'].errors?.required">
+              Enter valid mobile Number is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        
+        <input   class="btn booking btn-block text-white"  value="Subscribe" type="submit" >
+
+
+      </form>
+    </div>
+  </div>

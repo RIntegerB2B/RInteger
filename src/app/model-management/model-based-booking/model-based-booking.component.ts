@@ -10,6 +10,7 @@ import { ModelDetail } from './model.model';
 import { ModelBooking } from './model-booking.model';
 import { CustomerDetail } from '../model-based-booking/customer-detail.model';
 import { ModelBookingNotification } from '../model-based-booking/notification.model';
+import {mobileNumber} from '../../booking/booking/validation';
 
 @Component({
   selector: 'app-model-based-booking',
@@ -41,7 +42,7 @@ export class ModelBasedBookingComponent implements OnInit {
   createForm() {
     this.bookModelForm = this.fb.group({
       name: ['', Validators.required],
-      mobileNumber: ['', Validators.required],
+      mobileNumber: [ mobileNumber],
       location: ['', Validators.required],
       productDescription: [''],
       qtyDescription: [''],
@@ -61,6 +62,7 @@ export class ModelBasedBookingComponent implements OnInit {
     });
   }
   bookSubmit(bookModelForm: FormGroup, modelsId: any, modelNm: any) {
+    console.log(modelNm);
     this.mobileNo = bookModelForm.controls.mobileNumber.value;
     this.userName = bookModelForm.controls.name.value;
     this.locat = bookModelForm.controls.location.value;

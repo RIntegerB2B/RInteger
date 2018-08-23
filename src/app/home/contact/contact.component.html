@@ -12,29 +12,45 @@
         <li class="font-weight-light">Phone: <strong class="text-dark">+91-9035671666</strong></li>
         </ul>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-5 col-md-offset-1">
         <form [formGroup]="onSendInForm" (ngSubmit)="sendSubmit(onSendInForm)" novalidate>
+            
+            <div class="form-group">
+                <mat-form-field class="example-full-width">
+                    <input matInput  placeholder="Mobile Number"  maxlength="10"  [(ngModel)]="mobileNo"
+                    formControlName="mobileNumber" type="phone" #mobileNum required>
+                 <button mat-button  matSuffix mat-icon-button aria-label="Mobile Number">
+                     <mat-icon>phone</mat-icon>
+                   </button>
+                   <mat-hint color="primary">Ex: 9638347899</mat-hint>
+                 <mat-error *ngIf="onSendInForm.controls['mobileNumber'].errors?.required">
+                 Mobile Number is
+                   <strong>required</strong>
+                 </mat-error>
+                 <mat-error *ngIf="!onSendInForm.controls['mobileNumber'].errors?.required">
+                    Enter valid mobile Number is
+                      <strong>required</strong>
+                    </mat-error>
+               </mat-form-field>
+              </div>
               <div class="form-group">
-                        <input class="form-control required" required placeholder="Mobile Number"     style="margin-bottom:5px" formControlName="mobileNumber" type="phone">
-                       <div *ngIf="onSendInForm.controls['mobileNumber'].errors
-                                                         && !onSendInForm.controls['mobileNumber'].pristine" class="alert alert-danger">
-                                                         Enter 10 digit mobile number
-                        </div>
-                  </div>
-                 <div class="form-group">
-                        <input class="form-control required" required placeholder="Name"   style="margin-bottom:5px" formControlName="name" type="text" #name>
-                        <div *ngIf="onSendInForm.controls['name'].errors
-                                           && !onSendInForm.controls[ 'name'].pristine" class="alert alert-danger">
-                      <div [hidden]="!onSendInForm.controls['name'].errors.required">Name is required.</div>
-                      </div>
-                  </div>
+                  <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Name" [(ngModel)]="Name" maxlength="20" formControlName="name"
+                  type="text" #name [required]="false">
+                  <button mat-button  matSuffix mat-icon-button aria-label="Name">
+                      <mat-icon>account_circle</mat-icon>
+                    </button>
+                  <mat-error *ngIf="onSendInForm.controls['name'].errors?.required">
+                    Name is
+                    <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
                   <div class="form-group">
-                        <textarea class="form-control required" required placeholder="Type your message" style="margin-bottom:5px" rows=3 formControlName="typeYourMessage" type="text"></textarea>
-                          <div *ngIf="onSendInForm.controls['typeYourMessage'].errors
-                                             && !onSendInForm.controls[ 'typeYourMessage'].pristine" class="alert alert-danger">
-                        <div [hidden]="!onSendInForm.controls['typeYourMessage'].errors.required">Type your message.</div>
-                    </div>
-                        
+                      <mat-form-field appearance="outline">
+                          <mat-label>Type your message.</mat-label>
+                     <input matInput formControlName="typeYourMessage" type="text">
+                     </mat-form-field>   
                   </div>
                         
                       <input class="btn booking btn-block text-white"  value="Send" type="submit" [disabled]='!onSendInForm.valid'>
@@ -42,4 +58,9 @@
                   
           </form>
         </div>
+</div>
+<div class="row" >
+<div class="col-md-6">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.1577443444244!2d77.58431131416759!3d12.897576419989491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae153fbf798053%3A0xa1856111716cdf13!2sRInteger+Studio!5e0!3m2!1sen!2sin!4v1535022726505" width="300" height="300" frameborder="0" style="border:0px;" allowfullscreen></iframe>
+  </div>
 </div>

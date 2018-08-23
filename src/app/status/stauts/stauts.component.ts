@@ -29,6 +29,12 @@ export class StautsComponent implements OnInit {
   paymentTrue: boolean;
   materialReturn: boolean;
   materialReturnTrue: boolean;
+  materialPickedProgress: boolean;
+  shootCompletedProgress: boolean;
+ imageEditingProgress: boolean;
+ deliveryProgress: boolean;
+  paymentProgress: boolean;
+ materialReturnProgress: boolean;
 
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService ) {
@@ -62,69 +68,124 @@ findStatus(statusId) {
     }
 
     switch (status.materialPickedUp) {
-      case false: {
+      case 0: {
         this.materialPicked = true;
+        this.materialPickedTrue = false;
+        this.materialPickedProgress = false;
         break;
       }
-      case true: {
+      case 1: {
+        this.materialPicked = false;
         this.materialPickedTrue = true;
+        this.materialPickedProgress = false;
         break;
       }
-
+      case 2: {
+       this.materialPicked = false;
+       this.materialPickedTrue = false;
+       this.materialPickedProgress = true;
+       break;
+     }
     }
-
     switch (status.shootCompleted) {
-      case false: {
+      case 0: {
         this.shootCompleted = true;
+        this.shootCompletedProgress = false;
+        this.shootCompletedTrue = false;
         break;
       }
-      case true: {
+      case 1: {
+        this.shootCompleted = false;
         this.shootCompletedTrue = true;
+        this.shootCompletedProgress = false;
         break;
       }
+      case 2: {
+       this.shootCompleted = false;
+       this.shootCompletedTrue = false;
+       this.shootCompletedProgress = true;
+       break;
+     }
     }
-
     switch (status.imageEditing) {
-      case false: {
+      case 0: {
         this.imageEditing = true;
+        this.imageEditingTrue = false;
+        this.imageEditingProgress = false;
         break;
       }
-      case true: {
+      case 1: {
+        this.imageEditing = false;
         this.imageEditingTrue = true;
+        this.imageEditingProgress = false;
         break;
       }
+      case 2: {
+       this.imageEditing = false;
+       this.imageEditingTrue = false;
+       this.imageEditingProgress = true;
+       break;
+     }
     }
-
     switch (status.delivery) {
-      case false: {
+      case 0: {
         this.delivery = true;
+        this.deliveryTrue = false;
+        this.deliveryProgress = false;
         break;
       }
-      case true: {
+      case 1: {
         this.deliveryTrue = true;
+        this.delivery = false;
+        this.deliveryProgress = false;
         break;
       }
+      case 2: {
+       this.deliveryTrue = false;
+       this.delivery = false;
+       this.deliveryProgress = true;
+       break;
+     }
     }
     switch (status.payment) {
-      case false: {
+      case 0: {
         this.payment = true;
+        this.paymentTrue = false;
+        this.paymentProgress = false;
         break;
       }
-      case true: {
+      case 1: {
+        this.payment = false;
         this.paymentTrue = true;
+        this.paymentProgress = false;
         break;
       }
+      case 2: {
+       this.payment = false;
+       this.paymentTrue = false;
+       this.paymentProgress = true;
+       break;
+     }
     }
-
     switch (status.materialReturn) {
-      case false: {
+      case 0: {
         this.materialReturn = true;
+        this.materialReturnProgress = false;
+        this.materialReturnTrue = false;
         break;
       }
-      case true: {
+      case 1: {
+        this.materialReturn = false;
+        this.materialReturnProgress = false;
         this.materialReturnTrue = true;
         break;
       }
+      case 2: {
+       this.materialReturn = false;
+       this.materialReturnProgress = true;
+       this.materialReturnTrue = false;
+       break;
+     }
     }
           console.log( this.status);
         }, error => {

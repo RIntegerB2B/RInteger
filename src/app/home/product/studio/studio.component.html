@@ -1,17 +1,44 @@
-<div class="container"  style = "margin-top: 60px">
-    <div class="row">
-      <div class="col-md-2 col" >
-          <div class="container">
-              <div class="row " style = "padding-top: 40px">  
-                            <a  class="nav-tabs btn  btn-block studio text-white active"   (click)="onHiden()">Ecommerce Studio</a>
-                            <a class="nav-tabs btn btn-block studio text-white" (click)="onFashion()">Fashion Studio</a>
-                            <a class="nav-tabs btn btn-block studio text-white" (click)="onCreate()">Creative Studio</a>
-                            <a class="nav-tabs btn btn-block studio text-white" (click)="onShoot()">Shoot Cycle</a>
-              </div>
-              </div>
-      </div>
-      <div class="col-md-8">
-        <div *ngIf="hideEcommerce" style = "padding-top: 20px">
+
+
+<div class="container"  style = "margin-top: 20px">
+  <div class="row navbar newBar">
+        <div class="nav-item">
+            <a class="nav-link"><button mat-button (click)="onHiden()">Ecommerce Studio</button></a>
+        </div>
+        <div class="nav-item">
+            <a class="nav-link"><button mat-button (click)="onFashion()">Fashion Studio</button></a>    
+        </div>
+    <div class="nav-item">
+      <a class="nav-link"><button mat-button (click)="onCreate()">Creative Studio</button></a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link"><button mat-button (click)="onShoot()">Shoot Cycle</button></a>
+    </div>
+  </div>
+<div class="col-md-12 text-center d-md-none d-lg-none">
+    <div class="form-group">
+            <mat-form-field>
+                <mat-select>
+                <mat-option value="Ecommerce Studio">
+                    <button mat-button (click)="onHiden()">Ecommerce Studio</button>
+                  </mat-option>
+                      <mat-option value="Creative Studio">
+                          <button mat-button (click)="onFashion()">Creative Studio</button>
+                          </mat-option>
+                          <mat-option value="Creative Studio">
+                              <button mat-button (click)="onCreate()">Creative Studio</button>
+                              </mat-option>
+                  <mat-option value="Shoot Cycle">
+                      <button mat-button (click)="onShoot()">Shoot Cycle</button>
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div> 
+
+        </div>
+<div class="row" style="padding-top: 40px;">
+      <div class="col-md-12">
+        <div *ngIf="hideEcommerce">
             <h2 class="text-center">Ecommerce Studio</h2>
           <h5>Ecommerce product model photographers Studio Service in Bangalore</h5>
           <p>Unique designs and creations are displayed to the customers with more value using creative shoot services. Adding more visual and content to a product outdoor shoots, adding creative background , adding additional information for product image, showcase a product design with detailed shoots etc are extensively developed in Ripsil creative studios.</p>
@@ -32,7 +59,7 @@
             <li>Product explanatory videos and more</li>
           </ol>
         </div>
-          <div  *ngIf="hideFashion" style = "padding-top: 20px">
+          <div  *ngIf="hideFashion">
               <h2 class="text-center">Fashion Studio</h2>
             <h5>Fashion product model photographers Studio Service in Bangalore</h5>
             <p>Ripsil Fashion studio is designed to keep the uptrend of the growing Fashion industry and its changing dynamic requirement. Fast Fashion and good number of designers have brought more dynamism to fashion industry. Fashion shoots engage more elegance, boldness, expression and elements are added to the product along with the model. The model is educated to carry the product to demonstrate the purpose and carry the mood based on the design , color and the occasion.</p>
@@ -41,7 +68,7 @@
             <p>The inhouse drapers are well equipped to understand the requirement of Saree draping and the features of the Sarees. The pallu , patli , blouse designs, heavy stone works, embroidery and other efforts on the Sarees are highlighted during draping and shoot. The understanding for draping for different purposes and platforms are key strength of Ripsil fashion studio. </p>
           </div>
           
-          <div *ngIf="hideCreate" style = "padding-top: 20px">
+          <div *ngIf="hideCreate">
               <h2 class="text-center">Creative Studio</h2>
               <h5>Creative product model photographers Studio Service in Bangalore</h5>
               <p>Unique designs and creations are displayed to the customers with more value using creative shoot services. Adding more visual and content to a product outdoor shoots, adding creative background , adding additional information for product image, showcase a product design with detailed shoots etc are extensively developed in Ripsil creative studios.</p>
@@ -63,7 +90,7 @@
               </ol>
               
             </div> 
-            <div *ngIf="hideShoot"  style = "padding-top: 20px">
+            <div *ngIf="hideShoot">
                 <h2 class="text-center">Shoot Cycle</h2>
                 <h5>RInteger Shoot Cycle</h5>
                 <ol>
@@ -85,4 +112,3 @@
               
             </div>
           </div>
-    
