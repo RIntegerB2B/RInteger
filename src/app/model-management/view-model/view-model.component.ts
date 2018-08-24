@@ -14,7 +14,7 @@ import {Model} from './model.model';
 export class ViewModelComponent implements OnInit {
   viewModelForm: FormGroup;
   Detail: Model;
-  selected = 'All';
+  selected = 'All';  
   constructor(private fb: FormBuilder, private router: Router, private modelService: ModelManagementService)  { }
   ngOnInit() {
    this.modelDetails();

@@ -58,11 +58,9 @@ export class ModelBasedBookingComponent implements OnInit {
   viewModel(id) {
     this.modelService.modelDetail(id).subscribe(data => {
       this.Model = data;
-      console.log(data);
     });
   }
   bookSubmit(bookModelForm: FormGroup, modelsId: any, modelNm: any) {
-    console.log(modelNm);
     this.mobileNo = bookModelForm.controls.mobileNumber.value;
     this.userName = bookModelForm.controls.name.value;
     this.locat = bookModelForm.controls.location.value;
@@ -110,7 +108,7 @@ export class ModelBasedBookingComponent implements OnInit {
       bookModelForm.controls.productDescription.value
     );
     this.modelService.addCustomerDetail(this.customerModel).subscribe(data => {
-      console.log(data);
+      
     }, error => {
       console.log(error);
     });

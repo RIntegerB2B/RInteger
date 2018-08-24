@@ -1,6 +1,75 @@
-<div class="container" style="margin-bottom:200px;">
-  <div class="text-center"><img class="img-fluid"  src="../../../assets/images/logohomepage.jpg" height="300" width="300"></div>
+<div class="container-fluid">
   <div class="row">
+    <div class="col-md-12 homeImage">
+            <img class="img-fluid" src="../../../assets/images/banner.jpg">
+    </div>
+
+  </div>
+
+  
+  <div class="row">
+  <div class="col-md-4 homeImage">
+      <a [routerLink]="['/models']">
+  <mat-card class="example-card bookingImages">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image-left"></div>
+      </mat-card-header>
+      <mat-card-content>
+          <h5 class="text-center title">Model Booking</h5>
+          <p class="subTitle">Select the Model and enter the quality and description</p>
+      </mat-card-content>
+    </mat-card>
+  </a>
+  </div>  
+  <div class="col-md-4 homeImage">
+    <a [routerLink]="['/booking']">
+      <mat-card class="example-card bookingImages" >
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image-center"></div>
+          </mat-card-header>
+          <mat-card-content>
+              <h5 class="text-center title">General Booking</h5>
+              <p class="subTitle">Product Shoot and Model Shoot Booking</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+      </div> 
+     
+      
+      <div class="col-md-4 homeImage pointer">
+          <a (click)="getStatus()">
+          <mat-card class="example-card bookingImages">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image-right"></div>
+              </mat-card-header>
+              <mat-card-content>
+                  <h5 class="text-center title">Booking Status</h5>
+                  <p class="subTitle">Enter the mobile number to get the Booking Status</p>
+              </mat-card-content>
+            </mat-card>
+          </a>
+          </div>  
+          
+        </div>    
+        <div class="row">
+            <div class="col-md-12 text-center text-dark">
+              <h4>Features</h4>
+        </div>
+            <div class="col-md-12 homeImage">
+                    <img class="img-fluid" src="../../../assets/images/Features-1.jpg">
+            </div>
+            <div class="col-md-12 homeImage">
+                <img class="img-fluid" src="../../../assets/images/Features-2.jpg">
+        </div>
+        <div class="col-md-12 homeImage">
+            <img class="img-fluid" src="../../../assets/images/Features-3.jpg">
+        </div>
+
+    
+        
+        </div>
+
+  <!-- <div class="row">
     <div class="col-md-4 col-sm-12  mx-auto text-center">
         <button  style="padding-top:20px; padding-bottom:20px; margin-top:20px; margin-bottom:20px;" [routerLink]="['/models']" class="btn booking text-white" value="" type="submit">Model Based Booking</button>
       
@@ -11,6 +80,6 @@
   <div class="col-md-4 col-sm-12  mx-auto text-center">
       <button  style="padding-top:20px; padding-bottom:20px; margin-top:20px; margin-bottom:20px;" (click)="getStatus()" class="btn booking text-white" value="" type="submit">Booking Status</button>
     </div>
-  </div>
+  </div> -->
   
 </div>

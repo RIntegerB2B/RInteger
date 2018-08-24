@@ -3,3 +3,17 @@
     position: relative;
     text-align: left;
   }
+  .mat-form-field-appearance-legacy .mat-hint
+{
+  color: red;
+}
+
+.subscribeMasterDiv {
+  width: 80%;
+  background: white;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  margin: auto;
+  position: relative;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

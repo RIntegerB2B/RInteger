@@ -1,4 +1,4 @@
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 992px) {
     .image{
         height:330px;
         width: 330px;
@@ -14,8 +14,8 @@
 
 @media screen and (min-width: 992px) {
     .image{
-        height:291px;
-        width: 291px;
+        height:300px;
+        width: 300px;
         margin-bottom: 15px;
     }
     

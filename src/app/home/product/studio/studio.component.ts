@@ -10,6 +10,7 @@ export class StudioComponent implements OnInit {
   hideFashion = false;
   hideCreate = false;
   hideShoot = false;
+  selected = 'Ecommerce Studio';
   constructor() { }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 @media screen and (max-width: 600px) {
-  .signInMasterDiv {
+  .bookingMasterDiv {
     width: 90%;
     background: white;
     padding-bottom: 10px;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (min-width: 992px) {
-  .signInMasterDiv {
+  .bookingMasterDiv {
     width: 70%;
     background: white;
     padding-bottom: 10px;

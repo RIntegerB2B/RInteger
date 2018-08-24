@@ -16,12 +16,12 @@
   position: relative;
   text-align: left;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 992px) {
     .image{
         height:330px;
         width: 330px;
         margin: auto;
-        margin-bottom: 15px;
+        
     }
 }
 
