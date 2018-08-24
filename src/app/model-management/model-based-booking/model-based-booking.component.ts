@@ -41,9 +41,9 @@ export class ModelBasedBookingComponent implements OnInit {
   }
   createForm() {
     this.bookModelForm = this.fb.group({
-      name: ['', Validators.required],
+      name: [''],
       mobileNumber: [ mobileNumber],
-      location: ['', Validators.required],
+      location: [''],
       productDescription: [''],
       qtyDescription: [''],
       id: [''],

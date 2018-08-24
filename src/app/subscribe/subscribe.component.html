@@ -5,7 +5,6 @@
     </div> 
     <div  class="col-md-4 subscribeMasterDiv">
       <form [formGroup]="subscribeForm" (ngSubmit)="subscribeForm.valid && subscribe(subscribeForm,mobileNum.value) " novalidate >
-
         <div class="form-group">
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Mobile Number" maxlength="10" [(ngModel)]="mobileNo" formControlName="mobileNumber" 
