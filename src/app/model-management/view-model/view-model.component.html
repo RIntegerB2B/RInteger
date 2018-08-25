@@ -23,25 +23,50 @@
         </div>
         <div class="col-md-12 text-center d-md-none d-lg-none">
             <div class="form-group">
-                    <mat-form-field>
-                        <mat-select [(value)]="selected">
-                        <mat-option value="All">
-                                        <button mat-button (click)="allModels()">All</button>
-                          </mat-option>
-                              <mat-option value="International">
+                    
+                <mat-form-field>
+                    <mat-select [(value)]="selected">
+                              <mat-option value="internationalmen">
                                     <button mat-button (click)="interNationalMenModels()">Men International</button>
                                   </mat-option>
-                                  <mat-option value="International">
+                                  <mat-option value="internationalwomen">
                                         <button mat-button (click)="interNationalWomenModels()">Women International</button>
                                       </mat-option>
-                          <mat-option value="National">
+                          <mat-option value="nationalmen">
                                 <button mat-button (click)="nationalMenModels()">Men National</button>
                           </mat-option>
-                          <mat-option value="National">
+                          <mat-option value="nationalwomen">
                                 <button mat-button (click)="nationalWomenModels()">Women National</button>
                           </mat-option>
+                          <mat-option value="All">
+                                <button mat-button (click)="allModels()">All</button>
+                             </mat-option>
                         </mat-select>
-                      </mat-form-field>
+                        
+                </mat-form-field>
+                <!-- <div class="textContainer">
+                    <select  class="hideLabel form-control" >
+                            <option>
+                                    <button (click)="allModels()">All</button>
+                            </option>
+                            
+                                    
+                    
+                        <option>
+                                Men International
+                        </option>
+                        <option (click)="interNationalWomenModels()">
+                                Women International
+                        </option>
+                        <option>
+                               <button (click)="nationalMenModels()" > Men National</button>
+                        </option>
+                        <option (click)="nationalWomenModels()">
+                                <button (click)="nationalWomenModels()"> Women National</button>
+                        </option>
+                    </select>
+                    
+                </div> -->
                     </div> 
     
                 </div>

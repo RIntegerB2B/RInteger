@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { Pipe, PipeTransform } from '@angular/core'; 
 import {ModelManagementService} from '../model-management.service';
 import {Model} from './model.model';
 
@@ -14,7 +14,8 @@ import {Model} from './model.model';
 export class ViewModelComponent implements OnInit {
   viewModelForm: FormGroup;
   Detail: Model;
-  selected = 'All';  
+  selected = 'All';
+  
   constructor(private fb: FormBuilder, private router: Router, private modelService: ModelManagementService)  { }
   ngOnInit() {
    this.modelDetails();
@@ -30,6 +31,7 @@ createForm() {
     id: ['']
   });
 }
+
 allModels() {
   this.modelDetails();
 }

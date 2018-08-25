@@ -7,6 +7,7 @@ export class ServiceProviders {
     mobileNumber: Number;
     website: string;
     location: string;
+    modelType: string;
     isActive: Boolean;
     constructor(
         userName: string,

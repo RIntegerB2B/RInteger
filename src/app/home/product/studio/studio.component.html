@@ -19,11 +19,8 @@
     <div class="form-group">
             <mat-form-field>
                 <mat-select [(value)]="selected">
-                <mat-option value="Ecommerce Studio">
-                    <button mat-button (click)="onHiden()">Ecommerce Studio</button>
-                  </mat-option>
-                      <mat-option value="Creative Studio">
-                          <button mat-button (click)="onFashion()">Creative Studio</button>
+                    <mat-option value="Creative Studio">
+                          <button mat-button (click)="onFashion()">Fashion Studio</button>
                           </mat-option>
                           <mat-option value="Creative Studio">
                               <button mat-button (click)="onCreate()">Creative Studio</button>
@@ -31,6 +28,9 @@
                   <mat-option value="Shoot Cycle">
                       <button mat-button (click)="onShoot()">Shoot Cycle</button>
                   </mat-option>
+                  <mat-option value="Ecommerce Studio">
+                      <button mat-button (click)="onHiden()">Ecommerce Studio</button>
+                    </mat-option>  
                 </mat-select>
               </mat-form-field>
             </div> 

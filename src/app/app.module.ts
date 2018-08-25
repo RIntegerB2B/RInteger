@@ -33,6 +33,7 @@ import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFor
 import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SubscribeComponent } from './subscribe/subscribe.component';
+import { FormsModule } from '@angular/forms'
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
     HttpClientModule,      // (Required) for share counts
     HttpClientJsonpModule,
     Routing,
+    FormsModule,
     ReactiveFormsModule,
     AngularFontAwesomeModule,
     Ng2Webstorage,
