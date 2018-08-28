@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Pipe, PipeTransform } from '@angular/core'; 
-import {ModelManagementService} from '../model-management.service';
-import {Model} from './model.model';
+import { ModelManagementService } from '../model-management.service';
+import { Model } from './model.model';
 
 
 @Component({
@@ -15,22 +14,23 @@ export class ViewModelComponent implements OnInit {
   viewModelForm: FormGroup;
   Detail: Model;
   selected = 'All';
-  
-  constructor(private fb: FormBuilder, private router: Router, private modelService: ModelManagementService)  { }
+  constructor(private fb: FormBuilder, private router: Router, private modelService: ModelManagementService) { }
   ngOnInit() {
-   this.modelDetails();
-   this.createForm();
+    this.modelDetails();
+    this.createForm();
   }
-/* serviceProviders() {
-  this.modelService.getServiceProviders().subscribe(data => {
-console.log(data);
-  });
-} */
-createForm() {
-  this.viewModelForm = this.fb.group({
-    id: ['']
-  });
-}
+  /* serviceProviders() {
+    this.modelService.getServiceProviders().subscribe(data => {
+  console.log(data);
+    });
+  } */
+  createForm() {
+    this.viewModelForm = this.fb.group({
+      id: ['']
+    });
+  }
+
+
 
 allModels() {
   this.modelDetails();
@@ -46,6 +46,9 @@ womenModels() {
   });
 }
  */
+
+
+
 nationalMenModels() {
   this.modelService.getNationalMenModels().subscribe(data => {
     this.Detail = data;
@@ -66,13 +69,14 @@ interNationalWomenModels() {
     this.Detail = data;
   });
 }
+
 modelDetails() {
   this.modelService.getModelDetails().subscribe(data => {
     this.Detail = data;
   });
 }
 bookModel(viewModelForm: FormGroup, modelId: any) {
-console.log(modelId);
-this.router.navigate(['/modelBooking', modelId]);
+  console.log(modelId);
+  this.router.navigate(['/modelBooking', modelId]);
 }
 }

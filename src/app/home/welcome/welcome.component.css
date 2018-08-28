@@ -33,9 +33,10 @@
       }
       .title
       {
-        color: #777;
+        color: #2f44b1;
         padding:10px;
         margin:0px;
+        font-size: 1.5em;
       }
       .subTitle
       {
@@ -43,5 +44,15 @@
         padding-left:18px;
         text-align: center;
       }
+      .mat-card
+      {
+        background: #f8f9fa;
+      }
+      h5 a:hover
+      {
+         border-bottom: 1px solid #2f44b1;
+      }
       .pointer {
-          cursor: pointer;}
+          cursor: pointer;
+        }
+        
