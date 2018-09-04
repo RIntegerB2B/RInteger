@@ -30,18 +30,18 @@ export class BookingComponent implements OnInit {
   notificationModel: Notification;
   customer: Customer;
   swPush: SwPush;
-   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
+  readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   // readonly VAPID_PUBLIC_KEY = 'BKt65eGjjxVC8EDZj-9awfTMKLydA0jxM6mhren6Hz1UBIduWTFEtIXB7thtCN9nnMZlJsvkYqTn7rUKo8mmGxw';
 
   constructor(private fb: FormBuilder, private router: Router,
     private bookingService: BookingService, private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private injector: Injector) {
-      try {
-        this.swPush = this.injector.get(SwPush);
+    try {
+      this.swPush = this.injector.get(SwPush);
     } catch (error) {
-        // workaround for https://github.com/angular/angular/issues/20407
+      console.log(error);
     }
-     }
+  }
 
   ngOnInit() {
     this.createForm();
@@ -83,7 +83,7 @@ export class BookingComponent implements OnInit {
       console.log(error);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
-     this.subscribe(this.mobileNo);
+    this.subscribe(this.mobileNo);
   }
   subscribe(mobNo) {
     this.swPush.requestSubscription({
