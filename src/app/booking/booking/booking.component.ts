@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -29,12 +29,19 @@ export class BookingComponent implements OnInit {
   hideMobileNo: boolean;
   notificationModel: Notification;
   customer: Customer;
+  swPush: SwPush;
    readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   // readonly VAPID_PUBLIC_KEY = 'BKt65eGjjxVC8EDZj-9awfTMKLydA0jxM6mhren6Hz1UBIduWTFEtIXB7thtCN9nnMZlJsvkYqTn7rUKo8mmGxw';
 
   constructor(private fb: FormBuilder, private router: Router,
     private bookingService: BookingService, private localStorageService: LocalStorageService,
-    private swUpdate: SwUpdate, private swPush: SwPush) { }
+    private swUpdate: SwUpdate, private injector: Injector) {
+      try {
+        this.swPush = this.injector.get(SwPush);
+    } catch (error) {
+        // workaround for https://github.com/angular/angular/issues/20407
+    }
+     }
 
   ngOnInit() {
     this.createForm();
