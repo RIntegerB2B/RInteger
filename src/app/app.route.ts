@@ -29,6 +29,7 @@ const routes: Routes = [
     { path: 'models', component: ViewModelComponent },
     { path: 'subscribe', component: SubscribeComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+    { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
 ];
 
 export const Routing = RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'});
