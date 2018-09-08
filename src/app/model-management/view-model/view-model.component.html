@@ -18,6 +18,14 @@
                   <li class="nav-item">
                         <a class="nav-link"><button mat-button (click)="nationalWomenModels()">Women National</button></a>
                     </li>
+                    <!-- <li class="nav-item">
+                        <select #selectElem  (change)="selectServiceProvider(selectElem.value)"  class="nav-link" >
+                            <option>Select service provider</option>
+                            <option *ngFor="let sp of serviceProvider" [value]="sp.Id">
+                                {{sp.userName}}
+                            </option>
+                        </select>
+                    </li> -->
                 </ul>             
             </div> 
         </div>
@@ -81,7 +89,7 @@
                 <input type="text" hidden [value]="model._id" formControlName="id" #modelId>
                 <a (click)="bookModel(viewModelForm,modelId.value)">
                   <mat-card class="example-card image">
-                        <img mat-card-image [src]="this.model?.portfolioImageName">       
+                        <img mat-card-image [src]="this.model?.primeImage">       
                 </mat-card>
                 </a>
                 </div>

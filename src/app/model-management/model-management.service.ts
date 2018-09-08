@@ -9,6 +9,7 @@ import {Model} from './view-model/model.model';
 import {ServiceProviders} from './view-model/service-provider.model';
 import {ModelBooking} from './model-based-booking/model-booking.model';
 import { CustomerDetail } from './model-based-booking/customer-detail.model';
+import {ModelDetail} from './model-based-booking/model.model';
 import {ModelBookingNotification} from './model-based-booking/notification.model';
 
 const httpOptions = {
@@ -33,10 +34,20 @@ export class ModelManagementService {
    }
   constructor(private http: Http, private httpClient: HttpClient) { }
 
-  getModelDetails(): Observable<any> {
+  getModelDetails(id): Observable<any> {
     const statusUrl = 'modelDetails/';
-    const url: string = this.serviceUrl + statusUrl  ;
+    const url: string = this.serviceUrl + statusUrl + id ;
     return this.httpClient.get<Model>(url);
+  }
+  getAllModels(): Observable<any> {
+    const statusUrl = 'models/';
+    const url: string = this.serviceUrl + statusUrl ;
+    return this.httpClient.get<Model>(url);
+  }
+  getServiceProviders(): Observable<any> {
+    const statusUrl = 'serviceProviders/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<ServiceProviders>(url);
   }
  /*  getMenDetails(): Observable<any> {
     const statusUrl = 'menmodels/';
@@ -68,10 +79,11 @@ export class ModelManagementService {
     const url: string = this.serviceUrl + statusUrl  ;
     return this.httpClient.get<Model>(url);
   }
+  // model detail
   modelDetail(id): Observable<any> {
-    const statusUrl = 'modelDetails/';
+    const statusUrl = 'model/';
     const url: string = this.serviceUrl + statusUrl + id  ;
-    return this.httpClient.get<Model>(url);
+    return this.httpClient.get<ModelDetail>(url);
   }
   addModelBooking(data: ModelBooking): Observable<any> {
     const bookurl = 'modelbooking/';

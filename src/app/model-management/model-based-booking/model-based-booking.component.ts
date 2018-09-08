@@ -27,6 +27,12 @@ export class ModelBasedBookingComponent implements OnInit {
   bookingModel: ModelBooking;
   customerModel: CustomerDetail;
   notificationModel: ModelBookingNotification;
+  showEcommerce: boolean;
+  showPortrait: boolean;
+  showProduct: boolean;
+  showProfile: boolean;
+  showAll: boolean;
+  showPortFolio: boolean;
   selected = 'Portfolio';
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
@@ -39,6 +45,7 @@ export class ModelBasedBookingComponent implements OnInit {
     this.viewModel(this.id);
     this.createForm();
     this.checkData();
+    this.showPortFolio = true;
   }
   createForm() {
     this.bookModelForm = this.fb.group({
@@ -59,7 +66,41 @@ export class ModelBasedBookingComponent implements OnInit {
   viewModel(id) {
     this.modelService.modelDetail(id).subscribe(data => {
       this.Model = data;
+      console.log(this.Model);
     });
+  }
+  ecommerceImage() {
+    console.log('ecom tesy');
+    this.showEcommerce = true;
+    this.showProfile = false;
+    this.showPortrait = false;
+    this.showProduct = false;
+    this.showAll = false;
+    this.showPortFolio = false;
+  }
+  productImage() {
+    this.showEcommerce = false;
+    this.showProfile = false;
+    this.showPortrait = false;
+    this.showProduct = true;
+    this.showAll = false;
+    this.showPortFolio = false;
+  }
+  portraitImage() {
+    this.showEcommerce = false;
+    this.showProfile = false;
+    this.showPortrait = true;
+    this.showProduct = false;
+    this.showAll = false;
+    this.showPortFolio = false;
+  }
+  portFolioImage() {
+    this.showEcommerce = false;
+    this.showProfile = false;
+    this.showPortrait = false;
+    this.showProduct = false;
+    this.showAll = false;
+    this.showPortFolio = true;
   }
   bookSubmit(bookModelForm: FormGroup, modelsId: any, modelNm: any) {
     this.mobileNo = bookModelForm.controls.mobileNumber.value;
@@ -109,7 +150,6 @@ export class ModelBasedBookingComponent implements OnInit {
       bookModelForm.controls.productDescription.value
     );
     this.modelService.addCustomerDetail(this.customerModel).subscribe(data => {
-      
     }, error => {
       console.log(error);
     });

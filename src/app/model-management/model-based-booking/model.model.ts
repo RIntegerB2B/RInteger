@@ -6,8 +6,11 @@ export class ModelDetail {
     emailId: string;
     faceBook: string;
     whatsapp: string;
-    portfolioImageName: string;
-    catalogImageName: string;
+    primeImage: string;
+    ecommerceImageName: [string];
+    productImageName: [string];
+    portraitImageName: [string];
+    porFolioImageName: [string];
     serviceProviderId: string;
     serviceProviderName: string;
     serviceProviderCompanyName: string;

@@ -1,4 +1,5 @@
 export class Model {
+    _id: string;
     userName: string;
     description: string;
     availability: boolean;
@@ -6,8 +7,11 @@ export class Model {
     emailId: string;
     faceBook: string;
     whatsapp: string;
-    portfolioImageName: string;
-    catalogImageName: string;
+    primeImage: string;
+    ecommerceImageName: [string];
+    productImageName: [string];
+    portraitImageName: [string];
+    porFolioImageName: [string];
     serviceProviderId: string;
     serviceProviderName: string;
     serviceProviderCompanyName: string;
