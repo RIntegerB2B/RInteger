@@ -34,6 +34,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SubscribeComponent } from './subscribe/subscribe.component';
 import { FormsModule } from '@angular/forms';
+import { CatalogingListingBookingComponent } from './cataloging-listing/cataloging-listing-booking/cataloging-listing-booking.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { FormsModule } from '@angular/forms';
     StudioComponent,
     ModelBasedBookingComponent,
     ViewModelComponent,
-    SubscribeComponent
+    SubscribeComponent,
+    CatalogingListingBookingComponent
   ],
   imports: [
     BrowserModule,
