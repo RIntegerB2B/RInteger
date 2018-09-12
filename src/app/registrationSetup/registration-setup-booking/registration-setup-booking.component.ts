@@ -3,33 +3,30 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 
-import { CatalogListingService } from '../catalog-listing.service';
 import { mobileNumber } from './validation';
-import { CatalogBooking } from './catalog-booking.model';
-
-
+import { RegistrationBooking } from './registrationSetup.model';
+import { RegistrationSetupService } from '../registration-setup.service';
 
 @Component({
-  selector: 'app-cataloging-listing-booking',
-  templateUrl: './cataloging-listing-booking.component.html',
-  styleUrls: ['./cataloging-listing-booking.component.css']
+  selector: 'app-registration-setup-booking',
+  templateUrl: './registration-setup-booking.component.html',
+  styleUrls: ['./registration-setup-booking.component.css']
 })
-export class CatalogingListingBookingComponent implements OnInit {
-  catalogListingForm: FormGroup;
-  booked: boolean;
+export class RegistrationSetupBookingComponent implements OnInit {
+
+  registrationBookingForm: FormGroup;
   userName: string;
   mobileNo: number;
   locat: string;
   addMobileNo: number;
   addUserName: string;
   addLocation: string;
-  catalogModel: CatalogBooking;
-  platFormType = ['B2BNational', 'B2BInternational', 'B2CNational', 'B2CInternational', 'SocialMedia'];
+  registrationBooking: RegistrationBooking;
   b2bNational = ['Alibaba', 'Amazon', 'Meesho', 'Reliance', 'Udaan', 'WholesaleBox'];
   b2bInternational = ['Alibaba'];
   b2cNational = ['Amazon', 'Flipkart', 'Jabong', 'LimeRoad', 'Mr.Voonik', 'Myntra', 'Paytm', 'Shopclues', 'Voonik'];
   b2cInternational = ['Amazon.com',  'Cbazaar', 'Utsav'];
-  socialmedia = ['Facebook', 'Google' , 'WhatsApp'];
+  socialmedia = ['Facebook', 'Flikr', 'Google' , 'Instagram',  'Pintrest', 'Tumblr', 'Twitter', 'WhatsApp'];
   showb2bNational: boolean;
   showb2cNational: boolean;
   showb2bInternational: boolean;
@@ -41,9 +38,12 @@ export class CatalogingListingBookingComponent implements OnInit {
   selectedb2bInterNational = [];
   selectedb2cInterNational = [];
   selectedSocialMedia = [];
+  booked: boolean;
   bookingId;
+
+
   constructor(private fb: FormBuilder, private router: Router,
-    private catalogService: CatalogListingService, private localStorageService: LocalStorageService) { }
+    private registrationService: RegistrationSetupService, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
     this.createForm();
@@ -51,19 +51,16 @@ export class CatalogingListingBookingComponent implements OnInit {
     this.showb2cNational = true;
   }
   createForm() {
-    this.catalogListingForm = this.fb.group({
+    this.registrationBookingForm = this.fb.group({
       mobileNumber: ['', mobileNumber],
       name: [''],
       location: [''],
-      productDescription: [''],
-      qtyDescription: [''],
       platformType: [''],
       b2bNat: [''],
       b2cNat: [''],
       b2bInter: [''],
       b2cInter: [''],
       socialMedia: [''],
-
     });
   }
 
@@ -110,7 +107,7 @@ export class CatalogingListingBookingComponent implements OnInit {
   }
 
 
-  getB2bNationalValue(catalogListingForm: FormGroup, b2bnat, isChecked) {
+  getB2bNationalValue(registrationBooking: FormGroup, b2bnat, isChecked) {
     const b2bindex = this.selectedb2bNational.indexOf(b2bnat);
     if (isChecked) {
       this.selectedb2bNational.push(b2bnat);
@@ -119,7 +116,7 @@ export class CatalogingListingBookingComponent implements OnInit {
     }
   }
 
-  getB2cNationalValue(catalogListingForm, b2cnat, isChecked) {
+  getB2cNationalValue(registrationBooking, b2cnat, isChecked) {
     const b2cindex = this.selectedb2cNational.indexOf(b2cnat);
     if (isChecked) {
       this.selectedb2cNational.push(b2cnat);
@@ -128,7 +125,7 @@ export class CatalogingListingBookingComponent implements OnInit {
     }
     console.log(this.selectedb2cNational);
   }
-  getB2bInterNationalValue(catalogListingForm, b2binternat, isChecked) {
+  getB2bInterNationalValue(registrationBooking, b2binternat, isChecked) {
     const b2bInterindex = this.selectedb2bInterNational.indexOf(b2binternat);
     if (isChecked) {
       this.selectedb2bInterNational.push(b2binternat);
@@ -137,7 +134,7 @@ export class CatalogingListingBookingComponent implements OnInit {
     }
     console.log(this.selectedb2bInterNational);
   }
-  getB2cInterNationalValue(catalogListingForm, b2cinternat, isChecked) {
+  getB2cInterNationalValue(registrationBooking, b2cinternat, isChecked) {
     const b2cInterindex = this.selectedb2cInterNational.indexOf(b2cinternat);
     if (isChecked) {
       this.selectedb2cInterNational.push(b2cinternat);
@@ -146,7 +143,7 @@ export class CatalogingListingBookingComponent implements OnInit {
     }
     console.log(this.selectedb2cInterNational);
   }
-  getSocialMediaValue(catalogListingForm, socialMedia, isChecked) {
+  getSocialMediaValue(registrationBooking, socialMedia, isChecked) {
     const socialMediaindex = this.selectedSocialMedia.indexOf(socialMedia);
     if (isChecked) {
       this.selectedSocialMedia.push(socialMedia);
@@ -155,34 +152,31 @@ export class CatalogingListingBookingComponent implements OnInit {
     }
     console.log(this.selectedSocialMedia);
   }
-  booking(catalogListingForm: FormGroup) {
-    this.addMobileNo = catalogListingForm.controls.mobileNumber.value;
-    this.addUserName = catalogListingForm.controls.name.value;
-    this.addLocation = catalogListingForm.controls.location.value;
+  booking(registrationBooking: FormGroup) {
+    this.addMobileNo = registrationBooking.controls.mobileNumber.value;
+    this.addUserName = registrationBooking.controls.name.value;
+    this.addLocation = registrationBooking.controls.location.value;
     this.localStorageService.store('mobileno', this.addMobileNo);
     this.localStorageService.store('name', this.addUserName);
     this.localStorageService.store('location', this.addLocation);
-    this.catalogModel = new CatalogBooking(
-      catalogListingForm.controls.mobileNumber.value,
-      catalogListingForm.controls.name.value,
-      catalogListingForm.controls.location.value,
-      catalogListingForm.controls.productDescription.value,
-      catalogListingForm.controls.qtyDescription.value,
+    this.registrationBooking = new RegistrationBooking(
+      registrationBooking.controls.mobileNumber.value,
+      registrationBooking.controls.name.value,
+      registrationBooking.controls.location.value
     );
-    this.catalogModel.b2bNational = this.selectedb2bNational;
-    this.catalogModel.b2bInterNational = this.selectedb2bInterNational;
-    this.catalogModel.b2cNational = this.selectedb2cNational;
-    this.catalogModel.b2cInterNational = this.selectedb2cInterNational;
-    this.catalogModel.socialMedia = this.selectedSocialMedia;
-    this.catalogService.catalogBooking(this.catalogModel).subscribe(data => {
+    this.registrationBooking.b2bNational = this.selectedb2bNational;
+    this.registrationBooking.b2bInterNational = this.selectedb2bInterNational;
+    this.registrationBooking.b2cNational = this.selectedb2cNational;
+    this.registrationBooking.b2cInterNational = this.selectedb2cInterNational;
+    this.registrationBooking.socialMedia = this.selectedSocialMedia;
+    this.registrationService.registrationBooking(this.registrationBooking).subscribe(data => {
+      console.log(data);
       this.bookingId = data.bookingOrderId;
       console.log(this.bookingId);
-
-      console.log(data);
       this.booked = true;
+      console.log(data);
     }, error => {
       console.log(error);
     });
   }
-
 }

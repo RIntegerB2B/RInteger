@@ -5,12 +5,12 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
 
-import {CatalogBooking} from './cataloging-listing-booking/catalog-booking.model';
+import {MarketingServicesBooking} from './marketing-services-booking/marketingServices.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CatalogListingService {
+export class MarketingServicesService {
   serviceUrl: string = AppSetting.serviceUrl;
   adminServiceUrl: string = AppSetting.adminServiceUrl;
   headers: Headers = new Headers({
@@ -25,10 +25,9 @@ export class CatalogListingService {
     };
   }
   constructor(private http: Http, private httpClient: HttpClient) { }
-
-  catalogBooking(data: CatalogBooking): Observable<any> {
-    const bookurl = 'catalogBooking/';
+  marketingBooking(data: MarketingServicesBooking): Observable<any> {
+    const bookurl = 'marketingBooking/';
     const url: string = this.serviceUrl + bookurl;
-    return this.httpClient.post<CatalogBooking>(url, data);
+    return this.httpClient.post<MarketingServicesBooking>(url, data);
   }
 }

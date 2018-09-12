@@ -36,6 +36,7 @@
       </div> 
      
       
+      
       <div class="col-md-4 homeImage pointer">
           <a (click)="getStatus()">
           <mat-card class="example-card bookingImages">
@@ -52,13 +53,70 @@
           
         </div>    
         <div class="row">
+          <div class="col-md-4 homeImage">
+              <a [routerLink]="['/cataloging']">
+          <mat-card class="example-card bookingImages">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header1-image-left"></div>
+              </mat-card-header>
+              <mat-card-content>
+                  <h5 class="text-center title"><a>Cataloging / Listing Booking</a></h5>
+                  <p class="subTitle">----------</p>
+              </mat-card-content>
+            </mat-card>
+          </a>
+          </div>  
+          <div class="col-md-4 homeImage">
+            <a [routerLink]="['/registrationSetup']">
+              <mat-card class="example-card bookingImages" >
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header1-image-center"></div>
+                  </mat-card-header>
+                  <mat-card-content>
+                      <h5 class="text-center title"><a>Registration & Setup Booking</a></h5>
+                      <p class="subTitle">------------------</p>
+                  </mat-card-content>
+                </mat-card>
+              </a>
+              </div> 
+             
+              
+              
+              <div class="col-md-4 homeImage pointer">
+                  <a [routerLink]="['/marketingservices']">
+                  <mat-card class="example-card bookingImages">
+                      <mat-card-header>
+                        <div mat-card-avatar class="example-header1-image-right"></div>
+                      </mat-card-header>
+                      <mat-card-content>
+                          <h5 class="text-center title"><a>Marketing Services Booking</a></h5>
+                          <p class="subTitle">---------------</p>
+                      </mat-card-content>
+                    </mat-card>
+                  </a>
+                  </div>  
+                  
+                </div>    
+        <div class="row">
            
               <div class="col-md-12 homeImage text-center ">
                   <h1 class="homeImage border-top border-bottom">Features</h1>
             </div>
+            <div class="container-fluid banner">
+                <carousel  [showIndicators]="false">
+                  <slide>
+                    <img class="image"  src="../../../assets/images/Features-1.jpg"  alt="first slide" width="100%">
+                  </slide>
+                  <slide>
+                    <img class="image" src="../../../assets/images/Features-2.jpg"  alt="second slide" width="100%">
+                  </slide>
+                  <slide>
+                    <img class="image" src="../../../assets/images/Features-3.jpg"  alt="third slide" width="100%">
+                  </slide>
+                </carousel>
+                </div>
           
-          
-                <div class="col-md-12 homeImage">
+              <!--   <div class="col-md-12 homeImage">
                     <img class="img-fluid" src="../../../assets/images/Features-1.jpg">
             </div>
             <div class="col-md-12 homeImage">
@@ -67,7 +125,7 @@
         <div class="col-md-12 homeImage">
             <img class="img-fluid" src="../../../assets/images/Features-3.jpg">
         </div>
-
+ -->
     
         
         </div>

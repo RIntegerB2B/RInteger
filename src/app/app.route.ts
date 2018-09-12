@@ -13,7 +13,8 @@ import {ModelBasedBookingComponent} from './model-management/model-based-booking
 import {ViewModelComponent} from './model-management/view-model/view-model.component';
 import {SubscribeComponent} from './subscribe/subscribe.component';
 import {CatalogingListingBookingComponent} from './cataloging-listing/cataloging-listing-booking/cataloging-listing-booking.component';
-
+import {RegistrationSetupBookingComponent} from './registrationSetup/registration-setup-booking/registration-setup-booking.component';
+import {MarketingServicesBookingComponent} from './marketing-services/marketing-services-booking/marketing-services-booking.component';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
@@ -31,6 +32,8 @@ const routes: Routes = [
     { path: 'models', component: ViewModelComponent },
     { path: 'subscribe', component: SubscribeComponent },
     { path: 'cataloging', component: CatalogingListingBookingComponent },
+    { path: 'registrationSetup', component: RegistrationSetupBookingComponent },
+    { path: 'marketingservices', component: MarketingServicesBookingComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
 ];

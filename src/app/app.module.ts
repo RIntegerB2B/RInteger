@@ -35,6 +35,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SubscribeComponent } from './subscribe/subscribe.component';
 import { FormsModule } from '@angular/forms';
 import { CatalogingListingBookingComponent } from './cataloging-listing/cataloging-listing-booking/cataloging-listing-booking.component';
+import { RegistrationSetupBookingComponent } from './registrationSetup/registration-setup-booking/registration-setup-booking.component';
+import { MarketingServicesBookingComponent } from './marketing-services/marketing-services-booking/marketing-services-booking.component';
 
 
 @NgModule({
@@ -55,7 +57,9 @@ import { CatalogingListingBookingComponent } from './cataloging-listing/catalogi
     ModelBasedBookingComponent,
     ViewModelComponent,
     SubscribeComponent,
-    CatalogingListingBookingComponent
+    CatalogingListingBookingComponent,
+    RegistrationSetupBookingComponent,
+    MarketingServicesBookingComponent
   ],
   imports: [
     BrowserModule,
