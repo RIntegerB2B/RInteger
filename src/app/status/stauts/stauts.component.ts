@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+
 import {StatusService} from '../status.service';
 import { Status} from './status.model';
+import {BookingStatus} from './bookingStatus.model';
 
 
 @Component({
@@ -14,6 +17,7 @@ export class StautsComponent implements OnInit {
   id: string;
   statusForm: FormGroup;
   status: Status[] = [];
+  BookingStatus: BookingStatus [] = [];
   progress: boolean;
   completed: boolean;
   displayStatus: boolean;
@@ -35,6 +39,10 @@ export class StautsComponent implements OnInit {
  deliveryProgress: boolean;
   paymentProgress: boolean;
  materialReturnProgress: boolean;
+ bookingStatusApproved: boolean;
+ bookingStatusWaiting: boolean;
+ bookingStatusCompleted: boolean;
+ bookingCancelled: boolean;
 
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService ) {
@@ -43,7 +51,7 @@ export class StautsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.findStatus(this.id);
+    this.findOrderStatus();
     this.createForm();
   }
 
@@ -52,8 +60,45 @@ export class StautsComponent implements OnInit {
     order: ['']
   });
 }
+findOrderStatus() {
+  this.statusService.getBookingStatus(this.id).subscribe(data => {
+    // console.log(data);
+    this.BookingStatus.push(data) ;
+  // console.log(data.bookingStatus);
+  switch (data.bookingStatus) {
+    case 0: {
+      this.bookingStatusWaiting = true;
+      this.bookingStatusApproved = false;
+      this.bookingStatusCompleted = false;
+      this.bookingCancelled = false;
+      break;
+    }
+    case 1: {
+      this.bookingStatusApproved = true;
+      this.bookingStatusWaiting = false;
+      this.bookingStatusCompleted = false;
+      this.bookingCancelled = false;
+      break;
+    }
+    case 2: {
+      this.bookingStatusCompleted = true;
+      this.bookingStatusApproved = false;
+      this.bookingStatusWaiting = false;
+      this.bookingCancelled = false;
+      break;
+    }
+    case 3: {
+      this.bookingCancelled = true;
+      this.bookingStatusCompleted = false;
+      this.bookingStatusApproved = false;
+      this.bookingStatusWaiting = false;
+      break;
+    }
+  }
+  });
+}
 
-findStatus(statusId) {
+findStatus() {
   this.statusService.getStatus(this.id).subscribe(status => {
     this.status.push(status) ;
     switch (status.order) {
@@ -194,6 +239,7 @@ findStatus(statusId) {
       }
 
       statusView() {
+        this.findStatus();
         this.displayStatus = true;
       }
 

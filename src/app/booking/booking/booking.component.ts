@@ -77,8 +77,9 @@ export class BookingComponent implements OnInit {
     this.saveCustomerDetail(onBookInForm);
     this.onBookInForm.reset();
     this.bookingService.addBooking(this.userBook).subscribe(data => {
+      console.log(data);
       this.id = data;
-      this.router.navigate(['/status', this.id._id]);
+      this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {
       console.log(error);
     });

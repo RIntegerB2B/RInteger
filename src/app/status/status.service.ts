@@ -30,6 +30,12 @@ export class StatusService {
   }
   constructor(private http: Http, private httpClient: HttpClient) { }
 
+  getBookingStatus(id): Observable<any> {
+    const statusUrl = 'bookstatus/';
+    const url: string = this.serviceUrl + statusUrl + id ;
+    return this.httpClient.get<Status>(url);
+  }
+
   getStatus(id): Observable<any> {
     const statusUrl = 'status/';
     const url: string = this.serviceUrl + statusUrl + id ;

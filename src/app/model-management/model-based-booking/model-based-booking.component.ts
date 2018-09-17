@@ -122,7 +122,8 @@ export class ModelBasedBookingComponent implements OnInit {
     this.bookModelForm.reset();
     this.modelService.addModelBooking(this.bookingModel).subscribe(data => {
       this.id = data;
-      this.router.navigate(['/status', this.id._id]);
+      console.log(data.bookingOrderId);
+      this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {
       console.log(error);
     });

@@ -26,7 +26,7 @@ export class CatalogListingService {
   }
   constructor(private http: Http, private httpClient: HttpClient) { }
 
-  catalogBooking(data: CatalogBooking): Observable<any> {
+ catalogBooking(data: CatalogBooking): Observable<any> {
     const bookurl = 'catalogBooking/';
     const url: string = this.serviceUrl + bookurl;
     return this.httpClient.post<CatalogBooking>(url, data);

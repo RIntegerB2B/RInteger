@@ -1,4 +1,6 @@
 export class Booking {
+    bookingOrderId: string;
+    bookingStatus: number;
     mobileNumber: number;
     name: string;
     productDescription: string;

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import { empty } from 'rxjs';
+import {map} from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-welcome',
@@ -10,6 +12,7 @@ import { empty } from 'rxjs';
 })
 export class WelcomeComponent implements OnInit {
   mobileNo: string;
+  showIndicators = false;
 
   constructor(private router: Router, private localStorageService: LocalStorageService) { }
 
