@@ -1,5 +1,5 @@
 <form [formGroup]="catalogListingForm" novalidate style="padding-bottom:60px">
-  <div class="container-fluid" *ngIf="!booked">
+  <div class="container-fluid" >
     <div class="row">
       <div class="col-md-6 mx-auto bookingMasterDiv" >
         <div class="text-center text-secondary" style="padding:15px;">
@@ -175,10 +175,5 @@
     </div>
     
   </div>
-  <div class="registered" *ngIf= "booked"> 
-    <h2>Booking Id is {{bookingId}}</h2>
-    <h2> Booking success  </h2>  
-     <!--  <button  mat-raised-button color="accent" [routerLink]="['/welcome']" ><strong>Completed</strong></button> -->
-      
-    </div>
+ 
 </form>

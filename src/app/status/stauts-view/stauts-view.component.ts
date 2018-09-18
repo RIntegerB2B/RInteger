@@ -6,6 +6,7 @@ import {StatusService} from '../status.service';
 import { StatusView } from './status-view.model';
 import {StatusDetail } from './status-detail.model';
 import {BookingDetail} from './booking-detail.model';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-stauts-view',
@@ -42,11 +43,14 @@ orders;
   materialReturnTrue: boolean;
   materialReturnProgress: boolean;
   hideStatus: boolean;
+ bookingStatusApproved: boolean;
+ bookingStatusWaiting: boolean;
+ bookingStatusCompleted: boolean;
+ bookingCancelled: boolean;
 
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService ) {
       this.no = this.activatedRoute.snapshot.paramMap.get('no');
-      console.log(this.no);
      }
 
   ngOnInit() {
@@ -219,16 +223,46 @@ orderDisplay() {
   status(no) {
     this.statusService.getStatusByNum(no).subscribe(statusData => {
        this.Status = statusData;
+       statusData.forEach(function(elem) {
+        console.log(elem.bookingStatus);
+       switch (elem.bookingStatus) {
+        case 0: {
+          this.bookingStatusWaiting = true;
+          this.bookingStatusApproved = false;
+          this.bookingStatusCompleted = false;
+          this.bookingCancelled = false;
+          break;
+        }
+        case 1: {
+          this.bookingStatusApproved = true;
+          this.bookingStatusWaiting = false;
+          this.bookingStatusCompleted = false;
+          this.bookingCancelled = false;
+          break;
+        }
+        case 2: {
+          this.bookingCancelled = true;
+          this.bookingStatusCompleted = false;
+          this.bookingStatusApproved = false;
+          this.bookingStatusWaiting = false;
+          break;
+        }
+        case 3: {
+          this.bookingStatusCompleted = true;
+          this.bookingStatusApproved = false;
+          this.bookingStatusWaiting = false;
+          this.bookingCancelled = false;
+          break;
+        }
+      }
+    });
           }, error => {
             console.log(error);
           });
   }
   bookingDetail(num) {
-    console.log(num);
     this.statusService.getBookingDetail(num).subscribe(statusData => {
       this.Details = statusData;
-      console.log(this.Details);
-      console.log(statusData);
          }, error => {
            console.log(error);
          });

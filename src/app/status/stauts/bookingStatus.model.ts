@@ -3,6 +3,7 @@ export class BookingStatus {
     bookingStatus: number;
     mobileNumber: number;
     name: string;
+    bookingDate: string;
     productDescription: string;
     quantityDescription: string;
     shootType: string;

@@ -12,6 +12,7 @@ import { StudioComponent } from './home/product/studio/studio.component';
 import {ModelBasedBookingComponent} from './model-management/model-based-booking/model-based-booking.component';
 import {ViewModelComponent} from './model-management/view-model/view-model.component';
 import {SubscribeComponent} from './subscribe/subscribe.component';
+import {PricingComponent} from './home/pricing/pricing.component';
 import {CatalogingListingBookingComponent} from './cataloging-listing/cataloging-listing-booking/cataloging-listing-booking.component';
 import {RegistrationSetupBookingComponent} from './registrationSetup/registration-setup-booking/registration-setup-booking.component';
 import {MarketingServicesBookingComponent} from './marketing-services/marketing-services-booking/marketing-services-booking.component';
@@ -32,6 +33,7 @@ const routes: Routes = [
     { path: 'models', component: ViewModelComponent },
     { path: 'subscribe', component: SubscribeComponent },
     { path: 'cataloging', component: CatalogingListingBookingComponent },
+    { path: 'pricing', component: PricingComponent },
     { path: 'registrationSetup', component: RegistrationSetupBookingComponent },
     { path: 'marketingservices', component: MarketingServicesBookingComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },

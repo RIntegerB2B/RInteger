@@ -45,7 +45,7 @@ export class StatusService {
   getStatusByNum(id): Observable<any> {
     const statusUrl = 'bookingStatus/';
     const url: string = this.serviceUrl + statusUrl + id ;
-    return this.httpClient.get<Status>(url);
+    return this.httpClient.get<BookingDetail>(url);
   }
   getStatusById( no , id): Observable<any> {
     const statusUrl = 'bookingStatus/';

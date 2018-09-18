@@ -5,22 +5,39 @@
     </div>
     <div class="row">
       <div class=" col-sm-12 d-flex  flex-row" *ngIf="!hideStatus">
-        <div class=" col-sm-4 col p-2 text-center border">
+        <div class=" col-sm-3 col p-2 text-center border">
           <b>Booking ID</b>
         </div>
-        <div class="col-sm-4 col p-2 text-center border">
+        <div class=" col-sm-2 col p-2 text-center border">
+          <b>Booking Type</b>
+        </div>
+        <div class="col-sm-2 col p-2 text-center border">
           <b>Booking Date</b>
         </div>
-        <div class="col-sm-4 col p-2 text-center border">
+        <div class="col-sm-2 col p-2 text-center border">
           <b>Status</b>
+        </div>
+        <div class="col-sm-2 col p-2 text-center border">
+          <b>Track the Order</b>
         </div>
       </div>
     </div>
     <div *ngIf="!hideStatus">
       <div class=" col-sm-12 status d-flex border-bottom  flex-row" *ngFor="let data of Status">
-        <div class="col-sm-4 col p-2 ">{{data.bookingOrderId}}</div>
-        <div class="col-sm-4 col p-2 text-center ">{{data.bookingDate}}</div>
-        <div class=" col-sm-4 col p-2 text-center ">
+        <div class="col-sm-3 col p-2 ">{{data.bookingOrderId}}</div>
+        <div class="col-sm-2  col p-2 ">{{data.bookingType}}</div>
+        <div class="col-sm-2  col p-2 text-center ">{{data.bookingDate}}</div>
+        <div class="col-sm-2  col p-2 text-center "><strong>{{data.bookingStatus}}</strong></div>
+        <div class="col-sm-2 col p-2 text-center" *ngIf="bookingStatusApproved">
+          <button class="btn btn-primary  btn-sm" >Booking Approved</button>
+      </div>
+      <div class="col-sm-3 col p-2 text-center" *ngIf="bookingStatusCompleted">
+          <button class="btn btn-success  btn-sm" > Process completed</button>
+      </div>
+      <div class="col-sm-3 col p-2 text-center" *ngIf="bookingCancelled">
+          <button class="btn btn-danger  btn-sm" >Sorry booking cancelled</button>
+      </div>
+        <div class=" col-sm-3 col p-2 text-center ">
           <input class="form-control" hidden type="text" formControlName="order" [value]="data.bookingOrderId" #id/>
           <button class="btn btn-success btn-sm" (click)="statusView(statusViewForm,id.value)">View</button>
 

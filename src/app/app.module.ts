@@ -37,6 +37,7 @@ import { FormsModule } from '@angular/forms';
 import { CatalogingListingBookingComponent } from './cataloging-listing/cataloging-listing-booking/cataloging-listing-booking.component';
 import { RegistrationSetupBookingComponent } from './registrationSetup/registration-setup-booking/registration-setup-booking.component';
 import { MarketingServicesBookingComponent } from './marketing-services/marketing-services-booking/marketing-services-booking.component';
+import { PricingComponent } from './home/pricing/pricing.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { MarketingServicesBookingComponent } from './marketing-services/marketin
     SubscribeComponent,
     CatalogingListingBookingComponent,
     RegistrationSetupBookingComponent,
-    MarketingServicesBookingComponent
+    MarketingServicesBookingComponent,
+    PricingComponent
   ],
   imports: [
     BrowserModule,

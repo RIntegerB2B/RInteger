@@ -16,7 +16,6 @@ import { CatalogBooking } from './catalog-booking.model';
 })
 export class CatalogingListingBookingComponent implements OnInit {
   catalogListingForm: FormGroup;
-  booked: boolean;
   userName: string;
   mobileNo: number;
   locat: string;
@@ -175,11 +174,7 @@ export class CatalogingListingBookingComponent implements OnInit {
     this.catalogModel.b2cInterNational = this.selectedb2cInterNational;
     this.catalogModel.socialMedia = this.selectedSocialMedia;
     this.catalogService.catalogBooking(this.catalogModel).subscribe(data => {
-      this.bookingId = data.bookingOrderId;
-      console.log(this.bookingId);
-
-      console.log(data);
-      this.booked = true;
+     this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {
       console.log(error);
     });

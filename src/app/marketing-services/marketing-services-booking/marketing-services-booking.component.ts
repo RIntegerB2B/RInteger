@@ -19,7 +19,6 @@ export class MarketingServicesBookingComponent implements OnInit {
   userName: string;
   mobileNo: number;
   locat: string;
-  booked: boolean;
   addMobileNo: number;
   addUserName: string;
   addLocation: string;
@@ -70,10 +69,7 @@ export class MarketingServicesBookingComponent implements OnInit {
     );
     this.marketingBooking.marketingMedium = this.selectedMedium;
     this.marketingService.marketingBooking(this.marketingBooking).subscribe(data => {
-      console.log(data);
-      this.bookingId = data.bookingOrderId;
-      console.log(this.bookingId);
-      this.booked = true;
+      this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {
       console.log(error);
     });

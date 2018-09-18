@@ -62,7 +62,7 @@ export class StautsComponent implements OnInit {
 }
 findOrderStatus() {
   this.statusService.getBookingStatus(this.id).subscribe(data => {
-    // console.log(data);
+   console.log(data);
     this.BookingStatus.push(data) ;
   // console.log(data.bookingStatus);
   switch (data.bookingStatus) {
@@ -81,17 +81,17 @@ findOrderStatus() {
       break;
     }
     case 2: {
-      this.bookingStatusCompleted = true;
-      this.bookingStatusApproved = false;
-      this.bookingStatusWaiting = false;
-      this.bookingCancelled = false;
-      break;
-    }
-    case 3: {
       this.bookingCancelled = true;
       this.bookingStatusCompleted = false;
       this.bookingStatusApproved = false;
       this.bookingStatusWaiting = false;
+      break;
+    }
+    case 3: {
+      this.bookingStatusCompleted = true;
+      this.bookingStatusApproved = false;
+      this.bookingStatusWaiting = false;
+      this.bookingCancelled = false;
       break;
     }
   }

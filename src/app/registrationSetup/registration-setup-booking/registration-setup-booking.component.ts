@@ -38,7 +38,6 @@ export class RegistrationSetupBookingComponent implements OnInit {
   selectedb2bInterNational = [];
   selectedb2cInterNational = [];
   selectedSocialMedia = [];
-  booked: boolean;
   bookingId;
 
 
@@ -170,11 +169,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
     this.registrationBooking.b2cInterNational = this.selectedb2cInterNational;
     this.registrationBooking.socialMedia = this.selectedSocialMedia;
     this.registrationService.registrationBooking(this.registrationBooking).subscribe(data => {
-      console.log(data);
-      this.bookingId = data.bookingOrderId;
-      console.log(this.bookingId);
-      this.booked = true;
-      console.log(data);
+      this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {
       console.log(error);
     });
