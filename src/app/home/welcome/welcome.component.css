@@ -86,3 +86,9 @@
 {
     padding:0px;
 }
+.carousel-images{
+  color:black
+}
+.glyphicon.glyphicon-chevron-right{
+  color:red;
+}
