@@ -53,9 +53,10 @@ export class StatusService {
     const url: string = this.serviceUrl + statusUrl + no  + viewUrl + id;
     return this.httpClient.get<Status>(url);
   }
-  getBookingDetail(id): Observable<any> {
+  getBookingDetail(id, type): Observable<any> {
     const statusUrl = 'bookingDetails/';
-    const url: string = this.serviceUrl + statusUrl + id ;
+    const viewUrl = '/view/';
+    const url: string = this.serviceUrl + statusUrl + id + viewUrl + type;
     return this.httpClient.get<BookingDetail>(url);
   }
 }

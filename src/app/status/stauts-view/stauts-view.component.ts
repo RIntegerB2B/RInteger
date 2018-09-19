@@ -47,6 +47,7 @@ orders;
  bookingStatusWaiting: boolean;
  bookingStatusCompleted: boolean;
  bookingCancelled: boolean;
+ message: boolean;
 
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService ) {
@@ -61,31 +62,28 @@ orders;
 
   createForm() {
     this.statusViewForm = this.fb.group({
-      order: ['']
+      order: [''],
+      bookingType: ['']
     });
   }
   showStatus() {
     this.hideStatus = false;
     this.displayStatus = false;
+    this.message = false;
   }
-  statusView(statusViewForm: FormGroup, id: any) {
-    console.log(id);
- this.displayStatus = true;
- this.hideStatus = true;
+  statusView(statusViewForm: FormGroup, id: any, type: any) {
  this.statusService.getStatusById( this.no, id).subscribe(data => {
   this.StatusForOne = data;
-
-  switch (data.order) {
-    case 0: {
-      this.progress = true;
-      break;
-    }
-    case 1: {
-      this.completed = true;
-      break;
-    }
+  console.log(type);
+  if (type === 'Direct Booking'  || type === 'Model Booking' ) {
+    this.displayStatus = true;
+    this.hideStatus = true;
+    this.message = false;
+  } else if (type === 'Catalog Booking'  || type === 'Marketing Booking' || type === 'Registration Booking' ) {
+  this.message = true;
+  this.displayStatus = false;
+  this.hideStatus = true;
   }
-
  switch (data.materialPickedUp) {
     case 0: {
       this.materialPicked = true;
@@ -214,7 +212,7 @@ orders;
    console.log(error);
  }
 );
-this.bookingDetail(id) ;
+this.bookingDetail(id, type) ;
   }
 
 orderDisplay() {
@@ -223,45 +221,12 @@ orderDisplay() {
   status(no) {
     this.statusService.getStatusByNum(no).subscribe(statusData => {
        this.Status = statusData;
-       statusData.forEach(function(elem) {
-        console.log(elem.bookingStatus);
-       switch (elem.bookingStatus) {
-        case 0: {
-          this.bookingStatusWaiting = true;
-          this.bookingStatusApproved = false;
-          this.bookingStatusCompleted = false;
-          this.bookingCancelled = false;
-          break;
-        }
-        case 1: {
-          this.bookingStatusApproved = true;
-          this.bookingStatusWaiting = false;
-          this.bookingStatusCompleted = false;
-          this.bookingCancelled = false;
-          break;
-        }
-        case 2: {
-          this.bookingCancelled = true;
-          this.bookingStatusCompleted = false;
-          this.bookingStatusApproved = false;
-          this.bookingStatusWaiting = false;
-          break;
-        }
-        case 3: {
-          this.bookingStatusCompleted = true;
-          this.bookingStatusApproved = false;
-          this.bookingStatusWaiting = false;
-          this.bookingCancelled = false;
-          break;
-        }
-      }
-    });
           }, error => {
             console.log(error);
           });
   }
-  bookingDetail(num) {
-    this.statusService.getBookingDetail(num).subscribe(statusData => {
+  bookingDetail(num, type) {
+    this.statusService.getBookingDetail(num, type).subscribe(statusData => {
       this.Details = statusData;
          }, error => {
            console.log(error);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
+import {MatSnackBar} from '@angular/material';
 
 import {MarketingServicesService} from '../marketing-services.service';
 import {MarketingServicesBooking} from './marketingServices.model';
@@ -14,7 +15,8 @@ import {mobileNumber} from './validation';
   styleUrls: ['./marketing-services-booking.component.css']
 })
 export class MarketingServicesBookingComponent implements OnInit {
-
+  message;
+  action;
   marketingBookingForm: FormGroup;
   userName: string;
   mobileNo: number;
@@ -28,7 +30,7 @@ export class MarketingServicesBookingComponent implements OnInit {
   bookingId;
 
   constructor(private fb: FormBuilder, private router: Router,
-    private marketingService: MarketingServicesService, private localStorageService: LocalStorageService) { }
+    private marketingService: MarketingServicesService, private localStorageService: LocalStorageService, public snackBar: MatSnackBar) { }
   ngOnInit() {
     this.createForm();
     this.checkData();
@@ -56,6 +58,8 @@ export class MarketingServicesBookingComponent implements OnInit {
     console.log(this.selectedMedium);
   }
   booking(marketingBookingForm: FormGroup) {
+    this.message = 'Marketing  Services  Booking Done';
+    this.action = 'booked';
     this.addMobileNo = marketingBookingForm.controls.mobileNumber.value;
     this.addUserName = marketingBookingForm.controls.name.value;
     this.addLocation = marketingBookingForm.controls.location.value;
@@ -72,6 +76,9 @@ export class MarketingServicesBookingComponent implements OnInit {
       this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {
       console.log(error);
+    });
+    this.snackBar.open(this.message, this.action, {
+      duration: 2000,
     });
   }
 }

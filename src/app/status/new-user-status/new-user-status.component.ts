@@ -42,6 +42,7 @@ export class NewUserStatusComponent implements OnInit {
  materialReturnProgress: boolean;
   hideStatus: boolean;
   Detail: BookingDetails[] = [];
+  message: boolean;
 
   constructor(private fb: FormBuilder, private router: Router,
     private statusService: StatusService, private localStorageService: LocalStorageService) { }
@@ -53,7 +54,8 @@ export class NewUserStatusComponent implements OnInit {
     this.newUserForm = this.fb.group({
       mobileNumber: ['', mobileNumber],
       name: ['', Validators.required],
-      order: []
+      order: [],
+      bookingType: []
     });
   }
   findStatus(newUserForm: FormGroup,  mobileNum: any) {
@@ -72,12 +74,18 @@ export class NewUserStatusComponent implements OnInit {
     this.hideStatus = false;
     this.displayStatus = false;
   }
-  statusView(statusViewForm: FormGroup, id: any) {
-    this.displayStatus = true;
-    this.hideStatus = true;
+  statusView(statusViewForm: FormGroup, id: any, type: any) {
+    if (type === 'Direct Booking'  || type === 'Model Booking' ) {
+      this.displayStatus = true;
+      this.hideStatus = true;
+      this.message = false;
+    } else if (type === 'Catalog Booking'  || type === 'Marketing Booking' || type === 'Registration Booking' ) {
+    this.message = true;
+    this.displayStatus = false;
+    this.hideStatus = false;
+    }
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.statusService.getStatusById(  this.mobileNo, id).subscribe(data => {
-      console.log(data);
      this.Detail = data;
      switch (data.order) {
        case 0: {
@@ -214,14 +222,11 @@ export class NewUserStatusComponent implements OnInit {
       console.log(error);
     }
    );
-   this.bookingDetail(id);
+   this.bookingDetail(id , type);
      }
-     bookingDetail(num) {
-      console.log(num);
-      this.statusService.getBookingDetail(num).subscribe(statusData => {
+     bookingDetail(num , type) {
+      this.statusService.getBookingDetail(num, type).subscribe(statusData => {
         this.Detail = statusData;
-        console.log(this.Detail);
-        console.log(statusData);
            }, error => {
              console.log(error);
            });

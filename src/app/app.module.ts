@@ -28,8 +28,8 @@ import { StudioComponent } from './home/product/studio/studio.component';
 import { ModelBasedBookingComponent } from './model-management/model-based-booking/model-based-booking.component';
 import { ViewModelComponent } from './model-management/view-model/view-model.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule,
-   MatInputModule, MatSelectModule } from '@angular/material';
+/* import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule,
+   MatInputModule, MatSelectModule } from '@angular/material'; */
 import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SubscribeComponent } from './subscribe/subscribe.component';
@@ -38,7 +38,32 @@ import { CatalogingListingBookingComponent } from './cataloging-listing/catalogi
 import { RegistrationSetupBookingComponent } from './registrationSetup/registration-setup-booking/registration-setup-booking.component';
 import { MarketingServicesBookingComponent } from './marketing-services/marketing-services-booking/marketing-services-booking.component';
 import { PricingComponent } from './home/pricing/pricing.component';
-
+import { DashboardComponent } from './home/dashboard/dashboard.component';
+import {
+  MatSidenavModule,
+  MatListModule,
+  MatTooltipModule,
+  MatOptionModule,
+  MatSelectModule,
+  MatMenuModule,
+  MatSnackBarModule,
+  MatGridListModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatButtonModule,
+  MatRadioModule,
+  MatCheckboxModule,
+  MatCardModule,
+  MatProgressSpinnerModule,
+  MatExpansionModule,
+  MatRippleModule,
+  MatDialogModule,
+  MatChipsModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatStepperModule
+} from '@angular/material';
+import {DashBoardService} from './home/dashboard/dashboard.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +86,8 @@ import { PricingComponent } from './home/pricing/pricing.component';
     CatalogingListingBookingComponent,
     RegistrationSetupBookingComponent,
     MarketingServicesBookingComponent,
-    PricingComponent
+    PricingComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -82,13 +108,16 @@ import { PricingComponent } from './home/pricing/pricing.component';
     MatTabsModule,
     MatInputModule,
     MatSelectModule,
+    MatSnackBarModule,
     FlexLayoutModule,
+    MatSidenavModule,
+    MatListModule,
     NgbModule.forRoot(),
     CarouselModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [BookingService,
-  LocalStorageService],
+  LocalStorageService, DashBoardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

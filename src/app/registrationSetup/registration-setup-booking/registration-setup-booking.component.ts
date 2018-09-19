@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
+import {MatSnackBar} from '@angular/material';
 
 import { mobileNumber } from './validation';
 import { RegistrationBooking } from './registrationSetup.model';
@@ -13,7 +14,8 @@ import { RegistrationSetupService } from '../registration-setup.service';
   styleUrls: ['./registration-setup-booking.component.css']
 })
 export class RegistrationSetupBookingComponent implements OnInit {
-
+  message;
+  action;
   registrationBookingForm: FormGroup;
   userName: string;
   mobileNo: number;
@@ -42,7 +44,8 @@ export class RegistrationSetupBookingComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder, private router: Router,
-    private registrationService: RegistrationSetupService, private localStorageService: LocalStorageService) { }
+    private registrationService: RegistrationSetupService, private localStorageService: LocalStorageService,
+    public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.createForm();
@@ -152,6 +155,8 @@ export class RegistrationSetupBookingComponent implements OnInit {
     console.log(this.selectedSocialMedia);
   }
   booking(registrationBooking: FormGroup) {
+    this.message = 'Registration & Setup Booking Done';
+    this.action = 'booked';
     this.addMobileNo = registrationBooking.controls.mobileNumber.value;
     this.addUserName = registrationBooking.controls.name.value;
     this.addLocation = registrationBooking.controls.location.value;
@@ -169,7 +174,11 @@ export class RegistrationSetupBookingComponent implements OnInit {
     this.registrationBooking.b2cInterNational = this.selectedb2cInterNational;
     this.registrationBooking.socialMedia = this.selectedSocialMedia;
     this.registrationService.registrationBooking(this.registrationBooking).subscribe(data => {
+      this.snackBar.open(this.message, this.action, {
+        duration: 2000,
+      });
       this.router.navigate(['/status', data.bookingOrderId]);
+
     }, error => {
       console.log(error);
     });

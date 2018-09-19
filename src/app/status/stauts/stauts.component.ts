@@ -43,6 +43,7 @@ export class StautsComponent implements OnInit {
  bookingStatusWaiting: boolean;
  bookingStatusCompleted: boolean;
  bookingCancelled: boolean;
+ message: boolean;
 
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService ) {
@@ -57,12 +58,13 @@ export class StautsComponent implements OnInit {
 
  createForm() {
   this.statusForm = this.fb.group({
-    order: ['']
+    order: [''],
+    bookingType: []
   });
 }
 findOrderStatus() {
   this.statusService.getBookingStatus(this.id).subscribe(data => {
-   console.log(data);
+  // console.log(data);
     this.BookingStatus.push(data) ;
   // console.log(data.bookingStatus);
   switch (data.bookingStatus) {
@@ -101,17 +103,6 @@ findOrderStatus() {
 findStatus() {
   this.statusService.getStatus(this.id).subscribe(status => {
     this.status.push(status) ;
-    switch (status.order) {
-      case false: {
-        this.progress = true;
-        break;
-      }
-      case true: {
-        this.completed = true;
-        break;
-      }
-    }
-
     switch (status.materialPickedUp) {
       case 0: {
         this.materialPicked = true;
@@ -238,9 +229,18 @@ findStatus() {
         });
       }
 
-      statusView() {
-        this.findStatus();
-        this.displayStatus = true;
+      statusView(type) {
+        console.log(type);
+        if (type === 'Direct Booking'  || type === 'Model Booking' ) {
+          this.findStatus();
+          this.displayStatus = true;
+          this.message = false;
+        } else if (type === 'Catalog Booking'  || type === 'Marketing Booking' || type === 'Registration Booking' ) {
+          console.log('sorry');
+          this.displayStatus = false;
+          this.message = true;
+
+        }
       }
 
 

@@ -2,6 +2,7 @@ export class BookingDetails {
     mobileNumber: number;
     name: string;
     bookingOrderId: string;
+    bookingType: string;
     productDescription: string;
     quantityDescription: string;
     shootType: string;

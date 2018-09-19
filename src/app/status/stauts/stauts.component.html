@@ -14,27 +14,17 @@
             <div class=" col-sm-12 d-flex border-bottom status flex-row" *ngFor="let data of BookingStatus">
                     <div class="col-sm-3 col p-2 text-center ">{{data.bookingOrderId}}</div>
                     <div class="col-sm-3 col p-2 text-center">{{data.bookingDate}}</div>
-                    <div class="col-sm-3 col p-2 text-center"><button  class="btn btn-info  btn-sm">{{data.bookingStatus}}</button></div>
-                   <!--  <div class="col-sm-3 col p-2 text-center" *ngIf="bookingStatusWaiting">
-                        <button class="btn btn-info  btn-sm" >Waiting for Approval</button>
-                    </div>
-                    <div class="col-sm-3 col p-2 text-center" *ngIf="bookingStatusApproved">
-                        <button class="btn btn-primary  btn-sm" >Booking Approved</button>
-                    </div>
-                    <div class="col-sm-3 col p-2 text-center" *ngIf="bookingStatusCompleted">
-                        <button class="btn btn-success  btn-sm" > Process completed</button>
-                    </div>
-                    <div class="col-sm-3 col p-2 text-center" *ngIf="bookingCancelled">
-                        <button class="btn btn-danger  btn-sm" >Sorry booking cancelled</button>
-                    </div> -->
-                   <!--  <div class="col-sm-3 col p-2 text-center">{{data.bookingStatus}}</div> -->
-                     <div class=" col-sm-3 col p-2 text-center" > <input class="form-control"   hidden type="text" formControlName="order" [value]="data._id" #id/> 
-                      <button class="btn btn-success btn-sm " (click)="statusView()">View</button>
+                    <div class="col-sm-3 col p-2 text-center">{{data.bookingStatus}}</div>
+                   
+                     <div class=" col-sm-3 col p-2 text-center" >
+                            <input class="form-control" hidden type="text" formControlName="bookingType" [value]="data.bookingType" #type/>
+                          <input class="form-control"   hidden type="text" formControlName="order" [value]="data._id" #id/> 
+                      <button class="btn btn-success btn-sm " (click)="statusView(type.value)">View</button>
                 </div>
               </div> 
               
         
-    <div   *ngIf="displayStatus" style="margin-top:40px">
+    <div  *ngIf="displayStatus" style="margin-top:40px">
             <div class="text-center" style="padding-bottom:20px" *ngIf="hideStatus">
                     <h6><strong>ORDER LIFE CYCLE</strong></h6>
                   </div>
@@ -135,6 +125,12 @@
             </div>
             <button class="btn" [routerLink]="['/welcome']" >back</button> 
     </div>
+    <div *ngIf="message" style="margin-top:40px">
+            <div class="text-center" style="padding-bottom:20px" >
+                <h6><strong>Update  you soon </strong></h6>
+              </div>
+              
+              </div>
     
     </div>
     </form>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
+import {MatSnackBar} from '@angular/material';
 
 import { CatalogListingService } from '../catalog-listing.service';
 import { mobileNumber } from './validation';
@@ -15,6 +16,8 @@ import { CatalogBooking } from './catalog-booking.model';
   styleUrls: ['./cataloging-listing-booking.component.css']
 })
 export class CatalogingListingBookingComponent implements OnInit {
+  message;
+  action;
   catalogListingForm: FormGroup;
   userName: string;
   mobileNo: number;
@@ -42,7 +45,7 @@ export class CatalogingListingBookingComponent implements OnInit {
   selectedSocialMedia = [];
   bookingId;
   constructor(private fb: FormBuilder, private router: Router,
-    private catalogService: CatalogListingService, private localStorageService: LocalStorageService) { }
+    private catalogService: CatalogListingService, private localStorageService: LocalStorageService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.createForm();
@@ -155,6 +158,8 @@ export class CatalogingListingBookingComponent implements OnInit {
     console.log(this.selectedSocialMedia);
   }
   booking(catalogListingForm: FormGroup) {
+    this.message = 'Cataloging / Listing  Booking Done';
+    this.action = 'booked';
     this.addMobileNo = catalogListingForm.controls.mobileNumber.value;
     this.addUserName = catalogListingForm.controls.name.value;
     this.addLocation = catalogListingForm.controls.location.value;
@@ -177,6 +182,9 @@ export class CatalogingListingBookingComponent implements OnInit {
      this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {
       console.log(error);
+    });
+    this.snackBar.open(this.message, this.action, {
+      duration: 2000,
     });
   }
 

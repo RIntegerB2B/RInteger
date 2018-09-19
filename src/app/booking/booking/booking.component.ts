@@ -1,5 +1,6 @@
 import { Component, OnInit, Injector } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import {MatSnackBar} from '@angular/material';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import { Booking } from './booking.model';
@@ -30,12 +31,14 @@ export class BookingComponent implements OnInit {
   notificationModel: Notification;
   customer: Customer;
   swPush: SwPush;
+  message;
+  action;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   // readonly VAPID_PUBLIC_KEY = 'BKt65eGjjxVC8EDZj-9awfTMKLydA0jxM6mhren6Hz1UBIduWTFEtIXB7thtCN9nnMZlJsvkYqTn7rUKo8mmGxw';
 
   constructor(private fb: FormBuilder, private router: Router,
     private bookingService: BookingService, private localStorageService: LocalStorageService,
-    private swUpdate: SwUpdate, private injector: Injector) {
+    private swUpdate: SwUpdate, private injector: Injector, public snackBar: MatSnackBar) {
     try {
       this.swPush = this.injector.get(SwPush);
     } catch (error) {
@@ -62,6 +65,8 @@ export class BookingComponent implements OnInit {
     });
   }
   bookSubmit(onBookInForm: FormGroup, mobileNum: any, name: any, location: any) {
+    this.message = 'General Shoot Booking Done';
+    this.action = 'booked';
     this.localStorageService.store('mobileno', mobileNum);
     this.localStorageService.store('name', name);
     this.localStorageService.store('location', location);
@@ -75,6 +80,9 @@ export class BookingComponent implements OnInit {
       onBookInForm.controls.productType.value
     );
     this.saveCustomerDetail(onBookInForm);
+    this.snackBar.open(this.message, this.action, {
+      duration: 2000,
+    });
     this.onBookInForm.reset();
     this.bookingService.addBooking(this.userBook).subscribe(data => {
       console.log(data);

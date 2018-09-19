@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
 import { Router } from '@angular/router';
 import { SwPush, SwUpdate } from '@angular/service-worker';
+import {MatSnackBar} from '@angular/material';
 
 import { ModelManagementService } from '../model-management.service';
 import { ModelDetail } from './model.model';
@@ -18,6 +19,8 @@ import {mobileNumber} from '../../booking/booking/validation';
   styleUrls: ['./model-based-booking.component.css']
 })
 export class ModelBasedBookingComponent implements OnInit {
+  message;
+  action;
   id;
   Model: ModelDetail[] = [];
   bookModelForm: FormGroup;
@@ -37,7 +40,7 @@ export class ModelBasedBookingComponent implements OnInit {
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
     private modelService: ModelManagementService, private localStorageService: LocalStorageService,
-    private swUpdate: SwUpdate, private swPush: SwPush) {
+    private swUpdate: SwUpdate, private swPush: SwPush , public snackBar: MatSnackBar) {
     this.id = this.activatedRoute.snapshot.paramMap.get('modelId');
   }
 
@@ -103,6 +106,8 @@ export class ModelBasedBookingComponent implements OnInit {
     this.showPortFolio = true;
   }
   bookSubmit(bookModelForm: FormGroup, modelsId: any, modelNm: any) {
+    this.message = 'Model Shoot Booking Done';
+    this.action = 'booked';
     this.mobileNo = bookModelForm.controls.mobileNumber.value;
     this.userName = bookModelForm.controls.name.value;
     this.locat = bookModelForm.controls.location.value;
@@ -120,6 +125,9 @@ export class ModelBasedBookingComponent implements OnInit {
     this.bookingModel.modelsName = modelNm;
     this.saveCustomerDetail(bookModelForm);
     this.bookModelForm.reset();
+    this.snackBar.open(this.message, this.action, {
+      duration: 2000,
+    });
     this.modelService.addModelBooking(this.bookingModel).subscribe(data => {
       this.id = data;
       console.log(data.bookingOrderId);
