@@ -22,4 +22,4 @@ export class HeaderComponent implements OnInit {
     this.toggleBar = this.toggleBar === 'colapseMenuBar' ? 'expandMenuBar' : 'colapseMenuBar';
   }
 
- }
+  }

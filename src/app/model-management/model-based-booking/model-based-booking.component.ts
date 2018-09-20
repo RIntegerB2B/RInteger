@@ -48,7 +48,7 @@ export class ModelBasedBookingComponent implements OnInit {
     this.viewModel(this.id);
     this.createForm();
     this.checkData();
-    this.showPortFolio = true;
+    this.showEcommerce = true;
   }
   createForm() {
     this.bookModelForm = this.fb.group({
@@ -61,6 +61,7 @@ export class ModelBasedBookingComponent implements OnInit {
       modelsname: ['']
     });
   }
+
   checkData() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');
@@ -73,7 +74,6 @@ export class ModelBasedBookingComponent implements OnInit {
     });
   }
   ecommerceImage() {
-    console.log('ecom tesy');
     this.showEcommerce = true;
     this.showProfile = false;
     this.showPortrait = false;

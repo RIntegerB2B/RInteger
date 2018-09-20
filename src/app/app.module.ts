@@ -8,6 +8,7 @@ import { Ng2Webstorage, LocalStorageService } from 'ngx-webstorage';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap';
 import { AngularFontAwesomeModule} from 'angular-font-awesome';
+import { SliderModule } from 'angular-image-slider';
 
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -100,6 +101,7 @@ import {DashBoardService} from './home/dashboard/dashboard.service';
     AngularFontAwesomeModule,
     Ng2Webstorage,
     BrowserAnimationsModule,
+    SliderModule,
     MatCardModule,
     MatIconModule,
     MatToolbarModule,

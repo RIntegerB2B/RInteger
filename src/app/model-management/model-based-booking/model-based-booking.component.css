@@ -17,11 +17,11 @@
   text-align: left;
 }
 @media screen and (max-width: 992px) {
-    .image{
+    .images{
         height:330px;
         width: 330px;
         margin: auto;
-        margin-bottom: 2%;   
+        margin-bottom: 35px;  
     }
         .newBar
         {
@@ -30,10 +30,9 @@
 }
 
 @media screen and (min-width: 992px) {
-    .image{
-        height:400px;
+    .images{
+        height: 300px;
         width: 400px;
-        margin: auto;
     }
 
 }
@@ -48,4 +47,37 @@
     padding-right:5px;
     padding-left:5px;
 
+}
+.image{
+    height: 400px;
+    width:400px;
+
+}
+.carousel-control-next-icon{
+    background-color: black
+}
+.carousel-inner {
+    text-align: center !important;
+}
+slide.item.carousel-item.ng-star-inserted {
+    text-align: center !important;
+}
+
+
+.carousel-control-prev {
+    left: 11%;
+}
+.mat-card-image {
+     margin: 0px !important; 
+}
+
+.mat-card {
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block !important;
+    position: relative;
+    padding: 0px !important;
+    border-radius: 2px;
+}
+.icon-prev.carousel-control-prev-icon{
+background-color: black;
 }

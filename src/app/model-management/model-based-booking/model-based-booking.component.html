@@ -6,19 +6,20 @@
         <div class="row newBar">
           <div class="col-md-12">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link"><button mat-button (click)="ecommerceImage()">Ecommerce</button></a>
+                  </li>
               <li class="nav-item">
                 <a class="nav-link">
                   <button mat-button (click)="portFolioImage()">Portfolio</button></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link"><button mat-button (click)="ecommerceImage()">Ecommerce</button></a>
-              </li>
-              <li class="nav-item">
+              
+              <!-- <li class="nav-item">
                 <a class="nav-link"><button mat-button (click)="portraitImage()">Portrait</button></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link"><button mat-button (click)="productImage()">Product</button></a>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -31,12 +32,12 @@
                 <mat-option>
                   <button mat-button (click)="ecommerceImage()">Ecommerce</button>
                 </mat-option>
-                <mat-option>
+                <!-- <mat-option>
                   <button mat-button (click)="portraitImage()">Portrait</button>
                 </mat-option>
                 <mat-option>
                   <button mat-button (click)="productImage()">Product</button>
-                </mat-option>
+                </mat-option> -->
                 <mat-option value="Portfolio">
                   <button mat-button (click)="portFolioImage()">Portfolio</button>
                 </mat-option>
@@ -45,46 +46,54 @@
             </mat-form-field>
           </div>
         </div><br>
+     
+        <div class="row" >
+          <div class="col-md-1">
+          </div>
+          <div class="col-md-6">
+              <mat-card class="example-card  images" *ngIf="showEcommerce" >
+                  <carousel  class="images"  [showIndicators]="false"  >
+                     <slide   *ngFor="let images of this.model?.ecommerceImageName">
+                       <img   mat-card-image   [src]="this.images"  alt="first slide" >
+                     </slide>
+                   </carousel>
+                   </mat-card>
 
-        <mat-card class="example-card image" *ngIf="showAll">
-          <img mat-card-image [src]="this.model?.primeImage">
-        </mat-card>
-               <!--  <img [src]="this.images" style="width: 180px; height: 245px;" /> -->
-               <mat-card class="example-card image" *ngIf="showEcommerce" >
-               <carousel  [showIndicators]="false"   >
-                  <slide *ngFor="let images of this.model?.ecommerceImageName">
-                    <img  mat-card-image  [src]="this.images"  alt="first slide" >
-                  </slide>
-                </carousel>
-              </mat-card>
-              
-        
-                  <mat-card class="example-card image" *ngIf="showPortrait" >
-                  <carousel  [showIndicators]="false"   >
-                      <slide *ngFor="let images of this.model?.portraitImageName">
-                        <img   mat-card-image  [src]="this.images"  alt="first slide" >
-                      </slide>
-                    </carousel>
-                  </mat-card>
-              
-       
-                  <mat-card class="example-card image" *ngIf="showPortFolio" >
-                  <carousel  [showIndicators]="false"  >
+                   <mat-card class="example-card images" *ngIf="showPortFolio" >
+                   <carousel  class="images" [showIndicators]="false"  >
                       <slide *ngFor="let images of this.model?.portFolioImageName">
                         <img  mat-card-image  [src]="this.images"  alt="first slide" >
                       </slide>
                     </carousel>
+                    </mat-card>
+            </div>
+            
+         
+                
+        <!-- 
+                  <mat-card class="example-card image" *ngIf="showPortrait" >
+                  <carousel  [showIndicators]="false"   >
+                      <slide *ngFor="let images of this.model?.portraitImageName">
+                        <img   mat-card-image   [src]="this.images"  alt="first slide" >
+                      </slide>
+                    </carousel>
                   </mat-card>
-               
+               -->
        
-                  <mat-card class="example-card image" *ngIf="showProduct" >
+                 
+       
+                 <!--  <mat-card class="example-card image" *ngIf="showProduct" >
                   <carousel  [showIndicators]="false"  >
                       <slide *ngFor="let images of this.model?.productImageName">
                         <img mat-card-image [src]="this.images"  alt="first slide" >
                       </slide>
                     </carousel>
-                  </mat-card>
-             
+                  </mat-card> -->
+                  </div>
+        <!-- <div class="col-md-12" *ngIf="showEcommerce"  >
+              <angular-image-slider class="images" [images]="imagesUrl"></angular-image-slider>
+                  </div> -->
+           
       </div>
 
       <div class="col-md-5 col-md-offset-1">

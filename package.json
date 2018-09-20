@@ -30,6 +30,7 @@
     "@angular/service-worker": "^6.0.3",
     "@ng-bootstrap/ng-bootstrap": "^2.2.1",
     "angular-font-awesome": "^3.1.2",
+    "angular-image-slider": "0.0.8",
     "angular-webstorage-service": "^1.0.2",
     "bootstrap": "^4.1.2",
     "core-js": "^2.5.4",
