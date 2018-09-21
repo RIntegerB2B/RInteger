@@ -115,6 +115,7 @@ import {DashBoardService} from './home/dashboard/dashboard.service';
     FlexLayoutModule,
     MatSidenavModule,
     MatListModule,
+    MatExpansionModule,
     DragScrollModule,
     NgbModule.forRoot(),
     CarouselModule.forRoot(),

@@ -27,7 +27,9 @@ subMenus: boolean;
   }
   ngAfterViewInit() {
   }
-
+  get() {
+    console.log('gr8');
+  }
   ngOnDestroy(): void {
     // if(this.sidebarPS) {
     //   this.sidebarPS.destroy();
