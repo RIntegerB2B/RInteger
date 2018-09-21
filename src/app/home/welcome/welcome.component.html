@@ -1,125 +1,167 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12 homeImage">
-            <img class="img-fluid" src="../../../assets/images/banner.jpg">
+      <img class="img-fluid" src="../../../assets/images/banner.jpg">
     </div>
-
   </div>
 
-  
+
   <div class="row">
-  <div class="col-md-4 homeImage">
+    <div class="col-md-4 homeImage">
       <a [routerLink]="['/models']">
-  <mat-card class="example-card bookingImages">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image-left"></div>
-      </mat-card-header>
-      <mat-card-content>
-          <h5 class="text-center title"><a>Model Shoot Booking</a></h5>
-          <p class="subTitle">Select the Model and enter the quantity and description</p>
-      </mat-card-content>
-    </mat-card>
-  </a>
-  </div>  
-  <div class="col-md-4 homeImage">
-    <a [routerLink]="['/booking']">
-      <mat-card class="example-card bookingImages" >
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image-left"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title"><a>Model Shoot Booking</a></h5>
+            <p class="subTitle">Select the Model and enter the quantity and description</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+    <div class="col-md-4 homeImage">
+      <a [routerLink]="['/booking']">
+        <mat-card class="example-card bookingImages">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image-center"></div>
           </mat-card-header>
           <mat-card-content>
-              <h5 class="text-center title"><a>General Shoot Booking</a></h5>
-              <p class="subTitle">Product Shoot and Model Shoot Booking</p>
+            <h5 class="text-center title"><a>General Shoot Booking</a></h5>
+            <p class="subTitle">Product Shoot and Model Shoot Booking</p>
           </mat-card-content>
         </mat-card>
       </a>
-      </div> 
-     
-      
-      
-      <div class="col-md-4 homeImage pointer">
-          <a (click)="getStatus()">
-          <mat-card class="example-card bookingImages">
-              <mat-card-header>
-                <div mat-card-avatar class="example-header-image-right"></div>
-              </mat-card-header>
-              <mat-card-content>
-                  <h5 class="text-center title"><a>All Booking Status</a></h5>
-                  <p class="subTitle">Enter the mobile number to get the Booking Status</p>
-              </mat-card-content>
-            </mat-card>
-          </a>
-          </div>  
-          
-        </div>    
-        <div class="row">
-          <div class="col-md-4 homeImage">
-              <a [routerLink]="['/cataloging']">
-          <mat-card class="example-card bookingImages">
-              <mat-card-header>
-                <div mat-card-avatar class="example-header1-image-left"></div>
-              </mat-card-header>
-              <mat-card-content>
-                  <h5 class="text-center title"><a>Cataloging / Listing Booking</a></h5>
-                  <p class="subTitle">----------</p>
-              </mat-card-content>
-            </mat-card>
-          </a>
-          </div>  
-          <div class="col-md-4 homeImage">
-            <a [routerLink]="['/registrationSetup']">
-              <mat-card class="example-card bookingImages" >
-                  <mat-card-header>
-                    <div mat-card-avatar class="example-header1-image-center"></div>
-                  </mat-card-header>
-                  <mat-card-content>
-                      <h5 class="text-center title"><a>Registration & Setup Booking</a></h5>
-                      <p class="subTitle">------------------</p>
-                  </mat-card-content>
-                </mat-card>
-              </a>
-              </div> 
-             
-              
-              
-              <div class="col-md-4 homeImage pointer">
-                  <a [routerLink]="['/marketingservices']">
-                  <mat-card class="example-card bookingImages">
-                      <mat-card-header>
-                        <div mat-card-avatar class="example-header1-image-right"></div>
-                      </mat-card-header>
-                      <mat-card-content>
-                          <h5 class="text-center title"><a>Marketing Services Booking</a></h5>
-                          <p class="subTitle">---------------</p>
-                      </mat-card-content>
-                    </mat-card>
-                  </a>
-                  </div>  
-                  
-                </div>    
-        <div class="row">
-           
-              <div class="col-md-12 homeImage text-center ">
-                  <h1 class="homeImage border-top border-bottom">Features</h1>
-            </div>
-            <div class="container-fluid ">
-                <carousel  class="carousel-images" [showIndicators]="false">
-                  <slide>
-                    <img class="image"  src="../../../assets/images/Features-1.jpg"  alt="first slide" width="100%">
-                  </slide>
-                  <slide>
-                    <img class="image" src="../../../assets/images/Features-2.jpg"  alt="second slide" width="100%">
-                  </slide>
-                  <slide>
-                    <img class="image" src="../../../assets/images/Features-3.jpg"  alt="third slide" width="100%">
-                  </slide>
-                </carousel>
-                </div>
-          
-                
-            
-        
+    </div>
+
+
+
+    <div class="col-md-4 homeImage pointer">
+      <a (click)="getStatus()">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image-right"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title"><a>All Booking Status</a></h5>
+            <p class="subTitle">Enter the mobile number to get the Booking Status</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-4 homeImage">
+      <a [routerLink]="['/cataloging']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header1-image-left"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title"><a>Cataloging / Listing Booking</a></h5>
+            <p class="subTitle">----------</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+    <div class="col-md-4 homeImage">
+      <a [routerLink]="['/registrationSetup']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header1-image-center"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title"><a>Registration & Setup Booking</a></h5>
+            <p class="subTitle">------------------</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+
+
+
+    <div class="col-md-4 homeImage pointer">
+      <a [routerLink]="['/marketingservices']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header1-image-right"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title"><a>Marketing Services Booking</a></h5>
+            <p class="subTitle">---------------</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-md-12 homeImage text-center ">
+      <h1 class="homeImage border-top border-bottom">Features</h1>
+    </div>
+    <div class="container-fluid ">
+      <carousel class="carousel-images" [showIndicators]="false">
+        <slide>
+          <img class="image" src="../../../assets/images/Features-1.jpg" alt="first slide" width="100%">
+        </slide>
+        <slide>
+          <img class="image" src="../../../assets/images/Features-2.jpg" alt="second slide" width="100%">
+        </slide>
+        <slide>
+          <img class="image" src="../../../assets/images/Features-3.jpg" alt="third slide" width="100%">
+        </slide>
+      </carousel>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-12  text-center ">
+      <h4 class=" border-top border-bottom">Client</h4>
+    </div>
+    <div class="col-md-12 ">
+      <marquee behavior="alternate" direction="left" onmousedown="this.stop();"
+      onmouseup="this.start();">
+               <img class="client" src="../../../assets/images/flf.png">
+                 <img class="client"   src="../../../assets/images/arvind.png">
+                <img  class="client" src="../../../assets/images/tcs.png">
+                <img class="client"  src="../../../assets/images/pothys.png">
+                <img class="client" src="../../../assets/images/lee.jpg">
+              </marquee>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12  text-center ">
+        <h4 class=" border-top border-bottom">Partners</h4>
+      </div>
+      <div class="col-md-12 ">
+        <marquee behavior="alternate" direction="left" onmousedown="this.stop();"
+        onmouseup="this.start();">
+                  <img class="partners" src="../../../assets/images/amazon.png">
+                  <img class="partners"   src="../../../assets/images/flipkart.png">
+                  <img  class="partners" src="../../../assets/images/paytm.jpg">
+                </marquee>
+      </div>
+    </div>
+<!--   <div class="row ">
+
+    <div class="col-md-12  text-center ">
+      <h1 class=" border-top border-bottom">Partners</h1>
+    </div>
+    <div class="container-fluid  ">
+      <angular-image-slider [images]="patrnerimagesUrl"></angular-image-slider>
+    </div>
+  </div> -->
+  <!--  <div class="row ">
+      <div class="col-md-12  text-center ">
+          <h1 class=" border-top border-bottom">Client</h1>
+    </div>
+    
+    <div class="container-fluid ">
+        <angular-image-slider [images]="clientimagesUrl"></angular-image-slider>
         </div>
+</div> -->
 
   <!-- <div class="row">
     <div class="col-md-4 col-sm-12  mx-auto text-center">
@@ -133,5 +175,5 @@
       <button  style="padding-top:20px; padding-bottom:20px; margin-top:20px; margin-bottom:20px;" (click)="getStatus()" class="btn booking text-white" value="" type="submit">Booking Status</button>
     </div>
   </div> -->
-  
+
 </div>

@@ -9,6 +9,7 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap';
 import { AngularFontAwesomeModule} from 'angular-font-awesome';
 import { SliderModule } from 'angular-image-slider';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -114,6 +115,7 @@ import {DashBoardService} from './home/dashboard/dashboard.service';
     FlexLayoutModule,
     MatSidenavModule,
     MatListModule,
+    DragScrollModule,
     NgbModule.forRoot(),
     CarouselModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
