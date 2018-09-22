@@ -7,6 +7,7 @@ import {MatSnackBar} from '@angular/material';
 import { CatalogListingService } from '../catalog-listing.service';
 import { mobileNumber } from './validation';
 import { CatalogBooking } from './catalog-booking.model';
+import {DashBoardService} from '../../home/dashboard/dashboard.service';
 
 
 
@@ -45,7 +46,8 @@ export class CatalogingListingBookingComponent implements OnInit {
   selectedSocialMedia = [];
   bookingId;
   constructor(private fb: FormBuilder, private router: Router,
-    private catalogService: CatalogListingService, private localStorageService: LocalStorageService, public snackBar: MatSnackBar) { }
+    private catalogService: CatalogListingService, private localStorageService: LocalStorageService, public snackBar: MatSnackBar,
+  private dashboard: DashBoardService) { }
 
   ngOnInit() {
     this.createForm();

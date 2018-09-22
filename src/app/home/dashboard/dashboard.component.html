@@ -1,5 +1,5 @@
-<app-header></app-header>
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="dashboardService.visible">
   <mat-toolbar class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
@@ -8,7 +8,7 @@
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56">
-      <mat-nav-list>
+      <mat-nav-list >
         <div class="navigation-hold" fxLayout="column">
           <div class="sidenav-hold">
             <ul class="sidenav" *ngFor="let item of menuItems">
@@ -21,23 +21,23 @@
                           <mat-icon>{{item.icon}}</mat-icon> Booking
                         </mat-panel-description>
                       </mat-expansion-panel-header>
-                      <ul class="navbar-nav">
-                        <li class="nav-item">
-                          <a class="pointer"> Model shoot </a><br>
-                        </li>
-                        <li class="nav-item">
-                            <a class="pointer" > General Shoot </a><br>
+                      <ul  class="navbar-nav">
+                          <li class="nav-item">
+                            <a class="pointer" [routerLink]="['/models']"> Model shoot </a><br>
                           </li>
                           <li class="nav-item">
-                              <a class="pointer" > Cataloging/ Listing </a><br>
+                              <a  [routerLink]="['/booking']" > General Shoot </a><br>
                             </li>
-                            <li class="nav-item">
-                                <a class="pointer"> Registration & Setup </a><br>
+                            <li class="nav-item ">
+                                <a class="pointer" [routerLink]="['/cataloging']" > Cataloging/ Listing </a><br>
                               </li>
-                              <li class="nav-item">
-                                  <a class="pointer"> Marketing & Services </a><br>
+                              <li class="nav-item ">
+                                  <a  class="pointer" [routerLink]="['/registrationSetup']"  > Registration & Setup </a><br>
                                 </li>
-                      </ul>
+                                <li class="nav-item ">
+                                    <a class="pointer" [routerLink]="['/marketingservices']"> Marketing & Services </a><br>
+                                  </li>
+                        </ul>
                     </mat-expansion-panel>
                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                     </mat-expansion-panel>
@@ -50,27 +50,27 @@
                       <mat-expansion-panel class="expansion">
                         <mat-expansion-panel-header>
                           <mat-panel-description>
-                            <mat-icon>{{item.icon}}</mat-icon> Status
+                            <mat-icon>call_to_action</mat-icon> Status
                           </mat-panel-description>
                         </mat-expansion-panel-header>
-                        <ul class="navbar-nav">
-                          <li class="nav-item pointer">
-                            <a    > Model shoot </a><br>
+                        <ul  class="navbar-nav">
+                          <!-- <li class="nav-item" >
+                            <a class="pointer" [routerLink]="['/models']"> Model shoot </a><br>
                           </li>
-                          <li class="nav-item pointer">
+                          <li class="nav-item">
                               <a  [routerLink]="['/booking']" > General Shoot </a><br>
                             </li>
-                            <li class="nav-item pointer">
-                                <a [routerLink]="['/cataloging']" > Cataloging/ Listing </a><br>
+                            <li class="nav-item ">
+                                <a class="pointer" [routerLink]="['/cataloging']" > Cataloging/ Listing </a><br>
                               </li>
-                              <li class="nav-item pointer">
-                                  <a  [routerLink]="['/registrationSetup']"  > Registration & Setup </a><br>
+                              <li class="nav-item ">
+                                  <a  class="pointer" [routerLink]="['/registrationSetup']"  > Registration & Setup </a><br>
                                 </li>
-                                <li class="nav-item pointer">
-                                    <a [routerLink]="['/marketingservices']"> Marketing & Services </a><br>
-                                  </li>
-                                  <li class="nav-item pointer">
-                                      <a class="pointer"> All </a><br>
+                                <li class="nav-item ">
+                                    <a class="pointer" [routerLink]="['/marketingservices']"> Marketing & Services </a><br>
+                                  </li> -->
+                                  <li class="nav-item ">
+                                      <a class="pointer" (click)="getStatus()"> All </a><br>
                                     </li>
                         </ul>
                       </mat-expansion-panel>
@@ -84,5 +84,11 @@
         </div>
       </mat-nav-list>
     </mat-sidenav>
+    <mat-sidenav-content>
+      <!-- <app-header></app-header> -->
+        <router-outlet></router-outlet>
+       <!--  <app-footer></app-footer> -->
+       </mat-sidenav-content>
+     
   </mat-sidenav-container>
 </div>

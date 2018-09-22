@@ -28,7 +28,7 @@ interface IBadge {
 @Injectable()
 
 export class DashBoardService {
-
+visible: boolean;
   constructor() { }
   iconMenu: IMenuItem[] = [
     {
@@ -50,7 +50,13 @@ export class DashBoardService {
   menuItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
   // navigation component has subscribed to this Observable
   menuItems$ = this.menuItems.asObservable();
-
+  hide() { this.visible = false;
+     }
+    show() { this.visible = true;
+    }
+    toggle() {
+       this.visible = !this.visible;
+    }
   publishNavigationChange(menuType: string) {
     switch (menuType) {
       case 'icon-menu':

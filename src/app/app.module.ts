@@ -11,6 +11,7 @@ import { AngularFontAwesomeModule} from 'angular-font-awesome';
 import { SliderModule } from 'angular-image-slider';
 import { DragScrollModule } from 'ngx-drag-scroll';
 
+
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -105,6 +106,7 @@ import {DashBoardService} from './home/dashboard/dashboard.service';
     SliderModule,
     MatCardModule,
     MatIconModule,
+    MatTooltipModule,
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,

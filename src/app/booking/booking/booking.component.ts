@@ -9,6 +9,7 @@ import { BookingId } from './bookingId.model';
 import { mobileNumber } from './validation';
 import { Notification } from './notification.model';
 import { Customer } from './customer.model';
+import {DashBoardService} from '../../home/dashboard/dashboard.service';
 
 import { SwPush, SwUpdate } from '@angular/service-worker';
 
@@ -38,7 +39,8 @@ export class BookingComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router,
     private bookingService: BookingService, private localStorageService: LocalStorageService,
-    private swUpdate: SwUpdate, private injector: Injector, public snackBar: MatSnackBar) {
+    private swUpdate: SwUpdate, private injector: Injector, private snackBar: MatSnackBar,
+    private dashboard: DashBoardService) {
     try {
       this.swPush = this.injector.get(SwPush);
     } catch (error) {
@@ -47,10 +49,11 @@ export class BookingComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dashboard.show();
+    console.log(this.dashboard.visible);
     this.createForm();
     this.checkData();
   }
-
   createForm() {
     this.onBookInForm = this.fb.group({
       mobileNumber: ['', mobileNumber],
