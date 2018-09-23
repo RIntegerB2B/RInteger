@@ -22,7 +22,7 @@ subMenus: boolean;
   enable: boolean;
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
     fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
-  constructor( private dashboardService: DashBoardService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
+  constructor( public dashboardService: DashBoardService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
     private localStorageService: LocalStorageService, private router: Router, private activeRoute: ActivatedRoute ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
