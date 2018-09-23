@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import {MediaMatcher} from '@angular/cdk/layout';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -17,21 +18,22 @@ subMenus: boolean;
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   mobileNo;
+  returnValue;
+  enable: boolean;
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
     fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
   constructor( private dashboardService: DashBoardService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
-    private localStorageService: LocalStorageService, private router: Router) {
+    private localStorageService: LocalStorageService, private router: Router, private activeRoute: ActivatedRoute ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+
   }
   ngOnInit() {
       this.menuItemsSub = this.dashboardService.menuItems$.subscribe(menuItem => {
         this.menuItems = menuItem.filter(item => item.type !== 'icon' && item.type !== 'separator');
         this.hasIconTypeMenuItem = !!this.menuItems.filter(item => item.type === 'icon').length;
     });
-    this.dashboardService.hide();
-    console.log(this.dashboardService.visible);
   }
   ngAfterViewInit() {
     // setTimeout(() => {
@@ -49,6 +51,17 @@ subMenus: boolean;
     if (this.menuItemsSub) {
       this.menuItemsSub.unsubscribe();
     }
+  }
+  showDashBoard() {
+    if (this.router.url === '/booking') {
+      console.log(this.router.url);
+      this.enable = true;
+    } else {
+      this.enable = false;
+    }
+  }
+  hideDashBoard() {
+    this.enable = false;
   }
   getStatus() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');

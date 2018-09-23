@@ -7,6 +7,7 @@ import { StatusView } from './status-view.model';
 import {StatusDetail } from './status-detail.model';
 import {BookingDetail} from './booking-detail.model';
 import { element } from 'protractor';
+import {DashBoardService} from '../../home/dashboard/dashboard.service';
 
 @Component({
   selector: 'app-stauts-view',
@@ -50,11 +51,12 @@ orders;
  message: boolean;
 
   constructor(private fb: FormBuilder,
-    private activatedRoute: ActivatedRoute, private statusService: StatusService ) {
+    private activatedRoute: ActivatedRoute, private statusService: StatusService , private dashBoardService: DashBoardService) {
       this.no = this.activatedRoute.snapshot.paramMap.get('no');
      }
 
   ngOnInit() {
+    this.dashBoardService.makeMenuTransparent();
     this.status(this.no);
     this.createForm();
     this.orderDisplay();

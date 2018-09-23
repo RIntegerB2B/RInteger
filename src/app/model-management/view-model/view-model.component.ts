@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ModelManagementService } from '../model-management.service';
 import { Model } from './model.model';
 import { ServiceProviders } from './service-provider.model';
+import {DashBoardService} from '../../home/dashboard/dashboard.service';
 
 
 @Component({
@@ -18,8 +19,10 @@ export class ViewModelComponent implements OnInit {
   selected = 'All';
   serviceProvider: ServiceProviders;
   serviceProviderId;
-  constructor(private fb: FormBuilder, private router: Router, private modelService: ModelManagementService) { }
+  constructor(private fb: FormBuilder, private router: Router, private modelService: ModelManagementService,
+     private dashBoardService: DashBoardService) { }
   ngOnInit() {
+    this.dashBoardService.makeMenuTransparent();
     this.allModels();
     this.createForm();
     this.serviceProviders();

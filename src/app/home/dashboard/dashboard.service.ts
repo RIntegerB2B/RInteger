@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 interface IMenuItem {
   type: string  ; // Possible values: link/dropDown/icon/separator/extLink
@@ -28,35 +29,34 @@ interface IBadge {
 @Injectable()
 
 export class DashBoardService {
-visible: boolean;
+  menuTransparent: string;
+iconMenu: IMenuItem[] = [
+  {
+    name: 'BOOKING',
+    type: 'dashboard',
+    tooltip: 'Dashboard',
+    icon: 'dashboard',
+    state: 'dashboard',
+  },
+  {
+    name: 'BOOKING STATUS',
+    type: 'link',
+    tooltip: 'SMS',
+    icon: 'message',
+    state: 'cruds/ngx-table'
+  }
+];
+menuItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
+// navigation component has subscribed to this Observable
+menuItems$ = this.menuItems.asObservable();
   constructor() { }
-  iconMenu: IMenuItem[] = [
-    {
-      name: 'BOOKING',
-      type: 'dashboard',
-      tooltip: 'Dashboard',
-      icon: 'dashboard',
-      state: 'dashboard',
-    },
-    {
-      name: 'BOOKING STATUS',
-      type: 'link',
-      tooltip: 'SMS',
-      icon: 'message',
-      state: 'cruds/ngx-table'
-    }
-  ];
+  makeMenuTransparent() {
+    this.menuTransparent = 'menuTransparent';
+}
 
-  menuItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
-  // navigation component has subscribed to this Observable
-  menuItems$ = this.menuItems.asObservable();
-  hide() { this.visible = false;
-     }
-    show() { this.visible = true;
-    }
-    toggle() {
-       this.visible = !this.visible;
-    }
+hideMenuTransparent() {
+    this.menuTransparent = '';
+}
   publishNavigationChange(menuType: string) {
     switch (menuType) {
       case 'icon-menu':

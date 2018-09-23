@@ -7,6 +7,7 @@ import {MatSnackBar} from '@angular/material';
 import {MarketingServicesService} from '../marketing-services.service';
 import {MarketingServicesBooking} from './marketingServices.model';
 import {mobileNumber} from './validation';
+import {DashBoardService} from '../../home/dashboard/dashboard.service';
 
 
 @Component({
@@ -30,8 +31,10 @@ export class MarketingServicesBookingComponent implements OnInit {
   bookingId;
 
   constructor(private fb: FormBuilder, private router: Router,
-    private marketingService: MarketingServicesService, private localStorageService: LocalStorageService, public snackBar: MatSnackBar) { }
+    private marketingService: MarketingServicesService, private localStorageService: LocalStorageService,
+    public snackBar: MatSnackBar , private dashBoardService: DashBoardService) { }
   ngOnInit() {
+    this.dashBoardService.makeMenuTransparent();
     this.createForm();
     this.checkData();
   }

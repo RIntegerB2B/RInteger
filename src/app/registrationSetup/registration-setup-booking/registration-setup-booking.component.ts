@@ -7,6 +7,7 @@ import {MatSnackBar} from '@angular/material';
 import { mobileNumber } from './validation';
 import { RegistrationBooking } from './registrationSetup.model';
 import { RegistrationSetupService } from '../registration-setup.service';
+import {DashBoardService} from '../../home/dashboard/dashboard.service';
 
 @Component({
   selector: 'app-registration-setup-booking',
@@ -45,9 +46,10 @@ export class RegistrationSetupBookingComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router,
     private registrationService: RegistrationSetupService, private localStorageService: LocalStorageService,
-    public snackBar: MatSnackBar) { }
+    public snackBar: MatSnackBar, private dashBoardService: DashBoardService) { }
 
   ngOnInit() {
+    this.dashBoardService.makeMenuTransparent();
     this.createForm();
     this.checkData();
     this.showb2cNational = true;

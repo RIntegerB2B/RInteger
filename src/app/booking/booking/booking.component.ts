@@ -10,10 +10,12 @@ import { mobileNumber } from './validation';
 import { Notification } from './notification.model';
 import { Customer } from './customer.model';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
+import {DashboardComponent} from '../../home/dashboard/dashboard.component';
 
 import { SwPush, SwUpdate } from '@angular/service-worker';
 
 @Component({
+  providers: [DashboardComponent ],
   selector: 'app-booking',
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css']
@@ -40,7 +42,7 @@ export class BookingComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router,
     private bookingService: BookingService, private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private injector: Injector, private snackBar: MatSnackBar,
-    private dashboard: DashBoardService) {
+    private dashboardService: DashBoardService, private dashBoard: DashboardComponent) {
     try {
       this.swPush = this.injector.get(SwPush);
     } catch (error) {
@@ -49,8 +51,7 @@ export class BookingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dashboard.show();
-    console.log(this.dashboard.visible);
+    this.dashboardService.makeMenuTransparent();
     this.createForm();
     this.checkData();
   }
@@ -66,6 +67,9 @@ export class BookingComponent implements OnInit {
       productType: [''],
 
     });
+  }
+  test() {
+    this.dashBoard.showDashBoard();
   }
   bookSubmit(onBookInForm: FormGroup, mobileNum: any, name: any, location: any) {
     this.message = 'General Shoot Booking Done';

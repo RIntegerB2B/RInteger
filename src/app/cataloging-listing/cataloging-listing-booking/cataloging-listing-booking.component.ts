@@ -8,10 +8,12 @@ import { CatalogListingService } from '../catalog-listing.service';
 import { mobileNumber } from './validation';
 import { CatalogBooking } from './catalog-booking.model';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
+import {DashboardComponent} from '../../home/dashboard/dashboard.component';
 
 
 
 @Component({
+  providers: [DashboardComponent],
   selector: 'app-cataloging-listing-booking',
   templateUrl: './cataloging-listing-booking.component.html',
   styleUrls: ['./cataloging-listing-booking.component.css']
@@ -47,9 +49,10 @@ export class CatalogingListingBookingComponent implements OnInit {
   bookingId;
   constructor(private fb: FormBuilder, private router: Router,
     private catalogService: CatalogListingService, private localStorageService: LocalStorageService, public snackBar: MatSnackBar,
-  private dashboard: DashBoardService) { }
+  private dashboardService: DashBoardService, private dashBoard: DashboardComponent) { }
 
   ngOnInit() {
+    this.dashboardService.makeMenuTransparent();
     this.createForm();
     this.checkData();
     this.showb2cNational = true;
@@ -70,6 +73,9 @@ export class CatalogingListingBookingComponent implements OnInit {
 
     });
   }
+ /*  test() {
+    this.dashBoard.showDashBoard();
+  } */
 
   checkData() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');

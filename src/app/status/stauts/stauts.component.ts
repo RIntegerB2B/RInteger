@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {StatusService} from '../status.service';
 import { Status} from './status.model';
 import {BookingStatus} from './bookingStatus.model';
+import {DashBoardService} from '../../home/dashboard/dashboard.service';
 
 
 @Component({
@@ -46,12 +47,13 @@ export class StautsComponent implements OnInit {
  message: boolean;
 
   constructor(private fb: FormBuilder,
-    private activatedRoute: ActivatedRoute, private statusService: StatusService ) {
+    private activatedRoute: ActivatedRoute, private statusService: StatusService, private dashBoardService: DashBoardService ) {
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
     console.log( this.id);
   }
 
   ngOnInit() {
+    this.dashBoardService.makeMenuTransparent();
     this.findOrderStatus();
     this.createForm();
   }

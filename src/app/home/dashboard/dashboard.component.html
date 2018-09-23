@@ -1,5 +1,5 @@
-
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="dashboardService.visible">
+<!-- <button (click)="showDashBoard()">Test</button> -->
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches"   *ngIf="dashboardService?.menuTransparent">
   <mat-toolbar class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
@@ -29,7 +29,7 @@
                               <a  [routerLink]="['/booking']" > General Shoot </a><br>
                             </li>
                             <li class="nav-item ">
-                                <a class="pointer" [routerLink]="['/cataloging']" > Cataloging/ Listing </a><br>
+                                <a class="pointer" [routerLink]="['/cataloging']"  > Cataloging/ Listing </a><br>
                               </li>
                               <li class="nav-item ">
                                   <a  class="pointer" [routerLink]="['/registrationSetup']"  > Registration & Setup </a><br>
@@ -85,10 +85,9 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <!-- <app-header></app-header> -->
-        <router-outlet></router-outlet>
-       <!--  <app-footer></app-footer> -->
+        <app-header></app-header>
+        <router-outlet></router-outlet> 
+        <app-footer></app-footer>
        </mat-sidenav-content>
-     
   </mat-sidenav-container>
 </div>

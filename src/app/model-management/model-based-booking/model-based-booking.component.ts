@@ -12,6 +12,7 @@ import { ModelBooking } from './model-booking.model';
 import { CustomerDetail } from '../model-based-booking/customer-detail.model';
 import { ModelBookingNotification } from '../model-based-booking/notification.model';
 import {mobileNumber} from '../../booking/booking/validation';
+import {DashBoardService} from '../../home/dashboard/dashboard.service';
 
 @Component({
   selector: 'app-model-based-booking',
@@ -40,11 +41,12 @@ export class ModelBasedBookingComponent implements OnInit {
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
     private modelService: ModelManagementService, private localStorageService: LocalStorageService,
-    private swUpdate: SwUpdate, private swPush: SwPush , public snackBar: MatSnackBar) {
+    private swUpdate: SwUpdate, private swPush: SwPush , public snackBar: MatSnackBar , private dashBoardService: DashBoardService ) {
     this.id = this.activatedRoute.snapshot.paramMap.get('modelId');
   }
 
   ngOnInit() {
+    this.dashBoardService.makeMenuTransparent();
     this.viewModel(this.id);
     this.createForm();
     this.checkData();
