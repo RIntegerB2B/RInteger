@@ -3,13 +3,13 @@ import { BehaviorSubject } from 'rxjs';
 import { Observable, of } from 'rxjs';
 
 interface IMenuItem {
-  type: string  ; // Possible values: link/dropDown/icon/separator/extLink
-  name?: string ;     // Used as display text for item and title for separator type
-  state?: string ;    // Router state
-  icon?: string ;    // Material icon name
-  tooltip?: string ;   // Tooltip text
-  disabled?: boolean ;  // If true, item will not be appeared in sidenav.
-  sub?: IChildItem[] ; // Dropdown items
+  type: string; // Possible values: link/dropDown/icon/separator/extLink
+  name?: string;     // Used as display text for item and title for separator type
+  state?: string;    // Router state
+  icon?: string;    // Material icon name
+  tooltip?: string;   // Tooltip text
+  disabled?: boolean;  // If true, item will not be appeared in sidenav.
+  sub?: IChildItem[]; // Dropdown items
   badges?: IBadge[];
 }
 interface IChildItem {
@@ -29,34 +29,35 @@ interface IBadge {
 @Injectable()
 
 export class DashBoardService {
-  menuTransparent: string;
-iconMenu: IMenuItem[] = [
-  {
-    name: 'BOOKING',
-    type: 'dashboard',
-    tooltip: 'Dashboard',
-    icon: 'dashboard',
-    state: 'dashboard',
-  },
-  {
-    name: 'BOOKING STATUS',
-    type: 'link',
-    tooltip: 'SMS',
-    icon: 'message',
-    state: 'cruds/ngx-table'
-  }
-];
-menuItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
-// navigation component has subscribed to this Observable
-menuItems$ = this.menuItems.asObservable();
+  menuTransparent: boolean;
+  /*   hideTransparent: boolean; */
+  iconMenu: IMenuItem[] = [
+    {
+      name: 'BOOKING',
+      type: 'dashboard',
+      tooltip: 'Dashboard',
+      icon: 'dashboard',
+      state: 'dashboard',
+    },
+    {
+      name: 'BOOKING STATUS',
+      type: 'link',
+      tooltip: 'SMS',
+      icon: 'message',
+      state: 'cruds/ngx-table'
+    }
+  ];
+  menuItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
+  // navigation component has subscribed to this Observable
+  menuItems$ = this.menuItems.asObservable();
   constructor() { }
   makeMenuTransparent() {
-    this.menuTransparent = 'menuTransparent';
-}
+    this.menuTransparent = true;
+  }
 
-hideMenuTransparent() {
-    this.menuTransparent = '';
-}
+  hideMenuTransparent() {
+    this.menuTransparent = false;
+  }
   publishNavigationChange(menuType: string) {
     switch (menuType) {
       case 'icon-menu':

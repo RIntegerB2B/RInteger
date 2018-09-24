@@ -7,6 +7,7 @@ import {StatusService} from '../status.service';
 import {StatusDetails} from './status.model';
 import {BookingDetails} from './booking-detail.model';
 import {mobileNumber} from './validation';
+import {DashBoardService} from '../../home/dashboard/dashboard.service';
 
 @Component({
   selector: 'app-new-user-status',
@@ -45,9 +46,10 @@ export class NewUserStatusComponent implements OnInit {
   message: boolean;
 
   constructor(private fb: FormBuilder, private router: Router,
-    private statusService: StatusService, private localStorageService: LocalStorageService) { }
+    private statusService: StatusService, private localStorageService: LocalStorageService, private dashboardservice: DashBoardService) { }
 
   ngOnInit() {
+    this.dashboardservice.makeMenuTransparent();
     this.createForm();
   }
   createForm() {
@@ -79,7 +81,8 @@ export class NewUserStatusComponent implements OnInit {
       this.displayStatus = true;
       this.hideStatus = true;
       this.message = false;
-    } else if (type === 'Catalog Booking'  || type === 'Marketing Booking' || type === 'Registration Booking' ) {
+    } else if (type === 'Catalog Booking'  || type === 'Marketing Booking' || type === 'Registration Booking'
+    || type === 'Editing Booking' || type === 'Creative Booking' ) {
     this.message = true;
     this.displayStatus = false;
     this.hideStatus = false;

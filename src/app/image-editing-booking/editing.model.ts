@@ -1,13 +1,13 @@
-export class BookingDetail {
+export class ImageEditing {
+    bookingOrderId: string;
+    bookingStatus: number;
     mobileNumber: number;
     name: string;
-    bookingOrderId: string;
     productDescription: string;
     quantityDescription: string;
     shootType: string;
     modelType: string;
     productType: string;
-    bookingType: string;
     constructor(
         name: string,
         mobileNumber: number ,

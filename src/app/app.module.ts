@@ -67,6 +67,9 @@ import {
   MatStepperModule
 } from '@angular/material';
 import {DashBoardService} from './home/dashboard/dashboard.service';
+import { ImageEditingBookingComponent } from './image-editing-booking/image-editing-booking.component';
+import { CreativeBookingComponent } from './creative-booking/creative-booking.component';
+import {DataFilter} from './status/stauts-view/data-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -90,7 +93,10 @@ import {DashBoardService} from './home/dashboard/dashboard.service';
     RegistrationSetupBookingComponent,
     MarketingServicesBookingComponent,
     PricingComponent,
-    DashboardComponent
+    DashboardComponent,
+    ImageEditingBookingComponent,
+    CreativeBookingComponent,
+    DataFilter
   ],
   imports: [
     BrowserModule,

@@ -237,8 +237,8 @@ findStatus() {
           this.findStatus();
           this.displayStatus = true;
           this.message = false;
-        } else if (type === 'Catalog Booking'  || type === 'Marketing Booking' || type === 'Registration Booking' ) {
-          console.log('sorry');
+        } else if (type === 'Catalog Booking'  || type === 'Marketing Booking' || type === 'Editing Booking'
+         || type === 'Registration Booking' || type === 'Creative Booking') {
           this.displayStatus = false;
           this.message = true;
 

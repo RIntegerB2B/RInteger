@@ -1,6 +1,6 @@
 import { Component, OnInit, Injector } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import { Booking } from './booking.model';
@@ -9,13 +9,11 @@ import { BookingId } from './bookingId.model';
 import { mobileNumber } from './validation';
 import { Notification } from './notification.model';
 import { Customer } from './customer.model';
-import {DashBoardService} from '../../home/dashboard/dashboard.service';
-import {DashboardComponent} from '../../home/dashboard/dashboard.component';
+import { DashBoardService } from '../../home/dashboard/dashboard.service';
 
 import { SwPush, SwUpdate } from '@angular/service-worker';
 
 @Component({
-  providers: [DashboardComponent ],
   selector: 'app-booking',
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css']
@@ -42,7 +40,7 @@ export class BookingComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router,
     private bookingService: BookingService, private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private injector: Injector, private snackBar: MatSnackBar,
-    private dashboardService: DashBoardService, private dashBoard: DashboardComponent) {
+    private dashboardService: DashBoardService) {
     try {
       this.swPush = this.injector.get(SwPush);
     } catch (error) {
@@ -67,9 +65,6 @@ export class BookingComponent implements OnInit {
       productType: [''],
 
     });
-  }
-  test() {
-    this.dashBoard.showDashBoard();
   }
   bookSubmit(onBookInForm: FormGroup, mobileNum: any, name: any, location: any) {
     this.message = 'General Shoot Booking Done';

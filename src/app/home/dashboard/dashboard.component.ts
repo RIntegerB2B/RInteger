@@ -3,7 +3,7 @@ import { DashBoardService } from '../dashboard/dashboard.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
-import {MediaMatcher} from '@angular/cdk/layout';
+import { MediaMatcher } from '@angular/cdk/layout';
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
@@ -11,28 +11,27 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
-subMenus: boolean;
+  subMenus: boolean;
   menuItems: any[];
   public hasIconTypeMenuItem: boolean;
   menuItemsSub: Subscription;
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   mobileNo;
-  returnValue;
   enable: boolean;
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
-    fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
-  constructor( public dashboardService: DashBoardService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
-    private localStorageService: LocalStorageService, private router: Router, private activeRoute: ActivatedRoute ) {
+  fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
+  constructor(public dashboardService: DashBoardService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
+    private localStorageService: LocalStorageService, private router: Router, private activeRoute: ActivatedRoute) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
 
   }
   ngOnInit() {
-      this.menuItemsSub = this.dashboardService.menuItems$.subscribe(menuItem => {
-        this.menuItems = menuItem.filter(item => item.type !== 'icon' && item.type !== 'separator');
-        this.hasIconTypeMenuItem = !!this.menuItems.filter(item => item.type === 'icon').length;
+    this.menuItemsSub = this.dashboardService.menuItems$.subscribe(menuItem => {
+      this.menuItems = menuItem.filter(item => item.type !== 'icon' && item.type !== 'separator');
+      this.hasIconTypeMenuItem = !!this.menuItems.filter(item => item.type === 'icon').length;
     });
   }
   ngAfterViewInit() {
@@ -42,7 +41,9 @@ subMenus: boolean;
     //   })
     // })
   }
+  getData() {
 
+  }
   ngOnDestroy(): void {
     // if(this.sidebarPS) {
     //   this.sidebarPS.destroy();
@@ -52,25 +53,17 @@ subMenus: boolean;
       this.menuItemsSub.unsubscribe();
     }
   }
-  showDashBoard() {
-    if (this.router.url === '/booking') {
-      console.log(this.router.url);
-      this.enable = true;
-    } else {
-      this.enable = false;
-    }
-  }
-  hideDashBoard() {
-    this.enable = false;
+  homePage() {
+    this.router.navigate(['/welcome']);
   }
   getStatus() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     console.log(this.mobileNo);
-    if ( this.mobileNo === null) {
+    if (this.mobileNo === null) {
       this.router.navigate(['/newUser']);
     } else if (this.mobileNo != null) {
       this.mobileNo = this.localStorageService.retrieve('mobileno');
       this.router.navigate(['/statusView', this.mobileNo]);
     }
-}
+  }
 }

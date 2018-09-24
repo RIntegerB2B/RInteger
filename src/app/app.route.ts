@@ -17,9 +17,13 @@ import {DashboardComponent} from './home/dashboard/dashboard.component';
 import {CatalogingListingBookingComponent} from './cataloging-listing/cataloging-listing-booking/cataloging-listing-booking.component';
 import {RegistrationSetupBookingComponent} from './registrationSetup/registration-setup-booking/registration-setup-booking.component';
 import {MarketingServicesBookingComponent} from './marketing-services/marketing-services-booking/marketing-services-booking.component';
+import {ImageEditingBookingComponent} from './image-editing-booking/image-editing-booking.component';
+import {CreativeBookingComponent} from './creative-booking/creative-booking.component';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
+    { path: 'editing', component: ImageEditingBookingComponent },
+    { path: 'creative', component: CreativeBookingComponent },
     { path: 'header', component: HeaderComponent },
     { path: 'booking', component: BookingComponent },
     { path: 'status/:id', component: StautsComponent },

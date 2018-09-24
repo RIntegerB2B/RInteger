@@ -50,6 +50,7 @@ orders;
  bookingCancelled: boolean;
  message: boolean;
 
+ searchText: string;
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService , private dashBoardService: DashBoardService) {
       this.no = this.activatedRoute.snapshot.paramMap.get('no');
@@ -65,7 +66,8 @@ orders;
   createForm() {
     this.statusViewForm = this.fb.group({
       order: [''],
-      bookingType: ['']
+      bookingType: [''],
+      test: []
     });
   }
   showStatus() {
@@ -81,7 +83,8 @@ orders;
     this.displayStatus = true;
     this.hideStatus = true;
     this.message = false;
-  } else if (type === 'Catalog Booking'  || type === 'Marketing Booking' || type === 'Registration Booking' ) {
+  } else if (type === 'Catalog Booking'  || type === 'Marketing Booking' || type === 'Editing Booking'
+  || type === 'Registration Booking' || type === 'Creative Booking' ) {
   this.message = true;
   this.displayStatus = false;
   this.hideStatus = true;
