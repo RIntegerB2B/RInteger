@@ -49,7 +49,9 @@ orders;
  bookingStatusCompleted: boolean;
  bookingCancelled: boolean;
  message: boolean;
-
+ datacheck;
+filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
+'Marketing  Booking', 'Creative Booking'];
  searchText: string;
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService , private dashBoardService: DashBoardService) {
@@ -67,6 +69,7 @@ orders;
     this.statusViewForm = this.fb.group({
       order: [''],
       bookingType: [''],
+      filterText: [],
       test: []
     });
   }
@@ -74,6 +77,13 @@ orders;
     this.hideStatus = false;
     this.displayStatus = false;
     this.message = false;
+  }
+  bookingType(value) {
+    this.searchText = value;
+  }
+  filterType(value) {
+    this.datacheck = value;
+    console.log( this.datacheck);
   }
   statusView(statusViewForm: FormGroup, id: any, type: any) {
  this.statusService.getStatusById( this.no, id).subscribe(data => {
@@ -225,7 +235,7 @@ orderDisplay() {
 }
   status(no) {
     this.statusService.getStatusByNum(no).subscribe(statusData => {
-       this.Status = statusData;
+       this.Details = statusData;
           }, error => {
             console.log(error);
           });

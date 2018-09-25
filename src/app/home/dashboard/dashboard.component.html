@@ -84,21 +84,12 @@
                         </mat-panel-description>
                       </mat-expansion-panel-header>
                       <ul class="navbar-nav">
-                       <!--  <li class="nav-item" >
-                            <a class="pointer"  [routerLink]="['/creative']"> Model shoot </a><br>
+                        <li class="nav-item" >
+                            <a class="pointer"  (click)="getActive()"> Active </a><br>
                           </li>
                           <li class="nav-item">
-                              <a class="pointer" (click)="getStatus()" > General Shoot </a><br>
+                              <a class="pointer" (click)="getCancelled()" > Cancelled</a><br>
                             </li>
-                            <li class="nav-item ">
-                                <a class="pointer" (click)="getStatus()" > Cataloging/ Listing </a><br>
-                              </li>
-                              <li class="nav-item ">
-                                  <a  class="pointer" (click)="getStatus()"  > Registration & Setup </a><br>
-                                </li>-->
-                              <!--   <li class="nav-item ">
-                                    <a class="pointer" (click)="getData()">Marketing & Services </a><br>
-                                  </li>  -->
                         <li class="nav-item ">
                           <a class="pointer" (click)="getStatus()"> All </a><br>
                         </li>

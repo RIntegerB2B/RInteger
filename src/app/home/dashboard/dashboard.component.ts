@@ -5,7 +5,10 @@ import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ActivatedRoute } from '@angular/router';
+
+import {StautsViewComponent} from '../../status/stauts-view/stauts-view.component';
 @Component({
+/*   providers: [StautsViewComponent], */
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
@@ -19,6 +22,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   private _mobileQueryListener: () => void;
   mobileNo;
   enable: boolean;
+  filterValue;
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
   fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
   constructor(public dashboardService: DashBoardService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
@@ -41,9 +45,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //   })
     // })
   }
-  getData() {
-
-  }
   ngOnDestroy(): void {
     // if(this.sidebarPS) {
     //   this.sidebarPS.destroy();
@@ -55,6 +56,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   homePage() {
     this.router.navigate(['/welcome']);
+  }
+  getActive() {
+    this.filterValue = 'waiting for approval';
+    /* this.statusView.filterType( this.filterValue); */
+  }
+  getCancelled() {
+    this.filterValue = 'booking cancelled';
+  /*   this.statusView.filterType( this.filterValue); */
   }
   getStatus() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');

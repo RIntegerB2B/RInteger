@@ -3,27 +3,24 @@ export class ImageEditing {
     bookingStatus: number;
     mobileNumber: number;
     name: string;
-    productDescription: string;
+    imageDescription: string;
     quantityDescription: string;
-    shootType: string;
-    modelType: string;
-    productType: string;
+    imageRequirements: string;
+    location: string;
     constructor(
         name: string,
-        mobileNumber: number ,
-        productDescription: string,
+        mobileNumber: number,
+        location: string,
+        imageDescription: string,
         quantityDescription: string,
-        shootType: string,
-        modelType: string,
-        productType: string
+        imageRequirements: string
 ) {
         this.name = name;
         this.mobileNumber = mobileNumber;
-        this.productDescription = productDescription;
+        this.location = location;
+        this.imageDescription = imageDescription;
         this.quantityDescription = quantityDescription;
-        this.shootType = shootType;
-        this.modelType = modelType;
-        this.productType = productType;
+        this.imageRequirements = imageRequirements;
 
     }
 }

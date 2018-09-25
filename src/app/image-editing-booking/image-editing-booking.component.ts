@@ -48,11 +48,9 @@ export class ImageEditingBookingComponent implements OnInit {
       mobileNumber: ['', mobileNumber],
       name: [''],
       location: [''],
-      productDescription: [''],
+      imageDescription: [''],
       quantityDescription: [''],
-      shootType: [''],
-      modelType: [''],
-      productType: [''],
+      imageRequirements: ['']
 
     });
   }
@@ -65,19 +63,16 @@ export class ImageEditingBookingComponent implements OnInit {
     this.editingModel = new ImageEditing(
       editingForm.controls.name.value,
       editingForm.controls.mobileNumber.value,
-      editingForm.controls.productDescription.value,
+      editingForm.controls.location.value,
+      editingForm.controls.imageDescription.value,
       editingForm.controls.quantityDescription.value,
-      editingForm.controls.shootType.value,
-      editingForm.controls.modelType.value,
-      editingForm.controls.productType.value
+      editingForm.controls.imageRequirements.value
     );
-    this.snackBar.open(this.message, this.action, {
-      duration: 2000,
-    });
     this.editingForm.reset();
     this.editingService.addBooking(this.editingModel).subscribe(data => {
-      console.log(data);
-   /*    this.id = data; */
+      this.snackBar.open(this.message, this.action, {
+        duration: 2000,
+      });
       this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {
       console.log(error);

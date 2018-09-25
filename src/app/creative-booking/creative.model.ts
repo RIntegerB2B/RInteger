@@ -5,25 +5,24 @@ export class Creative {
     name: string;
     productDescription: string;
     quantityDescription: string;
-    shootType: string;
-    modelType: string;
-    productType: string;
+    location: string;
+    shootPurpose: string;
+    isVideoShoot: string;
+    shootType: Array<string>;
     constructor(
         name: string,
         mobileNumber: number ,
+        location: string,
         productDescription: string,
         quantityDescription: string,
-        shootType: string,
-        modelType: string,
-        productType: string
+        shootPurpose: string,
+        isVideoShoot: string
 ) {
         this.name = name;
         this.mobileNumber = mobileNumber;
         this.productDescription = productDescription;
         this.quantityDescription = quantityDescription;
-        this.shootType = shootType;
-        this.modelType = modelType;
-        this.productType = productType;
-
+       this.shootPurpose = shootPurpose;
+       this.isVideoShoot = isVideoShoot;
     }
 }

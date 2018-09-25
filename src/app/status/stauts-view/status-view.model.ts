@@ -11,6 +11,7 @@ export class StatusView {
     delivery: Boolean;
     payment: Boolean;
     materialReturn: Boolean;
+    bookingStatus: string;
     constructor(
         _id: Number,
         mobileNumber: Number,

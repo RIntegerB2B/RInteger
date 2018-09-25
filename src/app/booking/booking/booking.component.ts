@@ -82,13 +82,11 @@ export class BookingComponent implements OnInit {
       onBookInForm.controls.productType.value
     );
     this.saveCustomerDetail(onBookInForm);
-    this.snackBar.open(this.message, this.action, {
-      duration: 2000,
-    });
     this.onBookInForm.reset();
     this.bookingService.addBooking(this.userBook).subscribe(data => {
-      console.log(data);
-      this.id = data;
+      this.snackBar.open(this.message, this.action, {
+        duration: 2000,
+      });
       this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {
       console.log(error);

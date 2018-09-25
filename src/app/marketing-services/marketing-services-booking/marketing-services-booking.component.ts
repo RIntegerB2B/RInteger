@@ -76,12 +76,12 @@ export class MarketingServicesBookingComponent implements OnInit {
     );
     this.marketingBooking.marketingMedium = this.selectedMedium;
     this.marketingService.marketingBooking(this.marketingBooking).subscribe(data => {
+      this.snackBar.open(this.message, this.action, {
+        duration: 2000,
+      });
       this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {
       console.log(error);
-    });
-    this.snackBar.open(this.message, this.action, {
-      duration: 2000,
     });
   }
 }

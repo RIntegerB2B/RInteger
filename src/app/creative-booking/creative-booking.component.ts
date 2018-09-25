@@ -28,6 +28,9 @@ export class CreativeBookingComponent implements OnInit {
   notificationModel: Notification;
   message;
   action;
+  videoShoot = ['Yes', 'No'];
+  shootTypes = ['Indoor shoot', 'Outdoor shoot'];
+  shooting = [];
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private fb: FormBuilder, private router: Router,
     private creativeService: CreativeBookingService, private localStorageService: LocalStorageService,
@@ -52,11 +55,20 @@ export class CreativeBookingComponent implements OnInit {
       location: [''],
       productDescription: [''],
       quantityDescription: [''],
-      shootType: [''],
-      modelType: [''],
-      productType: [''],
+      shootPurpose: [''],
+      isVideoShoot: [''],
+      shootType: ['']
 
     });
+  }
+  getShoot(data, isChecked) {
+    const index = this.shooting.indexOf(data);
+    if (isChecked) {
+      this.shooting.push(data);
+    } else  if (index > -1 ) {
+      this.shooting.splice(index, 1);
+    }
+console.log(this.shooting);
   }
   bookSubmit(creativeForm: FormGroup, mobileNum: any, name: any, location: any) {
     this.message = 'Image Editing Booking Done';
@@ -67,23 +79,22 @@ export class CreativeBookingComponent implements OnInit {
     this.creativeModel = new Creative(
       creativeForm.controls.name.value,
       creativeForm.controls.mobileNumber.value,
+      creativeForm.controls.location.value,
       creativeForm.controls.productDescription.value,
       creativeForm.controls.quantityDescription.value,
-      creativeForm.controls.shootType.value,
-      creativeForm.controls.modelType.value,
-      creativeForm.controls.productType.value
+      creativeForm.controls.shootPurpose.value,
+      creativeForm.controls.isVideoShoot.value
     );
-    this.snackBar.open(this.message, this.action, {
-      duration: 2000,
-    });
-    this.creativeForm.reset();
+    this.creativeModel.shootType = this.shooting;
     this.creativeService.addBooking(this.creativeModel).subscribe(data => {
-      console.log(data);
-   /*    this.id = data; */
+   this.snackBar.open(this.message, this.action, {
+    duration: 2000,
+  });
       this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {
       console.log(error);
     });
+    this.creativeForm.reset();
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.subscribe(this.mobileNo);
   }

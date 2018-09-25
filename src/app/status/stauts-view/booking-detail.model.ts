@@ -4,10 +4,12 @@ export class BookingDetail {
     bookingOrderId: string;
     productDescription: string;
     quantityDescription: string;
+    bookingDate: String;
     shootType: string;
     modelType: string;
     productType: string;
     bookingType: string;
+    bookingStatus: string;
     constructor(
         name: string,
         mobileNumber: number ,

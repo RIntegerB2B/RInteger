@@ -22,7 +22,7 @@ export class WelcomeComponent implements OnInit {
     private dashboardService: DashBoardService) { }
 
   ngOnInit() {
-   /*  this.dashboardService.hideMenuTransparent(); */
+    /* this.dashboardService.showMenuTransparent(); */
   }
   getStatus() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');

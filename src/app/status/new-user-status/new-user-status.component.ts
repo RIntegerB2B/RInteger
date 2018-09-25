@@ -44,7 +44,9 @@ export class NewUserStatusComponent implements OnInit {
   hideStatus: boolean;
   Detail: BookingDetails[] = [];
   message: boolean;
-
+  searchText: string;
+  filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
+  'Marketing  Booking', 'Creative Booking'];
   constructor(private fb: FormBuilder, private router: Router,
     private statusService: StatusService, private localStorageService: LocalStorageService, private dashboardservice: DashBoardService) { }
 
@@ -57,8 +59,12 @@ export class NewUserStatusComponent implements OnInit {
       mobileNumber: ['', mobileNumber],
       name: ['', Validators.required],
       order: [],
-      bookingType: []
+      bookingType: [],
+      filterText: ['']
     });
+  }
+  bookingType(value) {
+    this.searchText = value;
   }
   findStatus(newUserForm: FormGroup,  mobileNum: any) {
     this.localStorageService.store('mobileno', mobileNum);

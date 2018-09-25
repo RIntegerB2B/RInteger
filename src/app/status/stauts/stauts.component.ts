@@ -46,6 +46,7 @@ export class StautsComponent implements OnInit {
  bookingCancelled: boolean;
  message: boolean;
 
+
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService, private dashBoardService: DashBoardService ) {
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
