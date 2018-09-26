@@ -1,20 +1,18 @@
-<form [formGroup]="statusViewForm" style="padding-top:80px; margin-bottom:300px;" novalidate>
-  <div class="container">
+<form [formGroup]="statusViewForm" style="padding-top:80px; margin-bottom:300px;" novalidate *ngIf="activeStatus">
+  <div class="container" >
       <div class="textContainer" *ngIf="!hideStatus">
           <select   #selectElem (change)="bookingType(selectElem.value)" style="width:250px" >
-              <option>Select Booking type</option>
+              <option disabled>---Select Booking type---</option>
                 <option *ngFor="let data of filterOption"  >
                       {{data}}
                </option>
-          </select> 
+               <option>All</option>
+          </select > 
       </div>
     <div class="text-center " style="padding-bottom:20px" *ngIf="!hideStatus">
       <h6><strong>LIST OF BOOKING</strong></h6>
     </div>
-    
-  
     <input class="form-control" hidden  type="text" placeholder="Type the booking type" formControlName="filterText" [(ngModel)]="searchText" style="width:300px;" />
-    <input class="form-control"  hidden  type="text" placeholder="Type the booking type" formControlName="test" [(ngModel)]="datacheck" style="width:300px;" />
     <div class="row">
       <div class=" col-sm-12 d-flex  flex-row" *ngIf="!hideStatus">
         <div class=" col-sm-3 col p-2 text-center border">
@@ -32,11 +30,9 @@
         <div class="col-sm-2 col p-2 text-center border">
           <b>Track the Order</b>
         </div>
-       
       </div>
     </div>
     <div *ngIf="!hideStatus">
-      
       <div class=" col-sm-12 status d-flex border-bottom  flex-row" *ngFor="let data of Details | dataFilter:searchText ">
          
         <div class="col-sm-3 col p-2 ">{{data.bookingOrderId}}</div>
@@ -49,7 +45,7 @@
           <button class="btn btn-success btn-sm" (click)="statusView(statusViewForm,id.value,type.value)">View</button>
         </div>
       </div>
-      <button style="margin:20px;" class="btn" [routerLink]="['/welcome']">back</button>
+   <!--    <button style="margin:20px;" class="btn" [routerLink]="['/welcome']">back</button> -->
     </div>
     <div class="text-center " style="padding-bottom:20px" *ngIf="hideStatus">
         <h6><strong>BOOKING DETAILS</strong></h6>
@@ -186,5 +182,8 @@
         </div>
         </div>
   </div>
+ <!--  <div *ngIf="!cancelledStatus">
+    <h1>test cancel</h1>
+  </div> -->
 
 </form>

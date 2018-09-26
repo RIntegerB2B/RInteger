@@ -6,9 +6,11 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ActivatedRoute } from '@angular/router';
 
-import {StautsViewComponent} from '../../status/stauts-view/stauts-view.component';
+import {StatusService} from '../../status/status.service';
+import { StautsViewComponent } from '../../status/stauts-view/stauts-view.component';
+
 @Component({
-/*   providers: [StautsViewComponent], */
+  providers: [StautsViewComponent],
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
@@ -26,7 +28,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
   fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
   constructor(public dashboardService: DashBoardService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
-    private localStorageService: LocalStorageService, private router: Router, private activeRoute: ActivatedRoute) {
+    private localStorageService: LocalStorageService, private router: Router, private activeRoute: ActivatedRoute,
+     private statusService: StatusService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -58,14 +61,18 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.router.navigate(['/welcome']);
   }
   getActive() {
-    this.filterValue = 'waiting for approval';
-    /* this.statusView.filterType( this.filterValue); */
+    this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.statusService.getActiveBookings(this.mobileNo);
   }
   getCancelled() {
-    this.filterValue = 'booking cancelled';
-  /*   this.statusView.filterType( this.filterValue); */
+    /* this.mobileNo = this.localStorageService.retrieve('mobileno');
+    const type = 'cancelled';
+    this.statusView.bookingStatusType(type, this.mobileNo); */
+    this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.statusService.getCancelledBookings(this.mobileNo);
   }
   getStatus() {
+    console.log('test');
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     console.log(this.mobileNo);
     if (this.mobileNo === null) {

@@ -47,6 +47,18 @@ export class StatusService {
     const url: string = this.serviceUrl + statusUrl + id ;
     return this.httpClient.get<BookingDetail>(url);
   }
+  getActiveBookings(id): Observable<any> {
+    const statusUrl = 'bookingDetails/';
+    const activeUrl = '/active/';
+    const url: string = this.serviceUrl + statusUrl + id + activeUrl ;
+    return this.httpClient.get<BookingDetail>(url);
+  }
+  getCancelledBookings(id): Observable<any> {
+    const statusUrl = 'bookingDetails/';
+    const cancelUrl = '/cancelled/';
+    const url: string = this.serviceUrl + statusUrl + id + cancelUrl ;
+    return this.httpClient.get<BookingDetail>(url);
+  }
   getStatusById( no , id): Observable<any> {
     const statusUrl = 'bookingStatus/';
     const viewUrl = '/view/';

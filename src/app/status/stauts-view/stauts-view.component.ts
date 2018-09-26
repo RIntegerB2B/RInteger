@@ -8,6 +8,7 @@ import {StatusDetail } from './status-detail.model';
 import {BookingDetail} from './booking-detail.model';
 import { element } from 'protractor';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
+import {CancelledBookingDetail} from './cancelled-booking-detail.model';
 
 @Component({
   selector: 'app-stauts-view',
@@ -18,6 +19,7 @@ export class StautsViewComponent implements OnInit {
   no: string;
   // statusDisplay: string;
 orders;
+cancelledBookingDetails: CancelledBookingDetail;
  StatusForOne: StatusDetail;
  Details: BookingDetail[] = [];
   Status: StatusView [] = [];
@@ -50,6 +52,8 @@ orders;
  bookingCancelled: boolean;
  message: boolean;
  datacheck;
+ cancelledStatus: boolean;
+ activeStatus: boolean;
 filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
 'Marketing  Booking', 'Creative Booking'];
  searchText: string;
@@ -60,9 +64,11 @@ filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registrat
 
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
-    this.status(this.no);
+ this.status(this.no);
+ console.log('test1');
     this.createForm();
     this.orderDisplay();
+/*  this.cancelledBooking(this.no); */
   }
 
   createForm() {
@@ -79,16 +85,19 @@ filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registrat
     this.message = false;
   }
   bookingType(value) {
-    this.searchText = value;
+    if (value === 'All') {
+      this.searchText = 'Booking';
+    } else {
+      this.searchText = value;
+    }
+    console.log(value);
   }
   filterType(value) {
-    this.datacheck = value;
     console.log( this.datacheck);
   }
   statusView(statusViewForm: FormGroup, id: any, type: any) {
  this.statusService.getStatusById( this.no, id).subscribe(data => {
   this.StatusForOne = data;
-  console.log(type);
   if (type === 'Direct Booking'  || type === 'Model Booking' ) {
     this.displayStatus = true;
     this.hideStatus = true;
@@ -118,7 +127,6 @@ filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registrat
       this.materialPickedTrue = false;
       break;
     }
-
   }
 
   switch (data.shootCompleted) {
@@ -227,22 +235,44 @@ filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registrat
    console.log(error);
  }
 );
-this.bookingDetail(id, type) ;
+this.statusDetail(id, type) ;
   }
-
 orderDisplay() {
 
 }
   status(no) {
     this.statusService.getStatusByNum(no).subscribe(statusData => {
        this.Details = statusData;
+       console.log( this.Details);
           }, error => {
             console.log(error);
           });
   }
-  bookingDetail(num, type) {
+  statusDetail(num, type) {
     this.statusService.getBookingDetail(num, type).subscribe(statusData => {
       this.Details = statusData;
+         }, error => {
+           console.log(error);
+         });
+  }
+  bookingStatusType(type, no) {
+if (type === 'cancelled') {
+this.cancelledBooking(no);
+}
+  }
+  activeBooking(no) {
+    this.statusService.getActiveBookings(no).subscribe(statusData => {
+      console.log(statusData);
+      this.Details = statusData;
+         }, error => {
+           console.log(error);
+         });
+  }
+  cancelledBooking(no) {
+    this.cancelledStatus = true;
+    this.statusService.getCancelledBookings(no).subscribe(statusData => {
+      this.Details = statusData;
+      console.log(this.Details);
          }, error => {
            console.log(error);
          });
