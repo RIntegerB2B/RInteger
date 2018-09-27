@@ -10,7 +10,7 @@
       </select > 
   </div>
     <div class="text-center " style="padding-bottom:20px" *ngIf="!hideStatus">
-      <h6><strong>LIST OF ACTIVE BOOKING</strong></h6>
+      <h6><strong>LIST OF CANCELLED BOOKING</strong></h6>
     </div>
     
   
@@ -21,18 +21,18 @@
         <div class=" col-sm-3 col p-2 text-center border">
           <b>Booking ID</b>
         </div>
-        <div class=" col-sm-2 col p-2 text-center border">
+        <div class=" col-sm-3 col p-2 text-center border">
           <b>Booking Type</b>
         </div>
-        <div class="col-sm-2 col p-2 text-center border">
+        <div class="col-sm-3 col p-2 text-center border">
           <b>Booking Date</b>
         </div>
-        <div class="col-sm-2 col p-2 text-center border">
+        <div class="col-sm-3 col p-2 text-center border">
           <b>Status</b>
         </div>
-        <div class="col-sm-2 col p-2 text-center border">
+       <!--  <div class="col-sm-2 col p-2 text-center border">
           <b>Track the Order</b>
-        </div>
+        </div> -->
        
       </div>
     </div>
@@ -41,13 +41,13 @@
       <div class=" col-sm-12 status d-flex border-bottom  flex-row" *ngFor="let data of Details | dataFilter:searchText ">
          
         <div class="col-sm-3 col p-2 ">{{data.bookingOrderId}}</div>
-        <div class="col-sm-2  col p-2 ">{{data.bookingType}}</div>
-        <div class="col-sm-2  col p-2 text-center ">{{data.bookingDate}}</div>
-        <div class="col-sm-2  col p-2 text-center "><strong>{{data.bookingStatus}}</strong></div>
+        <div class="col-sm-3  col p-2 ">{{data.bookingType}}</div>
+        <div class="col-sm-3  col p-2 text-center ">{{data.bookingDate}}</div>
+        <div class="col-sm-3  col p-2 text-center "><strong>{{data.bookingStatus}}</strong></div>
         <div class=" col-sm-3 col p-2 text-center ">
           <input class="form-control" hidden type="text" formControlName="order" [value]="data.bookingOrderId" #id/>
           <input class="form-control" hidden type="text" formControlName="bookingType" [value]="data.bookingType" #type/>
-          <button class="btn btn-success btn-sm" (click)="statusView(statusViewForm,id.value,type.value)">View</button>
+         <!--  <button class="btn btn-success btn-sm" (click)="statusView(statusViewForm,id.value,type.value)">View</button> -->
         </div>
       </div>
       <button style="margin:20px;" class="btn" [routerLink]="['/welcome']">back</button>

@@ -7,6 +7,8 @@ import { AppSetting } from '../config/appSetting';
 import { Status} from './stauts/status.model';
 import {StatusDetails} from './new-user-status/status.model';
 import {BookingDetail} from './stauts-view/booking-detail.model';
+import {CancelledBookingDetail} from './cancelled-status/cancelled-booking.model';
+import {Bookings} from './all-status/allStatus.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -45,7 +47,7 @@ export class StatusService {
   getStatusByNum(id): Observable<any> {
     const statusUrl = 'bookingStatus/';
     const url: string = this.serviceUrl + statusUrl + id ;
-    return this.httpClient.get<BookingDetail>(url);
+    return this.httpClient.get<Bookings>(url);
   }
   getActiveBookings(id): Observable<any> {
     const statusUrl = 'bookingDetails/';
@@ -57,7 +59,7 @@ export class StatusService {
     const statusUrl = 'bookingDetails/';
     const cancelUrl = '/cancelled/';
     const url: string = this.serviceUrl + statusUrl + id + cancelUrl ;
-    return this.httpClient.get<BookingDetail>(url);
+    return this.httpClient.get<CancelledBookingDetail>(url);
   }
   getStatusById( no , id): Observable<any> {
     const statusUrl = 'bookingStatus/';

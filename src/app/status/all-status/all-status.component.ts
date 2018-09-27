@@ -2,25 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import {Bookings} from './allStatus.model';
+import {StatusDetails} from './statusDetail.model';
 import {StatusService} from '../status.service';
-import { StatusView } from './status-view.model';
-import {StatusDetail } from './status-detail.model';
-import {BookingDetail} from './booking-detail.model';
-import { element } from 'protractor';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
-  selector: 'app-stauts-view',
-  templateUrl: './stauts-view.component.html',
-  styleUrls: ['./stauts-view.component.css']
+  selector: 'app-all-status',
+  templateUrl: './all-status.component.html',
+  styleUrls: ['./all-status.component.css']
 })
-export class StautsViewComponent implements OnInit {
+export class AllStatusComponent implements OnInit {
+
   no: string;
   // statusDisplay: string;
 orders;
- StatusForOne: StatusDetail;
- Details: BookingDetail[] = [];
-  Status: StatusView [] = [];
+ Details: Bookings;
+ StatusForOne: StatusDetails;
   statusViewForm: FormGroup;
   progress: boolean;
   completed: boolean;
@@ -56,13 +55,14 @@ filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registrat
 'Marketing  Booking', 'Creative Booking'];
  searchText: string;
   constructor(private fb: FormBuilder,
-    private activatedRoute: ActivatedRoute, private statusService: StatusService , private dashBoardService: DashBoardService) {
-      this.no = this.activatedRoute.snapshot.paramMap.get('no');
+    private activatedRoute: ActivatedRoute, private statusService: StatusService , private dashBoardService: DashBoardService,
+    private localStorageService: LocalStorageService) {
+      this.no = this.localStorageService.retrieve('mobileno');
      }
 
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
- this.activeBooking(this.no);
+ this.status(this.no);
     this.createForm();
     this.orderDisplay();
   }
@@ -251,26 +251,5 @@ orderDisplay() {
            console.log(error);
          });
   }
-  bookingStatusType(type, no) {
-if (type === 'cancelled') {
-this.cancelledBooking(no);
-}
-  }
-  activeBooking(no) {
-    this.statusService.getActiveBookings(no).subscribe(statusData => {
-      console.log(statusData);
-      this.Details = statusData;
-         }, error => {
-           console.log(error);
-         });
-  }
-  cancelledBooking(no) {
-    this.cancelledStatus = true;
-    this.statusService.getCancelledBookings(no).subscribe(statusData => {
-      this.Details = statusData;
-      console.log(this.Details);
-         }, error => {
-           console.log(error);
-         });
-  }
+
 }

@@ -188,7 +188,7 @@ export class CatalogingListingBookingComponent implements OnInit {
     this.catalogModel.socialMedia = this.selectedSocialMedia;
     this.catalogService.catalogBooking(this.catalogModel).subscribe(data => {
       this.snackBar.open(this.message, this.action, {
-        duration: 2000,
+        duration: 3000,
       });
      this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {

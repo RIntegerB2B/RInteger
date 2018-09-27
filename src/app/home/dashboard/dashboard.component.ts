@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   mobileNo;
   enable: boolean;
   filterValue;
+  toggleBar = 'colapseMenuBar';
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
   fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
   constructor(public dashboardService: DashBoardService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
@@ -40,6 +41,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.menuItems = menuItem.filter(item => item.type !== 'icon' && item.type !== 'separator');
       this.hasIconTypeMenuItem = !!this.menuItems.filter(item => item.type === 'icon').length;
     });
+  }
+  collapseMenu() {
+    this.toggleBar = this.toggleBar === 'colapseMenuBar' ? 'expandMenuBar' : 'colapseMenuBar';
   }
   ngAfterViewInit() {
     // setTimeout(() => {
@@ -60,21 +64,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   homePage() {
     this.router.navigate(['/welcome']);
   }
-  getActive() {
-    this.mobileNo = this.localStorageService.retrieve('mobileno');
-    this.statusService.getActiveBookings(this.mobileNo);
-  }
   getCancelled() {
-    /* this.mobileNo = this.localStorageService.retrieve('mobileno');
-    const type = 'cancelled';
-    this.statusView.bookingStatusType(type, this.mobileNo); */
-    this.mobileNo = this.localStorageService.retrieve('mobileno');
-    this.statusService.getCancelledBookings(this.mobileNo);
+   this.router.navigate(['/cancelled']);
   }
   getStatus() {
-    console.log('test');
+    this.router.navigate(['/bookingstatus']);
+   }
+  getActive() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
-    console.log(this.mobileNo);
     if (this.mobileNo === null) {
       this.router.navigate(['/newUser']);
     } else if (this.mobileNo != null) {

@@ -19,6 +19,8 @@ import {RegistrationSetupBookingComponent} from './registrationSetup/registratio
 import {MarketingServicesBookingComponent} from './marketing-services/marketing-services-booking/marketing-services-booking.component';
 import {ImageEditingBookingComponent} from './image-editing-booking/image-editing-booking.component';
 import {CreativeBookingComponent} from './creative-booking/creative-booking.component';
+import {CancelledStatusComponent} from './status/cancelled-status/cancelled-status.component';
+import {AllStatusComponent} from './status/all-status/all-status.component';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
@@ -28,7 +30,8 @@ const routes: Routes = [
     { path: 'booking', component: BookingComponent },
     { path: 'status/:id', component: StautsComponent },
     { path: 'statusView/:no', component: StautsViewComponent },
- /*    { path: 'statusView/:no/cancelled', component: StautsViewComponent }, */
+    { path: 'cancelled', component: CancelledStatusComponent },
+    { path: 'bookingstatus', component: AllStatusComponent },
     { path: 'statusView', component: StautsViewComponent },
     { path: 'newUser', component: NewUserStatusComponent },
     { path: 'banner', component: BannerComponent },

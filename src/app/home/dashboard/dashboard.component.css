@@ -13,13 +13,17 @@
   .example-is-mobile .example-toolbar {
     position: fixed;
     z-index: 2;
+    font-size: small;
   }
   .mat-list, .mat-nav-list, .mat-selection-list {
     transition: transform .3s cubic-bezier(.35, 0, .25, 1);
     width: 15rem;
 }
 
-
+.mat-toolbar-single-row {
+  height: 64px;
+  font-size: medium;
+}
   h1.example-app-name {
     margin-left: 8px;
   }
@@ -52,4 +56,20 @@ li{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-bottom: 10px;
+}
+.expandMenuBar{
+  opacity: 1;
+  display: block;
+}
+.collapseMenuBar{
+  opacity: 0;
+  display: none;
+}
+.menu-item{
+  font-size: small;
+}
+.main-menu{
+  font-size: 14px;
+  padding-right:30px;
+  padding-left:30px;
 }

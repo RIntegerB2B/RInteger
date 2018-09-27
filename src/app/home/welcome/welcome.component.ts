@@ -17,6 +17,8 @@ import {DashBoardService} from '../dashboard/dashboard.service';
 export class WelcomeComponent implements OnInit {
   mobileNo: string;
   showIndicators = false;
+  imageSources = ['../../../assets/images/banner.jpg', '../../../assets/images/banner.jpg' ,
+  '../../../assets/images/banner.jpg'];
 
   constructor(private router: Router, private localStorageService: LocalStorageService, private  dashBoard: DashboardComponent,
     private dashboardService: DashBoardService) { }

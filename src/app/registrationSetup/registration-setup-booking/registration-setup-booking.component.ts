@@ -177,7 +177,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
     this.registrationBooking.socialMedia = this.selectedSocialMedia;
     this.registrationService.registrationBooking(this.registrationBooking).subscribe(data => {
       this.snackBar.open(this.message, this.action, {
-        duration: 2000,
+        duration: 3000,
       });
       this.router.navigate(['/status', data.bookingOrderId]);
 

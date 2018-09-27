@@ -129,7 +129,7 @@ export class ModelBasedBookingComponent implements OnInit {
     this.bookModelForm.reset();
     this.modelService.addModelBooking(this.bookingModel).subscribe(data => {
       this.snackBar.open(this.message, this.action, {
-        duration: 2000,
+        duration: 3000,
       });
       this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {

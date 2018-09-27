@@ -71,7 +71,7 @@ export class ImageEditingBookingComponent implements OnInit {
     this.editingForm.reset();
     this.editingService.addBooking(this.editingModel).subscribe(data => {
       this.snackBar.open(this.message, this.action, {
-        duration: 2000,
+        duration: 3000,
       });
       this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {

@@ -31,6 +31,7 @@ import { StudioComponent } from './home/product/studio/studio.component';
 import { ModelBasedBookingComponent } from './model-management/model-based-booking/model-based-booking.component';
 import { ViewModelComponent } from './model-management/view-model/view-model.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SlideshowModule} from 'ng-simple-slideshow';
 /* import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule,
    MatInputModule, MatSelectModule } from '@angular/material'; */
 import { MatTabsModule } from '@angular/material/tabs';
@@ -70,6 +71,8 @@ import {DashBoardService} from './home/dashboard/dashboard.service';
 import { ImageEditingBookingComponent } from './image-editing-booking/image-editing-booking.component';
 import { CreativeBookingComponent } from './creative-booking/creative-booking.component';
 import {DataFilter} from './status/stauts-view/data-filter.pipe';
+import { CancelledStatusComponent } from './status/cancelled-status/cancelled-status.component';
+import { AllStatusComponent } from './status/all-status/all-status.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +99,9 @@ import {DataFilter} from './status/stauts-view/data-filter.pipe';
     DashboardComponent,
     ImageEditingBookingComponent,
     CreativeBookingComponent,
-    DataFilter
+    DataFilter,
+    CancelledStatusComponent,
+    AllStatusComponent
   ],
   imports: [
     BrowserModule,
@@ -125,6 +130,8 @@ import {DataFilter} from './status/stauts-view/data-filter.pipe';
     MatListModule,
     MatExpansionModule,
     DragScrollModule,
+    MatMenuModule,
+    SlideshowModule,
     NgbModule.forRoot(),
     CarouselModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })

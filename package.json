@@ -39,6 +39,7 @@
     "material": "^0.3.0",
     "material-icons": "^0.2.3",
     "mdbootstrap": "^4.5.7",
+    "ng-simple-slideshow": "^1.2.5",
     "ngx-bootstrap": "^3.0.1",
     "ngx-drag-scroll": "^2.0.0-beta.6",
     "ngx-webstorage": "^2.0.1",

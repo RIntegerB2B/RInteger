@@ -23,11 +23,25 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/pricing']" (click)="collapseMenu()">Pricing</a>
       </li>
+     
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/pricing']" (click)="collapseMenu()">Booking</a>
+        <!--   <button md-button #menuTrigger="mdMenuTrigger" 
+          (mouseenter)="menuTrigger.openMenu()"
+          [mdMenuTriggerFor]="userMenu" 
+          class="nav-btn" > -->
+          <button mat-button   #menu="matMenuTrigger"   [matMenuTriggerFor]="menu" >Booking</button>
+          <mat-menu #menu >
+            <button  class="menu-item" [routerLink]="['/models']" mat-menu-item>Model Shoot Booking</button>
+            <button  class="menu-item"  [routerLink]="['/booking']" mat-menu-item>Product Shoot Booking</button>
+            <button  class="menu-item" [routerLink]="['/editing']"  mat-menu-item>Image Editing Booking</button>
+            <button  class="menu-item" [routerLink]="['/creative']" mat-menu-item>Creative Shoot Booking</button>
+            <button  class="menu-item" [routerLink]="['/cataloging']"  mat-menu-item>Cataloging / Listing Booking</button>
+            <button class="menu-item" [routerLink]="['/registrationSetup']" mat-menu-item>Registration & Setup Booking</button>
+            <button class="menu-item" [routerLink]="['/marketingservices']"  mat-menu-item>Marketing Services Booking</button>
+          </mat-menu>
       </li>
       <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/pricing']" (click)="collapseMenu()">Booking Status</a>
+            <a class="nav-link"  (click)="getActive()">Booking Status</a>
           </li>
           <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/pricing']" (click)="collapseMenu()">Market Place</a>
@@ -37,7 +51,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/welcome']" (click)="collapseMenu()">Blog</a>
+        <a class="nav-link"  (click)="collapseMenu()">Blog</a>
       </li>
     </ul>
   </div>

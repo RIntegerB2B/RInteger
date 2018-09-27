@@ -88,7 +88,7 @@ console.log(this.shooting);
     this.creativeModel.shootType = this.shooting;
     this.creativeService.addBooking(this.creativeModel).subscribe(data => {
    this.snackBar.open(this.message, this.action, {
-    duration: 2000,
+    duration: 3000,
   });
       this.router.navigate(['/status', data.bookingOrderId]);
     }, error => {
