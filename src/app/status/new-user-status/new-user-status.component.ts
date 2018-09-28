@@ -60,11 +60,15 @@ export class NewUserStatusComponent implements OnInit {
       name: ['', Validators.required],
       order: [],
       bookingType: [],
-      filterText: ['']
+      searchText: ['']
     });
   }
   bookingType(value) {
-    this.searchText = value;
+    if (value === 'All') {
+      this.searchText = 'Booking';
+    } else {
+      this.searchText = value;
+    }
   }
   findStatus(newUserForm: FormGroup,  mobileNum: any) {
     this.localStorageService.store('mobileno', mobileNum);

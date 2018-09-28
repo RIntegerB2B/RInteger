@@ -79,6 +79,7 @@ filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registrat
     this.hideStatus = false;
     this.displayStatus = false;
     this.message = false;
+    this.activeBooking(this.no);
   }
   bookingType(value) {
     if (value === 'All') {
@@ -94,12 +95,13 @@ filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registrat
   statusView(statusViewForm: FormGroup, id: any, type: any) {
  this.statusService.getStatusById( this.no, id).subscribe(data => {
   this.StatusForOne = data;
+  console.log(type);
   if (type === 'Direct Booking'  || type === 'Model Booking' ) {
     this.displayStatus = true;
     this.hideStatus = true;
     this.message = false;
   } else if (type === 'Catalog Booking'  || type === 'Marketing Booking' || type === 'Editing Booking'
-  || type === 'Registration Booking' || type === 'Creative Booking' ) {
+  || type === 'Registration Booking' || type === 'Creative Booking') {
   this.message = true;
   this.displayStatus = false;
   this.hideStatus = true;

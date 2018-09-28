@@ -34,14 +34,15 @@
       </div> -->
     
       <div class="textContainer" *ngIf="show">
-          <select   #selectElem (change)="bookingType(selectElem.value)"  style="width:200px">
-              <option>Select Booking type</option>
-                <option *ngFor="let data of filterOption" >
+          <select   #selectElem (change)="bookingType(selectElem.value)" style="width:250px" >
+              <option disabled>---Select Booking type---</option>
+                <option *ngFor="let data of filterOption"  >
                       {{data}}
                </option>
-          </select> 
+               <option>All</option>
+          </select > 
       </div>
-      <input class="form-control"  hidden type="text" placeholder="Type the booking type" formControlName="filterText" [(ngModel)]="searchText" style="width:300px;" />
+      <input class="form-control"  hidden type="text" placeholder="Type the booking type" formControlName="searchText" [(ngModel)]="searchText" style="width:300px;" />
       <div class=" col-sm-12 d-flex  flex-row" *ngIf="show">
         <div class=" col-sm-3 col p-2 border"><b>Booking ID</b></div>
         <div class="col-sm-2  col p-2 border"><b>Booking Type</b></div>
@@ -53,7 +54,7 @@
       </div>
     </div>
     <div *ngIf="!hideStatus">
-      <div class=" col-sm-12 d-flex border-bottom  flex-row" *ngFor="let data of status">
+      <div class=" col-sm-12 d-flex border-bottom  flex-row" *ngFor="let data of status | dataFilter:searchText">
         <div class="col-sm-3 col p-2 text-center ">{{data.bookingOrderId}}</div>
         <div class="col-sm-2 col p-2 text-center ">{{data.bookingType}}</div>
         <div class="col-sm-2 col p-2 text-center">{{data.bookingDate}}</div>
