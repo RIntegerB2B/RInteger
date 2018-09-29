@@ -21,11 +21,20 @@ import {ImageEditingBookingComponent} from './image-editing-booking/image-editin
 import {CreativeBookingComponent} from './creative-booking/creative-booking.component';
 import {CancelledStatusComponent} from './status/cancelled-status/cancelled-status.component';
 import {AllStatusComponent} from './status/all-status/all-status.component';
+import {CompletedOrderComponent} from './status/completed-order/completed-order.component';
+import { PortfolioComponent } from './home/portfolio/portfolio.component';
+import { CreativePortfolioComponent } from './home/creative-portfolio/creative-portfolio.component';
+import { VideoPortfolioComponent } from './home/video-portfolio/video-portfolio.component';
+import { ItServicesPortfolioComponent } from './home/it-services-portfolio/it-services-portfolio.component';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
     { path: 'editing', component: ImageEditingBookingComponent },
     { path: 'creative', component: CreativeBookingComponent },
+    { path: 'portfolio', component: PortfolioComponent },
+    { path: 'creativeportfolio', component: CreativePortfolioComponent },
+    { path: 'videoportfolio', component: VideoPortfolioComponent },
+    { path: 'itportfolio', component: ItServicesPortfolioComponent },
     { path: 'header', component: HeaderComponent },
     { path: 'booking', component: BookingComponent },
     { path: 'status/:id', component: StautsComponent },
@@ -43,6 +52,7 @@ const routes: Routes = [
     { path: 'subscribe', component: SubscribeComponent },
     { path: 'cataloging', component: CatalogingListingBookingComponent },
     { path: 'pricing', component: PricingComponent },
+    { path: 'completed', component: CompletedOrderComponent },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'registrationSetup', component: RegistrationSetupBookingComponent },
     { path: 'marketingservices', component: MarketingServicesBookingComponent },

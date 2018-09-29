@@ -79,4 +79,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.router.navigate(['/statusView', this.mobileNo]);
     }
   }
+  getCompleted() {
+    this.router.navigate(['/completed']);
+  }
 }

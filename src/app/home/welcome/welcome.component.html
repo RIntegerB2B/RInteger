@@ -1,33 +1,32 @@
-
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12 homeImage">
-        <slideshow [height]="'350px'"
+    <div class="col-md-12 ">
+      <!--  <slideshow [height]="'350px'" width="100%"
         [minHeight]="'150px'"
         [autoPlay]="true"
-        [showArrows]="false"
+        [showArrows]="true"
         [imageUrls]="imageSources"
         [lazyLoad]="imageSources?.length > 1"
-        [autoPlayWaitForLazyLoad]="true" [showDots]="true" [dotColor]="'black'">
-</slideshow>
-    <!--   <img class="img-fluid" src="../../../assets/images/banner.jpg"> -->
-     <!--  <carousel class="carousel-images" [showIndicators]="false">
-          <slide>
-            <img class="image" src="../../../assets/images/banner.jpg" alt="first slide" width="100%">
-          </slide>
-          <slide>
-            <img class="image" src="../../../assets/images/banner.jpg" alt="second slide" width="100%">
-          </slide>
-          <slide>
-            <img class="image" src="../../../assets/images/banner.jpg" alt="third slide" width="100%">
-          </slide>
-        </carousel> -->
+        [autoPlayWaitForLazyLoad]="true" [showDots]="true" [dotColor]="'black'"  >
+</slideshow> -->
+      <!--   <img class="img-fluid" src="../../../assets/images/banner.jpg"> -->
+      <carousel class="carousel-images" [showIndicators]="false" style="height:100px;">
+        <slide>
+          <img class="image" src="../../../assets/images/Banner-1.jpg" alt="first slide" width="100%">
+        </slide>
+        <slide>
+          <img class="image" src="../../../assets/images/Banner-2.jpg" alt="second slide" width="100%">
+        </slide>
+        <slide>
+          <img class="image" src="../../../assets/images/Banner-3.jpg" alt="third slide" width="100%">
+        </slide>
+      </carousel>
     </div>
   </div>
   <div class="row">
-      <div class="col-md-12 homeImage text-center ">
-          <h1 class="homeImage border-top border-bottom">Core Services</h1>
-        </div>
+    <div class="col-md-12 homeImage text-center ">
+      <h1 class="homeImage border-top border-bottom">Core Services</h1>
+    </div>
     <div class="col-md-6 homeImage">
       <a [routerLink]="['/models']">
         <mat-card class="example-card bookingImages">
@@ -35,8 +34,10 @@
             <div mat-card-avatar class="example-header-image-left"></div>
           </mat-card-header>
           <mat-card-content>
-            <h5 class="text-center title"><a>Studio & Production</a></h5>
-            <p class="subTitle">Select the Model and enter the quantity and description</p>
+            <h5 class="text-center title services">
+              <a>Studio & Production</a>
+            </h5>
+            <h1 class="text-center">Content Creation</h1>
           </mat-card-content>
         </mat-card>
       </a>
@@ -48,7 +49,75 @@
             <div mat-card-avatar class="example-header-image-center"></div>
           </mat-card-header>
           <mat-card-content>
-            <h5 class="text-center title"><a>Branding Marketing & Sales</a></h5>
+            <h5 class="text-center title services">
+              <a>Branding Marketing & Sales</a>
+            </h5>
+            <h1 class="text-center">Content Management</h1>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 homeImage text-center ">
+      <h1 class="homeImage border-top border-bottom">Booking</h1>
+    </div>
+    <div class="col-md-3 homeImage">
+      <a [routerLink]="['/models']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image-left"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Model Shoot Booking</a>
+            </h5>
+            <p class="subTitle">Select the Model and enter the quantity and description</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+    <div class="col-md-3 homeImage">
+      <a [routerLink]="['/booking']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image-center"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Product Shoot Booking</a>
+            </h5>
+            <p class="subTitle">Product Shoot and Model Shoot Booking</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+
+    <div class="col-md-3 homeImage">
+      <a [routerLink]="['/editing']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header1-image-left"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Image Editing Booking</a>
+            </h5>
+            <p class="subTitle">Product Shoot and Model Shoot Booking-</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+    <div class="col-md-3 homeImage">
+      <a [routerLink]="['/creative']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header1-image-left"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Creative Shoot Booking</a>
+            </h5>
             <p class="subTitle">Product Shoot and Model Shoot Booking</p>
           </mat-card-content>
         </mat-card>
@@ -56,233 +125,191 @@
     </div>
   </div>
   <div class="row">
-      <div class="col-md-12 homeImage text-center ">
-          <h1 class="homeImage border-top border-bottom">Booking</h1>
-        </div>
-      <div class="col-md-3 homeImage">
-        <a [routerLink]="['/models']">
-          <mat-card class="example-card bookingImages">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image-left"></div>
-            </mat-card-header>
-            <mat-card-content>
-              <h5 class="text-center title"><a>Model Shoot Booking</a></h5>
-              <p class="subTitle">Select the Model and enter the quantity and description</p>
-            </mat-card-content>
-          </mat-card>
-        </a>
-      </div>
-      <div class="col-md-3 homeImage">
-        <a [routerLink]="['/booking']">
-          <mat-card class="example-card bookingImages">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image-center"></div>
-            </mat-card-header>
-            <mat-card-content>
-              <h5 class="text-center title"><a>Product Shoot Booking</a></h5>
-              <p class="subTitle">Product Shoot and Model Shoot Booking</p>
-            </mat-card-content>
-          </mat-card>
-        </a>
-      </div>
-  
-      <div class="col-md-3 homeImage">
-          <a [routerLink]="['/editing']">
-            <mat-card class="example-card bookingImages">
-              <mat-card-header>
-                <div mat-card-avatar class="example-header1-image-left"></div>
-              </mat-card-header>
-              <mat-card-content>
-                <h5 class="text-center title"><a>Image Editing Booking</a></h5>
-                <p class="subTitle">Product Shoot and Model Shoot Booking-</p>
-              </mat-card-content>
-            </mat-card>
-          </a>
-        </div>
-        <div class="col-md-3 homeImage">
-            <a [routerLink]="['/creative']">
-              <mat-card class="example-card bookingImages">
-                <mat-card-header>
-                  <div mat-card-avatar class="example-header1-image-left"></div>
-                </mat-card-header>
-                <mat-card-content>
-                  <h5 class="text-center title"><a>Creative Shoot Booking</a></h5>
-                  <p class="subTitle">Product Shoot and Model Shoot Booking</p>
-                </mat-card-content>
-              </mat-card>
-            </a>
-          </div>
+    <div class="col-md-3 homeImage">
+      <a [routerLink]="['/cataloging']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header1-image-left"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Cataloging / Listing Booking</a>
+            </h5>
+            <p class="subTitle">----------</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
     </div>
-    <div class="row">
-      <div class="col-md-3 homeImage">
-        <a [routerLink]="['/cataloging']">
-          <mat-card class="example-card bookingImages">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header1-image-left"></div>
-            </mat-card-header>
-            <mat-card-content>
-              <h5 class="text-center title"><a>Cataloging / Listing Booking</a></h5>
-              <p class="subTitle">----------</p>
-            </mat-card-content>
-          </mat-card>
-        </a>
-      </div>
-      <div class="col-md-3 homeImage">
-        <a [routerLink]="['/registrationSetup']">
-          <mat-card class="example-card bookingImages">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header1-image-center"></div>
-            </mat-card-header>
-            <mat-card-content>
-              <h5 class="text-center title"><a>Registration & Setup Booking</a></h5>
-              <p class="subTitle">------------------</p>
-            </mat-card-content>
-          </mat-card>
-        </a>
-      </div>
-      <div class="col-md-3 homeImage pointer">
-        <a [routerLink]="['/marketingservices']">
-          <mat-card class="example-card bookingImages">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header1-image-right"></div>
-            </mat-card-header>
-            <mat-card-content>
-              <h5 class="text-center title"><a>Marketing Services Booking</a></h5>
-              <p class="subTitle">---------------</p>
-            </mat-card-content>
-          </mat-card>
-        </a>
-      </div>
-  
-      <div class="col-md-3 homeImage pointer">
-          <a (click)="getStatus()">
-            <mat-card class="example-card bookingImages">
-              <mat-card-header>
-                <div mat-card-avatar class="example-header-image-right"></div>
-              </mat-card-header>
-              <mat-card-content>
-                <h5 class="text-center title"><a>All Booking Status</a></h5>
-                <p class="subTitle">Enter the mobile number to get the Booking Status</p>
-              </mat-card-content>
-            </mat-card>
-          </a>
-        </div>
-  
+    <div class="col-md-3 homeImage">
+      <a [routerLink]="['/registrationSetup']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header1-image-center"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Registration & Setup Booking</a>
+            </h5>
+            <p class="subTitle">------------------</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
     </div>
-    <div class="row">
-        <div class="col-md-12 homeImage text-center ">
-            <h1 class="homeImage border-top border-bottom">Services</h1>
-          </div>
-        <div class="col-md-3 homeImage">
-          <a [routerLink]="['/models']">
-            <mat-card class="example-card bookingImages">
-              <mat-card-header>
-                <div mat-card-avatar class="example-header-image-left"></div>
-              </mat-card-header>
-              <mat-card-content>
-                <h5 class="text-center title"><a>Studio & Production</a></h5>
-                <p class="subTitle">Select the Model and enter the quantity and description</p>
-              </mat-card-content>
-            </mat-card>
-          </a>
-        </div>
-        <div class="col-md-3 homeImage">
-          <a [routerLink]="['/booking']">
-            <mat-card class="example-card bookingImages">
-              <mat-card-header>
-                <div mat-card-avatar class="example-header-image-center"></div>
-              </mat-card-header>
-              <mat-card-content>
-                <h5 class="text-center title"><a>Product Shoot Booking</a></h5>
-                <p class="subTitle">Product Shoot and Model Shoot Booking</p>
-              </mat-card-content>
-            </mat-card>
-          </a>
-        </div>
-    
-        <div class="col-md-3 homeImage">
-            <a [routerLink]="['/editing']">
-              <mat-card class="example-card bookingImages">
-                <mat-card-header>
-                  <div mat-card-avatar class="example-header1-image-left"></div>
-                </mat-card-header>
-                <mat-card-content>
-                  <h5 class="text-center title"><a>Image Editing Booking</a></h5>
-                  <p class="subTitle">Product Shoot and Model Shoot Booking-</p>
-                </mat-card-content>
-              </mat-card>
-            </a>
-          </div>
-          <div class="col-md-3 homeImage">
-              <a [routerLink]="['/creative']">
-                <mat-card class="example-card bookingImages">
-                  <mat-card-header>
-                    <div mat-card-avatar class="example-header1-image-left"></div>
-                  </mat-card-header>
-                  <mat-card-content>
-                    <h5 class="text-center title"><a>Creative Shoot Booking</a></h5>
-                    <p class="subTitle">Product Shoot and Model Shoot Booking</p>
-                  </mat-card-content>
-                </mat-card>
-              </a>
-            </div>
-      </div>
-      <div class="row">
-          <div class="col-md-3 homeImage">
-            <a [routerLink]="['/cataloging']">
-              <mat-card class="example-card bookingImages">
-                <mat-card-header>
-                  <div mat-card-avatar class="example-header1-image-left"></div>
-                </mat-card-header>
-                <mat-card-content>
-                  <h5 class="text-center title"><a>Cataloging / Listing Booking</a></h5>
-                  <p class="subTitle">----------</p>
-                </mat-card-content>
-              </mat-card>
-            </a>
-          </div>
-          <div class="col-md-3 homeImage">
-            <a [routerLink]="['/registrationSetup']">
-              <mat-card class="example-card bookingImages">
-                <mat-card-header>
-                  <div mat-card-avatar class="example-header1-image-center"></div>
-                </mat-card-header>
-                <mat-card-content>
-                  <h5 class="text-center title"><a>Registration & Setup Booking</a></h5>
-                  <p class="subTitle">------------------</p>
-                </mat-card-content>
-              </mat-card>
-            </a>
-          </div>
-          <div class="col-md-3 homeImage pointer">
-            <a [routerLink]="['/marketingservices']">
-              <mat-card class="example-card bookingImages">
-                <mat-card-header>
-                  <div mat-card-avatar class="example-header1-image-right"></div>
-                </mat-card-header>
-                <mat-card-content>
-                  <h5 class="text-center title"><a>Marketing Services Booking</a></h5>
-                  <p class="subTitle">---------------</p>
-                </mat-card-content>
-              </mat-card>
-            </a>
-          </div>
-      
-          <div class="col-md-3 homeImage pointer">
-              <a (click)="getStatus()">
-                <mat-card class="example-card bookingImages">
-                  <mat-card-header>
-                    <div mat-card-avatar class="example-header-image-right"></div>
-                  </mat-card-header>
-                  <mat-card-content>
-                    <h5 class="text-center title"><a>All Booking Status</a></h5>
-                    <p class="subTitle">Enter the mobile number to get the Booking Status</p>
-                  </mat-card-content>
-                </mat-card>
-              </a>
-            </div>
-      
-        </div>
+    <div class="col-md-3 homeImage pointer">
+      <a [routerLink]="['/marketingservices']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header1-image-right"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Marketing Services Booking</a>
+            </h5>
+            <p class="subTitle">---------------</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+
+    <div class="col-md-3 homeImage pointer">
+      <a (click)="getStatus()">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image-right"></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>All Booking Status</a>
+            </h5>
+            <p class="subTitle">Enter the mobile number to get the Booking Status</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-12 homeImage text-center ">
+      <h1 class="homeImage border-top border-bottom">Services</h1>
+    </div>
+    <div class="col-md-3 homeImage">
+      <a [routerLink]="['/models']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Studio & Production</a>
+            </h5>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+    <div class="col-md-3 homeImage services-card">
+      <a [routerLink]="['/booking']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Marketing Service</a>
+            </h5>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+
+    <div class="col-md-3 homeImage">
+      <a [routerLink]="['/editing']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Digital Marketing</a>
+            </h5>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+    <div class="col-md-3 homeImage">
+      <a [routerLink]="['/creative']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Digital Management</a>
+            </h5>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 homeImage">
+      <a [routerLink]="['/cataloging']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Commerce & Creative Production</a>
+            </h5>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+    <div class="col-md-3 homeImage">
+      <a [routerLink]="['/registrationSetup']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Catalog & Registration</a>
+            </h5>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+    <div class="col-md-3 homeImage pointer">
+      <a [routerLink]="['/marketingservices']">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Social Media Advertisement</a>
+            </h5>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+
+    <div class="col-md-3 homeImage pointer">
+      <a (click)="getStatus()">
+        <mat-card class="example-card bookingImages">
+          <mat-card-header>
+            <div mat-card-avatar></div>
+          </mat-card-header>
+          <mat-card-content>
+            <h5 class="text-center title">
+              <a>Market Place & Social Media</a>
+            </h5>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+
+  </div>
   <div class="row">
 
     <div class="col-md-12 homeImage text-center ">
@@ -305,30 +332,40 @@
   </div>
   <div class="row">
     <div class="col-md-12  text-center ">
-      <h4 >Client</h4>
+      <h1 class="homeImage border-top border-bottom">Client</h1>
     </div>
-    <div class="col-md-12 ">
-      <marquee  onmousedown="this.stop();"
-      onmouseup="this.start();">
-               <img class="client" src="../../../assets/images/flf.png">
-                 <img class="client"   src="../../../assets/images/arvind.png">
-                <img  class="client" src="../../../assets/images/tcs.png">
-                <img class="client"  src="../../../assets/images/pothys.png">
-                <img class="client" src="../../../assets/images/lee.jpg">
-              </marquee>
-    </div>
+      <div class="col-md-6">
+        <img class="client" src="../../../assets/images/flf.png">
+        <img class="client"   src="../../../assets/images/arvind.png">
+       <img  class="client" src="../../../assets/images/tcs.png">
+       <img class="client" src="../../../assets/images/flf.png">
+       <img class="client"   src="../../../assets/images/arvind.png">
+      <img  class="client" src="../../../assets/images/tcs.png">
+      <img class="client"   src="../../../assets/images/arvind.png">
+      <img  class="client" src="../../../assets/images/tcs.png">
+      </div>
+
+      <div class="col-md-6">
+       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad temporibus deserunt et? Possimus nihil temporibus repudiandae. Accusantium distinctio molestiae quibusdam inventore suscipit, consequatur quas repudiandae autem laudantium hic aperiam nulla.
+      </div>
   </div>
   <div class="row">
-      <div class="col-md-12  text-center ">
-        <h4>Partners</h4>
-      </div>
-      <div class="col-md-12 ">
-        <marquee  onmousedown="this.stop();"
-        onmouseup="this.start();">
-                  <img class="partners" src="../../../assets/images/amazon.png">
-                  <img class="partners"   src="../../../assets/images/flipkart.png">
-                  <img  class="partners" src="../../../assets/images/paytm.jpg">
-                </marquee>
-      </div>
+    <div class="col-md-12  text-center ">
+      <h1 class="homeImage border-top border-bottom">Partners</h1>
     </div>
+    <div class="col-md-6 ">
+     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia iste, minima est dolor itaque minus rem placeat illo ipsum autem dicta quam voluptatem culpa animi? Ea aliquam perferendis molestias distinctio.
+    </div>
+
+    <div class="col-md-6 ">
+      <img class="partners" src="../../../assets/images/amazon.png">
+        <img class="partners" src="../../../assets/images/flipkart.png">
+        <img class="partners" src="../../../assets/images/paytm.jpg">
+        <img class="partners" src="../../../assets/images/flipkart.png">
+        <img class="partners" src="../../../assets/images/paytm.jpg">
+        <img class="partners" src="../../../assets/images/flipkart.png">
+        <img class="partners" src="../../../assets/images/paytm.jpg">
+        <img class="partners" src="../../../assets/images/flipkart.png">
+    </div>
+  </div>
 </div>

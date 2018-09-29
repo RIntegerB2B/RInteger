@@ -73,6 +73,13 @@ import { CreativeBookingComponent } from './creative-booking/creative-booking.co
 import {DataFilter} from './status/stauts-view/data-filter.pipe';
 import { CancelledStatusComponent } from './status/cancelled-status/cancelled-status.component';
 import { AllStatusComponent } from './status/all-status/all-status.component';
+import { CompletedOrderComponent } from './status/completed-order/completed-order.component';
+import { PortfolioComponent } from './home/portfolio/portfolio.component';
+import { CreativePortfolioComponent } from './home/creative-portfolio/creative-portfolio.component';
+import { VideoPortfolioComponent } from './home/video-portfolio/video-portfolio.component';
+import { MarketplacePortfolioComponent } from './home/marketplace-portfolio/marketplace-portfolio.component';
+import { DigitalMarketingPortfolioComponent } from './home/digital-marketing-portfolio/digital-marketing-portfolio.component';
+import { ItServicesPortfolioComponent } from './home/it-services-portfolio/it-services-portfolio.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +108,14 @@ import { AllStatusComponent } from './status/all-status/all-status.component';
     CreativeBookingComponent,
     DataFilter,
     CancelledStatusComponent,
-    AllStatusComponent
+    AllStatusComponent,
+    CompletedOrderComponent,
+    PortfolioComponent,
+    CreativePortfolioComponent,
+    VideoPortfolioComponent,
+    MarketplacePortfolioComponent,
+    DigitalMarketingPortfolioComponent,
+    ItServicesPortfolioComponent
   ],
   imports: [
     BrowserModule,

@@ -9,12 +9,12 @@
     </button>
 
    <nav class="navbar navbar-expand-lg  border-bottom border-dark">
-  <a [routerLink]="['/welcome']" class="navbar-brand">
-    <img src="../../../assets/images/logo.jpg"><img src="../../../assets/images/logoheader.png">
-  </a>
   <button class="navbar-toggler" type="button"  [routerLink]="['/welcome']">
       <mat-icon>home</mat-icon>
   </button>
+  <a [routerLink]="['/welcome']" class="navbar-brand">
+    <img src="../../../assets/images/logo.jpg"><img src="../../../assets/images/logoheader.png">
+  </a>
   <div id="navbarNavDropdown" class="navbar-collapse collapse sidebar"  [ngClass]="toggleBar">
     <ul class="navbar-nav">
       <li >
@@ -25,7 +25,7 @@
         <a class="main-menu"  [routerLink]="['/studio']" (click)="collapseMenu()">Services</a>
       </li>
       <li >
-        <a  class="main-menu" [routerLink]="['/aboutUs']" (click)="collapseMenu()">Our Work</a>
+        <a  class="main-menu" [routerLink]="['/portfolio']" (click)="collapseMenu()">Our Work</a>
       </li>
       <li >
         <a class="main-menu" [routerLink]="['/pricing']" (click)="collapseMenu()">Pricing</a>
@@ -50,9 +50,9 @@
       <li >
             <a  class="main-menu" (click)="getActive()">Booking Status</a>
           </li>
-          <li >
+          <!-- <li >
                 <a class="main-menu"  [routerLink]="['/pricing']" (click)="collapseMenu()">Market Place</a>
-              </li>
+              </li> -->
       <li >
         <a class="main-menu" [routerLink]="['/contact']" (click)="collapseMenu()">Contact</a>
       </li>
@@ -65,7 +65,7 @@
 
 </nav>
   </mat-toolbar>
-  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0" >
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56">
       <mat-nav-list>
@@ -124,7 +124,7 @@
                             <a class="pointer"  (click)="getActive()"> Active Booking </a><br>
                           </li>
                           <li class="nav-item" >
-                            <a class="pointer"  (click)="getActive()"> Completed </a><br>
+                            <a class="pointer"  (click)="getCompleted()"> Completed Order</a><br>
                           </li>
                           <li class="nav-item">
                               <a class="pointer" (click)="getCancelled()" > Cancelled Booking</a><br>

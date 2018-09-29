@@ -6,9 +6,7 @@
 .sub-heading{
     font-size: 20px;
     font-family: monosace;
-    background-color: gray;
-color: black;
-text-align: center;
+    text-align: left;
 }
 .menu:hover{
     color:orange;
@@ -57,10 +55,4 @@ ul li{
         width: 400px;
     }
 
-}
-td {
-    text-align: center;
-}
-th {
-    text-align: center;
 }

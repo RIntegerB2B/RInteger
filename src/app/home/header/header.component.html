@@ -18,34 +18,50 @@
         <a class="nav-link" [routerLink]="['/studio']" (click)="collapseMenu()">Services</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/aboutUs']" (click)="collapseMenu()">Our Work</a>
+          <div class="dropdown">
+              <a class="nav-link">Our Work</a>
+              <div class="dropdown-content">
+                <a [routerLink]="['/portfolio']">Ecommerce PortFolio </a>
+                <a [routerLink]="['/creativeportfolio']">Creative PortFolio</a>
+                <a [routerLink]="['/videoportfolio']">Video PortFolio </a>
+                <a [routerLink]="['/portfolio']">MarketPlace</a>
+                <a [routerLink]="['/portfolio']">Digital Marketing & Services</a>
+                <a [routerLink]="['/itportfolio']">IT Services </a>
+              </div>
+            </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/pricing']" (click)="collapseMenu()">Pricing</a>
       </li>
      
       <li class="nav-item">
-        <!--   <button md-button #menuTrigger="mdMenuTrigger" 
-          (mouseenter)="menuTrigger.openMenu()"
-          [mdMenuTriggerFor]="userMenu" 
-          class="nav-btn" > -->
-          <button mat-button   #menu="matMenuTrigger"   [matMenuTriggerFor]="menu" >Booking</button>
-          <mat-menu #menu >
-            <button  class="menu-item" [routerLink]="['/models']" mat-menu-item>Model Shoot Booking</button>
-            <button  class="menu-item"  [routerLink]="['/booking']" mat-menu-item>Product Shoot Booking</button>
-            <button  class="menu-item" [routerLink]="['/editing']"  mat-menu-item>Image Editing Booking</button>
-            <button  class="menu-item" [routerLink]="['/creative']" mat-menu-item>Creative Shoot Booking</button>
-            <button  class="menu-item" [routerLink]="['/cataloging']"  mat-menu-item>Cataloging / Listing Booking</button>
-            <button class="menu-item" [routerLink]="['/registrationSetup']" mat-menu-item>Registration & Setup Booking</button>
-            <button class="menu-item" [routerLink]="['/marketingservices']"  mat-menu-item>Marketing Services Booking</button>
-          </mat-menu>
+          <div class="dropdown">
+              <a class="nav-link">Booking</a>
+              <div class="dropdown-content">
+                <a [routerLink]="['/models']">Model Shoot </a>
+                <a [routerLink]="['/booking']">Product Shoot</a>
+                <a [routerLink]="['/editing']">Image Editing</a>
+                <a [routerLink]="['/creative']">Creative Shoot</a>
+                <a [routerLink]="['/cataloging']">Cataloging / Listing</a>
+                <a [routerLink]="['/registrationSetup']">Registration & Setup</a>
+                <a [routerLink]="['/marketingservices']">Marketing Services</a>
+              </div>
+            </div>
       </li>
       <li class="nav-item">
-            <a class="nav-link"  (click)="getActive()">Booking Status</a>
+          <div class="dropdown">
+              <a class="nav-link">Booking Status</a>
+              <div class="dropdown-content">
+                <a (click)="getActive()">Active Booking </a>
+                <a [routerLink]="['/completed']">Completed Order</a>
+                <a [routerLink]="['/cancelled']">Cancelled Booking</a>
+                <a [routerLink]="['/bookingstatus']">All Booking</a>
+              </div>
+            </div>
           </li>
-          <li class="nav-item">
+         <!--  <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/pricing']" (click)="collapseMenu()">Market Place</a>
-              </li>
+              </li> -->
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/contact']" (click)="collapseMenu()">Contact</a>
       </li>
@@ -55,5 +71,4 @@
       </li>
     </ul>
   </div>
-
 </nav>
