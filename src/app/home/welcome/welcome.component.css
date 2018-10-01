@@ -3,10 +3,13 @@
     .div{
         padding: 0px;
         }
+        .banners {
+          height:350px;
+          width:100%;
+            }
+      
     }
-    .banners {
-  height:350px;
-    }
+  
     .example-header-image-left {
         background-image: url('../../../assets/images/model.jpg');
         background-size: cover;

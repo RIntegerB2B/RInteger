@@ -15,7 +15,9 @@
 .menu{
     padding-left: 30px;
 }
-
+.carousel-images{
+    color:black
+  }
 
 .navbar-nav
 {
@@ -47,6 +49,9 @@ ul li{
         {
             display:none;
         }
+        .banners {
+            height: 150px;
+            }
 }
 
 @media screen and (min-width: 992px) {
@@ -54,5 +59,8 @@ ul li{
         height: 400px;
         width: 400px;
     }
+    .banners {
+        height: 250px;
+        }
 
 }
