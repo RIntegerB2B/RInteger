@@ -20,7 +20,6 @@
       <li >
         <a class="main-menu"  [routerLink]="['/subscribe']" (click)="collapseMenu()">Subscribe</a>
       </li>
-
       <li >
         <a class="main-menu"  [routerLink]="['/studio']" (click)="collapseMenu()">Services</a>
       </li>
@@ -166,8 +165,9 @@
     </mat-sidenav>
     <mat-sidenav-content>
      <!--  <app-header></app-header> -->
-      <router-outlet></router-outlet>
+     <router-outlet></router-outlet>
    <!--    <app-footer></app-footer> -->
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
+
