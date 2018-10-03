@@ -137,6 +137,7 @@ export class ModelBasedBookingComponent implements OnInit {
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.subscribe(this.mobileNo);
+  /*   this.sendNotification(); */
   }
   subscribe(mobNo) {
     this.swPush.requestSubscription({
@@ -163,4 +164,9 @@ export class ModelBasedBookingComponent implements OnInit {
       console.log(error);
     });
   }
+ /*  sendNotification() {
+    this.modelService.bookingNotification().subscribe(data => {
+      console.log(data);
+    });
+  } */
 }

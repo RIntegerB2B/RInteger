@@ -26,12 +26,14 @@ import { PortfolioComponent } from './home/portfolio/portfolio.component';
 import { CreativePortfolioComponent } from './home/creative-portfolio/creative-portfolio.component';
 import { VideoPortfolioComponent } from './home/video-portfolio/video-portfolio.component';
 import { ItServicesPortfolioComponent } from './home/it-services-portfolio/it-services-portfolio.component';
+import { DigitalMarketingPortfolioComponent } from './home/digital-marketing-portfolio/digital-marketing-portfolio.component';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
     { path: 'editing', component: ImageEditingBookingComponent },
     { path: 'creative', component: CreativeBookingComponent },
     { path: 'portfolio', component: PortfolioComponent },
+    { path: 'digitalmarketingportfolio', component: DigitalMarketingPortfolioComponent },
     { path: 'creativeportfolio', component: CreativePortfolioComponent },
     { path: 'videoportfolio', component: VideoPortfolioComponent },
     { path: 'itportfolio', component: ItServicesPortfolioComponent },
