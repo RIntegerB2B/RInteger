@@ -45,6 +45,7 @@ export class NewUserStatusComponent implements OnInit {
   Detail: BookingDetails[] = [];
   message: boolean;
   searchText: string;
+  editingStatus: boolean;
   filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
   'Marketing  Booking', 'Creative Booking'];
   constructor(private fb: FormBuilder, private router: Router,
@@ -85,17 +86,25 @@ export class NewUserStatusComponent implements OnInit {
   showStatus() {
     this.hideStatus = false;
     this.displayStatus = false;
+    this.editingStatus = false;
   }
   statusView(statusViewForm: FormGroup, id: any, type: any) {
     if (type === 'Direct Booking'  || type === 'Model Booking' ) {
       this.displayStatus = true;
       this.hideStatus = true;
       this.message = false;
+      this.editingStatus = false;
+    } else if (type === 'Editing Booking' ) {
+    this.message = false;
+    this.displayStatus = false;
+    this.hideStatus = false;
+    this.editingStatus = true;
     } else if (type === 'Catalog Booking'  || type === 'Marketing Booking' || type === 'Registration Booking'
-    || type === 'Editing Booking' || type === 'Creative Booking' ) {
+ || type === 'Creative Booking' ) {
     this.message = true;
     this.displayStatus = false;
     this.hideStatus = false;
+    this.editingStatus = false;
     }
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.statusService.getStatusById(  this.mobileNo, id).subscribe(data => {

@@ -185,6 +185,213 @@
           <button  style="margin:20px;"class="btn" (click)="showStatus()">back</button>
         </div>
         </div>
+        <div *ngIf="editingStatusView" style="margin-top:40px">
+            <div class="text-center" style="padding-bottom:20px" *ngIf="hideStatus">
+                <h6><strong>ORDER LIFE CYCLE</strong></h6>
+              </div>
+          <div class="row">
+            <div class="offset-md-2 col-md-4 col">
+              <p> Image Received</p>
+            </div>
+            <div class="col-md-6  col" *ngIf="imageReceive">
+              <button class="btn btn-danger  btn-sm">Not completed</button>
+            </div>
+            <div class="col-md-6 col" *ngIf="imageReceiveTrue">
+              <button class="btn btn-success  btn-sm"> Completed</button>
+            </div>
+            <div class="col-md-6 col" *ngIf="imageReceiveProgress">
+              <button class="btn btn-info  btn-sm"> Progress</button>
+            </div>
+          </div>
+    
+          <div class="row">
+            <div class="offset-md-2 col-md-4 col">
+              <p>Image Editing</p>
+            </div>
+            <div class="col-md-6 col" *ngIf="imageEditing">
+              <button class="btn btn-danger btn-sm">Not completed</button>
+            </div>
+            <div class="col-md-6 col" *ngIf="imageEditingTrue">
+              <button class="btn btn-success btn-sm "> Completed</button>
+            </div>
+            <div class="col-md-6 col" *ngIf="imageEditingProgress">
+              <button class="btn btn-info btn-sm "> Progress</button>
+            </div>
+          </div>
+    
+          <div class="row">
+            <div class="offset-md-2 col-md-4 col">
+              <p>Image Delivery</p>
+            </div>
+            <div class="col-md-6 col" *ngIf="delivery">
+              <button class="btn btn-danger btn-sm ">Not completed</button>
+            </div>
+    
+            <div class="col-md-6 col" *ngIf="deliveryTrue">
+              <button class="btn btn-success btn-sm"> Completed</button>
+            </div>
+            <div class="col-md-6 col" *ngIf="deliveryProgress">
+              <button class="btn btn-info btn-sm"> Progress</button>
+            </div>
+          </div>
+    
+          <div class="row">
+            <div class="offset-md-2 col-md-4 col">
+              <p>Payment Status</p>
+            </div>
+            <div class="col-md-6 col" *ngIf="payment">
+              <button class="btn btn-danger btn-sm">Not completed</button>
+            </div>
+    
+            <div class="col-md-6 col" *ngIf="paymentTrue">
+              <button class="btn btn-success btn-sm "> Completed</button>
+            </div>
+            <div class="col-md-6 col" *ngIf="paymentProgress">
+              <button class="btn btn-info btn-sm"> Progress</button>
+            </div>
+          </div>
+          <div class="row">
+            <button  style="margin:20px;"class="btn" (click)="showStatus()">back</button>
+          </div>
+            </div>
+            <div *ngIf="creativeStatusView" style="margin-top:40px">
+              <div class="text-center" style="padding-bottom:20px" *ngIf="hideStatus">
+                  <h6><strong>ORDER LIFE CYCLE</strong></h6>
+                </div>
+            <div class="row">
+              <div class="offset-md-2 col-md-4 col">
+                <p> Image Received</p>
+              </div>
+              <div class="col-md-6  col" *ngIf="imageReceive">
+                <button class="btn btn-danger  btn-sm">Not completed</button>
+              </div>
+              <div class="col-md-6 col" *ngIf="imageReceiveTrue">
+                <button class="btn btn-success  btn-sm"> Completed</button>
+              </div>
+              <div class="col-md-6 col" *ngIf="imageReceiveProgress">
+                <button class="btn btn-info  btn-sm"> Progress</button>
+              </div>
+            </div>
+      
+            <div class="row">
+              <div class="offset-md-2 col-md-4 col">
+                <p>Image Editing</p>
+              </div>
+              <div class="col-md-6 col" *ngIf="imageEditing">
+                <button class="btn btn-danger btn-sm">Not completed</button>
+              </div>
+              <div class="col-md-6 col" *ngIf="imageEditingTrue">
+                <button class="btn btn-success btn-sm "> Completed</button>
+              </div>
+              <div class="col-md-6 col" *ngIf="imageEditingProgress">
+                <button class="btn btn-info btn-sm "> Progress</button>
+              </div>
+            </div>
+      
+            <div class="row">
+              <div class="offset-md-2 col-md-4 col">
+                <p>Image Delivery</p>
+              </div>
+              <div class="col-md-6 col" *ngIf="delivery">
+                <button class="btn btn-danger btn-sm ">Not completed</button>
+              </div>
+      
+              <div class="col-md-6 col" *ngIf="deliveryTrue">
+                <button class="btn btn-success btn-sm"> Completed</button>
+              </div>
+              <div class="col-md-6 col" *ngIf="deliveryProgress">
+                <button class="btn btn-info btn-sm"> Progress</button>
+              </div>
+            </div>
+      
+            <div class="row">
+              <div class="offset-md-2 col-md-4 col">
+                <p>Payment Status</p>
+              </div>
+              <div class="col-md-6 col" *ngIf="payment">
+                <button class="btn btn-danger btn-sm">Not completed</button>
+              </div>
+      
+              <div class="col-md-6 col" *ngIf="paymentTrue">
+                <button class="btn btn-success btn-sm "> Completed</button>
+              </div>
+              <div class="col-md-6 col" *ngIf="paymentProgress">
+                <button class="btn btn-info btn-sm"> Progress</button>
+              </div>
+            </div>
+            <div class="row">
+              <button  style="margin:20px;"class="btn" (click)="showStatus()">back</button>
+            </div>
+              </div>
+              <div *ngIf="catalogStatusView" style="margin-top:40px">
+                <div class="text-center" style="padding-bottom:20px" *ngIf="hideStatus">
+                    <h6><strong>ORDER LIFE CYCLE</strong></h6>
+                  </div>
+              <div class="row">
+                <div class="offset-md-2 col-md-4 col">
+                  <p> Image Received</p>
+                </div>
+                <div class="col-md-6  col" *ngIf="imageReceive">
+                  <button class="btn btn-danger  btn-sm">Not completed</button>
+                </div>
+                <div class="col-md-6 col" *ngIf="imageReceiveTrue">
+                  <button class="btn btn-success  btn-sm"> Completed</button>
+                </div>
+                <div class="col-md-6 col" *ngIf="imageReceiveProgress">
+                  <button class="btn btn-info  btn-sm"> Progress</button>
+                </div>
+              </div>
+        
+              <div class="row">
+                <div class="offset-md-2 col-md-4 col">
+                  <p>Image Editing</p>
+                </div>
+                <div class="col-md-6 col" *ngIf="imageEditing">
+                  <button class="btn btn-danger btn-sm">Not completed</button>
+                </div>
+                <div class="col-md-6 col" *ngIf="imageEditingTrue">
+                  <button class="btn btn-success btn-sm "> Completed</button>
+                </div>
+                <div class="col-md-6 col" *ngIf="imageEditingProgress">
+                  <button class="btn btn-info btn-sm "> Progress</button>
+                </div>
+              </div>
+        
+              <div class="row">
+                <div class="offset-md-2 col-md-4 col">
+                  <p>Image Delivery</p>
+                </div>
+                <div class="col-md-6 col" *ngIf="delivery">
+                  <button class="btn btn-danger btn-sm ">Not completed</button>
+                </div>
+        
+                <div class="col-md-6 col" *ngIf="deliveryTrue">
+                  <button class="btn btn-success btn-sm"> Completed</button>
+                </div>
+                <div class="col-md-6 col" *ngIf="deliveryProgress">
+                  <button class="btn btn-info btn-sm"> Progress</button>
+                </div>
+              </div>
+        
+              <div class="row">
+                <div class="offset-md-2 col-md-4 col">
+                  <p>Payment Status</p>
+                </div>
+                <div class="col-md-6 col" *ngIf="payment">
+                  <button class="btn btn-danger btn-sm">Not completed</button>
+                </div>
+        
+                <div class="col-md-6 col" *ngIf="paymentTrue">
+                  <button class="btn btn-success btn-sm "> Completed</button>
+                </div>
+                <div class="col-md-6 col" *ngIf="paymentProgress">
+                  <button class="btn btn-info btn-sm"> Progress</button>
+                </div>
+              </div>
+              <div class="row">
+                <button  style="margin:20px;"class="btn" (click)="showStatus()">back</button>
+              </div>
+                </div>
   </div>
 
 </form>

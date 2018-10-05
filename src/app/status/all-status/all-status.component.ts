@@ -79,6 +79,7 @@ filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registrat
     this.hideStatus = false;
     this.displayStatus = false;
     this.message = false;
+    this.status(this.no);
   }
   bookingType(value) {
     if (value === 'All') {

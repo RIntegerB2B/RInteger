@@ -45,6 +45,7 @@ export class StautsComponent implements OnInit {
  bookingStatusCompleted: boolean;
  bookingCancelled: boolean;
  message: boolean;
+ editingStatus: boolean;
 
 
   constructor(private fb: FormBuilder,
@@ -242,11 +243,12 @@ findStatus() {
          || type === 'Registration Booking' || type === 'Creative Booking') {
           this.displayStatus = false;
           this.message = true;
-
-        }
+        } else if ( type === 'Editing Booking') {
+         this.displayStatus = false;
+         this.message = false;
+         this.editingStatus = true;
+       }
       }
-
-
 
 }
 

@@ -33,11 +33,11 @@ export class ModelManagementService {
      };
    }
   constructor(private http: Http, private httpClient: HttpClient) { }
-  bookingNotification(): Observable<any> {
+ /*  bookingNotification(): Observable<any> {
     const statusUrl = 'pushnotification/';
     const url: string = this.serviceUrl + statusUrl ;
     return this.httpClient.get<Model>(url);
-  }
+  } */
   getModelDetails(id): Observable<any> {
     const statusUrl = 'modelDetails/';
     const url: string = this.serviceUrl + statusUrl + id ;

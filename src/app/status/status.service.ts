@@ -10,6 +10,8 @@ import {BookingDetail} from './stauts-view/booking-detail.model';
 import {CancelledBookingDetail} from './cancelled-status/cancelled-booking.model';
 import {Bookings} from './all-status/allStatus.model';
 import { CompletedBookings } from './completed-order/completed-order.model';
+import {EditingStatus} from './stauts-view/editing-status.model';
+import {CreativeStatus} from './stauts-view/creative-status.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -79,5 +81,20 @@ export class StatusService {
     const viewUrl = '/view/';
     const url: string = this.serviceUrl + statusUrl + id + viewUrl + type;
     return this.httpClient.get<BookingDetail>(url);
+  }
+  editingStatus(id): Observable<any> {
+    const statusUrl = 'editingStatus/';
+    const url: string = this.serviceUrl + statusUrl + id;
+    return this.httpClient.get<EditingStatus>(url);
+  }
+  creativeStatus(id): Observable<any> {
+    const statusUrl = 'creativeStatus/';
+    const url: string = this.serviceUrl + statusUrl + id;
+    return this.httpClient.get<CreativeStatus>(url);
+  }
+  catalogStatus(id): Observable<any> {
+    const statusUrl = 'catalogStatus/';
+    const url: string = this.serviceUrl + statusUrl + id;
+    return this.httpClient.get<CreativeStatus>(url);
   }
 }

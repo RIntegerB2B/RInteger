@@ -8,6 +8,9 @@ import {StatusDetail } from './status-detail.model';
 import {BookingDetail} from './booking-detail.model';
 import { element } from 'protractor';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
+import {EditingStatus} from './editing-status.model';
+import {CreativeStatus} from './creative-status.model';
+import {CatalogingStatus} from './catalog-status.model';
 
 @Component({
   selector: 'app-stauts-view',
@@ -19,12 +22,18 @@ export class StautsViewComponent implements OnInit {
   // statusDisplay: string;
 orders;
  StatusForOne: StatusDetail;
+ CreativeDetails: CreativeStatus;
+ CatalogDetails: CatalogingStatus;
+EditingDetails: EditingStatus[] = [];
  Details: BookingDetail[] = [];
   Status: StatusView [] = [];
   statusViewForm: FormGroup;
   progress: boolean;
   completed: boolean;
   displayStatus: boolean;
+  imageReceive: boolean;
+  imageReceiveTrue: boolean;
+  imageReceiveProgress: boolean;
   materialPicked: boolean;
   materialPickedTrue: boolean;
   materialPickedProgress: boolean;
@@ -52,6 +61,9 @@ orders;
  datacheck;
  cancelledStatus: boolean;
  activeStatus: boolean;
+ editingStatusView: boolean;
+ creativeStatusView: boolean;
+ catalogStatusView: boolean;
 filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
 'Marketing  Booking', 'Creative Booking'];
  searchText: string;
@@ -79,6 +91,7 @@ filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registrat
     this.hideStatus = false;
     this.displayStatus = false;
     this.message = false;
+    this.editingStatusView = false;
     this.activeBooking(this.no);
   }
   bookingType(value) {
@@ -100,11 +113,29 @@ filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registrat
     this.displayStatus = true;
     this.hideStatus = true;
     this.message = false;
-  } else if (type === 'Catalog Booking'  || type === 'Marketing Booking' || type === 'Editing Booking'
-  || type === 'Registration Booking' || type === 'Creative Booking') {
+    this.editingStatusView = false;
+    this.creativeStatusView = false;
+  }  else if (type === 'Editing Booking') {
+  this.message = false;
+  this.displayStatus = false;
+  this.hideStatus = true;
+  this.editingStatusView = true;
+  this.creativeStatusView = false;
+  this.showEditingStatus(id);
+  } else if (type === 'Creative Booking') {
+    this.message = false;
+    this.displayStatus = false;
+    this.hideStatus = true;
+    this.editingStatusView = false;
+    this.creativeStatusView = true;
+    this.showCreativeStatus(id);
+    } else if (type === 'Catalog Booking'  || type === 'Marketing Booking'
+  || type === 'Registration Booking') {
   this.message = true;
   this.displayStatus = false;
   this.hideStatus = true;
+  this.editingStatusView = false;
+  this.creativeStatusView = false;
   }
  switch (data.materialPickedUp) {
     case 0: {
@@ -237,6 +268,111 @@ this.statusDetail(id, type) ;
   }
 orderDisplay() {
 
+}
+showEditingStatus(id) {
+  this.statusService.editingStatus(id).subscribe(data => {
+    this.EditingDetails = data;
+    switch (data[0].imageReceived) {
+      case 0: {
+        this.imageReceive = true;
+        this.imageReceiveTrue = false;
+        this.imageReceiveProgress = false;
+        break;
+      }
+      case 1: {
+        this.imageReceive = false;
+        this.imageReceiveProgress = false;
+        this.imageReceiveTrue = true;
+        break;
+      }
+      case 2: {
+        this.imageReceive = false;
+        this.imageReceiveProgress = true;
+        this.imageReceiveTrue = false;
+        break;
+      }
+    }
+    switch (data[0].editing) {
+      case 0: {
+        this.imageEditing = true;
+        this.imageEditingTrue = false;
+        this.imageEditingProgress = false;
+        break;
+      }
+      case 1: {
+        this.imageEditing = false;
+        this.imageEditingProgress = false;
+        this.imageEditingTrue = true;
+        break;
+      }
+      case 2: {
+        this.imageEditing = false;
+        this.imageEditingProgress = true;
+        this.imageEditingTrue = false;
+        break;
+      }
+    }
+    switch (data[0].imageDelivery) {
+      case 0: {
+        this.delivery = true;
+        this.deliveryTrue = false;
+        this.deliveryProgress = false;
+        break;
+      }
+      case 1: {
+        this.deliveryTrue = true;
+        this.delivery = false;
+        this.deliveryProgress = false;
+        break;
+      }
+      case 2: {
+        this.deliveryTrue = false;
+        this.delivery = false;
+        this.deliveryProgress = true;
+        break;
+      }
+    }
+    switch (data[0].payment) {
+        case 0: {
+          this.payment = true;
+          this.paymentTrue = false;
+          this.paymentProgress = false;
+          break;
+        }
+        case 1: {
+          this.payment = false;
+          this.paymentTrue = true;
+          this.paymentProgress = false;
+          break;
+        }
+        case 2: {
+          this.payment = false;
+          this.paymentTrue = false;
+          this.paymentProgress = true;
+          break;
+        }
+      }
+       }, error => {
+         console.log(error);
+       });
+}
+
+showCreativeStatus(id) {
+  this.statusService.creativeStatus(id).subscribe(data => {
+    this.CreativeDetails = data;
+    console.log( this.CreativeDetails);
+       }, error => {
+         console.log(error);
+       });
+}
+
+showCatalogStatus(id) {
+  this.statusService.catalogStatus(id).subscribe(data => {
+    this.CatalogDetails = data;
+    console.log( this.CatalogDetails);
+       }, error => {
+         console.log(error);
+       });
 }
   status(no) {
     this.statusService.getStatusByNum(no).subscribe(statusData => {
