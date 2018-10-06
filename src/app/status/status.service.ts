@@ -4,14 +4,14 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
-import { Status} from './stauts/status.model';
-import {StatusDetails} from './new-user-status/status.model';
-import {BookingDetail} from './stauts-view/booking-detail.model';
-import {CancelledBookingDetail} from './cancelled-status/cancelled-booking.model';
-import {Bookings} from './all-status/allStatus.model';
+import { Status } from './stauts/status.model';
+import { StatusDetails } from './new-user-status/status.model';
+import { BookingDetail } from './stauts-view/booking-detail.model';
+import { CancelledBookingDetail } from './cancelled-status/cancelled-booking.model';
+import { Bookings } from './all-status/allStatus.model';
 import { CompletedBookings } from './completed-order/completed-order.model';
-import {EditingStatus} from './stauts-view/editing-status.model';
-import {CreativeStatus} from './stauts-view/creative-status.model';
+import { EditingStatus } from '../shared/editing-status.model';
+import { CreativeStatus } from '../shared/creative-status.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -37,43 +37,43 @@ export class StatusService {
 
   getBookingStatus(id): Observable<any> {
     const statusUrl = 'bookstatus/';
-    const url: string = this.serviceUrl + statusUrl + id ;
+    const url: string = this.serviceUrl + statusUrl + id;
     return this.httpClient.get<Status>(url);
   }
 
   getStatus(id): Observable<any> {
     const statusUrl = 'status/';
-    const url: string = this.serviceUrl + statusUrl + id ;
+    const url: string = this.serviceUrl + statusUrl + id;
     return this.httpClient.get<Status>(url);
   }
 
   getStatusByNum(id): Observable<any> {
     const statusUrl = 'bookingStatus/';
-    const url: string = this.serviceUrl + statusUrl + id ;
+    const url: string = this.serviceUrl + statusUrl + id;
     return this.httpClient.get<Bookings>(url);
   }
   getActiveBookings(id): Observable<any> {
     const statusUrl = 'bookingDetails/';
     const activeUrl = '/active/';
-    const url: string = this.serviceUrl + statusUrl + id + activeUrl ;
+    const url: string = this.serviceUrl + statusUrl + id + activeUrl;
     return this.httpClient.get<BookingDetail>(url);
   }
   getCancelledBookings(id): Observable<any> {
     const statusUrl = 'bookingDetails/';
     const cancelUrl = '/cancelled/';
-    const url: string = this.serviceUrl + statusUrl + id + cancelUrl ;
+    const url: string = this.serviceUrl + statusUrl + id + cancelUrl;
     return this.httpClient.get<CancelledBookingDetail>(url);
   }
   getCompletedOrders(id): Observable<any> {
     const statusUrl = 'order/';
     const cancelUrl = '/completed/';
-    const url: string = this.serviceUrl + statusUrl + id + cancelUrl ;
+    const url: string = this.serviceUrl + statusUrl + id + cancelUrl;
     return this.httpClient.get<CompletedBookings>(url);
   }
-  getStatusById( no , id): Observable<any> {
+  getStatusById(no, id): Observable<any> {
     const statusUrl = 'bookingStatus/';
     const viewUrl = '/view/';
-    const url: string = this.serviceUrl + statusUrl + no  + viewUrl + id;
+    const url: string = this.serviceUrl + statusUrl + no + viewUrl + id;
     return this.httpClient.get<Status>(url);
   }
   getBookingDetail(id, type): Observable<any> {
