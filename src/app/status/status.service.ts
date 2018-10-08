@@ -97,4 +97,9 @@ export class StatusService {
     const url: string = this.serviceUrl + statusUrl + id;
     return this.httpClient.get<CreativeStatus>(url);
   }
+  registrationStatus(id): Observable<any> {
+    const statusUrl = 'registrationStatus/';
+    const url: string = this.serviceUrl + statusUrl + id;
+    return this.httpClient.get<CreativeStatus>(url);
+  }
 }

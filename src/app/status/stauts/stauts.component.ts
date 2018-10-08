@@ -48,6 +48,8 @@ export class StautsComponent implements OnInit {
   editingStatus: boolean;
   creativeStatus: boolean;
   catalogStatus: boolean;
+  registrationStatus: boolean;
+  aplusStatus: boolean;
 
 
   constructor(private fb: FormBuilder,
@@ -243,31 +245,56 @@ export class StautsComponent implements OnInit {
       this.editingStatus = false;
       this.creativeStatus = false;
       this.catalogStatus = false;
-    } else if (type === 'Marketing Booking'
-      || type === 'Registration Booking') {
+      this.registrationStatus = false;
+      this.aplusStatus = false;
+    } else if (type === 'Marketing Booking') {
       this.displayStatus = false;
       this.message = true;
       this.editingStatus = false;
       this.creativeStatus = false;
       this.catalogStatus = false;
+      this.registrationStatus = false;
+      this.aplusStatus = false;
     } else if (type === 'Editing Booking') {
       this.displayStatus = false;
       this.message = false;
       this.editingStatus = true;
       this.creativeStatus = false;
       this.catalogStatus = false;
+      this.registrationStatus = false;
+      this.aplusStatus = false;
     } else if (type === 'Creative Booking') {
       this.displayStatus = false;
       this.message = false;
       this.editingStatus = false;
       this.creativeStatus = true;
       this.catalogStatus = false;
+      this.registrationStatus = false;
+      this.aplusStatus = false;
     } else if (type === 'Catalog Booking') {
       this.displayStatus = false;
       this.message = false;
       this.editingStatus = false;
       this.creativeStatus = false;
       this.catalogStatus = true;
+      this.registrationStatus = false;
+      this.aplusStatus = false;
+    } else if (type === 'Registration Booking') {
+      this.displayStatus = false;
+      this.message = false;
+      this.editingStatus = false;
+      this.creativeStatus = false;
+      this.catalogStatus = false;
+      this.registrationStatus = true;
+      this.aplusStatus = false;
+    } else if (type === 'A+ Booking') {
+      this.displayStatus = false;
+      this.message = false;
+      this.editingStatus = false;
+      this.creativeStatus = false;
+      this.catalogStatus = false;
+      this.registrationStatus = false;
+      this.aplusStatus = true;
     }
   }
 

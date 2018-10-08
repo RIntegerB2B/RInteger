@@ -27,6 +27,7 @@ import { CreativePortfolioComponent } from './home/creative-portfolio/creative-p
 import { VideoPortfolioComponent } from './home/video-portfolio/video-portfolio.component';
 import { ItServicesPortfolioComponent } from './home/it-services-portfolio/it-services-portfolio.component';
 import { DigitalMarketingPortfolioComponent } from './home/digital-marketing-portfolio/digital-marketing-portfolio.component';
+import { AplusBookingComponent } from './aplus-booking/aplus-booking.component';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
@@ -56,6 +57,7 @@ const routes: Routes = [
     { path: 'pricing', component: PricingComponent },
     { path: 'completed', component: CompletedOrderComponent },
     { path: 'dashboard', component: DashboardComponent },
+    { path: 'aplus', component: AplusBookingComponent },
     { path: 'registrationSetup', component: RegistrationSetupBookingComponent },
     { path: 'marketingservices', component: MarketingServicesBookingComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },

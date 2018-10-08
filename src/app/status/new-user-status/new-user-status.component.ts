@@ -11,6 +11,7 @@ import { DashBoardService } from '../../home/dashboard/dashboard.service';
 import { EditingStatus } from '../../shared/editing-status.model';
 import { CreativeStatus } from '../../shared/creative-status.model';
 import { CatalogingStatus } from '../../shared/catalog-status.model';
+import {RegistrationStatus} from '../../shared/registration-status.model';
 
 
 @Component({
@@ -19,6 +20,7 @@ import { CatalogingStatus } from '../../shared/catalog-status.model';
   styleUrls: ['./new-user-status.component.css']
 })
 export class NewUserStatusComponent implements OnInit {
+  RegistrationDetails: RegistrationStatus;
   CreativeDetails: CreativeStatus;
   CatalogDetails: CatalogingStatus;
   EditingDetails: EditingStatus[] = [];
@@ -87,8 +89,27 @@ export class NewUserStatusComponent implements OnInit {
   message: boolean;
   searchText: string;
   editingStatus: boolean;
+  detailsProgress: boolean;
+  detailsTrue: boolean;
+  details: boolean;
+  activationProgress: boolean;
+  activationTrue: boolean;
+  activation: boolean;
+  verificationProgress: boolean;
+  verificationTrue: boolean;
+  verification: boolean;
+  brandRegProgress: boolean;
+  brandRegTrue: boolean;
+  brandReg: boolean;
+  accountCreationsProgress: boolean;
+  accountCreationsTrue: boolean;
+  accountCreations: boolean;
+  documentsReqProgress: boolean;
+  documentsReqTrue: boolean;
+  documentsReq: boolean;
+  registrationStatusView: boolean;
   filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
-    'Marketing  Booking', 'Creative Booking'];
+    'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking'];
   constructor(private fb: FormBuilder, private router: Router,
     private statusService: StatusService, private localStorageService: LocalStorageService, private dashboardservice: DashBoardService) { }
 
@@ -131,6 +152,7 @@ export class NewUserStatusComponent implements OnInit {
     this.bookingStatus = false;
     this.creativeStatusView = false;
     this.catalogStatusView = false;
+    this.registrationStatusView = false;
   }
   statusView(statusViewForm: FormGroup, id: any, type: any) {
     if (type === 'Direct Booking' || type === 'Model Booking') {
@@ -141,6 +163,7 @@ export class NewUserStatusComponent implements OnInit {
       this.creativeStatusView = false;
       this.catalogStatusView = false;
       this.bookingStatus = true;
+      this.registrationStatusView = false;
     } else if (type === 'Editing Booking') {
       this.message = false;
       this.displayStatus = false;
@@ -149,6 +172,7 @@ export class NewUserStatusComponent implements OnInit {
       this.creativeStatusView = false;
       this.catalogStatusView = false;
       this.bookingStatus = true;
+      this.registrationStatusView = false;
       this.showEditingStatus(id);
     } else if (type === 'Creative Booking') {
       this.message = false;
@@ -158,6 +182,7 @@ export class NewUserStatusComponent implements OnInit {
       this.creativeStatusView = true;
       this.catalogStatusView = false;
       this.bookingStatus = false;
+      this.registrationStatusView = false;
       this.showCreativeStatus(id);
     } else if (type === 'Catalog Booking') {
       this.message = false;
@@ -167,14 +192,26 @@ export class NewUserStatusComponent implements OnInit {
       this.creativeStatusView = false;
       this.catalogStatusView = true;
       this.bookingStatus = false;
+      this.registrationStatusView = false;
       this.showCatalogStatus(id);
-    } else if (type === 'Marketing Booking' || type === 'Registration Booking') {
+    } else if (type === 'Marketing Booking') {
       this.message = true;
       this.displayStatus = false;
       this.hideStatus = false;
       this.editingStatusView = false;
       this.creativeStatusView = false;
       this.catalogStatusView = false;
+      this.registrationStatusView = false;
+    } else if (type === 'Registration Booking') {
+      this.message = false;
+      this.displayStatus = false;
+      this.hideStatus = true;
+      this.editingStatusView = false;
+      this.creativeStatusView = false;
+      this.catalogStatusView = false;
+      this.bookingStatus = false;
+      this.registrationStatusView = true;
+      this.showRegistrationStatus(id);
     }
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.statusService.getStatusById(this.mobileNo, id).subscribe(data => {
@@ -692,6 +729,154 @@ export class NewUserStatusComponent implements OnInit {
           this.productOnLive = false;
           this.productOnLiveProgress = true;
           this.productOnLiveTrue = false;
+          break;
+        }
+      }
+      switch (data[0].payment) {
+        case 0: {
+          this.payment = true;
+          this.paymentTrue = false;
+          this.paymentProgress = false;
+          break;
+        }
+        case 1: {
+          this.payment = false;
+          this.paymentTrue = true;
+          this.paymentProgress = false;
+          break;
+        }
+        case 2: {
+          this.payment = false;
+          this.paymentTrue = false;
+          this.paymentProgress = true;
+          break;
+        }
+      }
+    }, error => {
+      console.log(error);
+    });
+  }
+  showRegistrationStatus(id) {
+    this.statusService.registrationStatus(id).subscribe(data => {
+      this.RegistrationDetails = data;
+      console.log(this.RegistrationDetails);
+      switch (data[0].documentsRequired) {
+        case 0: {
+          this.documentsReq = true;
+          this.documentsReqTrue = false;
+          this.documentsReqProgress = false;
+          break;
+        }
+        case 1: {
+          this.documentsReq = false;
+          this.documentsReqTrue = true;
+          this.documentsReqProgress = false;
+          break;
+        }
+        case 2: {
+          this.documentsReq = false;
+          this.documentsReqTrue = false;
+          this.documentsReqProgress = true;
+          break;
+        }
+      }
+      switch (data[0].accountCreation) {
+        case 0: {
+          this.accountCreations = true;
+          this.accountCreationsTrue = false;
+          this.accountCreationsProgress = false;
+          break;
+        }
+        case 1: {
+          this.accountCreations = false;
+          this.accountCreationsProgress = false;
+          this.accountCreationsTrue = true;
+          break;
+        }
+        case 2: {
+          this.accountCreations = false;
+          this.accountCreationsProgress = true;
+          this.accountCreationsTrue = false;
+          break;
+        }
+      }
+      switch (data[0].brandRegistration) {
+        case 0: {
+          this.brandReg = true;
+          this.brandRegTrue = false;
+          this.brandRegProgress = false;
+          break;
+        }
+        case 1: {
+          this.brandRegTrue = true;
+          this.brandReg = false;
+          this.brandRegProgress = false;
+          break;
+        }
+        case 2: {
+          this.brandRegTrue = false;
+          this.brandReg = false;
+          this.brandRegProgress = true;
+          break;
+        }
+      }
+      switch (data[0].account_brandVerification) {
+        case 0: {
+          this.verification = true;
+          this.verificationTrue = false;
+          this.verificationProgress = false;
+          break;
+        }
+        case 1: {
+          this.verificationTrue = true;
+          this.verification = false;
+          this.verificationProgress = false;
+          break;
+        }
+        case 2: {
+          this.verificationTrue = false;
+          this.verification = false;
+          this.verificationProgress = true;
+          break;
+        }
+      }
+      switch (data[0].accountActivation) {
+        case 0: {
+          this.activation = true;
+          this.activationTrue = false;
+          this.activationProgress = false;
+          break;
+        }
+        case 1: {
+          this.activationTrue = true;
+          this.activation = false;
+          this.activationProgress = false;
+          break;
+        }
+        case 2: {
+          this.activationTrue = false;
+          this.activation = false;
+          this.activationProgress = true;
+          break;
+        }
+      }
+      switch (data[0].detailsForwarding) {
+        case 0: {
+          this.details = true;
+          this.detailsTrue = false;
+          this.detailsProgress = false;
+          break;
+        }
+        case 1: {
+          this.detailsTrue = true;
+          this.details = false;
+          this.detailsProgress = false;
+          break;
+        }
+        case 2: {
+          this.detailsTrue = false;
+          this.details = false;
+          this.detailsProgress = true;
           break;
         }
       }

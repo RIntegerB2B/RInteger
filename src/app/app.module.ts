@@ -80,6 +80,7 @@ import { VideoPortfolioComponent } from './home/video-portfolio/video-portfolio.
 import { MarketplacePortfolioComponent } from './home/marketplace-portfolio/marketplace-portfolio.component';
 import { DigitalMarketingPortfolioComponent } from './home/digital-marketing-portfolio/digital-marketing-portfolio.component';
 import { ItServicesPortfolioComponent } from './home/it-services-portfolio/it-services-portfolio.component';
+import { AplusBookingComponent } from './aplus-booking/aplus-booking.component';
 
 @NgModule({
   declarations: [
@@ -115,7 +116,8 @@ import { ItServicesPortfolioComponent } from './home/it-services-portfolio/it-se
     VideoPortfolioComponent,
     MarketplacePortfolioComponent,
     DigitalMarketingPortfolioComponent,
-    ItServicesPortfolioComponent
+    ItServicesPortfolioComponent,
+    AplusBookingComponent
   ],
   imports: [
     BrowserModule,
