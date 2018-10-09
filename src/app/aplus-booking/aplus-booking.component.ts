@@ -27,6 +27,7 @@ export class AplusBookingComponent implements OnInit {
   notificationModel: Notification;
   message;
   action;
+  email;
   photoShoot = ['Yes', 'No'];
   videoShoot = ['Yes', 'No'];
   shooting = [];
@@ -55,7 +56,8 @@ export class AplusBookingComponent implements OnInit {
       productDescription: [''],
       quantityDescription: [''],
       isVideoShoot: [''],
-      isPhotoShoot: ['']
+      isPhotoShoot: [''],
+      emailId: ['']
 
     });
   }
@@ -68,16 +70,18 @@ export class AplusBookingComponent implements OnInit {
     }
 console.log(this.shooting);
   }
-  bookSubmit(aplusForm: FormGroup, mobileNum: any, name: any, location: any) {
+  bookSubmit(aplusForm: FormGroup, mobileNum: any, name: any, location: any, mailId: any) {
     this.message = 'A+ Cataloging Booking Done';
     this.action = 'booked';
     this.localStorageService.store('mobileno', mobileNum);
     this.localStorageService.store('name', name);
     this.localStorageService.store('location', location);
+    this.localStorageService.store('emailId', mailId);
     this.aplusModel = new Aplus(
       aplusForm.controls.name.value,
       aplusForm.controls.mobileNumber.value,
       aplusForm.controls.location.value,
+      aplusForm.controls.emailId.value,
       aplusForm.controls.productDescription.value,
       aplusForm.controls.quantityDescription.value,
       aplusForm.controls.isPhotoShoot.value,
@@ -112,6 +116,7 @@ console.log(this.shooting);
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');
     this.locat = this.localStorageService.retrieve('location');
+    this.email = this.localStorageService.retrieve('emailId');
   }
 
 

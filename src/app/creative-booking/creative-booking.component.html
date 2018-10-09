@@ -1,4 +1,4 @@
-<form class="bookingMasterDiv" [formGroup]="creativeForm" (ngSubmit)="creativeForm.valid && bookSubmit(creativeForm,mobileNum.value,name.value,location.value)"
+<form class="bookingMasterDiv" [formGroup]="creativeForm" (ngSubmit)="creativeForm.valid && bookSubmit(creativeForm,mobileNum.value,name.value,location.value,mailId.value)"
   novalidate style="padding-bottom:60px">
   <div class="container-fluid">
     <div class="row">
@@ -34,6 +34,19 @@
               </button>
               <mat-error *ngIf="creativeForm.controls['name'].errors?.required">
                 Name is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width"> 
+              <input matInput placeholder="EmailId" [(ngModel)]="email" maxlength="20" formControlName="emailId" type="text"
+                #mailId [required]="false">
+              <button mat-button matSuffix mat-icon-button aria-label="Name">
+                <mat-icon>account_circle</mat-icon>
+              </button>
+              <mat-error *ngIf="creativeForm.controls['emailId'].errors?.required">
+                EmailId is
                 <strong>required</strong>
               </mat-error>
             </mat-form-field>

@@ -287,7 +287,7 @@ export class StautsComponent implements OnInit {
       this.catalogStatus = false;
       this.registrationStatus = true;
       this.aplusStatus = false;
-    } else if (type === 'A+ Booking') {
+    } else if (type === 'A+ Cataloging Booking') {
       this.displayStatus = false;
       this.message = false;
       this.editingStatus = false;

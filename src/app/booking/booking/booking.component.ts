@@ -34,6 +34,7 @@ export class BookingComponent implements OnInit {
   swPush: SwPush;
   message;
   action;
+  email;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   // readonly VAPID_PUBLIC_KEY = 'BKt65eGjjxVC8EDZj-9awfTMKLydA0jxM6mhren6Hz1UBIduWTFEtIXB7thtCN9nnMZlJsvkYqTn7rUKo8mmGxw';
 
@@ -63,25 +64,29 @@ export class BookingComponent implements OnInit {
       shootType: [''],
       modelType: [''],
       productType: [''],
+      emailId: ['']
 
     });
   }
-  bookSubmit(onBookInForm: FormGroup, mobileNum: any, name: any, location: any) {
+  bookSubmit(onBookInForm: FormGroup, mobileNum: any, name: any, location: any, mailId: any) {
     this.message = 'General Shoot Booking Done';
     this.action = 'booked';
     this.localStorageService.store('mobileno', mobileNum);
     this.localStorageService.store('name', name);
     this.localStorageService.store('location', location);
+    this.localStorageService.store('emailId', mailId);
     this.userBook = new Booking(
       onBookInForm.controls.name.value,
       onBookInForm.controls.mobileNumber.value,
+      onBookInForm.controls.location.value,
+      onBookInForm.controls.emailId.value,
       onBookInForm.controls.productDescription.value,
       onBookInForm.controls.quantityDescription.value,
       onBookInForm.controls.shootType.value,
       onBookInForm.controls.modelType.value,
       onBookInForm.controls.productType.value
     );
-    this.saveCustomerDetail(onBookInForm);
+/*     this.saveCustomerDetail(onBookInForm); */
     this.onBookInForm.reset();
     this.bookingService.addBooking(this.userBook).subscribe(data => {
       this.snackBar.open(this.message, this.action, {
@@ -111,6 +116,7 @@ export class BookingComponent implements OnInit {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');
     this.locat = this.localStorageService.retrieve('location');
+    this.email = this.localStorageService.retrieve('emailId');
   }
   saveCustomerDetail(onBookInForm: FormGroup) {
     this.customer = new Customer(

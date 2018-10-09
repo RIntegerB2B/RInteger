@@ -11,14 +11,14 @@ import { EditingStatus } from '../../shared/editing-status.model';
 import { CreativeStatus } from '../../shared/creative-status.model';
 import { CatalogingStatus } from '../../shared/catalog-status.model';
 import {RegistrationStatus} from '../../shared/registration-status.model';
-
+import {AplusCatalogingStatus} from '../../shared/aplus-status.model';
 @Component({
   selector: 'app-all-status',
   templateUrl: './all-status.component.html',
   styleUrls: ['./all-status.component.css']
 })
 export class AllStatusComponent implements OnInit {
-
+ AplusDetails: AplusCatalogingStatus;
   shootPlanningTrue: boolean;
   CreativeDetails: CreativeStatus;
   shootPlanningProgress: boolean;
@@ -113,6 +113,7 @@ export class AllStatusComponent implements OnInit {
   documentsReqTrue: boolean;
   documentsReq: boolean;
   registrationStatusView: boolean;
+  aplusStatusView: boolean;
   filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
     'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking'];
   searchText: string;
@@ -146,6 +147,7 @@ export class AllStatusComponent implements OnInit {
     this.creativeStatusView = false;
     this.editingStatusView = false;
     this.registrationStatusView = false;
+    this.aplusStatusView = false;
     this.status(this.no);
   }
   bookingType(value) {
@@ -169,6 +171,7 @@ export class AllStatusComponent implements OnInit {
       this.creativeStatusView = false;
       this.catalogStatusView = false;
       this.registrationStatusView = false;
+      this.aplusStatusView = false;
       this.showBookingStatus(id);
     } else if (type === 'Marketing Booking') {
       this.message = true;
@@ -176,6 +179,7 @@ export class AllStatusComponent implements OnInit {
       this.hideStatus = true;
    this.bookingStatus = false;
       this.registrationStatusView = false;
+      this.aplusStatusView = false;
     } else if (type === 'Editing Booking') {
       this.message = false;
       this.displayStatus = false;
@@ -185,6 +189,7 @@ export class AllStatusComponent implements OnInit {
       this.catalogStatusView = false;
       this.bookingStatus = false;
       this.registrationStatusView = false;
+      this.aplusStatusView = false;
       this.showEditingStatus(id);
     } else if (type === 'Creative Booking') {
       this.message = false;
@@ -195,6 +200,7 @@ export class AllStatusComponent implements OnInit {
       this.catalogStatusView = false;
       this.bookingStatus = false;
       this.registrationStatusView = false;
+      this.aplusStatusView = false;
       this.showCreativeStatus(id);
     } else if (type === 'Catalog Booking') {
       this.message = false;
@@ -205,6 +211,7 @@ export class AllStatusComponent implements OnInit {
       this.catalogStatusView = true;
       this.bookingStatus = false;
       this.registrationStatusView = false;
+      this.aplusStatusView = false;
       this.showCatalogStatus(id);
     } else if (type === 'Registration Booking') {
       this.message = false;
@@ -215,7 +222,19 @@ export class AllStatusComponent implements OnInit {
       this.catalogStatusView = false;
       this.bookingStatus = false;
       this.registrationStatusView = true;
+      this.aplusStatusView = false;
       this.showRegistrationStatus(id);
+    } else if (type === 'A+ Cataloging Booking') {
+      this.message = false;
+      this.displayStatus = false;
+      this.hideStatus = true;
+      this.editingStatusView = false;
+      this.creativeStatusView = false;
+      this.catalogStatusView = false;
+      this.bookingStatus = false;
+      this.registrationStatusView = false;
+      this.aplusStatusView = true;
+      this.showAplusStatus(id);
     }
     this.statusDetail(id, type);
   }
@@ -351,6 +370,273 @@ export class AllStatusComponent implements OnInit {
       }
     );
   }
+  showAplusStatus(id) {
+  this.statusService.aplusStatus(id).subscribe(data => {
+    this.AplusDetails = data;
+    switch (data[0].materialPickedUp) {
+      case 0: {
+        this.materialPicked = true;
+        this.materialPickedTrue = false;
+        this.materialPickedProgress = false;
+        break;
+      }
+      case 1: {
+        this.materialPicked = false;
+        this.materialPickedProgress = false;
+        this.materialPickedTrue = true;
+        break;
+      }
+      case 2: {
+        this.materialPicked = false;
+        this.materialPickedProgress = true;
+        this.materialPickedTrue = false;
+        break;
+      }
+    }
+    switch (data[0].shootPlanning) {
+      case 0: {
+        this.shootPlanning = true;
+        this.shootPlanningTrue = false;
+        this.shootPlanningProgress = false;
+        break;
+      }
+      case 1: {
+        this.shootPlanning = false;
+        this.shootPlanningProgress = false;
+        this.shootPlanningTrue = true;
+        break;
+      }
+      case 2: {
+        this.shootPlanning = false;
+        this.shootPlanningProgress = true;
+        this.shootPlanningTrue = false;
+        break;
+      }
+    }
+    switch (data[0].shootCompleted) {
+      case 0: {
+        this.shootCompleted = true;
+        this.shootCompletedTrue = false;
+        this.shootCompletedProgress = false;
+        break;
+      }
+      case 1: {
+        this.shootCompleted = false;
+        this.shootCompletedTrue = true;
+        this.shootCompletedProgress = false;
+        break;
+      }
+      case 2: {
+        this.shootCompleted = false;
+        this.shootCompletedTrue = false;
+        this.shootCompletedProgress = true;
+        break;
+      }
+    }
+    switch (data[0].postProductionWork) {
+      case 0: {
+        this.postProduction = true;
+        this.postProductionProgress = false;
+        this.postProductionTrue = false;
+        break;
+      }
+      case 1: {
+        this.postProduction = false;
+        this.postProductionTrue = true;
+        this.postProductionProgress = false;
+        break;
+      }
+      case 2: {
+        this.postProduction = false;
+        this.postProductionTrue = false;
+        this.postProductionProgress = true;
+        break;
+      }
+    }
+    switch (data[0].productDetailsReceived) {
+      case 0: {
+        this.productDetail = true;
+        this.productDetailTrue = false;
+        this.productDetailProgress = false;
+        break;
+      }
+      case 1: {
+        this.productDetail = false;
+        this.productDetailProgress = false;
+        this.productDetailTrue = true;
+        break;
+      }
+      case 2: {
+        this.productDetail = false;
+        this.productDetailProgress = true;
+        this.productDetailTrue = false;
+        break;
+      }
+    }
+    switch (data[0].loginCredentialsReceived) {
+      case 0: {
+        this.loginCredential = true;
+        this.loginCredentialTrue = false;
+        this.loginCredentialProgress = false;
+        break;
+      }
+      case 1: {
+        this.loginCredential = false;
+        this.loginCredentialProgress = false;
+        this.loginCredentialTrue = true;
+        break;
+      }
+      case 2: {
+        this.loginCredential = false;
+        this.loginCredentialProgress = true;
+        this.loginCredentialTrue = false;
+        break;
+      }
+    }
+    switch (data[0].catalogContentMaking) {
+      case 0: {
+        this.catalogMaking = true;
+        this.catalogMakingTrue = false;
+        this.catalogMakingProgress = false;
+        break;
+      }
+      case 1: {
+        this.catalogMaking = false;
+        this.catalogMakingProgress = false;
+        this.catalogMakingTrue = true;
+        break;
+      }
+      case 2: {
+        this.catalogMaking = false;
+        this.catalogMakingProgress = true;
+        this.catalogMakingTrue = false;
+        break;
+      }
+    }
+    switch (data[0].catalogUploaded) {
+      case 0: {
+        this.catalogUpload = true;
+        this.catalogUploadTrue = false;
+        this.catalogUploadProgress = false;
+        break;
+      }
+      case 1: {
+        this.catalogUpload = false;
+        this.catalogUploadProgress = false;
+        this.catalogUploadTrue = true;
+        break;
+      }
+      case 2: {
+        this.catalogUpload = false;
+        this.catalogUploadProgress = true;
+        this.catalogUploadTrue = false;
+        break;
+      }
+    }
+    switch (data[0].qc_processing) {
+      case 0: {
+        this.qcProcess = true;
+        this.qcProcessTrue = false;
+        this.qcProcessProgress = false;
+        break;
+      }
+      case 1: {
+        this.qcProcess = false;
+        this.qcProcessProgress = false;
+        this.qcProcessTrue = true;
+        break;
+      }
+      case 2: {
+        this.qcProcess = false;
+        this.qcProcessProgress = true;
+        this.qcProcessTrue = false;
+        break;
+      }
+    }
+    switch (data[0].inventoryUpdation) {
+      case 0: {
+        this.inventoryUpdation = true;
+        this.inventoryUpdationProgress = false;
+        this.inventoryUpdationTrue = false;
+        break;
+      }
+      case 1: {
+        this.inventoryUpdation = false;
+        this.inventoryUpdationProgress = false;
+        this.inventoryUpdationTrue = true;
+        break;
+      }
+      case 2: {
+        this.inventoryUpdation = false;
+        this.inventoryUpdationProgress = true;
+        this.inventoryUpdationTrue = false;
+        break;
+      }
+    }
+    switch (data[0].productLive) {
+      case 0: {
+        this.productOnLive = true;
+        this.productOnLiveProgress = false;
+        this.productOnLiveTrue = false;
+        break;
+      }
+      case 1: {
+        this.productOnLive = false;
+        this.productOnLiveProgress = false;
+        this.productOnLiveTrue = true;
+        break;
+      }
+      case 2: {
+        this.productOnLive = false;
+        this.productOnLiveProgress = true;
+        this.productOnLiveTrue = false;
+        break;
+      }
+    }
+    switch (data[0].payment) {
+      case 0: {
+        this.payment = true;
+        this.paymentTrue = false;
+        this.paymentProgress = false;
+        break;
+      }
+      case 1: {
+        this.payment = false;
+        this.paymentTrue = true;
+        this.paymentProgress = false;
+        break;
+      }
+      case 2: {
+        this.payment = false;
+        this.paymentTrue = false;
+        this.paymentProgress = true;
+        break;
+      }
+    }
+    switch (data[0].materialReturn) {
+      case 0: {
+        this.materialReturn = true;
+        this.materialReturnTrue = false;
+        this.materialReturnProgress = false;
+        break;
+      }
+      case 1: {
+        this.materialReturn = false;
+        this.materialReturnTrue = true;
+        this.materialReturnProgress = false;
+        break;
+      }
+      case 2: {
+        this.materialReturn = false;
+        this.materialReturnTrue = false;
+        this.materialReturnProgress = true;
+        break;
+      }
+    }
+  }, error => {
+    console.log(error);
+  });
+ }
   showEditingStatus(id) {
     this.statusService.editingStatus(id).subscribe(data => {
       this.EditingDetail = data;

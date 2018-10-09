@@ -37,6 +37,7 @@ export class ModelBasedBookingComponent implements OnInit {
   showProfile: boolean;
   showAll: boolean;
   showPortFolio: boolean;
+  email;
   selected = 'Portfolio';
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
@@ -60,7 +61,8 @@ export class ModelBasedBookingComponent implements OnInit {
       productDescription: [''],
       qtyDescription: [''],
       id: [''],
-      modelsname: ['']
+      modelsname: [''],
+      emailId: ['']
     });
   }
 
@@ -68,6 +70,7 @@ export class ModelBasedBookingComponent implements OnInit {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');
     this.locat = this.localStorageService.retrieve('location');
+    this.email = this.localStorageService.retrieve('emailId');
   }
   viewModel(id) {
     this.modelService.modelDetail(id).subscribe(data => {
@@ -107,7 +110,7 @@ export class ModelBasedBookingComponent implements OnInit {
     this.showAll = false;
     this.showPortFolio = true;
   }
-  bookSubmit(bookModelForm: FormGroup, modelsId: any, modelNm: any) {
+  bookSubmit(bookModelForm: FormGroup, modelsId: any, modelNm: any, mailId: any) {
     this.message = 'Model Shoot Booking Done';
     this.action = 'booked';
     this.mobileNo = bookModelForm.controls.mobileNumber.value;
@@ -116,9 +119,11 @@ export class ModelBasedBookingComponent implements OnInit {
     this.localStorageService.store('mobileno', this.mobileNo);
     this.localStorageService.store('name', this.userName);
     this.localStorageService.store('location', this.locat);
+    this.localStorageService.store('emailId', mailId);
     this.bookingModel = new ModelBooking(
       bookModelForm.controls.name.value,
       bookModelForm.controls.mobileNumber.value,
+      bookModelForm.controls.emailId.value,
       bookModelForm.controls.location.value,
       bookModelForm.controls.productDescription.value,
       bookModelForm.controls.qtyDescription.value

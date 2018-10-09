@@ -28,6 +28,7 @@ import { VideoPortfolioComponent } from './home/video-portfolio/video-portfolio.
 import { ItServicesPortfolioComponent } from './home/it-services-portfolio/it-services-portfolio.component';
 import { DigitalMarketingPortfolioComponent } from './home/digital-marketing-portfolio/digital-marketing-portfolio.component';
 import { AplusBookingComponent } from './aplus-booking/aplus-booking.component';
+import { ItServicesBookingComponent } from './it-services-booking/it-services-booking.component';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
@@ -60,6 +61,7 @@ const routes: Routes = [
     { path: 'aplus', component: AplusBookingComponent },
     { path: 'registrationSetup', component: RegistrationSetupBookingComponent },
     { path: 'marketingservices', component: MarketingServicesBookingComponent },
+    { path: 'itservices', component: ItServicesBookingComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
 ];

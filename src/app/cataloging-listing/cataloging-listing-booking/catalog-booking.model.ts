@@ -2,6 +2,7 @@ export class CatalogBooking {
     mobileNumber: number;
     name: string;
     location: string;
+    emailId: string;
     productDescription: string;
     quantityDescription: string;
     b2bNational: Array<string>;
@@ -13,12 +14,14 @@ export class CatalogBooking {
         mobileNumber: number,
         name: string,
         location: string,
+        emailId: string,
         productDescription: string,
         quantityDescription: string
 
     ) {
         this.mobileNumber = mobileNumber;
         this.name = name;
+        this.emailId = emailId;
         this.location = location;
         this.productDescription = productDescription;
         this.quantityDescription = quantityDescription;

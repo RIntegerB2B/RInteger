@@ -81,6 +81,7 @@ import { MarketplacePortfolioComponent } from './home/marketplace-portfolio/mark
 import { DigitalMarketingPortfolioComponent } from './home/digital-marketing-portfolio/digital-marketing-portfolio.component';
 import { ItServicesPortfolioComponent } from './home/it-services-portfolio/it-services-portfolio.component';
 import { AplusBookingComponent } from './aplus-booking/aplus-booking.component';
+import { ItServicesBookingComponent } from './it-services-booking/it-services-booking.component';
 
 @NgModule({
   declarations: [
@@ -117,7 +118,8 @@ import { AplusBookingComponent } from './aplus-booking/aplus-booking.component';
     MarketplacePortfolioComponent,
     DigitalMarketingPortfolioComponent,
     ItServicesPortfolioComponent,
-    AplusBookingComponent
+    AplusBookingComponent,
+    ItServicesBookingComponent
   ],
   imports: [
     BrowserModule,

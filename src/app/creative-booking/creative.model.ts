@@ -3,6 +3,7 @@ export class Creative {
     bookingStatus: number;
     mobileNumber: number;
     name: string;
+    emailId: string;
     productDescription: string;
     quantityDescription: string;
     location: string;
@@ -13,6 +14,7 @@ export class Creative {
         name: string,
         mobileNumber: number ,
         location: string,
+        emailId: string,
         productDescription: string,
         quantityDescription: string,
         shootPurpose: string,
@@ -20,6 +22,7 @@ export class Creative {
 ) {
         this.name = name;
         this.mobileNumber = mobileNumber;
+        this.emailId = emailId;
         this.productDescription = productDescription;
         this.quantityDescription = quantityDescription;
        this.shootPurpose = shootPurpose;

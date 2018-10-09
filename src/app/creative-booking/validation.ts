@@ -8,7 +8,7 @@ export function mobileNumber(control: AbstractControl) {
         if (!mobile.test(control.value)) {
             return {
                 isError: true
-            }
+            };
     }
     return null;
 }

@@ -47,6 +47,8 @@ export class CatalogingListingBookingComponent implements OnInit {
   selectedb2cInterNational = [];
   selectedSocialMedia = [];
   bookingId;
+  email;
+  mailId;
   constructor(private fb: FormBuilder, private router: Router,
     private catalogService: CatalogListingService, private localStorageService: LocalStorageService, public snackBar: MatSnackBar,
   private dashboardService: DashBoardService, private dashBoard: DashboardComponent) { }
@@ -70,7 +72,7 @@ export class CatalogingListingBookingComponent implements OnInit {
       b2bInter: [''],
       b2cInter: [''],
       socialMedia: [''],
-
+      emailId: ['']
     });
   }
  /*  test() {
@@ -81,6 +83,7 @@ export class CatalogingListingBookingComponent implements OnInit {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');
     this.locat = this.localStorageService.retrieve('location');
+    this.email = this.localStorageService.retrieve('emailId');
   }
 
   viewb2bNational() {
@@ -171,13 +174,16 @@ export class CatalogingListingBookingComponent implements OnInit {
     this.addMobileNo = catalogListingForm.controls.mobileNumber.value;
     this.addUserName = catalogListingForm.controls.name.value;
     this.addLocation = catalogListingForm.controls.location.value;
+    this.mailId = catalogListingForm.controls.emailId.value;
     this.localStorageService.store('mobileno', this.addMobileNo);
     this.localStorageService.store('name', this.addUserName);
     this.localStorageService.store('location', this.addLocation);
+    this.localStorageService.store('emailId', this.mailId);
     this.catalogModel = new CatalogBooking(
       catalogListingForm.controls.mobileNumber.value,
       catalogListingForm.controls.name.value,
       catalogListingForm.controls.location.value,
+      catalogListingForm.controls.emailId.value,
       catalogListingForm.controls.productDescription.value,
       catalogListingForm.controls.qtyDescription.value,
     );

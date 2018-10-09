@@ -3,6 +3,7 @@ export class ImageEditing {
     bookingStatus: number;
     mobileNumber: number;
     name: string;
+    emailId: string;
     imageDescription: string;
     quantityDescription: string;
     imageRequirements: string;
@@ -11,6 +12,7 @@ export class ImageEditing {
         name: string,
         mobileNumber: number,
         location: string,
+        emailId: string,
         imageDescription: string,
         quantityDescription: string,
         imageRequirements: string
@@ -18,6 +20,7 @@ export class ImageEditing {
         this.name = name;
         this.mobileNumber = mobileNumber;
         this.location = location;
+        this.emailId = emailId;
         this.imageDescription = imageDescription;
         this.quantityDescription = quantityDescription;
         this.imageRequirements = imageRequirements;

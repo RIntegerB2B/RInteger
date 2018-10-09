@@ -3,6 +3,7 @@ export class Aplus {
     bookingStatus: number;
     mobileNumber: number;
     name: string;
+    emailId: string;
     productDescription: string;
     quantityDescription: string;
     location: string;
@@ -12,6 +13,7 @@ export class Aplus {
         name: string,
         mobileNumber: number ,
         location: string,
+        emailId: string,
         productDescription: string,
         quantityDescription: string,
         isPhotoShoot: string,
@@ -19,6 +21,8 @@ export class Aplus {
 ) {
         this.name = name;
         this.mobileNumber = mobileNumber;
+        this.location = location;
+        this.emailId = emailId;
         this.productDescription = productDescription;
         this.quantityDescription = quantityDescription;
        this.isVideoShoot = isVideoShoot;

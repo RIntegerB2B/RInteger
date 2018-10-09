@@ -4,36 +4,35 @@ import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import {MatSnackBar} from '@angular/material';
 
-import {MarketingServicesService} from '../marketing-services.service';
-import {MarketingServicesBooking} from './marketingServices.model';
+import {ItServicesService} from '../it-services-booking/it-services.service';
+import {ITServicesBooking} from './it-services.model';
 import {mobileNumber} from './validation';
-import {DashBoardService} from '../../home/dashboard/dashboard.service';
-
+import {DashBoardService} from '../home/dashboard/dashboard.service';
 
 @Component({
-  selector: 'app-marketing-services-booking',
-  templateUrl: './marketing-services-booking.component.html',
-  styleUrls: ['./marketing-services-booking.component.css']
+  selector: 'app-it-services-booking',
+  templateUrl: './it-services-booking.component.html',
+  styleUrls: ['./it-services-booking.component.css']
 })
-export class MarketingServicesBookingComponent implements OnInit {
+export class ItServicesBookingComponent implements OnInit {
   message;
   action;
-  marketingBookingForm: FormGroup;
+  itServicesBookingForm: FormGroup;
   userName: string;
   mobileNo: number;
   locat: string;
   addMobileNo: number;
   addUserName: string;
   addLocation: string;
-  marketingBooking: MarketingServicesBooking;
+  itServicesBooking: ITServicesBooking;
   selectedMedium = [];
-  marketingServices = ['Bulk SMS', 'Bulk Email', 'Bulk WhatsApp', 'Google', 'Facebook' , 'Database Booking'];
+  itServices = ['Domain Registration', 'WebApp Development', 'WebSite Development',
+  'Hosting Services'];
   bookingId;
   email;
   mailId;
-
   constructor(private fb: FormBuilder, private router: Router,
-    private marketingService: MarketingServicesService, private localStorageService: LocalStorageService,
+    private itService: ItServicesService, private localStorageService: LocalStorageService,
     public snackBar: MatSnackBar , private dashBoardService: DashBoardService) { }
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
@@ -41,7 +40,7 @@ export class MarketingServicesBookingComponent implements OnInit {
     this.checkData();
   }
   createForm() {
-    this.marketingBookingForm = this.fb.group({
+    this.itServicesBookingForm = this.fb.group({
       mobileNumber: ['', mobileNumber],
       name: [''],
       location: [''],
@@ -55,7 +54,7 @@ export class MarketingServicesBookingComponent implements OnInit {
     this.locat = this.localStorageService.retrieve('location');
     this.email = this.localStorageService.retrieve('emailId');
   }
-  getValue(marketingBookingForm, marketing, isChecked) {
+  getValue(itServicesBookingForm, marketing, isChecked) {
     const marketingIndex = this.selectedMedium.indexOf(marketing);
     if (isChecked) {
       this.selectedMedium.push(marketing);
@@ -64,25 +63,24 @@ export class MarketingServicesBookingComponent implements OnInit {
     }
     console.log(this.selectedMedium);
   }
-  booking(marketingBookingForm: FormGroup) {
-    this.message = 'Marketing  Services  Booking Done';
+  booking(itServicesBookingForm: FormGroup) {
+    this.message = 'IT  Services  Booking Done';
     this.action = 'booked';
-    this.addMobileNo = marketingBookingForm.controls.mobileNumber.value;
-    this.addUserName = marketingBookingForm.controls.name.value;
-    this.addLocation = marketingBookingForm.controls.location.value;
-    this.mailId = marketingBookingForm.controls.emailId.value;
+    this.addMobileNo = itServicesBookingForm.controls.mobileNumber.value;
+    this.addUserName = itServicesBookingForm.controls.name.value;
+    this.addLocation = itServicesBookingForm.controls.location.value;
+    this.mailId = itServicesBookingForm.controls.emailId.value;
     this.localStorageService.store('mobileno', this.addMobileNo);
     this.localStorageService.store('name', this.addUserName);
     this.localStorageService.store('location', this.addLocation);
     this.localStorageService.store('emailId', this.mailId);
-    this.marketingBooking = new MarketingServicesBooking(
-      marketingBookingForm.controls.mobileNumber.value,
-      marketingBookingForm.controls.name.value,
-      marketingBookingForm.controls.location.value,
-      marketingBookingForm.controls.emailId.value
+    this.itServicesBooking = new ITServicesBooking(
+      itServicesBookingForm.controls.mobileNumber.value,
+      itServicesBookingForm.controls.name.value,
+      itServicesBookingForm.controls.location.value,
+      itServicesBookingForm.controls.emailId.value
     );
-    this.marketingBooking.marketingMedium = this.selectedMedium;
-    this.marketingService.marketingBooking(this.marketingBooking).subscribe(data => {
+    this.itService.addBooking(this.itServicesBooking).subscribe(data => {
       this.snackBar.open(this.message, this.action, {
         duration: 3000,
       });

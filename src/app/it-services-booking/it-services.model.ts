@@ -1,9 +1,9 @@
-export class MarketingServicesBooking {
+export class ITServicesBooking {
     mobileNumber: number;
     name: string;
     location: string;
     emailId: string;
-    marketingMedium: Array<string>;
+    services: Array<string>;
     constructor(
         mobileNumber: number,
         name: string,

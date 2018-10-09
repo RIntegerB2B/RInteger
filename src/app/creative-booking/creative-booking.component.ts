@@ -28,6 +28,7 @@ export class CreativeBookingComponent implements OnInit {
   notificationModel: Notification;
   message;
   action;
+  email;
   videoShoot = ['Yes', 'No'];
   shootTypes = ['Indoor shoot', 'Outdoor shoot'];
   shooting = [];
@@ -57,7 +58,8 @@ export class CreativeBookingComponent implements OnInit {
       quantityDescription: [''],
       shootPurpose: [''],
       isVideoShoot: [''],
-      shootType: ['']
+      shootType: [''],
+      emailId: ['']
 
     });
   }
@@ -70,16 +72,18 @@ export class CreativeBookingComponent implements OnInit {
     }
 console.log(this.shooting);
   }
-  bookSubmit(creativeForm: FormGroup, mobileNum: any, name: any, location: any) {
-    this.message = 'Image Editing Booking Done';
+  bookSubmit(creativeForm: FormGroup, mobileNum: any, name: any, location: any, mailId: any) {
+    this.message = 'Creative Booking Done';
     this.action = 'booked';
     this.localStorageService.store('mobileno', mobileNum);
     this.localStorageService.store('name', name);
     this.localStorageService.store('location', location);
+    this.localStorageService.store('emailId', mailId);
     this.creativeModel = new Creative(
       creativeForm.controls.name.value,
       creativeForm.controls.mobileNumber.value,
       creativeForm.controls.location.value,
+      creativeForm.controls.emailId.value,
       creativeForm.controls.productDescription.value,
       creativeForm.controls.quantityDescription.value,
       creativeForm.controls.shootPurpose.value,
@@ -115,6 +119,7 @@ console.log(this.shooting);
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');
     this.locat = this.localStorageService.retrieve('location');
+    this.email = this.localStorageService.retrieve('emailId');
   }
 
 }

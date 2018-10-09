@@ -42,6 +42,8 @@ export class RegistrationSetupBookingComponent implements OnInit {
   selectedb2cInterNational = [];
   selectedSocialMedia = [];
   bookingId;
+  mailId;
+  email;
 
 
   constructor(private fb: FormBuilder, private router: Router,
@@ -65,6 +67,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
       b2bInter: [''],
       b2cInter: [''],
       socialMedia: [''],
+      emailId: ['']
     });
   }
 
@@ -72,6 +75,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');
     this.locat = this.localStorageService.retrieve('location');
+    this.email = this.localStorageService.retrieve('emailId');
   }
 
   viewb2bNational() {
@@ -165,10 +169,12 @@ export class RegistrationSetupBookingComponent implements OnInit {
     this.localStorageService.store('mobileno', this.addMobileNo);
     this.localStorageService.store('name', this.addUserName);
     this.localStorageService.store('location', this.addLocation);
+    this.localStorageService.store('emailId', this.mailId);
     this.registrationBooking = new RegistrationBooking(
       registrationBooking.controls.mobileNumber.value,
       registrationBooking.controls.name.value,
-      registrationBooking.controls.location.value
+      registrationBooking.controls.location.value,
+      registrationBooking.controls.emailId.value
     );
     this.registrationBooking.b2bNational = this.selectedb2bNational;
     this.registrationBooking.b2bInterNational = this.selectedb2bInterNational;

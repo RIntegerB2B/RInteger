@@ -26,6 +26,7 @@ export class ImageEditingBookingComponent implements OnInit {
   notificationModel: Notification;
   message;
   action;
+  email;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private fb: FormBuilder, private router: Router,
     private editingService: ImageEditingService, private localStorageService: LocalStorageService,
@@ -50,20 +51,22 @@ export class ImageEditingBookingComponent implements OnInit {
       location: [''],
       imageDescription: [''],
       quantityDescription: [''],
-      imageRequirements: ['']
-
+      imageRequirements: [''],
+      emailId: ['']
     });
   }
-  bookSubmit(editingForm: FormGroup, mobileNum: any, name: any, location: any) {
+  bookSubmit(editingForm: FormGroup, mobileNum: any, name: any, location: any, mailId: any) {
     this.message = 'Image Editing Booking Done';
     this.action = 'booked';
     this.localStorageService.store('mobileno', mobileNum);
     this.localStorageService.store('name', name);
     this.localStorageService.store('location', location);
+    this.localStorageService.store('emailId', mailId);
     this.editingModel = new ImageEditing(
       editingForm.controls.name.value,
       editingForm.controls.mobileNumber.value,
       editingForm.controls.location.value,
+      editingForm.controls.emailId.value,
       editingForm.controls.imageDescription.value,
       editingForm.controls.quantityDescription.value,
       editingForm.controls.imageRequirements.value
@@ -97,5 +100,6 @@ export class ImageEditingBookingComponent implements OnInit {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');
     this.locat = this.localStorageService.retrieve('location');
+    this.email = this.localStorageService.retrieve('emailId');
   }
 }

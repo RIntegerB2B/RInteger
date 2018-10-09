@@ -135,6 +135,19 @@
           </mat-form-field>
         </div>
         <div class="form-group">
+          <mat-form-field class="example-full-width"> 
+            <input matInput placeholder="EmailId" [(ngModel)]="email" maxlength="20" formControlName="emailId" type="text"
+              #mailId [required]="false">
+            <button mat-button matSuffix mat-icon-button aria-label="Name">
+              <mat-icon>account_circle</mat-icon>
+            </button>
+            <mat-error *ngIf="bookModelForm.controls['emailId'].errors?.required">
+              EmailId is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Location" maxlength="20" [(ngModel)]="locat" style="margin-bottom:5px"
               formControlName="location" type="text" [required]="false" #location>
@@ -162,7 +175,7 @@
         <div class="form-group" style="margin-top:40px;" *ngFor="let model of Model">
           <input type="text" formControlName="id" hidden [value]="model._id" #modelsId>
           <input type="text" formControlName="modelsname" hidden [value]="model.userName" #modelNm>
-          <button class="btn booking btn-block text-white" (click)="bookModelForm.valid && bookSubmit(bookModelForm,modelsId.value,modelNm.value)">Book
+          <button class="btn booking btn-block text-white" (click)="bookModelForm.valid && bookSubmit(bookModelForm,modelsId.value,modelNm.value,mailId.value)">Book
             Now</button>
         </div>
 

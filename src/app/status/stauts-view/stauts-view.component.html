@@ -650,6 +650,334 @@
         <button style="margin:20px;" class="btn" (click)="showStatus()">back</button>
       </div>
     </div>
+    <div *ngIf="creativeStatusView" style="margin-top:40px">
+      <div class="row status">
+        <div class=" col-sm-12 d-flex  flex-row">
+          <div class=" col-sm-4 col p-2 text-center border">
+            <b>Booking ID</b>
+          </div>
+          <div class="col-sm-4 col text-center p-2 border">
+            <b>Product</b>
+          </div>
+          <div class="col-sm-4 col text-center p-2 border">
+            <b>Quantity</b>
+          </div>
+        </div>
+      </div>
+      <div class=" col-sm-12 d-flex border-bottom flex-row" *ngFor="let data of CreativeDetails">
+        <div class="col-sm-4 col p-2  ">{{data.bookingOrderId}}</div>
+        <div class="col-sm-4 col p-2 text-center">{{data.productDescription}}</div>
+        <div class="col-sm-4 col p-2 text-center">{{data.quantityDescription}}</div>
+      </div>
+      <div class="text-center" style="padding-bottom:20px" *ngIf="hideStatus">
+        <h6><strong>ORDER LIFE CYCLE</strong></h6>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p> Material Pick Up Status</p>
+        </div>
+        <div class="col-md-6  col" *ngIf="materialPicked">
+          <button class="btn btn-danger  btn-sm">Not completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="materialPickedTrue">
+          <button class="btn btn-success  btn-sm"> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="materialPickedProgress">
+          <button class="btn btn-info  btn-sm"> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p> Shoot Planning Status</p>
+        </div>
+        <div class="col-md-6  col" *ngIf="shootPlanning">
+          <button class="btn btn-danger  btn-sm">Not completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="shootPlanningTrue">
+          <button class="btn btn-success  btn-sm"> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="shootPlanningProgress">
+          <button class="btn btn-info  btn-sm"> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p> Shoot Status</p>
+        </div>
+        <div class="col-md-6  col" *ngIf="shootCompleted">
+          <button class="btn btn-danger  btn-sm">Not completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="shootCompletedTrue">
+          <button class="btn btn-success  btn-sm"> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="shootCompletedProgress">
+          <button class="btn btn-info  btn-sm"> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p> Post Production Work Status</p>
+        </div>
+        <div class="col-md-6  col" *ngIf="postProduction">
+          <button class="btn btn-danger  btn-sm">Not completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="postProductionTrue">
+          <button class="btn btn-success  btn-sm"> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="postProductionProgress">
+          <button class="btn btn-info  btn-sm"> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p>Payment Status</p>
+        </div>
+        <div class="col-md-6 col" *ngIf="payment">
+          <button class="btn btn-danger btn-sm">Not completed</button>
+        </div>
+
+        <div class="col-md-6 col" *ngIf="paymentTrue">
+          <button class="btn btn-success btn-sm "> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="paymentProgress">
+          <button class="btn btn-info btn-sm"> Progress</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p>Material Return Status</p>
+        </div>
+        <div class="col-md-6 col" *ngIf="materialReturn">
+          <button class="btn btn-danger btn-sm ">Not completed</button>
+        </div>
+
+        <div class="col-md-6 col" *ngIf="materialReturnTrue">
+          <button class="btn btn-success btn-sm"> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="materialReturnProgress">
+          <button class="btn btn-info btn-sm"> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <button style="margin:20px;" class="btn" (click)="showStatus()">back</button>
+      </div>
+    </div>
+    <div *ngIf="aplusStatusView" style="margin-top:40px">
+      <div class="row status">
+        <div class=" col-sm-12 d-flex  flex-row">
+          <div class=" col-sm-4 col p-2 text-center border">
+            <b>Booking ID</b>
+          </div>
+          <div class="col-sm-4 col text-center p-2 border">
+            <b>Product</b>
+          </div>
+          <div class="col-sm-4 col text-center p-2 border">
+            <b>Quantity</b>
+          </div>
+        </div>
+      </div>
+      <div class=" col-sm-12 d-flex border-bottom flex-row" *ngFor="let data of AplusDetails">
+        <div class="col-sm-4 col p-2  ">{{data.bookingOrderId}}</div>
+        <div class="col-sm-4 col p-2 text-center">{{data.productDescription}}</div>
+        <div class="col-sm-4 col p-2 text-center">{{data.quantityDescription}}</div>
+      </div>
+      <div class="text-center" style="padding-bottom:20px" *ngIf="hideStatus">
+        <h6><strong>ORDER LIFE CYCLE</strong></h6>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p> Material Picked Up</p>
+        </div>
+        <div class="col-md-6  col" *ngIf="materialPickedUp">
+          <button class="btn btn-danger  btn-sm">Not completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="materialPickedUpTrue">
+          <button class="btn btn-success  btn-sm"> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="materialPickedUpProgress">
+          <button class="btn btn-info  btn-sm"> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p>   Shoot Planning</p>
+        </div>
+        <div class="col-md-6  col" *ngIf="shootPlanning">
+          <button class="btn btn-danger  btn-sm">Not completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="shootPlanningTrue">
+          <button class="btn btn-success  btn-sm"> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="shootPlanningProgress">
+          <button class="btn btn-info  btn-sm"> Progress</button>
+        </div>
+      </div>
+     
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p>   Shoot </p>
+        </div>
+        <div class="col-md-6  col" *ngIf="shoot">
+          <button class="btn btn-danger  btn-sm">Not completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="shootTrue">
+          <button class="btn btn-success  btn-sm"> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="shootProgress">
+          <button class="btn btn-info  btn-sm"> Progress</button>
+        </div>
+      </div>
+     
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p>  Post Production Work </p>
+        </div>
+        <div class="col-md-6  col" *ngIf="postProduction">
+          <button class="btn btn-danger  btn-sm">Not completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="postProductionTrue">
+          <button class="btn btn-success  btn-sm"> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="postProductionProgress">
+          <button class="btn btn-info  btn-sm"> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p>Product Details Received</p>
+        </div>
+        <div class="col-md-6 col" *ngIf="productDetail">
+          <button class="btn btn-danger btn-sm">Not completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="productDetailTrue">
+          <button class="btn btn-success btn-sm "> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="productDetailProgress">
+          <button class="btn btn-info btn-sm "> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p> Login Credentials Received</p>
+        </div>
+        <div class="col-md-6 col" *ngIf="loginCredential">
+          <button class="btn btn-danger btn-sm">Not completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="loginCredentialTrue">
+          <button class="btn btn-success btn-sm "> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="loginCredentialProgress">
+          <button class="btn btn-info btn-sm "> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p> Catalog Content Making</p>
+        </div>
+        <div class="col-md-6 col" *ngIf="catalogMaking">
+          <button class="btn btn-danger btn-sm">Not completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="catalogMakingTrue">
+          <button class="btn btn-success btn-sm "> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="catalogMakingProgress">
+          <button class="btn btn-info btn-sm "> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p> Catalog uploaded</p>
+        </div>
+        <div class="col-md-6 col" *ngIf="catalogUpload">
+          <button class="btn btn-danger btn-sm">Not completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="catalogUploadTrue">
+          <button class="btn btn-success btn-sm "> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="catalogUploadProgress">
+          <button class="btn btn-info btn-sm "> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p> QC & Processing</p>
+        </div>
+        <div class="col-md-6 col" *ngIf="qcProcess">
+          <button class="btn btn-danger btn-sm">Not completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="qcProcessTrue">
+          <button class="btn btn-success btn-sm "> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="qcProcessProgress">
+          <button class="btn btn-info btn-sm "> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p>Inventory Updation</p>
+        </div>
+        <div class="col-md-6 col" *ngIf="inventoryUpdation">
+          <button class="btn btn-danger btn-sm ">Not completed</button>
+        </div>
+
+        <div class="col-md-6 col" *ngIf="inventoryUpdationTrue">
+          <button class="btn btn-success btn-sm"> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="inventoryUpdationProgress">
+          <button class="btn btn-info btn-sm"> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p>Product Live</p>
+        </div>
+        <div class="col-md-6 col" *ngIf="productOnLive">
+          <button class="btn btn-danger btn-sm ">Not completed</button>
+        </div>
+
+        <div class="col-md-6 col" *ngIf="productOnLiveTrue">
+          <button class="btn btn-success btn-sm"> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="productOnLiveProgress">
+          <button class="btn btn-info btn-sm"> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p>Payment Status</p>
+        </div>
+        <div class="col-md-6 col" *ngIf="payment">
+          <button class="btn btn-danger btn-sm">Not completed</button>
+        </div>
+
+        <div class="col-md-6 col" *ngIf="paymentTrue">
+          <button class="btn btn-success btn-sm "> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="paymentProgress">
+          <button class="btn btn-info btn-sm"> Progress</button>
+        </div>
+      </div>
+     
+      <div class="row">
+        <div class="offset-md-2 col-md-4 col">
+          <p> Material Return</p>
+        </div>
+        <div class="col-md-6 col" *ngIf="materialReturn">
+          <button class="btn btn-danger btn-sm">Not completed</button>
+        </div>
+
+        <div class="col-md-6 col" *ngIf="materialReturnTrue">
+          <button class="btn btn-success btn-sm "> Completed</button>
+        </div>
+        <div class="col-md-6 col" *ngIf="materialReturnProgress">
+          <button class="btn btn-info btn-sm"> Progress</button>
+        </div>
+      </div>
+      <div class="row">
+        <button style="margin:20px;" class="btn" (click)="showStatus()">back</button>
+      </div>
+    </div>
   </div>
 
 </form>

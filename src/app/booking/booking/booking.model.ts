@@ -3,6 +3,8 @@ export class Booking {
     bookingStatus: number;
     mobileNumber: number;
     name: string;
+    location: string;
+    emailId: string;
     productDescription: string;
     quantityDescription: string;
     shootType: string;
@@ -11,6 +13,8 @@ export class Booking {
     constructor(
         name: string,
         mobileNumber: number ,
+        location: string,
+        emailId: string,
         productDescription: string,
         quantityDescription: string,
         shootType: string,
@@ -19,6 +23,8 @@ export class Booking {
 ) {
         this.name = name;
         this.mobileNumber = mobileNumber;
+        this.location = location;
+        this.emailId = emailId;
         this.productDescription = productDescription;
         this.quantityDescription = quantityDescription;
         this.shootType = shootType;
