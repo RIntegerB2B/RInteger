@@ -1,9 +1,9 @@
 <form [formGroup]="itServicesBookingForm" novalidate style="padding-bottom:60px">
-  <div class="container-fluid" >
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-6 mx-auto bookingMasterDiv">
         <div class="text-center text-secondary" style="padding:15px;">
-          <h6><strong>IT SERVICES  BOOKING</strong></h6>
+          <h6><strong>IT SERVICES BOOKING</strong></h6>
         </div>
 
         <div class="col-md-12 mx-auto ">
@@ -39,7 +39,7 @@
             </mat-form-field>
           </div>
           <div class="form-group">
-            <mat-form-field class="example-full-width"> 
+            <mat-form-field class="example-full-width">
               <input matInput placeholder="EmailId" [(ngModel)]="email" maxlength="20" formControlName="emailId" type="text"
                 #mailId [required]="false">
               <button mat-button matSuffix mat-icon-button aria-label="Name">
@@ -65,30 +65,27 @@
             </mat-form-field>
           </div>
         </div>
-       
+
       </div>
     </div>
-   
-   
+
+
     <div class="row">
       <div class="col-md-6 mx-auto bookingMasterDiv">
-          <label><strong>SERVICES</strong></label><br>
-          <div class="row" >
-              <div class="form-group  col-md-3 mx-auto" *ngFor="let marketing of itServices">
-                <input type="checkbox" formControlName="marketing" [value]="marketing" (change)="getValue(itServicesBookingForm,marketing,$event.target.checked)">
-                {{marketing}}
-              </div>
-            </div>
-         </div>
-         </div>
-      
-
-
+        <label><strong>SERVICES</strong></label><br>
+        <div class="row">
+          <div class="form-group  col-md-4 mx-auto" *ngFor="let marketing of itServices">
+            <input type="checkbox" formControlName="marketing" [value]="marketing" (change)="getValue(itServicesBookingForm,marketing,$event.target.checked)">
+            {{marketing}}
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-6 mx-auto ">
         <input class="btn booking btn-block text-white" value="Book Now" type="submit" (click)="itServicesBookingForm.valid  && booking(itServicesBookingForm)">
       </div>
     </div>
   </div>
- 
+
 </form>

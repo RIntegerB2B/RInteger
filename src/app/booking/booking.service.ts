@@ -6,7 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
 import { Booking } from '../booking/booking/booking.model';
 import { Customer } from './booking/customer.model';
-import { Notification } from './booking/notification.model';
+import { Notification } from '../shared/notification.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

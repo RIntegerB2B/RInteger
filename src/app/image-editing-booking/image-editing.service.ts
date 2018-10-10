@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
 
-import {Notification} from '../image-editing-booking/notification.model';
+import {Notification} from '../shared/notification.model';
 import {ImageEditing} from '../image-editing-booking/editing.model';
 
 const httpOptions = {

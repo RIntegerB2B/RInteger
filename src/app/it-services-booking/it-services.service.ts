@@ -5,8 +5,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
 
-import {ITServicesBooking} from '../it-services-booking/it-services.model';
-import {Notification} from '../it-services-booking/notification.model';
+import { ITServicesBooking } from '../it-services-booking/it-services.model';
+import { Notification } from '../shared/notification.model';
 
 @Injectable({
   providedIn: 'root'

@@ -3,12 +3,14 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import {MatSnackBar} from '@angular/material';
+import { SwPush, SwUpdate } from '@angular/service-worker';
 
 import { CatalogListingService } from '../catalog-listing.service';
-import { mobileNumber } from './validation';
+import { mobileNumber } from '../../shared/validation';
 import { CatalogBooking } from './catalog-booking.model';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
 import {DashboardComponent} from '../../home/dashboard/dashboard.component';
+import { Notification } from '../../shared/notification.model';
 
 
 
@@ -22,6 +24,7 @@ export class CatalogingListingBookingComponent implements OnInit {
   message;
   action;
   catalogListingForm: FormGroup;
+  notificationModel: Notification;
   userName: string;
   mobileNo: number;
   locat: string;
@@ -49,9 +52,11 @@ export class CatalogingListingBookingComponent implements OnInit {
   bookingId;
   email;
   mailId;
+  swPush: SwPush;
+  readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private fb: FormBuilder, private router: Router,
     private catalogService: CatalogListingService, private localStorageService: LocalStorageService, public snackBar: MatSnackBar,
-  private dashboardService: DashBoardService, private dashBoard: DashboardComponent) { }
+    private swUpdate: SwUpdate, private dashboardService: DashBoardService, private dashBoard: DashboardComponent) { }
 
   ngOnInit() {
     this.dashboardService.makeMenuTransparent();
@@ -200,6 +205,21 @@ export class CatalogingListingBookingComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+    this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.subscribe(this.mobileNo);
+  }
+  subscribe(mobNo) {
+    this.swPush.requestSubscription({
+      serverPublicKey: this.VAPID_PUBLIC_KEY
+    })
+      .then(sub => {
+        this.notificationModel = new Notification();
+        this.notificationModel.isAdmin = false;
+        this.notificationModel.userSubscriptions = sub;
+        this.notificationModel.mobileNumber = mobNo;
+        this.catalogService.addPushSubscriber(this.notificationModel).subscribe();
+      })
+      .catch(err => console.error('Could not subscribe to notifications', err));
   }
 
 }

@@ -23,12 +23,13 @@
         <div class=" col-sm-3 col p-2 text-center border">
           <b>Booking ID</b>
         </div>
-        <div class=" col-sm-2 col p-2 text-center border">
-          <b>Booking Type</b>
-        </div>
         <div class="col-sm-2 col p-2 text-center border">
           <b>Booking Date</b>
         </div>
+        <div class=" col-sm-2 col p-2 text-center border">
+          <b>Booking Type</b>
+        </div>
+        
         <div class="col-sm-2 col p-2 text-center border">
           <b>Status</b>
         </div>
@@ -43,8 +44,8 @@
       <div class=" col-sm-12 status d-flex border-bottom  flex-row" *ngFor="let data of Details | dataFilter:searchText ">
 
         <div class="col-sm-3 col p-2 ">{{data.bookingOrderId}}</div>
-        <div class="col-sm-2  col p-2 ">{{data.bookingType}}</div>
         <div class="col-sm-2  col p-2 text-center ">{{data.bookingDate}}</div>
+        <div class="col-sm-2  col p-2 ">{{data.bookingType}}</div>
         <div class="col-sm-2  col p-2 text-center "><strong>{{data.bookingStatus}}</strong></div>
         <div class=" col-sm-3 col p-2 text-center ">
           <input class="form-control" hidden type="text" formControlName="order" [value]="data.bookingOrderId" #id />

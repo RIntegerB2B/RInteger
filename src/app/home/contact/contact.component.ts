@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
 import { CustomerQuery} from './contact.model';
 import {ContactService} from './contact.service';
-import {mobileNumber} from '../../booking/booking/validation';
+import {mobileNumber} from '../../shared/validation';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class ContactComponent implements OnInit {
   userQuery: CustomerQuery ;
   Name;
   mobileNo;
-  constructor(private fb: FormBuilder, private router: Router, private contactService: ContactService, 
+  constructor(private fb: FormBuilder, private router: Router, private contactService: ContactService,
     private dashboardService: DashBoardService ) { }
 
   ngOnInit() {

@@ -10,7 +10,7 @@ import {ServiceProviders} from './view-model/service-provider.model';
 import {ModelBooking} from './model-based-booking/model-booking.model';
 import { CustomerDetail } from './model-based-booking/customer-detail.model';
 import {ModelDetail} from './model-based-booking/model.model';
-import {ModelBookingNotification} from './model-based-booking/notification.model';
+import {Notification} from '../shared/notification.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -99,7 +99,7 @@ export class ModelManagementService {
     const url: string = this.serviceUrl + notificationUrl;
     return this.http.post(url, cust);
   }
-  addPushSubscriber(notificationModel: ModelBookingNotification) {
+  addPushSubscriber(notificationModel: Notification) {
     const notificationUrl = 'pushnotificationsubscribe';
     const url: string = this.adminServiceUrl + notificationUrl;
     return this.http.post(url, notificationModel);

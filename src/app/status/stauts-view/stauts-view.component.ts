@@ -123,7 +123,7 @@ export class StautsViewComponent implements OnInit {
   registrationStatusView: boolean;
   aplusStatusView: boolean;
   filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
-    'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking'];
+    'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Digital Business Management Booking'];
   searchText: string;
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService, private dashBoardService: DashBoardService) {
@@ -244,6 +244,26 @@ export class StautsViewComponent implements OnInit {
       this.bookingStatus = false;
       this.aplusStatusView = true;
       this.showAplusStatus(id);
+    } else if (type === 'IT Services Booking') {
+      this.message = true;
+      this.displayStatus = false;
+      this.hideStatus = true;
+      this.editingStatusView = false;
+      this.creativeStatusView = false;
+      this.catalogStatusView = false;
+      this.bookingStatus = false;
+      this.registrationStatusView = false;
+      this.aplusStatusView = false;
+    } else if (type === 'Digital Business Management Booking') {
+      this.message = true;
+      this.displayStatus = false;
+      this.hideStatus = true;
+      this.editingStatusView = false;
+      this.creativeStatusView = false;
+      this.catalogStatusView = false;
+      this.bookingStatus = false;
+      this.registrationStatusView = false;
+      this.aplusStatusView = false;
     }
     this.statusDetail(id, type);
   }

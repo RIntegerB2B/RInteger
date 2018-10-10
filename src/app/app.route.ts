@@ -29,6 +29,7 @@ import { ItServicesPortfolioComponent } from './home/it-services-portfolio/it-se
 import { DigitalMarketingPortfolioComponent } from './home/digital-marketing-portfolio/digital-marketing-portfolio.component';
 import { AplusBookingComponent } from './aplus-booking/aplus-booking.component';
 import { ItServicesBookingComponent } from './it-services-booking/it-services-booking.component';
+import { DigitalMgmtBookingComponent } from './digital-mgmt-booking/digital-mgmt-booking.component';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
@@ -62,6 +63,7 @@ const routes: Routes = [
     { path: 'registrationSetup', component: RegistrationSetupBookingComponent },
     { path: 'marketingservices', component: MarketingServicesBookingComponent },
     { path: 'itservices', component: ItServicesBookingComponent },
+    { path: 'digitalmgmt', component: DigitalMgmtBookingComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
 ];

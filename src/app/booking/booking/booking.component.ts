@@ -6,8 +6,8 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { Booking } from './booking.model';
 import { BookingService } from '../booking.service';
 import { BookingId } from './bookingId.model';
-import { mobileNumber } from './validation';
-import { Notification } from './notification.model';
+import { mobileNumber } from '../../shared/validation';
+import { Notification } from '../../shared/notification.model';
 import { Customer } from './customer.model';
 import { DashBoardService } from '../../home/dashboard/dashboard.service';
 

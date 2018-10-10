@@ -6,8 +6,10 @@ import {MatSnackBar} from '@angular/material';
 
 import {MarketingServicesService} from '../marketing-services.service';
 import {MarketingServicesBooking} from './marketingServices.model';
-import {mobileNumber} from './validation';
+import {mobileNumber} from '../../shared/validation';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
+import { SwPush, SwUpdate } from '@angular/service-worker';
+import {Notification} from '../../shared/notification.model';
 
 
 @Component({
@@ -27,13 +29,17 @@ export class MarketingServicesBookingComponent implements OnInit {
   addLocation: string;
   marketingBooking: MarketingServicesBooking;
   selectedMedium = [];
-  marketingServices = ['Bulk SMS', 'Bulk Email', 'Bulk WhatsApp', 'Google', 'Facebook' , 'Database Booking'];
+  notificationModel: Notification;
+  marketingServices = ['Bulk SMS', 'Bulk Email', 'Bulk WhatsApp', 'Google', 'Facebook' , 'Database Booking', 'Customer Contact Management'];
   bookingId;
   email;
   mailId;
+  swPush: SwPush;
+  readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
+
 
   constructor(private fb: FormBuilder, private router: Router,
-    private marketingService: MarketingServicesService, private localStorageService: LocalStorageService,
+    private marketingService: MarketingServicesService, private localStorageService: LocalStorageService, private swUpdate: SwUpdate,
     public snackBar: MatSnackBar , private dashBoardService: DashBoardService) { }
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
@@ -90,5 +96,20 @@ export class MarketingServicesBookingComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+    this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.subscribe(this.mobileNo);
+  }
+  subscribe(mobNo) {
+    this.swPush.requestSubscription({
+      serverPublicKey: this.VAPID_PUBLIC_KEY
+    })
+      .then(sub => {
+        this.notificationModel = new Notification();
+        this.notificationModel.isAdmin = false;
+        this.notificationModel.userSubscriptions = sub;
+        this.notificationModel.mobileNumber = mobNo;
+        this.marketingService.addPushSubscriber(this.notificationModel).subscribe();
+      })
+      .catch(err => console.error('Could not subscribe to notifications', err));
   }
 }

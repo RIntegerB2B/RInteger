@@ -5,14 +5,13 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
 
-import {Notification} from '../shared/notification.model';
-import {Aplus} from './aplus-booking.model';
-
+import {DigitalMgmtBooking} from './digital-mgmt.model';
+import { Notification } from '../shared/notification.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AplusBookingService {
+export class DigitalMgmtService {
   serviceUrl: string = AppSetting.serviceUrl;
   adminServiceUrl: string = AppSetting.adminServiceUrl;
   headers: Headers = new Headers({
@@ -28,10 +27,10 @@ export class AplusBookingService {
   }
   constructor(private http: Http, private httpClient: HttpClient) { }
 
-  addBooking(data: Aplus): Observable<any> {
-    const bookurl = 'aplusbooking/';
+ digitalBooking(data: DigitalMgmtBooking): Observable<any> {
+    const bookurl = 'digitalmanagementBooking/';
     const url: string = this.serviceUrl + bookurl;
-    return this.httpClient.post<Aplus>(url, data);
+    return this.httpClient.post<DigitalMgmtBooking>(url, data);
   }
   addPushSubscriber(notificationModel: Notification) {
     const notificationUrl = 'pushnotificationsubscribe';

@@ -4,7 +4,7 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
-
+import {Notification} from '../shared/notification.model';
 import {MarketingServicesBooking} from './marketing-services-booking/marketingServices.model';
 
 @Injectable({
@@ -29,5 +29,10 @@ export class MarketingServicesService {
     const bookurl = 'marketingBooking/';
     const url: string = this.serviceUrl + bookurl;
     return this.httpClient.post<MarketingServicesBooking>(url, data);
+  }
+  addPushSubscriber(notificationModel: Notification) {
+    const notificationUrl = 'pushnotificationsubscribe';
+    const url: string = this.adminServiceUrl + notificationUrl;
+    return this.http.post(url, notificationModel);
   }
 }

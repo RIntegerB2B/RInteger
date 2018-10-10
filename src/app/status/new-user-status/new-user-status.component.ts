@@ -111,7 +111,7 @@ export class NewUserStatusComponent implements OnInit {
   registrationStatusView: boolean;
   aplusStatusView: boolean;
   filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
-    'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking'];
+    'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Digital Business Management Booking'];
   constructor(private fb: FormBuilder, private router: Router,
     private statusService: StatusService, private localStorageService: LocalStorageService, private dashboardservice: DashBoardService) { }
 
@@ -156,6 +156,7 @@ export class NewUserStatusComponent implements OnInit {
     this.catalogStatusView = false;
     this.registrationStatusView = false;
     this.aplusStatusView = false;
+    this.message = false;
   }
   statusView(statusViewForm: FormGroup, id: any, type: any) {
     if (type === 'Direct Booking' || type === 'Model Booking') {
@@ -232,6 +233,26 @@ export class NewUserStatusComponent implements OnInit {
       this.registrationStatusView = false;
       this.aplusStatusView = true;
       this.showAplusStatus(id);
+    } else if (type === 'IT Services Booking') {
+      this.message = true;
+      this.displayStatus = false;
+      this.hideStatus = true;
+      this.editingStatusView = false;
+      this.creativeStatusView = false;
+      this.catalogStatusView = false;
+      this.bookingStatus = false;
+      this.registrationStatusView = false;
+      this.aplusStatusView = false;
+    } else if (type === 'Digital Business Management Booking') {
+      this.message = true;
+      this.displayStatus = false;
+      this.hideStatus = true;
+      this.editingStatusView = false;
+      this.creativeStatusView = false;
+      this.catalogStatusView = false;
+      this.bookingStatus = false;
+      this.registrationStatusView = false;
+      this.aplusStatusView = false;
     }
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.statusService.getStatusById(this.mobileNo, id).subscribe(data => {

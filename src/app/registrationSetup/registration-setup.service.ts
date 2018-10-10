@@ -6,6 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
 
 import {RegistrationBooking} from './registration-setup-booking/registrationSetup.model';
+import {Notification} from '../shared/notification.model';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,10 @@ export class RegistrationSetupService {
     const bookurl = 'registrationBooking/';
     const url: string = this.serviceUrl + bookurl;
     return this.httpClient.post<RegistrationBooking>(url, data);
+  }
+  addPushSubscriber(notificationModel: Notification) {
+    const notificationUrl = 'pushnotificationsubscribe';
+    const url: string = this.adminServiceUrl + notificationUrl;
+    return this.http.post(url, notificationModel);
   }
 }

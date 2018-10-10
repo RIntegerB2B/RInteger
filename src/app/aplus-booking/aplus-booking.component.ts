@@ -7,9 +7,9 @@ import { SwPush, SwUpdate } from '@angular/service-worker';
 
 import {DashBoardService} from '../home/dashboard/dashboard.service';
 import {AplusBookingService} from '../aplus-booking/aplus-booking.service';
-import {mobileNumber} from './validation';
+import {mobileNumber} from '../shared/validation';
 import {Aplus} from './aplus-booking.model';
-import {Notification} from './notification.model';
+import {Notification} from '../shared/notification.model';
 
 @Component({
   selector: 'app-aplus-booking',

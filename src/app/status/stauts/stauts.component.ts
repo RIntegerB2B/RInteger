@@ -295,6 +295,22 @@ export class StautsComponent implements OnInit {
       this.catalogStatus = false;
       this.registrationStatus = false;
       this.aplusStatus = true;
+    } else if (type === 'IT Services Booking') {
+      this.displayStatus = false;
+      this.message = true;
+      this.editingStatus = false;
+      this.creativeStatus = false;
+      this.catalogStatus = false;
+      this.registrationStatus = false;
+      this.aplusStatus = false;
+    } else if (type === 'Digital Business Management Booking') {
+      this.displayStatus = false;
+      this.message = true;
+      this.editingStatus = false;
+      this.creativeStatus = false;
+      this.catalogStatus = false;
+      this.registrationStatus = false;
+      this.aplusStatus = false;
     }
   }
 

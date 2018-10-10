@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AppSetting } from '../config/appSetting';
 
-import {Notification} from '../creative-booking/notification.model';
+import {Notification} from '../shared/notification.model';
 import {Creative} from '../creative-booking/creative.model';
 
 const httpOptions = {

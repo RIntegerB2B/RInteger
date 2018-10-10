@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import {SubscribeService} from './subscribe.service';
 import { LocalStorageService } from 'ngx-webstorage';
 import {Subscribe} from './subscribe.model';
-import {mobileNumber} from '../booking/booking/validation';
+import {mobileNumber} from '../shared/validation';
 
 @Component({
   selector: 'app-subscribe',

@@ -10,8 +10,8 @@ import { ModelManagementService } from '../model-management.service';
 import { ModelDetail } from './model.model';
 import { ModelBooking } from './model-booking.model';
 import { CustomerDetail } from '../model-based-booking/customer-detail.model';
-import { ModelBookingNotification } from '../model-based-booking/notification.model';
-import {mobileNumber} from '../../booking/booking/validation';
+import { Notification } from '../../shared/notification.model';
+import {mobileNumber} from '../../shared/validation';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
 
 @Component({
@@ -30,7 +30,7 @@ export class ModelBasedBookingComponent implements OnInit {
   locat: string;
   bookingModel: ModelBooking;
   customerModel: CustomerDetail;
-  notificationModel: ModelBookingNotification;
+  notificationModel: Notification;
   showEcommerce: boolean;
   showPortrait: boolean;
   showProduct: boolean;
@@ -149,7 +149,7 @@ export class ModelBasedBookingComponent implements OnInit {
       serverPublicKey: this.VAPID_PUBLIC_KEY
     })
       .then(sub => {
-        this.notificationModel = new ModelBookingNotification();
+        this.notificationModel = new Notification();
         this.notificationModel.isAdmin = false;
         this.notificationModel.userSubscriptions = sub;
         this.notificationModel.mobileNumber = mobNo;

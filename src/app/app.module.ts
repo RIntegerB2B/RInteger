@@ -82,6 +82,7 @@ import { DigitalMarketingPortfolioComponent } from './home/digital-marketing-por
 import { ItServicesPortfolioComponent } from './home/it-services-portfolio/it-services-portfolio.component';
 import { AplusBookingComponent } from './aplus-booking/aplus-booking.component';
 import { ItServicesBookingComponent } from './it-services-booking/it-services-booking.component';
+import { DigitalMgmtBookingComponent } from './digital-mgmt-booking/digital-mgmt-booking.component';
 
 @NgModule({
   declarations: [
@@ -119,7 +120,8 @@ import { ItServicesBookingComponent } from './it-services-booking/it-services-bo
     DigitalMarketingPortfolioComponent,
     ItServicesPortfolioComponent,
     AplusBookingComponent,
-    ItServicesBookingComponent
+    ItServicesBookingComponent,
+    DigitalMgmtBookingComponent
   ],
   imports: [
     BrowserModule,
