@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(public dashboardService: DashBoardService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
     private localStorageService: LocalStorageService, private router: Router, private activeRoute: ActivatedRoute,
      private statusService: StatusService) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQuery = media.matchMedia('(max-width: 900px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
 
