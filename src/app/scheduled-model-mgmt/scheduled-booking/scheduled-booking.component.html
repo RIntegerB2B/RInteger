@@ -1,4 +1,4 @@
-<form [formGroup]="bookModelForm" novalidate style="padding-top:20px; margin-bottom:200px">
+<form [formGroup]="bookScheduledModelForm" novalidate style="padding-top:20px; margin-bottom:200px">
   <div class="container">
 
     <div class="row">
@@ -107,7 +107,7 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <h6>
-              <strong>MODEL BOOKING</strong>
+              <strong>SCHEDULED MODEL BOOKING</strong>
             </h6>
           </div>
         </div>
@@ -120,11 +120,11 @@
               <mat-icon>phone</mat-icon>
             </button>
             <mat-hint color="primary">Ex: 9988776655</mat-hint>
-            <mat-error *ngIf="bookModelForm.controls['mobileNumber'].errors?.required">
+            <mat-error *ngIf="bookScheduledModelForm.controls['mobileNumber'].errors?.required">
               Mobile Number is
               <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="!bookModelForm.controls['mobileNumber'].errors?.required">
+            <mat-error *ngIf="!bookScheduledModelForm.controls['mobileNumber'].errors?.required">
               Enter valid mobile Number is
               <strong>required</strong>
             </mat-error>
@@ -136,7 +136,7 @@
             <button mat-button matSuffix mat-icon-button aria-label="Name">
               <mat-icon>account_circle</mat-icon>
             </button>
-            <mat-error *ngIf="bookModelForm.controls['name'].errors?.required">
+            <mat-error *ngIf="bookScheduledModelForm.controls['name'].errors?.required">
               Name is
               <strong>required</strong>
             </mat-error>
@@ -148,7 +148,7 @@
             <button mat-button matSuffix mat-icon-button aria-label="Name">
               <mat-icon>account_circle</mat-icon>
             </button>
-            <mat-error *ngIf="bookModelForm.controls['emailId'].errors?.required">
+            <mat-error *ngIf="bookScheduledModelForm.controls['emailId'].errors?.required">
               EmailId is
               <strong>required</strong>
             </mat-error>
@@ -161,7 +161,7 @@
             <button mat-button matSuffix mat-icon-button aria-label="Name">
               <mat-icon>location_on</mat-icon>
             </button>
-            <mat-error *ngIf="bookModelForm.controls['location'].errors?.required">
+            <mat-error *ngIf="bookScheduledModelForm.controls['location'].errors?.required">
               Location is
               <strong>required</strong>
             </mat-error>
@@ -182,7 +182,7 @@
         <div class="form-group" style="margin-top:40px;" *ngFor="let model of Model">
           <input type="text" formControlName="id" hidden [value]="model._id" #modelsId>
           <input type="text" formControlName="modelsname" hidden [value]="model.userName" #modelNm>
-          <button class="btn booking btn-block text-white" (click)="bookModelForm.valid && bookSubmit(bookModelForm,modelsId.value,modelNm.value,mailId.value)">Book Now
+          <button class="btn booking btn-block text-white" (click)="bookScheduledModelForm.valid && bookSubmit(bookScheduledModelForm,modelsId.value,modelNm.value,mailId.value)">Book Now
           </button>
         </div>
 

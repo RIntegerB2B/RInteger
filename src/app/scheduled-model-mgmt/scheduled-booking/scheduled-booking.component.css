@@ -1,0 +1,83 @@
+.mat-form-field {
+    display: block;
+    position: relative;
+    text-align: left;
+  }
+  .mat-form-field-appearance-legacy .mat-hint
+{
+  color: red;
+}
+.mat-form-field-appearance-outline .mat-hint
+{
+  color: red;
+}
+.mat-form-field {
+  display: block;
+  position: relative;
+  text-align: left;
+}
+@media screen and (max-width: 992px) {
+    .images{
+        height:330px;
+        width: 330px;
+        margin: auto;
+        margin-bottom: 35px;  
+    }
+        .newBar
+        {
+            display:none;
+        }
+}
+
+@media screen and (min-width: 992px) {
+    .images{
+        height: 300px;
+        width: 400px;
+    }
+
+}
+.navbar-nav
+{
+    flex-direction: row;
+    background-color: #EEEEEE;
+    padding:0px;
+}
+.navbar-nav li
+{
+    padding-right:5px;
+    padding-left:5px;
+
+}
+.image{
+    height: 400px;
+    width:400px;
+
+}
+.carousel-control-next-icon{
+    background-color: black
+}
+.carousel-inner {
+    text-align: center !important;
+}
+slide.item.carousel-item.ng-star-inserted {
+    text-align: center !important;
+}
+
+
+.carousel-control-prev {
+    left: 11%;
+}
+.mat-card-image {
+     margin: 0px !important; 
+}
+
+.mat-card {
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block !important;
+    position: relative;
+    padding: 0px !important;
+    border-radius: 2px;
+}
+.icon-prev.carousel-control-prev-icon{
+background-color: black;
+}

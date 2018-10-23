@@ -238,7 +238,7 @@ export class StautsComponent implements OnInit {
   }
 
   statusView(type) {
-    if (type === 'Direct Booking' || type === 'Model Booking') {
+    if (type === 'Direct Booking' || type === 'Model Booking' || type === 'Scheduled Model Booking' ) {
       this.findStatus();
       this.displayStatus = true;
       this.message = false;

@@ -111,7 +111,8 @@ export class NewUserStatusComponent implements OnInit {
   registrationStatusView: boolean;
   aplusStatusView: boolean;
   filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
-    'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Digital Business Management Booking'];
+    'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Digital Business Management Booking',
+    'Scheduled Model Booking'];
   constructor(private fb: FormBuilder, private router: Router,
     private statusService: StatusService, private localStorageService: LocalStorageService, private dashboardservice: DashBoardService) { }
 
@@ -159,7 +160,7 @@ export class NewUserStatusComponent implements OnInit {
     this.message = false;
   }
   statusView(statusViewForm: FormGroup, id: any, type: any) {
-    if (type === 'Direct Booking' || type === 'Model Booking') {
+    if (type === 'Direct Booking' || type === 'Model Booking' || type === 'Scheduled Model Booking') {
       this.displayStatus = true;
       this.hideStatus = true;
       this.message = false;

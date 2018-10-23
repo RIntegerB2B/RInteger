@@ -52,7 +52,6 @@ export class ViewModelComponent implements OnInit {
   allModels() {
     this.modelService.getAllModels().subscribe(data => {
       this.Detail = data;
-      console.log(data);
     });
   }
   /* menModels() {

@@ -30,6 +30,8 @@ import { DigitalMarketingPortfolioComponent } from './home/digital-marketing-por
 import { AplusBookingComponent } from './aplus-booking/aplus-booking.component';
 import { ItServicesBookingComponent } from './it-services-booking/it-services-booking.component';
 import { DigitalMgmtBookingComponent } from './digital-mgmt-booking/digital-mgmt-booking.component';
+import {ViewScheduledModelComponent} from './scheduled-model-mgmt/view-scheduled-model/view-scheduled-model.component';
+import {ScheduledBookingComponent} from './scheduled-model-mgmt/scheduled-booking/scheduled-booking.component';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
@@ -64,6 +66,8 @@ const routes: Routes = [
     { path: 'marketingservices', component: MarketingServicesBookingComponent },
     { path: 'itservices', component: ItServicesBookingComponent },
     { path: 'digitalmgmt', component: DigitalMgmtBookingComponent },
+    { path: 'viewschedulemodel', component: ViewScheduledModelComponent },
+    { path: 'scheduledmodelBooking/:modelId', component: ScheduledBookingComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
 ];

@@ -1,0 +1,28 @@
+<div class="container" style = "margin-top: 10px; margin-bottom: 100px;">
+  <div class="row newBar">
+  </div>
+  <br>
+  <div class=row *ngIf="!showMessage">
+      <div class="col-md-12">
+              <h4 class="text-center">Click on the Model for Booking</h4>
+      </div>
+  </div><br>
+  <div class=row *ngIf="showMessage">
+    <div class="col-md-12">
+            <h4 class="text-center">Currently no models available</h4>
+    </div>
+</div>
+<form [formGroup]="viewModelForm" novalidate>
+      <div class="row">
+      <div class="col-md-4" *ngFor="let model of Detail" >
+          <input type="text" hidden [value]="model._id" formControlName="id" #modelId>
+          <a (click)="bookModel(viewModelForm,modelId.value)">
+            <mat-card class="example-card image">
+                  <img mat-card-image [src]="this.model?.primeImage">       
+          </mat-card>
+          </a>
+          </div>
+      </div>
+    </form>
+  
+</div>

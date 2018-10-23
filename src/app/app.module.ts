@@ -83,6 +83,8 @@ import { ItServicesPortfolioComponent } from './home/it-services-portfolio/it-se
 import { AplusBookingComponent } from './aplus-booking/aplus-booking.component';
 import { ItServicesBookingComponent } from './it-services-booking/it-services-booking.component';
 import { DigitalMgmtBookingComponent } from './digital-mgmt-booking/digital-mgmt-booking.component';
+import { ScheduledBookingComponent } from './scheduled-model-mgmt/scheduled-booking/scheduled-booking.component';
+import { ViewScheduledModelComponent } from './scheduled-model-mgmt/view-scheduled-model/view-scheduled-model.component';
 
 @NgModule({
   declarations: [
@@ -121,7 +123,9 @@ import { DigitalMgmtBookingComponent } from './digital-mgmt-booking/digital-mgmt
     ItServicesPortfolioComponent,
     AplusBookingComponent,
     ItServicesBookingComponent,
-    DigitalMgmtBookingComponent
+    DigitalMgmtBookingComponent,
+    ScheduledBookingComponent,
+    ViewScheduledModelComponent
   ],
   imports: [
     BrowserModule,
