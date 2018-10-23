@@ -887,7 +887,8 @@ showAplusStatus(id) {
   showCatalogStatus(id) {
     this.statusService.catalogStatus(id).subscribe(data => {
       this.CatalogDetails = data;
-      console.log(this.CatalogDetails);
+    /*   console.log(data);
+      console.log(this.CatalogDetails); */
       switch (data[0].imageReceived) {
         case 0: {
           this.imageReceive = true;

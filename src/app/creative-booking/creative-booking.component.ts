@@ -10,6 +10,7 @@ import {CreativeBookingService} from '../creative-booking/creative-booking.servi
 import {mobileNumber} from '../shared/validation';
 import {Creative} from './creative.model';
 import {Notification} from '../shared/notification.model';
+import {Customer} from '../shared/customer.model';
 
 
 @Component({
@@ -29,6 +30,7 @@ export class CreativeBookingComponent implements OnInit {
   message;
   action;
   email;
+  customer: Customer;
   videoShoot = ['Yes', 'No'];
   shootTypes = ['Indoor shoot', 'Outdoor shoot'];
   shooting = [];
@@ -98,8 +100,8 @@ console.log(this.shooting);
     }, error => {
       console.log(error);
     });
-    this.creativeForm.reset();
     this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.saveCustomerDetail(creativeForm);
     this.subscribe(this.mobileNo);
   }
   subscribe(mobNo) {
@@ -121,5 +123,17 @@ console.log(this.shooting);
     this.locat = this.localStorageService.retrieve('location');
     this.email = this.localStorageService.retrieve('emailId');
   }
-
+  saveCustomerDetail(creativeForm: FormGroup) {
+    this.customer = new Customer(
+      creativeForm.controls.mobileNumber.value,
+      creativeForm.controls.name.value,
+      creativeForm.controls.location.value,
+      creativeForm.controls.emailId.value
+    );
+    this.creativeService.addCustomerDetail(this.customer).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
+  }
 }

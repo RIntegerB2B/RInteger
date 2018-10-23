@@ -11,6 +11,7 @@ import { CatalogBooking } from './catalog-booking.model';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
 import {DashboardComponent} from '../../home/dashboard/dashboard.component';
 import { Notification } from '../../shared/notification.model';
+import {Customer} from '../../shared/customer.model';
 
 
 
@@ -28,6 +29,7 @@ export class CatalogingListingBookingComponent implements OnInit {
   userName: string;
   mobileNo: number;
   locat: string;
+  customer: Customer;
   addMobileNo: number;
   addUserName: string;
   addLocation: string;
@@ -206,6 +208,7 @@ export class CatalogingListingBookingComponent implements OnInit {
       console.log(error);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.saveCustomerDetail(catalogListingForm);
     this.subscribe(this.mobileNo);
   }
   subscribe(mobNo) {
@@ -220,6 +223,19 @@ export class CatalogingListingBookingComponent implements OnInit {
         this.catalogService.addPushSubscriber(this.notificationModel).subscribe();
       })
       .catch(err => console.error('Could not subscribe to notifications', err));
+  }
+  saveCustomerDetail(catalogListingForm: FormGroup) {
+    this.customer = new Customer(
+      catalogListingForm.controls.mobileNumber.value,
+      catalogListingForm.controls.name.value,
+      catalogListingForm.controls.location.value,
+      catalogListingForm.controls.emailId.value
+    );
+    this.catalogService.addCustomerDetail(this.customer).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

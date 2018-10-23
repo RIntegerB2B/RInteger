@@ -22,6 +22,7 @@ export class Creative {
 ) {
         this.name = name;
         this.mobileNumber = mobileNumber;
+        this.location = location;
         this.emailId = emailId;
         this.productDescription = productDescription;
         this.quantityDescription = quantityDescription;

@@ -7,6 +7,7 @@ import { AppSetting } from '../config/appSetting';
 
 import {Notification} from '../shared/notification.model';
 import {Creative} from '../creative-booking/creative.model';
+import {Customer} from '../shared/customer.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -41,5 +42,10 @@ export class CreativeBookingService {
     const notificationUrl = 'pushnotificationsubscribe';
     const url: string = this.adminServiceUrl + notificationUrl;
     return this.http.post(url, notificationModel);
+  }
+  addCustomerDetail(cust: Customer) {
+    const notificationUrl = 'customer';
+    const url: string = this.serviceUrl + notificationUrl;
+    return this.http.post(url, cust);
   }
 }

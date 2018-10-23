@@ -10,6 +10,7 @@ import { mobileNumber } from '../shared/validation';
 import { DigitalMgmtBooking } from './digital-mgmt.model';
 import {DashBoardService} from '../home/dashboard/dashboard.service';
 import { Notification } from '../shared/notification.model';
+import {Customer} from '../shared/customer.model';
 
 @Component({
   selector: 'app-digital-mgmt-booking',
@@ -25,6 +26,7 @@ export class DigitalMgmtBookingComponent implements OnInit {
   userName: string;
   mobileNo: number;
   locat: string;
+  customer: Customer;
   addMobileNo: number;
   addUserName: string;
   addLocation: string;
@@ -201,6 +203,7 @@ export class DigitalMgmtBookingComponent implements OnInit {
       console.log(error);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.saveCustomerDetail(digitalMgmtForm);
     this.subscribe(this.mobileNo);
   }
   subscribe(mobNo) {
@@ -215,5 +218,18 @@ export class DigitalMgmtBookingComponent implements OnInit {
         this.digitalService.addPushSubscriber(this.notificationModel).subscribe();
       })
       .catch(err => console.error('Could not subscribe to notifications', err));
+  }
+  saveCustomerDetail(digitalMgmtForm: FormGroup) {
+    this.customer = new Customer(
+      digitalMgmtForm.controls.mobileNumber.value,
+      digitalMgmtForm.controls.name.value,
+      digitalMgmtForm.controls.location.value,
+      digitalMgmtForm.controls.emailId.value
+    );
+    this.digitalService.addCustomerDetail(this.customer).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
   }
 }

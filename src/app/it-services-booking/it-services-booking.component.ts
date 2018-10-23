@@ -10,6 +10,7 @@ import { mobileNumber } from '../shared/validation';
 import { DashBoardService } from '../home/dashboard/dashboard.service';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import { Notification } from '../shared/notification.model';
+import {Customer} from '../shared/customer.model';
 
 @Component({
   selector: 'app-it-services-booking',
@@ -28,6 +29,7 @@ export class ItServicesBookingComponent implements OnInit {
   addLocation: string;
   itServicesBooking: ITServicesBooking;
   selectedMedium = [];
+  customer: Customer;
   notificationModel: Notification;
   itServices = ['Domain Registration', 'WebApp Development', 'WebSite Development',
     'Hosting Services', 'Customer Contact Management', 'Bulk SMS'];
@@ -96,6 +98,7 @@ export class ItServicesBookingComponent implements OnInit {
       console.log(error);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.saveCustomerDetail(itServicesBookingForm);
     this.subscribe(this.mobileNo);
   }
   subscribe(mobNo) {
@@ -110,5 +113,18 @@ export class ItServicesBookingComponent implements OnInit {
         this.itService.addPushSubscriber(this.notificationModel).subscribe();
       })
       .catch(err => console.error('Could not subscribe to notifications', err));
+  }
+  saveCustomerDetail(itServicesBookingForm: FormGroup) {
+    this.customer = new Customer(
+      itServicesBookingForm.controls.mobileNumber.value,
+      itServicesBookingForm.controls.name.value,
+      itServicesBookingForm.controls.location.value,
+      itServicesBookingForm.controls.emailId.value
+    );
+    this.itService.addCustomerDetail(this.customer).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
   }
 }

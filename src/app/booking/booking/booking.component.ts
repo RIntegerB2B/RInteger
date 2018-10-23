@@ -86,7 +86,7 @@ export class BookingComponent implements OnInit {
       onBookInForm.controls.modelType.value,
       onBookInForm.controls.productType.value
     );
-/*     this.saveCustomerDetail(onBookInForm); */
+    this.saveCustomerDetail(onBookInForm);
     this.onBookInForm.reset();
     this.bookingService.addBooking(this.userBook).subscribe(data => {
       this.snackBar.open(this.message, this.action, {
@@ -123,9 +123,7 @@ export class BookingComponent implements OnInit {
       onBookInForm.controls.mobileNumber.value,
       onBookInForm.controls.name.value,
       onBookInForm.controls.location.value,
-      onBookInForm.controls.shootType.value,
-      onBookInForm.controls.modelType.value,
-      onBookInForm.controls.productDescription.value
+      onBookInForm.controls.emailId.value
     );
     this.bookingService.addCustomerDetail(this.customer).subscribe(data => {
       console.log(data);

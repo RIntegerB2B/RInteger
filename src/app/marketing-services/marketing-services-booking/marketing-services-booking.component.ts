@@ -10,6 +10,7 @@ import {mobileNumber} from '../../shared/validation';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import {Notification} from '../../shared/notification.model';
+import {Customer} from '../../shared/customer.model';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class MarketingServicesBookingComponent implements OnInit {
   addMobileNo: number;
   addUserName: string;
   addLocation: string;
+  customer: Customer;
   marketingBooking: MarketingServicesBooking;
   selectedMedium = [];
   notificationModel: Notification;
@@ -97,6 +99,7 @@ export class MarketingServicesBookingComponent implements OnInit {
       console.log(error);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.saveCustomerDetail(marketingBookingForm);
     this.subscribe(this.mobileNo);
   }
   subscribe(mobNo) {
@@ -111,5 +114,18 @@ export class MarketingServicesBookingComponent implements OnInit {
         this.marketingService.addPushSubscriber(this.notificationModel).subscribe();
       })
       .catch(err => console.error('Could not subscribe to notifications', err));
+  }
+  saveCustomerDetail(marketingBookingForm: FormGroup) {
+    this.customer = new Customer(
+      marketingBookingForm.controls.mobileNumber.value,
+      marketingBookingForm.controls.name.value,
+      marketingBookingForm.controls.location.value,
+      marketingBookingForm.controls.emailId.value
+    );
+    this.marketingService.addCustomerDetail(this.customer).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
   }
 }

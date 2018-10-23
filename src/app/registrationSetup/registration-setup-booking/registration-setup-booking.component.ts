@@ -173,7 +173,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
     this.localStorageService.store('mobileno', this.addMobileNo);
     this.localStorageService.store('name', this.addUserName);
     this.localStorageService.store('location', this.addLocation);
-    this.localStorageService.store('emailId', this.mailId);
+    this.localStorageService.store('emailId', this.email);
     this.registrationBooking = new RegistrationBooking(
       registrationBooking.controls.mobileNumber.value,
       registrationBooking.controls.name.value,

@@ -10,6 +10,7 @@ import {ImageEditingService} from '../image-editing-booking/image-editing.servic
 import {mobileNumber} from '../shared/validation';
 import {ImageEditing} from './editing.model';
 import {Notification} from '../shared/notification.model';
+import {Customer} from '../shared/customer.model';
 
 @Component({
   selector: 'app-image-editing-booking',
@@ -25,6 +26,7 @@ export class ImageEditingBookingComponent implements OnInit {
   editingModel: ImageEditing;
   notificationModel: Notification;
   message;
+  customer: Customer;
   action;
   email;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
@@ -71,7 +73,6 @@ export class ImageEditingBookingComponent implements OnInit {
       editingForm.controls.quantityDescription.value,
       editingForm.controls.imageRequirements.value
     );
-    this.editingForm.reset();
     this.editingService.addBooking(this.editingModel).subscribe(data => {
       this.snackBar.open(this.message, this.action, {
         duration: 3000,
@@ -81,6 +82,7 @@ export class ImageEditingBookingComponent implements OnInit {
       console.log(error);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.saveCustomerDetail(editingForm);
     this.subscribe(this.mobileNo);
   }
   subscribe(mobNo) {
@@ -101,5 +103,18 @@ export class ImageEditingBookingComponent implements OnInit {
     this.userName = this.localStorageService.retrieve('name');
     this.locat = this.localStorageService.retrieve('location');
     this.email = this.localStorageService.retrieve('emailId');
+  }
+  saveCustomerDetail(editingForm: FormGroup) {
+    this.customer = new Customer(
+      editingForm.controls.mobileNumber.value,
+      editingForm.controls.name.value,
+      editingForm.controls.location.value,
+      editingForm.controls.emailId.value
+    );
+    this.editingService.addCustomerDetail(this.customer).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
   }
 }

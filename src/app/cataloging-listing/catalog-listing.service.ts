@@ -7,6 +7,7 @@ import { AppSetting } from '../config/appSetting';
 
 import {CatalogBooking} from './cataloging-listing-booking/catalog-booking.model';
 import { Notification } from '../shared/notification.model';
+import {Customer} from '../shared/customer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,10 @@ export class CatalogListingService {
     const notificationUrl = 'pushnotificationsubscribe';
     const url: string = this.adminServiceUrl + notificationUrl;
     return this.http.post(url, notificationModel);
+  }
+  addCustomerDetail(cust: Customer) {
+    const notificationUrl = 'customer';
+    const url: string = this.serviceUrl + notificationUrl;
+    return this.http.post(url, cust);
   }
 }
