@@ -74,18 +74,18 @@
           <div class="form-group">
 
             <mat-form-field>
-              <mat-select>
+              <mat-select [(value)]="selected">
 
-                <mat-option>
+                <mat-option  value="b2cNationalValue">
                   <button mat-button (click)="viewb2cNational()">B2CNational</button>
                 </mat-option>
-                <mat-option>
+                <mat-option value="b2cInterNationalValue">
                   <button mat-button (click)="viewb2cInterNational()">B2CInternational</button>
                 </mat-option>
-                <mat-option>
+                <mat-option  value="b2bNationalValue">
                   <button mat-button (click)="viewb2bNational()">B2BNational</button>
                 </mat-option>
-                <mat-option>
+                <mat-option value="b2bInterNationalValue">
                   <button mat-button (click)="viewb2bInterNational()">B2BInternational</button>
                 </mat-option>
                 <!--  <mat-option >
@@ -156,34 +156,25 @@
             {{b2cinternat}}
           </div>
         </div>
-
-
-
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-6 mx-auto bookingMasterDiv">
         <label><strong>Social Media</strong></label><br>
-        <div class="row newBar">
-          <div class="col-md-12">
+         
             <ul class="navbar-nav">
               <div class="form-group col-md-3 mx-auto" *ngFor="let socialMediaData of socialmedia">
                 <input type="checkbox" formControlName="socialMedia" [value]="socialMediaData" (change)="getSocialMediaValue(catalogListingForm,socialMediaData,$event.target.checked)">
                 {{socialMediaData}}
               </div>
             </ul>
-          </div>
-        </div>
-
-
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 mx-auto bookingMasterDiv">
         <label><strong>Website</strong></label><br>
-        <div class="row newBar">
-          <div class="col-md-12">
+       
 
             <div class="form-group col-md-12 mx-auto">
               <mat-form-field class="example-full-width">
@@ -193,8 +184,7 @@
                 </button>
 
               </mat-form-field>
-            </div>
-          </div>
+          
         </div>
 
 

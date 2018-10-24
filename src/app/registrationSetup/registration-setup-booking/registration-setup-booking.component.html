@@ -75,22 +75,22 @@
             <label><strong>REGISTRATION & SETUP</strong></label><br>
             <div class="col-md-12 text-center d-md-none d-lg-none">
                 <div class="form-group">
-        
+    
                   <mat-form-field>
-                    <mat-select >
-                      <mat-option>
+                    <mat-select [(value)]="selected">
+                      <mat-option value="b2cNationalValue">
                         <button mat-button (click)="viewb2cNational()">B2CNational</button>
                       </mat-option>
-                      <mat-option>
+                      <mat-option value="b2cInterNationalValue">
                         <button mat-button (click)="viewb2cInterNational()">B2CInternational</button>
                       </mat-option>
-                      <mat-option>
+                      <mat-option value="b2bNationalValue">
                         <button mat-button (click)="viewb2bNational()">B2BNational</button>
                       </mat-option>
-                      <mat-option >
+                      <mat-option  value="b2cInterNationalValue">
                         <button mat-button (click)="viewb2bInterNational()">B2BInternational</button>
                       </mat-option>
-                      <mat-option >
+                      <mat-option value="socialMediaValue">
                           <button mat-button (click)="viewSocialMedia()">SocialMedia</button>
                         </mat-option>
                     </mat-select>

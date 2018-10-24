@@ -77,11 +77,16 @@
                  </div> 
             </div>
         <br>
-        <div class=row>
+        <div class=row *ngIf="!showMessage">
             <div class="col-md-12">
                     <h4 class="text-center">Click on the Model for Booking</h4>
             </div>
         </div><br>
+        <div class=row *ngIf="showMessage">
+                <div class="col-md-12">
+                        <h4 class="text-center">Currently no models available</h4>
+                </div>
+            </div>
         
       <form [formGroup]="viewModelForm" novalidate>
             <div class="row">

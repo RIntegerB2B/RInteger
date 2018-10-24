@@ -17,6 +17,7 @@ export class ViewModelComponent implements OnInit {
   viewModelForm: FormGroup;
   Detail: Model;
   selected = 'All';
+  showMessage: boolean;
   serviceProvider: ServiceProviders;
   serviceProviderId;
   constructor(private fb: FormBuilder, private router: Router, private modelService: ModelManagementService,
@@ -52,6 +53,12 @@ export class ViewModelComponent implements OnInit {
   allModels() {
     this.modelService.getAllModels().subscribe(data => {
       this.Detail = data;
+      console.log(data.length);
+      if (data.length === 0) {
+this.showMessage = true;
+      } else if (data.length !== 0) {
+        this.showMessage = false;
+      }
     });
   }
   /* menModels() {
@@ -71,21 +78,42 @@ export class ViewModelComponent implements OnInit {
   nationalMenModels() {
     this.modelService.getNationalMenModels().subscribe(data => {
       this.Detail = data;
+      if (data.length === 0) {
+this.showMessage = true;
+      } else if (data.length !== 0) {
+        this.showMessage = false;
+      }
     });
   }
   nationalWomenModels() {
     this.modelService.getNationalWomenModels().subscribe(data => {
       this.Detail = data;
+      if (data.length === 0) {
+this.showMessage = true;
+      } else if (data.length  !== 0) {
+        this.showMessage = false;
+      }
     });
   }
   interNationalMenModels() {
     this.modelService.getInterNationalMenModels().subscribe(data => {
       this.Detail = data;
+      if (data.length === 0) {
+this.showMessage = true;
+      } else if (data.length  !== 0) {
+        this.showMessage = false;
+      }
     });
   }
   interNationalWomenModels() {
     this.modelService.getInterNationalWomenModels().subscribe(data => {
       this.Detail = data;
+      console.log(data.length);
+      if (data.length === 0) {
+this.showMessage = true;
+      } else if (data.length !== 0) {
+        this.showMessage = false;
+      }
     });
   }
 

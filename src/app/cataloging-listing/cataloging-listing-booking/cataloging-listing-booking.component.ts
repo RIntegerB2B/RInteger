@@ -55,6 +55,7 @@ export class CatalogingListingBookingComponent implements OnInit {
   email;
   mailId;
   swPush: SwPush;
+  selected = 'b2cNationalValue';
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private fb: FormBuilder, private router: Router,
     private catalogService: CatalogListingService, private localStorageService: LocalStorageService, public snackBar: MatSnackBar,

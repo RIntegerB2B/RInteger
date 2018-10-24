@@ -16,7 +16,8 @@ export class ViewScheduledModelComponent implements OnInit {
   viewModelForm: FormGroup;
   Detail: Model;
   showMessage: boolean;
-  constructor(private fb: FormBuilder, private router: Router, private modelService: ScheduledModelService,
+  selected = 'All';
+  constructor(private fb: FormBuilder, private router: Router, private scheduledmodelService: ScheduledModelService,
      private dashBoardService: DashBoardService) { }
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
@@ -30,12 +31,11 @@ export class ViewScheduledModelComponent implements OnInit {
   }
 
   allModels() {
-    this.modelService.getScheduledModelDetails().subscribe(data => {
+    this.scheduledmodelService.getScheduledModelDetails().subscribe(data => {
       this.Detail = data;
-      console.log(data.length);
       if (data.length === 0) {
 this.showMessage = true;
-      } else if (data.length === 0) {
+      } else if (data.length !== 0) {
         this.showMessage = false;
       }
     });
@@ -51,7 +51,46 @@ this.showMessage = true;
     });
   }
    */
-
+  nationalMenModels() {
+    this.scheduledmodelService.getNationalMenModels().subscribe(data => {
+      this.Detail = data;
+      if (data.length === 0) {
+this.showMessage = true;
+      } else if (data.length !== 0) {
+        this.showMessage = false;
+      }
+    });
+  }
+  nationalWomenModels() {
+    this.scheduledmodelService.getNationalWomenModels().subscribe(data => {
+      this.Detail = data;
+      if (data.length === 0) {
+this.showMessage = true;
+      } else if (data.length !== 0) {
+        this.showMessage = false;
+      }
+    });
+  }
+  interNationalMenModels() {
+    this.scheduledmodelService.getInterNationalMenModels().subscribe(data => {
+      this.Detail = data;
+      if (data.length === 0) {
+this.showMessage = true;
+      } else if (data.length !== 0) {
+        this.showMessage = false;
+      }
+    });
+  }
+  interNationalWomenModels() {
+    this.scheduledmodelService.getInterNationalWomenModels().subscribe(data => {
+      this.Detail = data;
+      if (data.length === 0) {
+this.showMessage = true;
+      } else if (data.length !== 0) {
+        this.showMessage = false;
+      }
+    });
+  }
   bookModel(viewModelForm: FormGroup, modelId: any) {
     console.log(modelId);
     this.router.navigate(['/scheduledmodelBooking', modelId]);

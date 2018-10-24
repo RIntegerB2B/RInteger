@@ -38,7 +38,7 @@ export class ModelBasedBookingComponent implements OnInit {
   showAll: boolean;
   showPortFolio: boolean;
   email;
-  selected = 'Portfolio';
+  selected = 'ecommerce';
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
     private modelService: ModelManagementService, private localStorageService: LocalStorageService,

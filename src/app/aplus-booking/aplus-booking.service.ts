@@ -7,6 +7,7 @@ import { AppSetting } from '../config/appSetting';
 
 import {Notification} from '../shared/notification.model';
 import {Aplus} from './aplus-booking.model';
+import {Customer} from '../shared/customer.model';
 
 
 @Injectable({
@@ -37,5 +38,10 @@ export class AplusBookingService {
     const notificationUrl = 'pushnotificationsubscribe';
     const url: string = this.adminServiceUrl + notificationUrl;
     return this.http.post(url, notificationModel);
+  }
+  addCustomerDetail(cust: Customer) {
+    const notificationUrl = 'customer';
+    const url: string = this.serviceUrl + notificationUrl;
+    return this.http.post(url, cust);
   }
 }

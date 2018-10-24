@@ -8,6 +8,7 @@ import { AppSetting } from '../config/appSetting';
 import {Notification} from '../shared/notification.model';
 import {Model} from './view-scheduled-model/model-detail.model';
 import {ScheduledBooking} from './scheduled-booking/scheduled-booking.model';
+import {Customer} from '../shared/customer.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -49,5 +50,30 @@ export class ScheduledModelService {
     const notificationUrl = 'pushnotificationsubscribe';
     const url: string = this.adminServiceUrl + notificationUrl;
     return this.http.post(url, notificationModel);
+  }
+  addCustomerDetail(cust: Customer) {
+    const notificationUrl = 'customer';
+    const url: string = this.serviceUrl + notificationUrl;
+    return this.http.post(url, cust);
+  }
+  getNationalMenModels(): Observable<any> {
+    const statusUrl = 'schedulednationalmenmodels/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
+  }
+  getNationalWomenModels(): Observable<any> {
+    const statusUrl = 'schedulednationalwomenmodels/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
+  }
+  getInterNationalMenModels(): Observable<any> {
+    const statusUrl = 'scheduledinternationalmenmodels/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
+  }
+  getInterNationalWomenModels(): Observable<any> {
+    const statusUrl = 'scheduledinternationalwomenmodels/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
   }
 }

@@ -11,6 +11,7 @@ import {mobileNumber} from '../../shared/validation';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
 import {ScheduledModelService} from '../scheduled-model.service';
 import {ScheduledBooking} from './scheduled-booking.model';
+import {Customer} from '../../shared/customer.model';
 
 
 @Component({
@@ -29,6 +30,7 @@ export class ScheduledBookingComponent implements OnInit {
   mobileNo: number;
   locat: string;
   bookingModel: ScheduledBooking;
+  customer: Customer;
 /*   customerModel: CustomerDetail; */
   notificationModel: Notification;
   showEcommerce: boolean;
@@ -110,28 +112,27 @@ export class ScheduledBookingComponent implements OnInit {
     this.showAll = false;
     this.showPortFolio = true;
   }
-  bookSubmit(bookModelForm: FormGroup, modelsId: any, modelNm: any, mailId: any) {
+  bookSubmit(bookScheduledModelForm: FormGroup, modelsId: any, modelNm: any, mailId: any) {
     this.message = 'Scheduled Model Shoot Booking Done';
     this.action = 'booked';
-    this.mobileNo = bookModelForm.controls.mobileNumber.value;
-    this.userName = bookModelForm.controls.name.value;
-    this.locat = bookModelForm.controls.location.value;
+    this.mobileNo = bookScheduledModelForm.controls.mobileNumber.value;
+    this.userName = bookScheduledModelForm.controls.name.value;
+    this.locat = bookScheduledModelForm.controls.location.value;
     this.localStorageService.store('mobileno', this.mobileNo);
     this.localStorageService.store('name', this.userName);
     this.localStorageService.store('location', this.locat);
     this.localStorageService.store('emailId', mailId);
     this.bookingModel = new ScheduledBooking(
-      bookModelForm.controls.name.value,
-      bookModelForm.controls.mobileNumber.value,
-      bookModelForm.controls.emailId.value,
-      bookModelForm.controls.location.value,
-      bookModelForm.controls.productDescription.value,
-      bookModelForm.controls.qtyDescription.value
+      bookScheduledModelForm.controls.name.value,
+      bookScheduledModelForm.controls.mobileNumber.value,
+      bookScheduledModelForm.controls.emailId.value,
+      bookScheduledModelForm.controls.location.value,
+      bookScheduledModelForm.controls.productDescription.value,
+      bookScheduledModelForm.controls.qtyDescription.value
     );
     this.bookingModel.modelId = modelsId;
     this.bookingModel.modelsName = modelNm;
  /*    this.saveCustomerDetail(bookModelForm); */
-    this.bookScheduledModelForm.reset();
     this.scheduledService.addScheduledBooking(this.bookingModel).subscribe(data => {
       this.snackBar.open(this.message, this.action, {
         duration: 3000,
@@ -141,6 +142,7 @@ export class ScheduledBookingComponent implements OnInit {
       console.log(error);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.saveCustomerDetail(bookScheduledModelForm);
     this.subscribe(this.mobileNo);
   /*   this.sendNotification(); */
   }
@@ -157,18 +159,19 @@ export class ScheduledBookingComponent implements OnInit {
       })
       .catch(err => console.error('Could not subscribe to notifications', err));
   }
-  /* saveCustomerDetail(bookModelForm: FormGroup) {
-    this.customerModel = new CustomerDetail(
-      bookModelForm.controls.mobileNumber.value,
-      bookModelForm.controls.name.value,
-      bookModelForm.controls.location.value,
-      bookModelForm.controls.productDescription.value
+  saveCustomerDetail(bookScheduledModelForm: FormGroup) {
+    this.customer = new Customer(
+      bookScheduledModelForm.controls.mobileNumber.value,
+      bookScheduledModelForm.controls.name.value,
+      bookScheduledModelForm.controls.location.value,
+      bookScheduledModelForm.controls.emailId.value
     );
-    this.modelService.addCustomerDetail(this.customerModel).subscribe(data => {
+    this.scheduledService.addCustomerDetail(this.customer).subscribe(data => {
+      console.log(data);
     }, error => {
       console.log(error);
     });
-   }*/
+   }
  /*  sendNotification() {
     this.modelService.bookingNotification().subscribe(data => {
       console.log(data);

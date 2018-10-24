@@ -10,6 +10,7 @@ import {AplusBookingService} from '../aplus-booking/aplus-booking.service';
 import {mobileNumber} from '../shared/validation';
 import {Aplus} from './aplus-booking.model';
 import {Notification} from '../shared/notification.model';
+import {Customer} from '../shared/customer.model';
 
 @Component({
   selector: 'app-aplus-booking',
@@ -24,6 +25,7 @@ export class AplusBookingComponent implements OnInit {
   locat: string;
   aplusForm: FormGroup;
   aplusModel: Aplus;
+  customer: Customer;
   notificationModel: Notification;
   message;
   action;
@@ -95,8 +97,8 @@ console.log(this.shooting);
     }, error => {
       console.log(error);
     });
-    this.aplusForm.reset();
     this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.saveCustomerDetail(aplusForm);
     this.subscribe(this.mobileNo);
   }
   subscribe(mobNo) {
@@ -117,6 +119,19 @@ console.log(this.shooting);
     this.userName = this.localStorageService.retrieve('name');
     this.locat = this.localStorageService.retrieve('location');
     this.email = this.localStorageService.retrieve('emailId');
+  }
+  saveCustomerDetail(catalogListingForm: FormGroup) {
+    this.customer = new Customer(
+      catalogListingForm.controls.mobileNumber.value,
+      catalogListingForm.controls.name.value,
+      catalogListingForm.controls.location.value,
+      catalogListingForm.controls.emailId.value
+    );
+    this.aplusService.addCustomerDetail(this.customer).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
   }
 
 

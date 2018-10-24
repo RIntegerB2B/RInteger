@@ -10,6 +10,7 @@ import { RegistrationSetupService } from '../registration-setup.service';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import {Notification} from '../../shared/notification.model';
+import {Customer} from '../../shared/customer.model';
 
 @Component({
   selector: 'app-registration-setup-booking',
@@ -26,6 +27,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
   addMobileNo: number;
   addUserName: string;
   addLocation: string;
+  customer: Customer;
   registrationBooking: RegistrationBooking;
   b2bNational = ['Alibaba', 'Amazon', 'Meesho', 'Reliance', 'Udaan', 'WholesaleBox'];
   b2bInternational = ['Alibaba'];
@@ -46,6 +48,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
   bookingId;
   mailId;
   email;
+  selected = 'b2cNationalValue';
   notificationModel: Notification;
   swPush: SwPush;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
@@ -195,6 +198,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
       console.log(error);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.saveCustomerDetail(registrationBooking);
     this.subscribe(this.mobileNo);
   }
   subscribe(mobNo) {
@@ -209,5 +213,18 @@ export class RegistrationSetupBookingComponent implements OnInit {
         this.registrationService.addPushSubscriber(this.notificationModel).subscribe();
       })
       .catch(err => console.error('Could not subscribe to notifications', err));
+  }
+  saveCustomerDetail(registrationBooking: FormGroup) {
+    this.customer = new Customer(
+      registrationBooking.controls.mobileNumber.value,
+      registrationBooking.controls.name.value,
+      registrationBooking.controls.location.value,
+      registrationBooking.controls.emailId.value
+    );
+    this.registrationService.addCustomerDetail(this.customer).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
   }
 }

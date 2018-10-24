@@ -69,7 +69,7 @@ export class BookingComponent implements OnInit {
     });
   }
   bookSubmit(onBookInForm: FormGroup, mobileNum: any, name: any, location: any, mailId: any) {
-    this.message = 'General Shoot Booking Done';
+    this.message = 'Product Shoot Booking Done';
     this.action = 'booked';
     this.localStorageService.store('mobileno', mobileNum);
     this.localStorageService.store('name', name);
