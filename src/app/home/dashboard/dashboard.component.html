@@ -38,8 +38,8 @@
           class="nav-btn" > -->
             <button mat-button class="main-menu" #menu="matMenuTrigger" [matMenuTriggerFor]="menu">Booking</button>
             <mat-menu #menu>
+               <button class="menu-item" [routerLink]="['viewschedulemodel']" mat-menu-item>Scheuled Model Booking</button>
               <button class="menu-item" [routerLink]="['models']" mat-menu-item>Model Shoot Booking</button>
-              <button class="menu-item" [routerLink]="['viewschedulemodel']" mat-menu-item>Scheuled Model Booking</button>
               <button class="menu-item" [routerLink]="['booking']" mat-menu-item>Product Shoot Booking</button>
               <button class="menu-item" [routerLink]="['editing']" mat-menu-item>Image Editing Booking</button>
               <button class="menu-item" [routerLink]="['creative']" mat-menu-item>Creative Shoot Booking</button>
@@ -53,7 +53,14 @@
             </mat-menu>
           </li>
           <li>
-            <a class="main-menu" (click)="getActive()">Booking Status</a>
+              <button mat-button class="main-menu" #menu="matMenuTrigger" [matMenuTriggerFor]="menu">Booking Status</button>
+              <mat-menu #menu>
+                <button class="menu-item" (click)="getActive()" mat-menu-item>Active Booking</button>
+                <button class="menu-item" [routerLink]="['/dashboard/completed']" mat-menu-item>Completed Order</button>
+                <button class="menu-item" [routerLink]="['/dashboard/cancelled']" mat-menu-item>Cancelled Order</button>
+                <button class="menu-item" [routerLink]="['/dashboard/bookingstatus']" mat-menu-item>All Booking</button>
+              </mat-menu>
+          <!--   <a class="main-menu" (click)="getActive()">Booking Status</a> -->
           </li>
           <!-- <li >
                 <a class="main-menu"  [routerLink]="['/pricing']" (click)="collapseMenu()">Market Place</a>

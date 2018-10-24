@@ -53,7 +53,7 @@ export class ScheduledBookingComponent implements OnInit {
     this.viewModel(this.id);
     this.createForm();
     this.checkData();
-    this.showEcommerce = true;
+    this.showPortFolio = true;
   }
   createForm() {
     this.bookScheduledModelForm = this.fb.group({

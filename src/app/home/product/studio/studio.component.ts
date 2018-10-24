@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudioComponent implements OnInit {
   hideEcommerce = false;
-  hideFashion = false;
-  hideCreate = false;
-  hideShoot = false;
+  hideCreative = false;
+  hidePreProduction = false;
+  hidePostProduction = false;
+  hideStudio = false;
   selected = 'Ecommerce Studio';
   constructor() { }
 
@@ -18,27 +19,38 @@ export class StudioComponent implements OnInit {
   }
   onHiden() {
     this.hideEcommerce = true;
-    this.hideFashion = false;
-    this.hideCreate = false;
-    this.hideShoot = false;
+    this.hideCreative = false;
+    this.hidePreProduction = false;
+    this.hidePostProduction = false;
+    this.hideStudio = false;
   }
-  onFashion()  {
+  onCreative()  {
     this.hideEcommerce = false;
-    this.hideFashion = true;
-    this.hideCreate = false;
-    this.hideShoot = false;
+    this.hideCreative = true;
+    this.hidePreProduction = false;
+    this.hidePostProduction = false;
+    this.hideStudio = false;
   }
-  onCreate()  {
+  onPreProduction()  {
     this.hideEcommerce = false;
-    this.hideFashion = false;
-    this.hideCreate = true;
-    this.hideShoot = false;
+    this.hideCreative = false;
+    this.hidePreProduction = true;
+    this.hidePostProduction = false;
+    this.hideStudio = false;
   }
-  onShoot()  {
+  onPostProduction()  {
     this.hideEcommerce = false;
-    this.hideFashion = false;
-    this.hideCreate = false;
-    this.hideShoot = true;
+    this.hideCreative = false;
+    this.hidePreProduction = false;
+    this.hidePostProduction = true;
+    this.hideStudio = false;
+  }
+  onStudio()  {
+    this.hideEcommerce = false;
+    this.hideCreative = false;
+    this.hidePreProduction = false;
+    this.hidePostProduction = false;
+    this.hideStudio = true;
   }
 
 }
