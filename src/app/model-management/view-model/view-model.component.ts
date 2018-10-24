@@ -23,7 +23,7 @@ export class ViewModelComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router, private modelService: ModelManagementService,
      private dashBoardService: DashBoardService) { }
   ngOnInit() {
-    this.dashBoardService.makeMenuTransparent();
+   /*  this.dashBoardService.makeMenuTransparent(); */
     this.allModels();
     this.createForm();
     this.serviceProviders();
@@ -120,6 +120,6 @@ this.showMessage = true;
 
   bookModel(viewModelForm: FormGroup, modelId: any) {
     console.log(modelId);
-    this.router.navigate(['/modelBooking', modelId]);
+    this.router.navigate(['/dashboard/modelBooking', modelId]);
   }
 }

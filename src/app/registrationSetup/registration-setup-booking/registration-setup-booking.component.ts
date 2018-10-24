@@ -192,7 +192,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
       this.snackBar.open(this.message, this.action, {
         duration: 3000,
       });
-      this.router.navigate(['/status', data.bookingOrderId]);
+      this.router.navigate(['/dashboard/status', data.bookingOrderId]);
 
     }, error => {
       console.log(error);

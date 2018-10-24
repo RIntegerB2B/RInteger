@@ -16,15 +16,15 @@ export class ItServicesPortfolioComponent implements OnInit {
   }
   showAll() {
     this.website = false;
-this.application = false;
-this.hosting = false;
-this.all = true;
+    this.application = false;
+    this.hosting = false;
+    this.all = true;
   }
   showWebsite() {
-this.website = true;
-this.application = false;
-this.hosting = false;
-this.all = false;
+    this.website = true;
+    this.application = false;
+    this.hosting = false;
+    this.all = false;
   }
   showApplication() {
     this.website = false;
@@ -34,8 +34,8 @@ this.all = false;
   }
   showHosting() {
     this.website = false;
-this.application = false;
-this.hosting = true;
-this.all = false;
+    this.application = false;
+    this.hosting = true;
+    this.all = false;
   }
 }

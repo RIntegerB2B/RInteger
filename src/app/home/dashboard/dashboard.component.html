@@ -1,5 +1,6 @@
 <!-- <button (click)="showDashBoard()">Test</button> -->
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="dashboardService?.menuTransparent">
+<!-- *ngIf="dashboardService?.menuTransparent" -->
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar class="example-toolbar">
     <!--  <button mat-icon-button (click)="homePage()">
       <mat-icon>home</mat-icon>
@@ -37,18 +38,18 @@
           class="nav-btn" > -->
             <button mat-button class="main-menu" #menu="matMenuTrigger" [matMenuTriggerFor]="menu">Booking</button>
             <mat-menu #menu>
-              <button class="menu-item" [routerLink]="['/models']" mat-menu-item>Model Shoot Booking</button>
-              <button class="menu-item" [routerLink]="['/viewschedulemodel']" mat-menu-item>Scheuled Model Booking</button>
-              <button class="menu-item" [routerLink]="['/booking']" mat-menu-item>Product Shoot Booking</button>
-              <button class="menu-item" [routerLink]="['/editing']" mat-menu-item>Image Editing Booking</button>
-              <button class="menu-item" [routerLink]="['/creative']" mat-menu-item>Creative Shoot Booking</button>
-              <button class="menu-item" [routerLink]="['/cataloging']" mat-menu-item>Cataloging / Listing Booking</button>
-              <button class="menu-item" [routerLink]="['/registrationSetup']" mat-menu-item>Registration & Setup
+              <button class="menu-item" [routerLink]="['models']" mat-menu-item>Model Shoot Booking</button>
+              <button class="menu-item" [routerLink]="['viewschedulemodel']" mat-menu-item>Scheuled Model Booking</button>
+              <button class="menu-item" [routerLink]="['booking']" mat-menu-item>Product Shoot Booking</button>
+              <button class="menu-item" [routerLink]="['editing']" mat-menu-item>Image Editing Booking</button>
+              <button class="menu-item" [routerLink]="['creative']" mat-menu-item>Creative Shoot Booking</button>
+              <button class="menu-item" [routerLink]="['cataloging']" mat-menu-item>Cataloging / Listing Booking</button>
+              <button class="menu-item" [routerLink]="['registrationSetup']" mat-menu-item>Registration & Setup
                 Booking</button>
-              <button class="menu-item" [routerLink]="['/marketingservices']" mat-menu-item>Marketing Services Booking</button>
-              <button class="menu-item" [routerLink]="['/aplus']" mat-menu-item>A+ Cataloging Booking</button>
-              <button class="menu-item" [routerLink]="['/itservices']" mat-menu-item>IT -Services Booking</button>
-              <button class="menu-item" [routerLink]="['/digitalmgmt']" mat-menu-item>Digital-Business-Management Booking</button>
+              <button class="menu-item" [routerLink]="['marketingservices']" mat-menu-item>Marketing Services Booking</button>
+              <button class="menu-item" [routerLink]="['aplus']" mat-menu-item>A+ Cataloging Booking</button>
+              <button class="menu-item" [routerLink]="['itservices']" mat-menu-item>IT -Services Booking</button>
+              <button class="menu-item" [routerLink]="['digitalmgmt']" mat-menu-item>Digital-Business-Management Booking</button>
             </mat-menu>
           </li>
           <li>
@@ -86,38 +87,38 @@
                         </mat-panel-description>
                       </mat-expansion-panel-header>
                       <ul class="navbar-nav">
-                          <li class="nav-item">
-                              <a [routerLink]="['/viewschedulemodel']"> Scheuled Model </a><br>
-                            </li>
                         <li class="nav-item">
-                          <a class="pointer" [routerLink]="['/models']"> Model shoot </a><br>
+                          <a class="pointer" [routerLink]="['models']"> Model shoot </a><br>
                         </li>
                         <li class="nav-item">
-                          <a [routerLink]="['/booking']"> Product Shoot </a><br>
+                          <a [routerLink]="['viewschedulemodel']"> Scheuled Model </a><br>
+                        </li>
+                        <li class="nav-item">
+                          <a [routerLink]="['booking']"> General Shoot </a><br>
                         </li>
                         <li class="nav-item ">
-                          <a class="pointer" [routerLink]="['/cataloging']"> Cataloging / Listing </a><br>
+                          <a class="pointer" [routerLink]="['cataloging']"> Cataloging / Listing </a><br>
                         </li>
                         <li class="nav-item ">
-                          <a class="pointer" [routerLink]="['/registrationSetup']"> Registration & Setup </a><br>
+                          <a class="pointer" [routerLink]="['registrationSetup']"> Registration & Setup </a><br>
                         </li>
                         <li class="nav-item ">
-                          <a class="pointer" [routerLink]="['/marketingservices']"> Marketing & Services </a><br>
+                          <a class="pointer" [routerLink]="['marketingservices']"> Marketing & Services </a><br>
                         </li>
                         <li class="nav-item ">
-                          <a class="pointer" [routerLink]="['/editing']"> Image Editing </a><br>
+                          <a class="pointer" [routerLink]="['editing']"> Image Editing </a><br>
                         </li>
                         <li class="nav-item ">
-                          <a class="pointer" [routerLink]="['/creative']"> Creative Shoot </a><br>
+                          <a class="pointer" [routerLink]="['creative']"> Creative Shoot </a><br>
                         </li>
                         <li class="nav-item ">
-                          <a class="pointer" [routerLink]="['/aplus']"> A+ Cataloging </a><br>
+                          <a class="pointer" [routerLink]="['aplus']"> A+ Cataloging </a><br>
                         </li>
                         <li class="nav-item ">
-                          <a class="pointer" [routerLink]="['/itservices']"> IT - Services </a><br>
+                          <a class="pointer" [routerLink]="['itservices']"> IT - Services </a><br>
                         </li>
                         <li class="nav-item ">
-                          <a  class="pointer" [routerLink]="['/digitalmgmt']">Digital-Business-Management </a><br>
+                          <a  class="pointer" [routerLink]="['digitalmgmt']">Digital-Business-Management </a><br>
                         </li>
                       </ul>
                     </mat-expansion-panel>

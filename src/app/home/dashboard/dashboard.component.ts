@@ -65,21 +65,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.router.navigate(['/welcome']);
   }
   getCancelled() {
-   this.router.navigate(['/cancelled']);
+   this.router.navigate(['/dashboard/cancelled']);
   }
   getStatus() {
-    this.router.navigate(['/bookingstatus']);
+    this.router.navigate(['/dashboard/bookingstatus']);
    }
   getActive() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     if (this.mobileNo === null) {
-      this.router.navigate(['/newUser']);
+      this.router.navigate(['/dashboard/newUser']);
     } else if (this.mobileNo != null) {
       this.mobileNo = this.localStorageService.retrieve('mobileno');
-      this.router.navigate(['/statusView', this.mobileNo]);
+      this.router.navigate(['/dashboard/statusView', this.mobileNo]);
     }
   }
   getCompleted() {
-    this.router.navigate(['/completed']);
+    this.router.navigate(['/dashboard/completed']);
   }
 }

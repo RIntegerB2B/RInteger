@@ -1,8 +1,10 @@
-<app-header></app-header>
-<app-dashboard></app-dashboard>
+<div *ngFor="let dataDashboard of routerData">
+<app-header *ngIf="dataDashboard.path === 'dashboard'"></app-header>
+</div>
 <router-outlet></router-outlet>
-<app-footer></app-footer>
- 
+<div *ngFor="let dataDashboard of routerData">
+<app-footer *ngIf="dataDashboard.path === 'dashboard'"></app-footer>
+</div>
  <!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126737708-1"></script>

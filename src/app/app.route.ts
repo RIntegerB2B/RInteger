@@ -33,16 +33,26 @@ import { DigitalMgmtBookingComponent } from './digital-mgmt-booking/digital-mgmt
 import {ViewScheduledModelComponent} from './scheduled-model-mgmt/view-scheduled-model/view-scheduled-model.component';
 import {ScheduledBookingComponent} from './scheduled-model-mgmt/scheduled-booking/scheduled-booking.component';
 
+
 const routes: Routes = [
-    { path: 'welcome', component: WelcomeComponent },
-    { path: 'editing', component: ImageEditingBookingComponent },
-    { path: 'creative', component: CreativeBookingComponent },
+   { path: 'welcome', component: WelcomeComponent },
+    { path: 'aboutUs', component: AboutusComponent },
+    { path: 'contact', component: ContactComponent },
+    { path: 'studio', component: StudioComponent },
+    { path: 'subscribe', component: SubscribeComponent },
     { path: 'portfolio', component: PortfolioComponent },
     { path: 'digitalmarketingportfolio', component: DigitalMarketingPortfolioComponent },
     { path: 'creativeportfolio', component: CreativePortfolioComponent },
     { path: 'videoportfolio', component: VideoPortfolioComponent },
     { path: 'itportfolio', component: ItServicesPortfolioComponent },
-    { path: 'header', component: HeaderComponent },
+    { path: 'pricing', component: PricingComponent },
+    {
+            path: 'dashboard', component: DashboardComponent,
+          children: [
+            { path: 'editing', component: ImageEditingBookingComponent },
+            { path: 'editing', component: ImageEditingBookingComponent },
+    { path: 'creative', component: CreativeBookingComponent },
+    /* { path: 'header', component: HeaderComponent }, */
     { path: 'booking', component: BookingComponent },
     { path: 'status/:id', component: StautsComponent },
     { path: 'statusView/:no', component: StautsViewComponent },
@@ -51,16 +61,14 @@ const routes: Routes = [
     { path: 'statusView', component: StautsViewComponent },
     { path: 'newUser', component: NewUserStatusComponent },
     { path: 'banner', component: BannerComponent },
-    { path: 'aboutUs', component: AboutusComponent },
-    { path: 'contact', component: ContactComponent },
-    { path: 'studio', component: StudioComponent },
+    /* { path: 'aboutUs', component: AboutusComponent }, */
+  /*   { path: 'contact', component: ContactComponent }, */
+    /* { path: 'studio', component: StudioComponent }, */
     { path: 'modelBooking/:modelId', component: ModelBasedBookingComponent },
     { path: 'models', component: ViewModelComponent },
-    { path: 'subscribe', component: SubscribeComponent },
+    /* { path: 'subscribe', component: SubscribeComponent }, */
     { path: 'cataloging', component: CatalogingListingBookingComponent },
-    { path: 'pricing', component: PricingComponent },
     { path: 'completed', component: CompletedOrderComponent },
-    { path: 'dashboard', component: DashboardComponent },
     { path: 'aplus', component: AplusBookingComponent },
     { path: 'registrationSetup', component: RegistrationSetupBookingComponent },
     { path: 'marketingservices', component: MarketingServicesBookingComponent },
@@ -68,6 +76,8 @@ const routes: Routes = [
     { path: 'digitalmgmt', component: DigitalMgmtBookingComponent },
     { path: 'viewschedulemodel', component: ViewScheduledModelComponent },
     { path: 'scheduledmodelBooking/:modelId', component: ScheduledBookingComponent },
+          ]
+        },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
 ];
