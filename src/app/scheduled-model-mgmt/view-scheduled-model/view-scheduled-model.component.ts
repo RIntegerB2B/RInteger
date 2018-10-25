@@ -93,7 +93,7 @@ this.showMessage = true;
   }
   bookModel(viewModelForm: FormGroup, modelId: any) {
     console.log(modelId);
-    this.router.navigate(['/scheduledmodelBooking', modelId]);
+    this.router.navigate(['/dashboard/scheduledmodelBooking', modelId]);
   }
 
 }
