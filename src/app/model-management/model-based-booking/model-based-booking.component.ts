@@ -38,7 +38,7 @@ export class ModelBasedBookingComponent implements OnInit {
   showAll: boolean;
   showPortFolio: boolean;
   email;
-  selected = 'ecommerce';
+  selected = 'Portfolio';
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
     private modelService: ModelManagementService, private localStorageService: LocalStorageService,
@@ -51,7 +51,7 @@ export class ModelBasedBookingComponent implements OnInit {
     this.viewModel(this.id);
     this.createForm();
     this.checkData();
-    this.showEcommerce = true;
+    this.showPortFolio = true;
   }
   createForm() {
     this.bookModelForm = this.fb.group({

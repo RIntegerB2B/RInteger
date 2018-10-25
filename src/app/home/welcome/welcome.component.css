@@ -9,6 +9,33 @@
             }
       
     }
+    .example-content-studio {
+      background-image: url('../../../assets/images/Studio.jpg');
+      background-size: cover;
+      width: 444px;
+      height:258px;
+      border-radius: 0px;
+      margin:auto;
+      background-position: center; 
+    }
+    .example-content-dbs {
+      background-image: url('../../../assets/images/DBS.jpg');
+      background-size: cover;
+      width: 444px;
+      height:258px;
+      border-radius: 0px;
+      margin:auto;
+      background-position: center; 
+    }
+    .example-content-it {
+      background-image: url('../../../assets/images/IT.jpg');
+      background-size: cover;
+      width: 444px;
+      height:258px;
+      border-radius: 0px;
+      margin:auto;
+      background-position: center; 
+    }
   
     .example-header-image-left {
         background-image: url('../../../assets/images/model.jpg');

@@ -9,7 +9,14 @@
     /* margin-top: 60px;
     margin-bottom: 40px; */
   }
-  
+  .expandMenuBar{
+    opacity: 1;
+    display: block;
+  }
+  .collapseMenuBar{
+    opacity: 0;
+    display: none;
+  }
   .example-is-mobile .example-toolbar {
     position: fixed;
     z-index: 2;

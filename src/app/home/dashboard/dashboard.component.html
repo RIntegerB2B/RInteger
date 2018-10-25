@@ -14,32 +14,38 @@
         <mat-icon>home</mat-icon>
       </button>
       <a [routerLink]="['/welcome']" class="navbar-brand">
-        <img src="../../../assets/images/logo.jpg"><img src="../../../assets/images/logoheader.png">
+        <img src="../../../assets/images/logo.jpg">
+        <img src="../../../assets/images/logoheader.png">
       </a>
-      <div id="navbarNavDropdown" class="navbar-collapse collapse sidebar" [ngClass]="toggleBar">
+      <div id="navbarNavDropdown" class="navbar-collapse collapse sidebar">
         <ul class="navbar-nav">
           <li>
-            <a class="main-menu" [routerLink]="['/subscribe']" (click)="collapseMenu()">Subscribe</a>
+            <a class="main-menu" [routerLink]="['/subscribe']"
+             (click)="collapseMenu()">Subscribe</a>
           </li>
           <li>
-            <a class="main-menu" [routerLink]="['/studio']" (click)="collapseMenu()">Services</a>
+            <a class="main-menu" [routerLink]="['/studio']" 
+            (click)="collapseMenu()">Services</a>
           </li>
           <li>
-            <a class="main-menu" [routerLink]="['/portfolio']" (click)="collapseMenu()">Our Work</a>
+            <a class="main-menu" [routerLink]="['/portfolio']" 
+            (click)="collapseMenu()">Our Work</a>
           </li>
           <li>
-            <a class="main-menu" [routerLink]="['/pricing']" (click)="collapseMenu()">Pricing</a>
+            <a class="main-menu" [routerLink]="['/pricing']" 
+            (click)="collapseMenu()">Pricing</a>
           </li>
-
           <li>
             <!--   <button md-button #menuTrigger="mdMenuTrigger" 
           (mouseenter)="menuTrigger.openMenu()"
           [mdMenuTriggerFor]="userMenu" 
           class="nav-btn" > -->
-            <button mat-button class="main-menu" #menu="matMenuTrigger" [matMenuTriggerFor]="menu">Booking</button>
-            <mat-menu #menu>
+          <!-- class="main-menu" -->
+         
+            <button  mat-button  #menu="matMenuTrigger" [matMenuTriggerFor]="menu">Booking</button>
+            <mat-menu>
+               <button class="menu-item" [routerLink]="['viewschedulemodel']" mat-menu-item>Scheuled Model Booking</button>
               <button class="menu-item" [routerLink]="['models']" mat-menu-item>Model Shoot Booking</button>
-              <button class="menu-item" [routerLink]="['viewschedulemodel']" mat-menu-item>Scheuled Model Booking</button>
               <button class="menu-item" [routerLink]="['booking']" mat-menu-item>Product Shoot Booking</button>
               <button class="menu-item" [routerLink]="['editing']" mat-menu-item>Image Editing Booking</button>
               <button class="menu-item" [routerLink]="['creative']" mat-menu-item>Creative Shoot Booking</button>
@@ -53,7 +59,14 @@
             </mat-menu>
           </li>
           <li>
-            <a class="main-menu" (click)="getActive()">Booking Status</a>
+              <button mat-button class="main-menu" #menu="matMenuTrigger" [matMenuTriggerFor]="menu">Booking Status</button>
+              <mat-menu #menu>
+                <button class="menu-item" (click)="getActive()" mat-menu-item>Active Booking</button>
+                <button class="menu-item" [routerLink]="['/dashboard/completed']" mat-menu-item>Completed Order</button>
+                <button class="menu-item" [routerLink]="['/dashboard/cancelled']" mat-menu-item>Cancelled Order</button>
+                <button class="menu-item" [routerLink]="['/dashboard/bookingstatus']" mat-menu-item>All Booking</button>
+              </mat-menu>
+          <!--   <a class="main-menu" (click)="getActive()">Booking Status</a> -->
           </li>
           <!-- <li >
                 <a class="main-menu"  [routerLink]="['/pricing']" (click)="collapseMenu()">Market Place</a>

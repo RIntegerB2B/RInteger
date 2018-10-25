@@ -169,6 +169,7 @@ export class StautsViewComponent implements OnInit {
     console.log(this.datacheck);
   }
   statusView(statusViewForm: FormGroup, id: any, type: any) {
+    console.log(type);
     if (type === 'Direct Booking' || type === 'Model Booking' || type === 'Scheduled Model Booking') {
       this.displayStatus = true;
       this.hideStatus = true;
@@ -274,6 +275,7 @@ export class StautsViewComponent implements OnInit {
   showBookingStatus(id) {
     this.statusService.getStatusById(this.no, id).subscribe(data => {
       this.StatusForOne = data;
+      console.log(data);
       switch (data.materialPickedUp) {
         case 0: {
           this.materialPicked = true;

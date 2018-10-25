@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   mobileNo;
   enable: boolean;
   filterValue;
-  toggleBar = 'colapseMenuBar';
+  toggleBar = 'collapseMenuBar';
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
   fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
   constructor(public dashboardService: DashBoardService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,

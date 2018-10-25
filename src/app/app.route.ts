@@ -50,7 +50,6 @@ const routes: Routes = [
             path: 'dashboard', component: DashboardComponent,
           children: [
             { path: 'editing', component: ImageEditingBookingComponent },
-            { path: 'editing', component: ImageEditingBookingComponent },
     { path: 'creative', component: CreativeBookingComponent },
     /* { path: 'header', component: HeaderComponent }, */
     { path: 'booking', component: BookingComponent },
