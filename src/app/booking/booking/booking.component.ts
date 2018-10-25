@@ -8,7 +8,7 @@ import { BookingService } from '../booking.service';
 import { BookingId } from './bookingId.model';
 import { mobileNumber } from '../../shared/validation';
 import { Notification } from '../../shared/notification.model';
-import { Customer } from './customer.model';
+import { Customer } from '../../shared/customer.model';
 import { DashBoardService } from '../../home/dashboard/dashboard.service';
 
 import { SwPush, SwUpdate } from '@angular/service-worker';
@@ -125,6 +125,10 @@ export class BookingComponent implements OnInit {
       onBookInForm.controls.location.value,
       onBookInForm.controls.emailId.value
     );
+    this.customer.bookingType = 'Direct Booking';
+    this.customer.modelType =  onBookInForm.controls.modelType.value;
+    this.customer.shootType = onBookInForm.controls.shootType.value;
+    this.customer.product = onBookInForm.controls.productType.value;
     this.bookingService.addCustomerDetail(this.customer).subscribe(data => {
       console.log(data);
     }, error => {

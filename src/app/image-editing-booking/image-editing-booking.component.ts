@@ -111,6 +111,7 @@ export class ImageEditingBookingComponent implements OnInit {
       editingForm.controls.location.value,
       editingForm.controls.emailId.value
     );
+    this.customer.bookingType = 'Editing Booking';
     this.editingService.addCustomerDetail(this.customer).subscribe(data => {
       console.log(data);
     }, error => {

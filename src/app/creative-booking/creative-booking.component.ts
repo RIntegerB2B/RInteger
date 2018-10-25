@@ -130,6 +130,7 @@ console.log(this.shooting);
       creativeForm.controls.location.value,
       creativeForm.controls.emailId.value
     );
+    this.customer.bookingType = 'Creative Booking';
     this.creativeService.addCustomerDetail(this.customer).subscribe(data => {
       console.log(data);
     }, error => {

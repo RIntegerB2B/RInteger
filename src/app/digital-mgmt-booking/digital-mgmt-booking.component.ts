@@ -227,6 +227,7 @@ export class DigitalMgmtBookingComponent implements OnInit {
       digitalMgmtForm.controls.location.value,
       digitalMgmtForm.controls.emailId.value
     );
+    this.customer.bookingType = 'Digital Business Management Booking';
     this.digitalService.addCustomerDetail(this.customer).subscribe(data => {
       console.log(data);
     }, error => {

@@ -232,6 +232,7 @@ export class CatalogingListingBookingComponent implements OnInit {
       catalogListingForm.controls.location.value,
       catalogListingForm.controls.emailId.value
     );
+    this.customer.bookingType = 'Catalog Booking';
     this.catalogService.addCustomerDetail(this.customer).subscribe(data => {
       console.log(data);
     }, error => {

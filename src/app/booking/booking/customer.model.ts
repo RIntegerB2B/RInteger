@@ -6,6 +6,7 @@ export class Customer {
     shootType: String;
     modelType: String;
     product: String;
+    bookingType: String;
     constructor(
         mobileNumber: Number,
         name: String,

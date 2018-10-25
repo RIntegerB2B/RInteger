@@ -127,6 +127,7 @@ console.log(this.shooting);
       catalogListingForm.controls.location.value,
       catalogListingForm.controls.emailId.value
     );
+    this.customer.bookingType = 'A+ Cataloging Booking';
     this.aplusService.addCustomerDetail(this.customer).subscribe(data => {
       console.log(data);
     }, error => {

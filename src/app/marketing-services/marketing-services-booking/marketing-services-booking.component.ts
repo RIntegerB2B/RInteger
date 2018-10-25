@@ -122,6 +122,7 @@ export class MarketingServicesBookingComponent implements OnInit {
       marketingBookingForm.controls.location.value,
       marketingBookingForm.controls.emailId.value
     );
+    this.customer.bookingType = 'Marketing Booking';
     this.marketingService.addCustomerDetail(this.customer).subscribe(data => {
       console.log(data);
     }, error => {

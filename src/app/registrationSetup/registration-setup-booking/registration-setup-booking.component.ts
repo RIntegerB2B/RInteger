@@ -221,6 +221,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
       registrationBooking.controls.location.value,
       registrationBooking.controls.emailId.value
     );
+    this.customer.bookingType = 'Registration Booking';
     this.registrationService.addCustomerDetail(this.customer).subscribe(data => {
       console.log(data);
     }, error => {

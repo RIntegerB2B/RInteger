@@ -12,6 +12,7 @@ import {DashBoardService} from '../../home/dashboard/dashboard.service';
 import {ScheduledModelService} from '../scheduled-model.service';
 import {ScheduledBooking} from './scheduled-booking.model';
 import {Customer} from '../../shared/customer.model';
+import {Model} from '../view-scheduled-model/model-detail.model';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class ScheduledBookingComponent implements OnInit {
   message;
   action;
   id;
-  Model: ScheduledBooking[] = [];
+  Model: Model;
   bookScheduledModelForm: FormGroup;
   userName: string;
   mobileNo: number;
@@ -166,7 +167,10 @@ export class ScheduledBookingComponent implements OnInit {
       bookScheduledModelForm.controls.location.value,
       bookScheduledModelForm.controls.emailId.value
     );
-    this.scheduledService.addCustomerDetail(this.customer).subscribe(data => {
+    this.customer.bookingType = 'Scheduled Model Booking';
+    this.customer.modelType = this.Model[0].modelType;
+    this.customer.shootType = this.Model[0].categoryType;
+        this.scheduledService.addCustomerDetail(this.customer).subscribe(data => {
       console.log(data);
     }, error => {
       console.log(error);

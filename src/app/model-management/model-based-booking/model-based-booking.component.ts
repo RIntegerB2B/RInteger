@@ -9,7 +9,7 @@ import {MatSnackBar} from '@angular/material';
 import { ModelManagementService } from '../model-management.service';
 import { ModelDetail } from './model.model';
 import { ModelBooking } from './model-booking.model';
-import { CustomerDetail } from '../model-based-booking/customer-detail.model';
+import { Customer } from '../../shared/customer.model';
 import { Notification } from '../../shared/notification.model';
 import {mobileNumber} from '../../shared/validation';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
@@ -29,7 +29,7 @@ export class ModelBasedBookingComponent implements OnInit {
   mobileNo: number;
   locat: string;
   bookingModel: ModelBooking;
-  customerModel: CustomerDetail;
+  customerModel: Customer;
   notificationModel: Notification;
   showEcommerce: boolean;
   showPortrait: boolean;
@@ -158,12 +158,15 @@ export class ModelBasedBookingComponent implements OnInit {
       .catch(err => console.error('Could not subscribe to notifications', err));
   }
   saveCustomerDetail(bookModelForm: FormGroup) {
-    this.customerModel = new CustomerDetail(
+    this.customerModel = new Customer(
       bookModelForm.controls.mobileNumber.value,
       bookModelForm.controls.name.value,
       bookModelForm.controls.location.value,
       bookModelForm.controls.productDescription.value
     );
+    this.customerModel.bookingType = 'Model Booking';
+    this.customerModel.modelType = this.Model[0].modelType;
+    this.customerModel.shootType = this.Model[0].categoryType;
     this.modelService.addCustomerDetail(this.customerModel).subscribe(data => {
     }, error => {
       console.log(error);

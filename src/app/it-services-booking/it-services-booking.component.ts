@@ -121,6 +121,7 @@ export class ItServicesBookingComponent implements OnInit {
       itServicesBookingForm.controls.location.value,
       itServicesBookingForm.controls.emailId.value
     );
+    this.customer.bookingType = 'IT Services Booking';
     this.itService.addCustomerDetail(this.customer).subscribe(data => {
       console.log(data);
     }, error => {
