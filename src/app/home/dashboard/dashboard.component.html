@@ -53,8 +53,8 @@
             </mat-menu>
           </li>
           <li>
-              <button mat-button class="main-menu" #menu="matMenuTrigger" [matMenuTriggerFor]="menu">Booking Status</button>
-              <mat-menu #menu>
+              <button mat-button class="main-menu" #menu2="matMenuTrigger" [matMenuTriggerFor]="menu2">Booking Status</button>
+              <mat-menu #menu2>
                 <button class="menu-item" (click)="getActive()" mat-menu-item>Active Booking</button>
                 <button class="menu-item" [routerLink]="['/dashboard/completed']" mat-menu-item>Completed Order</button>
                 <button class="menu-item" [routerLink]="['/dashboard/cancelled']" mat-menu-item>Cancelled Order</button>
