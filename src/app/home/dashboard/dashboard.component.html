@@ -27,7 +27,14 @@
             <a class="main-menu" [routerLink]="['/studio']" 
             (click)="collapseMenu()">Services</a>
           </li>
-         
+          <li>
+              <button mat-button class="main-menu" #menu3="matMenuTrigger" [matMenuTriggerFor]="menu3">Models</button>
+              <mat-menu #menu3>
+                <button class="menu-item" [routerLink]="['/dashboard/viewschedulemodel']" mat-menu-item>Scheduled Models</button>
+                <button class="menu-item" [routerLink]="['/dashboard/models']" mat-menu-item>Available Models</button>
+              </mat-menu>
+          <!--   <a class="main-menu" (click)="getActive()">Booking Status</a> -->
+          </li>
           
           <li>
             <!--   <button md-button #menuTrigger="mdMenuTrigger" 
@@ -103,43 +110,26 @@
                     <mat-expansion-panel class="expansion">
                       <mat-expansion-panel-header>
                         <mat-panel-description>
-                          <mat-icon>{{item.icon}}</mat-icon> Booking
+                          Shoot Booking
                         </mat-panel-description>
                       </mat-expansion-panel-header>
                       <ul class="navbar-nav">
+                          <li class="nav-item">
+                              <a [routerLink]="['viewschedulemodel']"> Scheuled Model </a><br>
+                            </li>
                         <li class="nav-item">
                           <a class="pointer" [routerLink]="['models']"> Model shoot </a><br>
                         </li>
                         <li class="nav-item">
-                          <a [routerLink]="['viewschedulemodel']"> Scheuled Model </a><br>
-                        </li>
-                        <li class="nav-item">
-                          <a [routerLink]="['booking']"> General Shoot </a><br>
+                          <a [routerLink]="['booking']"> Product Shoot </a><br>
                         </li>
                         <li class="nav-item ">
-                          <a class="pointer" [routerLink]="['cataloging']"> Cataloging / Listing </a><br>
-                        </li>
-                        <li class="nav-item ">
-                          <a class="pointer" [routerLink]="['registrationSetup']"> Registration & Setup </a><br>
-                        </li>
-                        <li class="nav-item ">
-                          <a class="pointer" [routerLink]="['marketingservices']"> Marketing & Services </a><br>
-                        </li>
+                            <a class="pointer" [routerLink]="['creative']"> Creative Shoot </a><br>
+                          </li>
                         <li class="nav-item ">
                           <a class="pointer" [routerLink]="['editing']"> Image Editing </a><br>
                         </li>
-                        <li class="nav-item ">
-                          <a class="pointer" [routerLink]="['creative']"> Creative Shoot </a><br>
-                        </li>
-                        <li class="nav-item ">
-                          <a class="pointer" [routerLink]="['aplus']"> A+ Cataloging </a><br>
-                        </li>
-                        <li class="nav-item ">
-                          <a class="pointer" [routerLink]="['itservices']"> IT - Services </a><br>
-                        </li>
-                        <li class="nav-item ">
-                          <a  class="pointer" [routerLink]="['digitalmgmt']">Digital-Business-Management </a><br>
-                        </li>
+                       
                       </ul>
                     </mat-expansion-panel>
                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
@@ -147,6 +137,58 @@
                   </mat-accordion>
                 </a>
               </div>
+              <div class="menu">
+                  <a matRipple class="nav-item-sep" *ngIf="item.type === 'dashboard'">
+                    <mat-accordion>
+                      <mat-expansion-panel class="expansion">
+                        <mat-expansion-panel-header>
+                          <mat-panel-description>
+                           Digital-Business-Mgmt Booking
+                          </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <ul class="navbar-nav">
+                            <li class="nav-item ">
+                                <a class="pointer" [routerLink]="['registrationSetup']"> Registration & Setup </a><br>
+                              </li>
+                          <li class="nav-item ">
+                            <a class="pointer" [routerLink]="['cataloging']"> Cataloging / Listing </a><br>
+                          </li>
+                          <li class="nav-item ">
+                              <a class="pointer" [routerLink]="['aplus']"> A+ Cataloging </a><br>
+                            </li>
+                            <li class="nav-item ">
+                                <a  class="pointer" [routerLink]="['digitalmgmt']">Account-Management </a><br>
+                              </li>
+                          <li class="nav-item ">
+                            <a class="pointer" [routerLink]="['marketingservices']"> Marketing & Services </a><br>
+                          </li>
+                        </ul>
+                      </mat-expansion-panel>
+                      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                      </mat-expansion-panel>
+                    </mat-accordion>
+                  </a>
+                </div>
+                <div class="menu">
+                    <a matRipple class="nav-item-sep" *ngIf="item.type === 'dashboard'">
+                      <mat-accordion>
+                        <mat-expansion-panel class="expansion">
+                          <mat-expansion-panel-header>
+                            <mat-panel-description>
+                             IT-Services Booking
+                            </mat-panel-description>
+                          </mat-expansion-panel-header>
+                          <ul class="navbar-nav">
+                            <li class="nav-item ">
+                              <a class="pointer" [routerLink]="['itservices']"> IT - Services </a><br>
+                            </li>
+                          </ul>
+                         </mat-expansion-panel>
+                        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                        </mat-expansion-panel>
+                      </mat-accordion>
+                    </a>
+                  </div>
               <div class="menu">
                 <a matRipple class="nav-item-sep" *ngIf="item.type === 'dashboard'">
                   <mat-accordion>

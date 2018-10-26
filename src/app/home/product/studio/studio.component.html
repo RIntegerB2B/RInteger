@@ -1,37 +1,40 @@
 <div class="container" style="margin-top: 20px">
   <div class="row navbar newBar">
-    <div class="nav-item">
-      <a class="nav-link"><button mat-button (click)="onHiden()">ECOMMERCE PRODUCTION - PHOTO & VIDEO</button></a>
+    <div class="nav-item text-white">
+      <a class="nav-link"><button mat-button class="menuBtn" (click)="onHiden()">ECOMMERCE STUDIO - PHOTO & VIDEO</button></a>
     </div>
-    <div class="nav-item">
-      <a class="nav-link"><button mat-button (click)="onCreative()">CREATIVE PRODUCTION - PHOTO & VIDEO</button></a>
+    <div class="nav-item text-white">
+      <a class="nav-link"><button mat-button class="menuBtn" (click)="onCreative()">CREATIVE STUDIO - PHOTO & VIDEO</button></a>
     </div>
-    <div class="nav-item">
-      <a class="nav-link"><button mat-button (click)="onPreProduction()">PRE PRODUCTION</button></a>
+    <div class="nav-item text-white">
+      <a class="nav-link"><button mat-button class="menuBtn" (click)="onPreProduction()">PRE PRODUCTION</button></a>
     </div>
-    <div class="nav-item">
-      <a class="nav-link"><button mat-button (click)="onPostProduction()">POST PRODUCTION</button></a>
+    <div class="nav-item text-white">
+      <a class="nav-link"><button mat-button class="menuBtn" (click)="onPostProduction()">POST PRODUCTION</button></a>
     </div>
-    <div class="nav-item">
-      <a class="nav-link"><button mat-button (click)="onStudio()">STUDIO</button></a>
+    <div class="nav-item text-white">
+      <a class="nav-link"><button mat-button  class="menuBtn" (click)="onStudio()">STUDIO</button></a>
     </div>
   </div>
   <div class="col-md-12 text-center d-md-none d-lg-none">
     <div class="form-group">
       <mat-form-field>
         <mat-select [(value)]="selected">
-          <mat-option value="Creative Studio">
-            <button mat-button (click)="onHiden()">Fashion Studio</button>
-          </mat-option>
-          <mat-option value="Creative Studio">
-            <button mat-button (click)="onCreative()">Creative Studio</button>
-          </mat-option>
-          <mat-option value="Shoot Cycle">
-            <button mat-button (click)="onPreProduction()">Shoot Cycle</button>
-          </mat-option>
           <mat-option value="Ecommerce Studio">
-            <button mat-button (click)="onStudio()">Ecommerce Studio</button>
+            <button mat-button (click)="onHiden()">ECOMMERCE STUDIO - PHOTO & VIDEO</button>
           </mat-option>
+          <mat-option value="Creative Studio">
+            <button mat-button (click)="onCreative()">CREATIVE STUDIO - PHOTO & VIDEO</button>
+          </mat-option>
+          <mat-option value="Pre Production">
+            <button mat-button (click)="onPreProduction()">PRE PRODUCTION</button>
+          </mat-option>
+          <mat-option value="Post Production">
+            <button mat-button (click)="onPostProduction()">POST PRODUCTION</button>
+          </mat-option>
+          <mat-option value="Studio">
+              <button mat-button (click)="onStudio()">STUDIO</button>
+            </mat-option>
         </mat-select>
       </mat-form-field>
     </div>

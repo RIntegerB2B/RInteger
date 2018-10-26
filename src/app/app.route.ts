@@ -32,10 +32,13 @@ import { ItServicesBookingComponent } from './it-services-booking/it-services-bo
 import { DigitalMgmtBookingComponent } from './digital-mgmt-booking/digital-mgmt-booking.component';
 import {ViewScheduledModelComponent} from './scheduled-model-mgmt/view-scheduled-model/view-scheduled-model.component';
 import {ScheduledBookingComponent} from './scheduled-model-mgmt/scheduled-booking/scheduled-booking.component';
+import {DigitalMgmtComponent} from './home/product/digital-mgmt/digital-mgmt.component';
+import {ItServicesComponent} from './home/product/it-services/it-services.component';
 
 
 const routes: Routes = [
    { path: 'welcome', component: WelcomeComponent },
+   { path: 'header', component: HeaderComponent },
     { path: 'aboutUs', component: AboutusComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'studio', component: StudioComponent },
@@ -45,6 +48,8 @@ const routes: Routes = [
     { path: 'creativeportfolio', component: CreativePortfolioComponent },
     { path: 'videoportfolio', component: VideoPortfolioComponent },
     { path: 'itportfolio', component: ItServicesPortfolioComponent },
+    { path: 'digitalmgmtservice', component: DigitalMgmtComponent },
+    { path: 'itservicesdetails', component: ItServicesComponent },
     { path: 'pricing', component: PricingComponent },
     {
             path: 'dashboard', component: DashboardComponent,

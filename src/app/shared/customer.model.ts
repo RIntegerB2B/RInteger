@@ -2,6 +2,7 @@ export class Customer {
     mobileNumber: Number;
     name: String;
     location: String;
+    password: String;
     emailId: String;
     shootType: String;
     modelType: String;

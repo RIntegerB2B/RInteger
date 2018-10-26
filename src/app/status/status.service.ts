@@ -12,6 +12,7 @@ import { Bookings } from './all-status/allStatus.model';
 import { CompletedBookings } from './completed-order/completed-order.model';
 import { EditingStatus } from '../shared/editing-status.model';
 import { CreativeStatus } from '../shared/creative-status.model';
+import {Customer} from '../shared/customer.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -106,5 +107,16 @@ export class StatusService {
     const statusUrl = 'aplusStatus/';
     const url: string = this.serviceUrl + statusUrl + id;
     return this.httpClient.get<CreativeStatus>(url);
+  }
+
+  userRegister(cust: Customer) {
+    const statusUrl = 'register';
+    const url: string = this.serviceUrl + statusUrl;
+    return this.http.post(url, cust);
+  }
+  signIn(cust: Customer) {
+    const statusUrl = 'signin';
+    const url: string = this.serviceUrl + statusUrl;
+    return this.http.post(url, cust);
   }
 }

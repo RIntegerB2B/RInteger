@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { StatusService } from '../status.service';
 import { StatusView } from './status-view.model';
@@ -13,6 +14,9 @@ import { CreativeStatus } from '../../shared/creative-status.model';
 import { CatalogingStatus } from '../../shared/catalog-status.model';
 import {RegistrationStatus} from '../../shared/registration-status.model';
 import {AplusCatalogingStatus} from '../../shared/aplus-status.model';
+import { LocalStorageService } from 'ngx-webstorage';
+import { Customer } from '../../shared/customer.model';
+import {RegisterCustomer} from './register-customer.model';
 
 @Component({
   selector: 'app-stauts-view',
@@ -127,7 +131,8 @@ export class StautsViewComponent implements OnInit {
     'Scheduled Model Booking'];
   searchText: string;
   constructor(private fb: FormBuilder,
-    private activatedRoute: ActivatedRoute, private statusService: StatusService, private dashBoardService: DashBoardService) {
+    private activatedRoute: ActivatedRoute, private dialog: MatDialog,
+     private statusService: StatusService, private dashBoardService: DashBoardService) {
     this.no = this.activatedRoute.snapshot.paramMap.get('no');
   }
 
@@ -169,7 +174,6 @@ export class StautsViewComponent implements OnInit {
     console.log(this.datacheck);
   }
   statusView(statusViewForm: FormGroup, id: any, type: any) {
-    console.log(type);
     if (type === 'Direct Booking' || type === 'Model Booking' || type === 'Scheduled Model Booking') {
       this.displayStatus = true;
       this.hideStatus = true;
@@ -257,7 +261,13 @@ export class StautsViewComponent implements OnInit {
       this.registrationStatusView = false;
       this.aplusStatusView = false;
     } else if (type === 'Digital Business Management Booking') {
-      this.message = true;
+      const dialogRef = this.dialog.open(RegisterComponent, {
+        width: '520px',
+        disableClose: true,
+        data: id
+      });
+      dialogRef.afterClosed();
+      /* this.message = false;
       this.displayStatus = false;
       this.hideStatus = true;
       this.editingStatusView = false;
@@ -265,7 +275,7 @@ export class StautsViewComponent implements OnInit {
       this.catalogStatusView = false;
       this.bookingStatus = false;
       this.registrationStatusView = false;
-      this.aplusStatusView = false;
+      this.aplusStatusView = false; */
     }
     this.statusDetail(id, type);
   }
@@ -1255,7 +1265,60 @@ showAplusStatus(id) {
     this.cancelledStatus = true;
     this.statusService.getCancelledBookings(no).subscribe(statusData => {
       this.Details = statusData;
-      console.log(this.Details);
+    }, error => {
+      console.log(error);
+    });
+  }
+}
+@Component({
+  templateUrl: './register.component.html'
+})
+export class RegisterComponent implements OnInit {
+  registerForm: FormGroup;
+  register: boolean;
+  storedMobileNo;
+  customerModel: Customer;
+  registerCustomer: RegisterCustomer;
+  constructor(private fb: FormBuilder, private statusService: StatusService, private localStorageService: LocalStorageService,
+     public dialogRef: MatDialogRef<RegisterComponent>,
+     @Inject(MAT_DIALOG_DATA) public data) {
+  }
+  cancel(): void {
+    this.dialogRef.close();
+  }
+  ngOnInit() {
+    this.createViewForm();
+    this.storedMobileNo = this.localStorageService.retrieve('mobileno');
+  }
+  createViewForm() {
+    this.registerForm = this.fb.group({
+      mobileNo: [''],
+      password: ['']
+    });
+  }
+  showRegister() {
+this.register = true;
+  }
+  showLogin( ) {
+    this.register = false;
+  }
+  save(registerForm: FormGroup) {
+    this.registerCustomer = new RegisterCustomer();
+    this.registerCustomer.mobileNumber = registerForm.controls.mobileNo.value;
+    this.registerCustomer.password = registerForm.controls.password.value;
+    this.statusService.userRegister(this.registerCustomer).subscribe( data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  login(registerForm: FormGroup) {
+    this.registerCustomer = new RegisterCustomer();
+    this.registerCustomer.mobileNumber = registerForm.controls.mobileNo.value;
+    this.registerCustomer.password = registerForm.controls.password.value;
+    this.statusService.signIn(this.registerCustomer).subscribe( data => {
+      console.log(data);
     }, error => {
       console.log(error);
     });

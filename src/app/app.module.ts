@@ -18,7 +18,7 @@ import { environment } from '../environments/environment';
 import { BookingComponent } from './booking/booking/booking.component';
 import { WelcomeComponent } from './home/welcome/welcome.component';
 import { StautsComponent } from './status/stauts/stauts.component';
-import { StautsViewComponent } from './status/stauts-view/stauts-view.component';
+import { StautsViewComponent , RegisterComponent } from './status/stauts-view/stauts-view.component';
 import { Routing } from './app.route';
 import { HeaderComponent } from './home/header/header.component';
 import { BannerComponent } from './home/banner/banner.component';
@@ -65,7 +65,7 @@ import {
   MatChipsModule,
   MatInputModule,
   MatFormFieldModule,
-  MatStepperModule
+  MatStepperModule,
 } from '@angular/material';
 import {DashBoardService} from './home/dashboard/dashboard.service';
 import { ImageEditingBookingComponent } from './image-editing-booking/image-editing-booking.component';
@@ -85,6 +85,8 @@ import { ItServicesBookingComponent } from './it-services-booking/it-services-bo
 import { DigitalMgmtBookingComponent } from './digital-mgmt-booking/digital-mgmt-booking.component';
 import { ScheduledBookingComponent } from './scheduled-model-mgmt/scheduled-booking/scheduled-booking.component';
 import { ViewScheduledModelComponent } from './scheduled-model-mgmt/view-scheduled-model/view-scheduled-model.component';
+import { DigitalMgmtComponent } from './home/product/digital-mgmt/digital-mgmt.component';
+import { ItServicesComponent } from './home/product/it-services/it-services.component';
 
 @NgModule({
   declarations: [
@@ -125,7 +127,10 @@ import { ViewScheduledModelComponent } from './scheduled-model-mgmt/view-schedul
     ItServicesBookingComponent,
     DigitalMgmtBookingComponent,
     ScheduledBookingComponent,
-    ViewScheduledModelComponent
+    ViewScheduledModelComponent,
+    DigitalMgmtComponent,
+    ItServicesComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -147,6 +152,7 @@ import { ViewScheduledModelComponent } from './scheduled-model-mgmt/view-schedul
     MatFormFieldModule,
     MatTabsModule,
     MatInputModule,
+    MatDialogModule,
     MatSelectModule,
     MatSnackBarModule,
     FlexLayoutModule,
@@ -162,6 +168,7 @@ import { ViewScheduledModelComponent } from './scheduled-model-mgmt/view-schedul
   ],
   providers: [BookingService,
   LocalStorageService, DashBoardService],
+  entryComponents: [RegisterComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
