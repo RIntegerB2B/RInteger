@@ -34,6 +34,7 @@ import {ViewScheduledModelComponent} from './scheduled-model-mgmt/view-scheduled
 import {ScheduledBookingComponent} from './scheduled-model-mgmt/scheduled-booking/scheduled-booking.component';
 import {DigitalMgmtComponent} from './home/product/digital-mgmt/digital-mgmt.component';
 import {ItServicesComponent} from './home/product/it-services/it-services.component';
+import {AccountMgmtStatusComponent} from './status/account-mgmt-status/account-mgmt-status.component';
 
 
 const routes: Routes = [
@@ -55,6 +56,7 @@ const routes: Routes = [
             path: 'dashboard', component: DashboardComponent,
           children: [
             { path: 'editing', component: ImageEditingBookingComponent },
+            { path: 'accmgmtstatus/:data', component: AccountMgmtStatusComponent },
     { path: 'creative', component: CreativeBookingComponent },
     /* { path: 'header', component: HeaderComponent }, */
     { path: 'booking', component: BookingComponent },

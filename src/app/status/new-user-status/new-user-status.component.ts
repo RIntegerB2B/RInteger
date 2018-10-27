@@ -138,6 +138,7 @@ export class NewUserStatusComponent implements OnInit {
   }
   findStatus(newUserForm: FormGroup, mobileNum: any) {
     this.localStorageService.store('mobileno', mobileNum);
+    this.router.navigate(['/dashboard/statusView', mobileNum]);
     this.statusService.getActiveBookings(mobileNum).subscribe(data => {
       this.status = data;
       this.show = true;

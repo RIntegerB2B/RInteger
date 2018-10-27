@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   private _mobileQueryListener: () => void;
   mobileNo;
   enable: boolean;
+  logoutValue;
+  showLogout: boolean;
   filterValue;
   toggleBar = 'collapseMenuBar';
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
@@ -41,6 +43,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.menuItems = menuItem.filter(item => item.type !== 'icon' && item.type !== 'separator');
       this.hasIconTypeMenuItem = !!this.menuItems.filter(item => item.type === 'icon').length;
     });
+    this.logout();
   }
   collapseMenu() {
     this.toggleBar = this.toggleBar === 'colapseMenuBar' ? 'expandMenuBar' : 'colapseMenuBar';
@@ -59,6 +62,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.mobileQuery.removeListener(this._mobileQueryListener);
     if (this.menuItemsSub) {
       this.menuItemsSub.unsubscribe();
+    }
+  }
+  logout() {
+    this.logoutValue = this.localStorageService.retrieve('userLoggedIn');
+    if (this.logoutValue === 'true') {
+this.showLogout = true;
     }
   }
   homePage() {

@@ -218,7 +218,7 @@
                   </mat-accordion>
                 </a>
               </div>
-              <div>
+              <div class="menu">
                 <a matRipple class="nav-item-sep" *ngIf="item.type === 'dashboard'">
                   <mat-accordion>
                     <mat-expansion-panel class="expansion">
@@ -237,6 +237,28 @@
                      (closed)="panelOpenState = false">
                     </mat-expansion-panel>
                   </mat-accordion>
+                </a>
+              </div>
+              <div class="menu" *ngIf="showLogout">
+                <a matRipple class="nav-item-sep" *ngIf="item.type === 'dashboard'">
+                  <button mat-raised-button>Logout</button>
+                  <!-- <mat-accordion>
+                    <mat-expansion-panel class="expansion">
+                      <mat-expansion-panel-header>
+                        <mat-panel-description>
+                          Logout
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                      <ul class="navbar-nav">
+                        <li class="nav-item ">
+                          <a class="pointer" (click)="getStatus()"> All </a><br>
+                        </li>
+                      </ul>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                     (closed)="panelOpenState = false">
+                    </mat-expansion-panel>
+                  </mat-accordion> -->
                 </a>
               </div>
             </ul>

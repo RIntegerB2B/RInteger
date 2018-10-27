@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Bookings } from './allStatus.model';
 import { StatusDetails } from './statusDetail.model';
@@ -12,6 +13,8 @@ import { CreativeStatus } from '../../shared/creative-status.model';
 import { CatalogingStatus } from '../../shared/catalog-status.model';
 import {RegistrationStatus} from '../../shared/registration-status.model';
 import {AplusCatalogingStatus} from '../../shared/aplus-status.model';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import {RegisterComponent} from '../stauts-view/stauts-view.component';
 @Component({
   selector: 'app-all-status',
   templateUrl: './all-status.component.html',
@@ -118,8 +121,11 @@ export class AllStatusComponent implements OnInit {
     'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Digital Business Management Booking',
     'Scheduled Model Booking'];
   searchText: string;
+  userLoggedInCheck;
+  registeredMobileCheck;
   constructor(private fb: FormBuilder,
-    private activatedRoute: ActivatedRoute, private statusService: StatusService, private dashBoardService: DashBoardService,
+    private activatedRoute: ActivatedRoute, private statusService: StatusService, private dialog: MatDialog, private router: Router,
+     private dashBoardService: DashBoardService,
     private localStorageService: LocalStorageService) {
     this.no = this.localStorageService.retrieve('mobileno');
   }
@@ -248,7 +254,21 @@ export class AllStatusComponent implements OnInit {
       this.registrationStatusView = false;
       this.aplusStatusView = false;
     } else if (type === 'Digital Business Management Booking') {
-      this.message = true;
+      this.userLoggedInCheck  = this.localStorageService.retrieve('userLoggedIn');
+      this.registeredMobileCheck = this.localStorageService.retrieve('registeredmobileno');
+      console.log(this.userLoggedInCheck);
+      console.log(this.registeredMobileCheck);
+      if ( this.userLoggedInCheck === null && this.registeredMobileCheck === null) {
+      const dialogRef = this.dialog.open(RegisterComponent, {
+        width: '520px',
+        disableClose: true,
+        data: id
+      });
+      dialogRef.afterClosed();
+     } else {
+      this.router.navigate(['/dashboard/accmgmtstatus', id]);
+     }
+    /*   this.message = true;
       this.displayStatus = false;
       this.hideStatus = true;
       this.editingStatusView = false;
@@ -256,7 +276,7 @@ export class AllStatusComponent implements OnInit {
       this.catalogStatusView = false;
       this.bookingStatus = false;
       this.registrationStatusView = false;
-      this.aplusStatusView = false;
+      this.aplusStatusView = false; */
     }
     this.statusDetail(id, type);
   }

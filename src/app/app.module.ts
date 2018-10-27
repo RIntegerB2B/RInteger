@@ -87,6 +87,7 @@ import { ScheduledBookingComponent } from './scheduled-model-mgmt/scheduled-book
 import { ViewScheduledModelComponent } from './scheduled-model-mgmt/view-scheduled-model/view-scheduled-model.component';
 import { DigitalMgmtComponent } from './home/product/digital-mgmt/digital-mgmt.component';
 import { ItServicesComponent } from './home/product/it-services/it-services.component';
+import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account-mgmt-status.component';
 
 @NgModule({
   declarations: [
@@ -130,7 +131,8 @@ import { ItServicesComponent } from './home/product/it-services/it-services.comp
     ViewScheduledModelComponent,
     DigitalMgmtComponent,
     ItServicesComponent,
-    RegisterComponent
+    RegisterComponent,
+    AccountMgmtStatusComponent
   ],
   imports: [
     BrowserModule,

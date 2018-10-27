@@ -173,7 +173,7 @@ export class DigitalMgmtBookingComponent implements OnInit {
     console.log(this.selectedSocialMedia);
   }
   booking(digitalMgmtForm: FormGroup) {
-    this.message = 'Cataloging / Listing  Booking Done';
+    this.message = 'Account Management Booking Done';
     this.action = 'booked';
     this.addMobileNo = digitalMgmtForm.controls.mobileNumber.value;
     this.addUserName = digitalMgmtForm.controls.name.value;

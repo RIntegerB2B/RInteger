@@ -13,6 +13,8 @@ import { CompletedBookings } from './completed-order/completed-order.model';
 import { EditingStatus } from '../shared/editing-status.model';
 import { CreativeStatus } from '../shared/creative-status.model';
 import {Customer} from '../shared/customer.model';
+import {RegisterCustomer} from './stauts-view/register-customer.model';
+import {DigitalMgmtStatus} from './stauts-view/account-mgmt-status.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -109,14 +111,19 @@ export class StatusService {
     return this.httpClient.get<CreativeStatus>(url);
   }
 
-  userRegister(cust: Customer) {
+  userRegister(cust: RegisterCustomer) {
     const statusUrl = 'register';
     const url: string = this.serviceUrl + statusUrl;
-    return this.http.post(url, cust);
+    return this.httpClient.post<RegisterCustomer>(url, cust);
   }
-  signIn(cust: Customer) {
+  signIn(cust: RegisterCustomer) {
     const statusUrl = 'signin';
     const url: string = this.serviceUrl + statusUrl;
-    return this.http.post(url, cust);
+    return this.httpClient.post<RegisterCustomer>(url, cust);
+  }
+  getAccountMgmtStatus(id): Observable<any> {
+    const statusUrl = 'accountmgmtstatus/';
+    const url: string = this.serviceUrl + statusUrl + id;
+    return this.httpClient.get<DigitalMgmtStatus>(url);
   }
 }

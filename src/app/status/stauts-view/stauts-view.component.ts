@@ -2,6 +2,7 @@ import { Component, OnInit, Inject} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Router } from '@angular/router';
 
 import { StatusService } from '../status.service';
 import { StatusView } from './status-view.model';
@@ -17,6 +18,8 @@ import {AplusCatalogingStatus} from '../../shared/aplus-status.model';
 import { LocalStorageService } from 'ngx-webstorage';
 import { Customer } from '../../shared/customer.model';
 import {RegisterCustomer} from './register-customer.model';
+import {mobileNumber} from '../../shared/validation';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-stauts-view',
@@ -126,12 +129,15 @@ export class StautsViewComponent implements OnInit {
   bookingStatus: boolean;
   registrationStatusView: boolean;
   aplusStatusView: boolean;
+  userLoggedInCheck;
+  registeredMobileCheck;
   filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
     'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Digital Business Management Booking',
     'Scheduled Model Booking'];
   searchText: string;
   constructor(private fb: FormBuilder,
-    private activatedRoute: ActivatedRoute, private dialog: MatDialog,
+    private activatedRoute: ActivatedRoute, private dialog: MatDialog, private router: Router,
+    private localStorageService: LocalStorageService,
      private statusService: StatusService, private dashBoardService: DashBoardService) {
     this.no = this.activatedRoute.snapshot.paramMap.get('no');
   }
@@ -261,12 +267,20 @@ export class StautsViewComponent implements OnInit {
       this.registrationStatusView = false;
       this.aplusStatusView = false;
     } else if (type === 'Digital Business Management Booking') {
+      this.userLoggedInCheck  = this.localStorageService.retrieve('userLoggedIn');
+      this.registeredMobileCheck = this.localStorageService.retrieve('registeredmobileno');
+      console.log(this.userLoggedInCheck);
+      console.log(this.registeredMobileCheck);
+      if ( this.userLoggedInCheck === null && this.registeredMobileCheck === null) {
       const dialogRef = this.dialog.open(RegisterComponent, {
         width: '520px',
         disableClose: true,
         data: id
       });
       dialogRef.afterClosed();
+     } else {
+      this.router.navigate(['/dashboard/accmgmtstatus', id]);
+    }
       /* this.message = false;
       this.displayStatus = false;
       this.hideStatus = true;
@@ -1088,7 +1102,6 @@ showAplusStatus(id) {
   showRegistrationStatus(id) {
     this.statusService.registrationStatus(id).subscribe(data => {
       this.RegistrationDetails = data;
-      console.log(this.RegistrationDetails);
       switch (data[0].documentsRequired) {
         case 0: {
           this.documentsReq = true;
@@ -1274,14 +1287,21 @@ showAplusStatus(id) {
   templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
+
+  showError2: boolean;
   registerForm: FormGroup;
   register: boolean;
   storedMobileNo;
   customerModel: Customer;
   registerCustomer: RegisterCustomer;
-  constructor(private fb: FormBuilder, private statusService: StatusService, private localStorageService: LocalStorageService,
+  showError: boolean;
+  message;
+  action;
+  constructor(private fb: FormBuilder, private statusService: StatusService, private router: Router,  public snackBar: MatSnackBar,
+     private localStorageService: LocalStorageService,
      public dialogRef: MatDialogRef<RegisterComponent>,
      @Inject(MAT_DIALOG_DATA) public data) {
+       console.log(data);
   }
   cancel(): void {
     this.dialogRef.close();
@@ -1292,8 +1312,8 @@ export class RegisterComponent implements OnInit {
   }
   createViewForm() {
     this.registerForm = this.fb.group({
-      mobileNo: [''],
-      password: ['']
+      mobileNo: ['', mobileNumber],
+      password: ['', Validators.required]
     });
   }
   showRegister() {
@@ -1303,11 +1323,18 @@ this.register = true;
     this.register = false;
   }
   save(registerForm: FormGroup) {
+    this.message = 'registered successfully';
     this.registerCustomer = new RegisterCustomer();
     this.registerCustomer.mobileNumber = registerForm.controls.mobileNo.value;
     this.registerCustomer.password = registerForm.controls.password.value;
     this.statusService.userRegister(this.registerCustomer).subscribe( data => {
-      console.log(data);
+     if (data !== null) {
+      this.snackBar.open(this.message, this.action, {
+        duration: 3000,
+      });
+      this.register = false;
+      registerForm.reset();
+     }
     }, error => {
       console.log(error);
     });
@@ -1318,7 +1345,22 @@ this.register = true;
     this.registerCustomer.mobileNumber = registerForm.controls.mobileNo.value;
     this.registerCustomer.password = registerForm.controls.password.value;
     this.statusService.signIn(this.registerCustomer).subscribe( data => {
-      console.log(data);
+  if (data === null) {
+this.showError = false;
+this.showError2 = true;
+  } else if (data.password === undefined) {
+    this.showError2 = false;
+    this.showError = true;
+  } else if (data.password !==  registerForm.controls.password.value) {
+    this.showError2 = false;
+    this.showError = true;
+  } else if (data !== null) {
+    this.dialogRef.close();
+   this.router.navigate(['/dashboard/accmgmtstatus', this.data]);
+   this.localStorageService.store('userLoggedIn', 'true');
+   this.localStorageService.store('registeredmobileno', registerForm.controls.mobileNo.value);
+   this.localStorageService.store('password',  registerForm.controls.password.value);
+  }
     }, error => {
       console.log(error);
     });
