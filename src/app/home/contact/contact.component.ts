@@ -49,6 +49,7 @@ export class ContactComponent implements OnInit {
     this.userQuery = new CustomerQuery(
       onSendInForm.controls.name.value,
       onSendInForm.controls.mobileNumber.value,
+      onSendInForm.controls.emailId.value,
       onSendInForm.controls.typeYourMessage.value
     );
     this.contactService.addQuery(this.userQuery).subscribe(data => {
