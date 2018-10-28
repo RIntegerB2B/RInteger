@@ -35,7 +35,7 @@
               </div>
               <div class="form-group">
                   <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Name" [(ngModel)]="Name" maxlength="20" formControlName="name"
+                  <input matInput placeholder="Name" [(ngModel)]="userName" maxlength="20" formControlName="name"
                   type="text" #name [required]="false">
                   <button mat-button  matSuffix mat-icon-button aria-label="Name">
                       <mat-icon>account_circle</mat-icon>
@@ -46,6 +46,16 @@
                   </mat-error>
                 </mat-form-field>
               </div>
+              <div class="form-group">
+                <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email Id" [(ngModel)]="email"  formControlName="emailId"
+                type="text" [required]="false">
+                <button mat-button  matSuffix mat-icon-button aria-label="Name">
+                    <mat-icon>account_circle</mat-icon>
+                  </button>
+              
+              </mat-form-field>
+            </div>
                   <div class="form-group">
                       <mat-form-field appearance="outline">
                           <mat-label>Type your message.</mat-label>
