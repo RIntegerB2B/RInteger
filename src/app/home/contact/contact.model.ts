@@ -3,6 +3,7 @@ export class CustomerQuery {
     name: string;
     message: string;
     emailId: string;
+    isHandled: string;
     constructor(
         name: string,
         mobileNumber: number ,

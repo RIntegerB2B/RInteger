@@ -46,6 +46,9 @@ export class ContactComponent implements OnInit {
   }
   sendSubmit(onSendInForm: FormGroup) {
     this.message = 'RInteger Team will contact you shortly';
+    this.localStorageService.store('mobileno',  onSendInForm.controls.mobileNumber.value);
+    this.localStorageService.store('name',  onSendInForm.controls.name.value);
+    this.localStorageService.store('emailId', onSendInForm.controls.emailId.value);
     this.userQuery = new CustomerQuery(
       onSendInForm.controls.name.value,
       onSendInForm.controls.mobileNumber.value,
