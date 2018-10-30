@@ -17,6 +17,16 @@ import {DashBoardService} from '../dashboard/dashboard.service';
 export class WelcomeComponent implements OnInit {
   mobileNo: string;
   showIndicators = false;
+  changeText: boolean;
+  changeText1: boolean;
+  changeText2: boolean;
+  changeText3: boolean;
+  changeText4: boolean;
+  changeBannerText1: boolean;
+  changeBannerText2: boolean;
+  changeBannerText3: boolean;
+  changeBannerText4: boolean;
+  changeBannerText5: boolean;
   imageSources = ['../../../assets/images/Banner-1.jpg', '../../../assets/images/Banner-2.jpg' ,
   '../../../assets/images/Banner-3.jpg'];
 
@@ -27,7 +37,18 @@ export class WelcomeComponent implements OnInit {
   '../../../assets/images/arvind.png', '../../../assets/images/pothys.png', '../../../assets/images/lee.jpg'];
 
   constructor(private router: Router, private localStorageService: LocalStorageService, private  dashBoard: DashboardComponent,
-    private dashboardService: DashBoardService) { }
+    private dashboardService: DashBoardService) {
+      this.changeText = true;
+      this.changeText1 = true;
+      this.changeText2 = true;
+      this.changeText3 = true;
+      this.changeText4 = true;
+      this.changeBannerText1 = true;
+      this.changeBannerText2 = true;
+      this.changeBannerText3 = true;
+      this.changeBannerText4 = true;
+      this.changeBannerText5 = true;
+     }
 
   ngOnInit() {
    /*  this.dashboardService.hideMenuTransparent(); */

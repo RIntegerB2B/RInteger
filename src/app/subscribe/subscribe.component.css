@@ -14,7 +14,7 @@
   padding-bottom: 30px;
   padding-top: 30px;
   margin: auto;
-  margin-bottom:10px;
+ /*  margin-bottom:10px; */
   position: relative;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -29,4 +29,8 @@
   margin: auto;
   position: relative;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bground-img{
+  background-image: url('../../assets/images/subcriptionBanner.jpg');
 }
