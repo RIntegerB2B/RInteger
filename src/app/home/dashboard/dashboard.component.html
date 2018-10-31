@@ -78,8 +78,11 @@
             (click)="collapseMenu()">Pricing</a>
           </li>
           <li>
-            <a class="main-menu" [routerLink]="['/portfolio']" 
-            (click)="collapseMenu()">Our Work</a>
+              <button mat-button class="main-menu" #menu3="matMenuTrigger" [matMenuTriggerFor]="menu3">Our Work</button>
+              <mat-menu #menu3>
+                  <button class="menu-item" [routerLink]="['/creativeportfolio']" mat-menu-item>Ecommerce PortFolio</button>
+                  <button class="menu-item" [routerLink]="['/portfolio']" mat-menu-item>Creative PortFolio</button>
+                </mat-menu>
           </li>
           <!-- <li >
                 <a class="main-menu"  [routerLink]="['/pricing']" (click)="collapseMenu()">Market Place</a>
