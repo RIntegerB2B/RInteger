@@ -27,6 +27,8 @@ export class WelcomeComponent implements OnInit {
   changeBannerText3: boolean;
   changeBannerText4: boolean;
   changeBannerText5: boolean;
+  changeITServicesText: boolean;
+  changeStatusText: boolean;
   imageSources = ['../../../assets/images/Banner-1.jpg', '../../../assets/images/Banner-2.jpg' ,
   '../../../assets/images/Banner-3.jpg'];
 
@@ -48,6 +50,8 @@ export class WelcomeComponent implements OnInit {
       this.changeBannerText3 = true;
       this.changeBannerText4 = true;
       this.changeBannerText5 = true;
+      this.changeITServicesText = true;
+      this.changeStatusText = true;
      }
 
   ngOnInit() {

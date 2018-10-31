@@ -268,11 +268,98 @@
       </div>
     </div>
     <div class="col-md-4 border-right" style="min-height: 301px;">
-        <h4 class="text-center"> IT-Services</h4>
+       
      <!--  <div class="row">
         
       </div> -->
-    
+     
+    <div class="row" >
+        <div class="col-md-1">
+          </div>
+          <div  class="col-md-10 col-sm-12">
+              <h4 class="text-center"> IT-Services</h4>
+          </div>
+          <div class="col-md-1">
+            </div>
+       
+        </div>
+          
+    <div class="row" >
+        <div class="col-md-1">
+          </div>
+          <div  class="col-md-10 col-sm-12">
+              <p class="text-center">Sample text</p>
+          </div>
+          <div class="col-md-1">
+            </div>
+       
+        </div>
+        <div class="row border-bottom" style="padding-bottom: 30px;">
+        <div class="col-md-1">
+          </div>
+      <div class="col-md-10 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
+      border-radius: 2px;" (mouseover)="changeITServicesText=false" (mouseout)="changeITServicesText=true">
+      <div *ngIf="!changeITServicesText" class="text-center">
+        <p>Select the Model </p>
+          <a [routerLink]="['/dashboard/itservices']" class="text-center" style="color: green;" >Book Now</a>
+     </div>
+     <div *ngIf="changeITServicesText" class="text-center"> 
+      <a [routerLink]="['/dashboard/itservices']" class="text-center">
+        <img class="img-center" src="../../../assets/images/It service booking.jpg">
+        <span>&nbsp;</span>
+        <label> IT-Services</label>
+      </a>
+    </div>
+     
+      </div>
+      <div class="col-md-1">
+
+      </div>
+    </div>
+    <div class="row" >
+        <div class="col-md-1">
+          </div>
+          <div  class="col-md-10 col-sm-12">
+              <h4 class="text-center"> Booking Status</h4>
+          </div>
+          <div class="col-md-1">
+            </div>
+       
+        </div>
+        <div class="row" >
+            <div class="col-md-1">
+              </div>
+              <div  class="col-md-10 col-sm-12">
+                  <p class="text-center"> Sample text</p>
+              </div>
+              <div class="col-md-1">
+                </div>
+           
+            </div>
+
+      <div class="row">
+        <div class="col-md-1">
+
+          </div>
+      <div class="col-md-10 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
+      border-radius: 2px;" (mouseover)="changeStatusText=false" (mouseout)="changeStatusText=true">
+      <div *ngIf="!changeStatusText" class="text-center">
+        <p>Select the Model </p>
+          <a (click)="getStatus()" class="text-center" style="color: green;" >Book Now</a>
+     </div>
+     <div *ngIf="changeStatusText" class="text-center"> 
+      <a (click)="getStatus()" class="text-center">
+        <img class="img-center" src="../../../assets/images/Booking  status.jpg">
+        <span>&nbsp;</span>
+        <label> Booking Status</label>
+      </a>
+    </div>
+     
+      </div>
+      <div class="col-md-1">
+
+      </div>
+    </div>
 
     </div>
   </div>
