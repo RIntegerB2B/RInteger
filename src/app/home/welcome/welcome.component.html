@@ -9,7 +9,7 @@
         [lazyLoad]="imageSources?.length > 1"
         [autoPlayWaitForLazyLoad]="true" [showDots]="true" [dotColor]="'black'"  >
 </slideshow> -->
-      <img class="img-fluid" src="../../../assets/images/B2.jpg">
+      <img class="img-fluid" src="../../../assets/images/newbanner.jpg">
 
       <!--  <carousel class="carousel-images" [showIndicators]="false" style="height:150px;">
         <slide>
@@ -24,45 +24,33 @@
       </carousel> -->
     </div>
   </div>
-  <div class="row">
+ 
+  <div class="row" style = "margin-top:20px;padding-bottom: 20px;">
     <div class="col-md-12">
-      <img class="img-fluid" src="../../../assets/images/strip1.jpg">
+        <h1 class="text-center">Complete Booking Services for your Online Business</h1>
     </div>
-    <!-- <div class="col-md-4 homeImage">
-      <a [routerLink]="['/dashboard/models']">
-        <div class="example-content-studio"></div>
-      </a>
-    </div>
-    <div class="col-md-4 homeImage">
-      <a [routerLink]="['/dashboard/booking']">
-        <div class="example-content-dbs"></div>
-      </a>
-    </div>
-    <div class="col-md-4 homeImage">
-      <a [routerLink]="['/dashboard/itservices']">
-        <div class="example-content-it"></div>
-      </a>
-    </div> -->
+
   </div>
   <div class="row">
     <div class="col-md-4 border-right" style="min-height: 301px;">
-        <h4 class="text-center">Studio & Production</h4>
-        <p class="text-center">Sample text</p>
+        <h5 class="text-center">Studio & Production</h5>
+        <p class="text-center"></p>
         <div class="row">
             <div class="col-md-1">
   
               </div>
           <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-          border-radius: 2px;" (mouseover)="changeBannerText1=false" (mouseout)="changeBannerText1=true">
-          <div *ngIf="!changeBannerText1" class="text-center">
+          border-radius: 2px;" >
+         <!--  <div *ngIf="!changeBannerText1" class="text-center">
             <p>Select the Model </p>
               <a [routerLink]="['/dashboard/registrationSetup']" class="text-center" style="color: green;" >Book Now</a>
-         </div>
-          <div *ngIf="changeBannerText1" class="text-center"> 
+         </div> -->
+          <div  class="text-center"> 
               <a [routerLink]="['/dashboard/registrationSetup']" class="text-center" >
                 <img class="img-center" src="../../../assets/images/scheduled_booking.jpg">
                 <span>&nbsp;</span>
                 <label> Scheduled Model</label>
+                <b><a [routerLink]="['/dashboard/registrationSetup']" class="text-center"  >Book Now</a></b>
               </a>
             </div>
         
@@ -71,16 +59,13 @@
   
           </div>
           <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-          border-radius: 2px;" (mouseover)="changeBannerText2=false" (mouseout)="changeBannerText2=true">
-          <div *ngIf="!changeBannerText2" class="text-center">
-            <p>Select the Model </p>
-              <a [routerLink]="['/dashboard/cataloging']" class="text-center" style="color: green;" >Book Now</a>
-         </div>
-         <div *ngIf="changeBannerText2" class="text-center"> 
+          border-radius: 2px;" >
+         <div  class="text-center"> 
           <a [routerLink]="['/dashboard/cataloging']" class="text-center">
             <img  class="img-center" src="../../../assets/images/model shoot booking.jpg">
             <span>&nbsp;</span>
-            <label>Model</label>
+            <label>Model Shoot</label>
+            <b><a [routerLink]="['/dashboard/cataloging']" class="text-center">Book Now</a></b>
           </a>
         </div>
           
@@ -94,16 +79,13 @@
   
               </div>
           <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-          border-radius: 2px;" (mouseover)="changeBannerText3=false" (mouseout)="changeBannerText3=true">
-          <div *ngIf="!changeBannerText3" class="text-center">
-            <p>Select the Model </p>
-              <a [routerLink]="['/dashboard/aplus']" class="text-center" style="color: green;" >Book Now</a>
-         </div>
-         <div *ngIf="changeBannerText3" class="text-center"> 
+          border-radius: 2px;">
+         <div  class="text-center"> 
           <a [routerLink]="['/dashboard/aplus']" class="text-center">
             <img class="img-center" src="../../../assets/images/product shoot booking.jpg">
             <span>&nbsp;</span>
             <label> Product Shoot</label>
+            <b><a [routerLink]="['/dashboard/aplus']" class="text-center"  >Book Now</a></b>
           </a>
         </div>
          
@@ -112,16 +94,13 @@
   
           </div>
           <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-          border-radius: 2px;" (mouseover)="changeBannerText4=false" (mouseout)="changeBannerText4=true">
-          <div *ngIf="!changeBannerText4" class="text-center">
-            <p>Select the Model </p>
-              <a [routerLink]="['/dashboard/digitalmgmt']" class="text-center" style="color: green;" >Book Now</a>
-         </div>
-         <div *ngIf="changeBannerText4" class="text-center"> 
+          border-radius: 2px;">
+         <div  class="text-center"> 
           <a [routerLink]="['/dashboard/digitalmgmt']" class="text-center">
             <img  class="img-center" src="../../../assets/images/Creative shoot booking.jpg">
             <span>&nbsp;</span>
             <label>Creative Shoot</label>
+            <b><a [routerLink]="['/dashboard/digitalmgmt']" class="text-center"  >Book Now</a></b>
           </a>
         </div>
          
@@ -135,16 +114,13 @@
   
               </div>
           <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-          border-radius: 2px;" (mouseover)="changeBannerText5=false" (mouseout)="changeBannerText5=true">
-          <div *ngIf="!changeBannerText5" class="text-center">
-            <p>Select the Model </p>
-              <a [routerLink]="['/dashboard/marketingservices']" class="text-center" style="color: green;" >Book Now</a>
-         </div>
-         <div *ngIf="changeBannerText5" class="text-center"> 
-          <a [routerLink]="['/dashboard/marketingservices']" class="text-center">
+          border-radius: 2px;">
+         <div  class="text-center"> 
+          <a [routerLink]="['/dashboard/editing']" class="text-center">
             <img class="img-center" src="../../../assets/images/Image Editing booking.jpg">
             <span>&nbsp;</span>
             <label> Image Editing</label>
+            <b><a [routerLink]="['/dashboard/editing']" class="text-center"  >Book Now</a></b>
           </a>
         </div>
          
@@ -157,23 +133,21 @@
         </div>
     </div>
     <div class="col-md-4 border-right" style="min-height: 301px;">
-      <h4 class="text-center">Digital Business Services</h4>
-      <p class="text-center">Sample text</p>
+      <h5 class="text-center">Digital Business Services</h5>
+    <!--   <p class="text-center">Sample text</p> -->
       <div class="row">
           <div class="col-md-1">
 
             </div>
         <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-        border-radius: 2px;" (mouseover)="changeText=false" (mouseout)="changeText=true">
-        <div *ngIf="!changeText" class="text-center">
-          <p>Select the Model </p>
-            <a [routerLink]="['/dashboard/registrationSetup']" class="text-center" style="color: green;" >Book Now</a>
-       </div>
-        <div *ngIf="changeText" class="text-center"> 
+        border-radius: 2px;">
+       
+        <div class="text-center"> 
             <a [routerLink]="['/dashboard/registrationSetup']" class="text-center" >
               <img class="img-center" src="../../../assets/images/registrations.jpg">
               <span>&nbsp;</span>
               <label> Registration & SetUp</label>
+              <b><a [routerLink]="['/dashboard/registrationSetup']" class="text-center">Book Now</a></b>
             </a>
           </div>
       
@@ -182,16 +156,13 @@
 
         </div>
         <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-        border-radius: 2px;" (mouseover)="changeText1=false" (mouseout)="changeText1=true">
-        <div *ngIf="!changeText1" class="text-center">
-          <p>Select the Model </p>
-            <a [routerLink]="['/dashboard/cataloging']" class="text-center" style="color: green;" >Book Now</a>
-       </div>
-       <div *ngIf="changeText1" class="text-center"> 
+        border-radius: 2px;">
+       <div class="text-center"> 
         <a [routerLink]="['/dashboard/cataloging']" class="text-center">
           <img  class="img-center" src="../../../assets/images/catlog & listing booking.jpg">
           <span>&nbsp;</span>
           <label> Cataloging / Listing</label>
+          <b><a [routerLink]="['/dashboard/cataloging']" class="text-center">Book Now</a></b>
         </a>
       </div>
         
@@ -205,16 +176,13 @@
 
             </div>
         <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-        border-radius: 2px;" (mouseover)="changeText2=false" (mouseout)="changeText2=true">
-        <div *ngIf="!changeText2" class="text-center">
-          <p>Select the Model </p>
-            <a [routerLink]="['/dashboard/aplus']" class="text-center" style="color: green;" >Book Now</a>
-       </div>
-       <div *ngIf="changeText2" class="text-center"> 
+        border-radius: 2px;">
+       <div class="text-center"> 
         <a [routerLink]="['/dashboard/aplus']" class="text-center">
           <img class="img-center" src="../../../assets/images/a+ catlog.jpg">
           <span>&nbsp;</span>
           <label> A+ Cataloging</label>
+          <b><a [routerLink]="['/dashboard/aplus']" class="text-center">Book Now</a></b>
         </a>
       </div>
        
@@ -223,16 +191,13 @@
 
         </div>
         <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-        border-radius: 2px;" (mouseover)="changeText3=false" (mouseout)="changeText3=true">
-        <div *ngIf="!changeText3" class="text-center">
-          <p>Select the Model </p>
-            <a [routerLink]="['/dashboard/digitalmgmt']" class="text-center" style="color: green;" >Book Now</a>
-       </div>
-       <div *ngIf="changeText3" class="text-center"> 
+        border-radius: 2px;">
+       <div  class="text-center"> 
         <a [routerLink]="['/dashboard/digitalmgmt']" class="text-center">
           <img  class="img-center" src="../../../assets/images/digital buisness.jpg">
           <span>&nbsp;</span>
           <label> Account Management</label>
+          <b><a [routerLink]="['/dashboard/digitalmgmt']" class="text-center">Book Now</a></b>
         </a>
       </div>
        
@@ -246,16 +211,13 @@
 
             </div>
         <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-        border-radius: 2px;" (mouseover)="changeText4=false" (mouseout)="changeText4=true">
-        <div *ngIf="!changeText4" class="text-center">
-          <p>Select the Model </p>
-            <a [routerLink]="['/dashboard/marketingservices']" class="text-center" style="color: green;" >Book Now</a>
-       </div>
-       <div *ngIf="changeText4" class="text-center"> 
+        border-radius: 2px;" >
+       <div class="text-center"> 
         <a [routerLink]="['/dashboard/marketingservices']" class="text-center">
           <img class="img-center" src="../../../assets/images/marketing & service booking.jpg">
           <span>&nbsp;</span>
           <label> Marketing Services</label>
+          <b><a [routerLink]="['/dashboard/marketingservices']" class="text-center">Book Now</a></b>
         </a>
       </div>
        
@@ -277,13 +239,13 @@
         <div class="col-md-1">
           </div>
           <div  class="col-md-10 col-sm-12">
-              <h4 class="text-center"> IT-Services</h4>
+              <h5 class="text-center"> IT-Services</h5>
           </div>
           <div class="col-md-1">
             </div>
        
         </div>
-          
+  <!--         
     <div class="row" >
         <div class="col-md-1">
           </div>
@@ -293,26 +255,23 @@
           <div class="col-md-1">
             </div>
        
-        </div>
+        </div> -->
         <div class="row border-bottom" style="padding-bottom: 30px;">
-        <div class="col-md-1">
+        <div class="col-md-4">
           </div>
-      <div class="col-md-10 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-      border-radius: 2px;" (mouseover)="changeITServicesText=false" (mouseout)="changeITServicesText=true">
-      <div *ngIf="!changeITServicesText" class="text-center">
-        <p>Select the Model </p>
-          <a [routerLink]="['/dashboard/itservices']" class="text-center" style="color: green;" >Book Now</a>
-     </div>
-     <div *ngIf="changeITServicesText" class="text-center"> 
+      <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
+      border-radius: 2px;">
+     <div  class="text-center"> 
       <a [routerLink]="['/dashboard/itservices']" class="text-center">
         <img class="img-center" src="../../../assets/images/It service booking.jpg">
         <span>&nbsp;</span>
         <label> IT-Services</label>
+        <b><a [routerLink]="['/dashboard/itservices']" class="text-center">Book Now</a></b>
       </a>
     </div>
      
       </div>
-      <div class="col-md-1">
+      <div class="col-md-4">
 
       </div>
     </div>
@@ -320,13 +279,13 @@
         <div class="col-md-1">
           </div>
           <div  class="col-md-10 col-sm-12">
-              <h4 class="text-center"> Booking Status</h4>
+              <h5 class="text-center"> Booking Status</h5>
           </div>
           <div class="col-md-1">
             </div>
        
         </div>
-        <div class="row" >
+       <!--  <div class="row" >
             <div class="col-md-1">
               </div>
               <div  class="col-md-10 col-sm-12">
@@ -335,19 +294,15 @@
               <div class="col-md-1">
                 </div>
            
-            </div>
+            </div> -->
 
       <div class="row">
-        <div class="col-md-1">
+        <div class="col-md-4">
 
           </div>
-      <div class="col-md-10 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-      border-radius: 2px;" (mouseover)="changeStatusText=false" (mouseout)="changeStatusText=true">
-      <div *ngIf="!changeStatusText" class="text-center">
-        <p>Select the Model </p>
-          <a (click)="getStatus()" class="text-center" style="color: green;" >Book Now</a>
-     </div>
-     <div *ngIf="changeStatusText" class="text-center"> 
+      <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
+      border-radius: 2px;">
+     <div  class="text-center"> 
       <a (click)="getStatus()" class="text-center">
         <img class="img-center" src="../../../assets/images/Booking  status.jpg">
         <span>&nbsp;</span>
@@ -356,7 +311,7 @@
     </div>
      
       </div>
-      <div class="col-md-1">
+      <div class="col-md-4">
 
       </div>
     </div>
@@ -365,14 +320,15 @@
   </div>
   <div class="row">
       <div class="col-md-12">
-          <img class="img-fluid" src="../../../assets/images/partner.jpg">
-        </div>
+        <img class="img-fluid" src="../../../assets/images/strips.jpg">
+      </div>
     </div>
+ 
   <div class="row">
     <div class="col-md-12 homeImage text-center ">
       <h1 class="homeImage border-top border-bottom">Services</h1>
     </div>
-    <div class="col-md-3 homeImage">
+    <!-- <div class="col-md-3 homeImage">
       <a [routerLink]="['/dashboard/models']">
         <mat-card class="example-card bookingImages">
           <mat-card-header>
@@ -488,31 +444,60 @@
         </mat-card>
       </a>
     </div>
-
+ -->
   </div>
+  <div class="row">
+      <div class="col-md-12">
+          <img class="img-fluid" src="../../../assets/images/partnered.jpg">
+        </div>
+    </div>
   <div class="row">
 
     <div class="col-md-12  text-center ">
       <h1 class="homeImage border-top border-bottom">How it Works</h1>
     </div>
-    <div class="col-md-4" style="min-height: 150px;">
-        <img  class="img-center" src="../../../assets/images/icon 1.jpg">
-        <p class="text-center">text</p>
+    <div class="col-md-3" style="min-height: 150px;">
+        <img  class="img-center" src="../../../assets/images/icon.jpg">
+        <h4 class="text-center">Do a Booking</h4>
+        <p class="text-center">Post your Digital requirement we will get executed</p>
     </div>
-    <div class="col-md-4" style="min-height: 150px;">
-        <img  class="img-center" src="../../../assets/images/icon 2.jpg">
-        <p class="text-center">text</p>
+    <div class="col-md-3" style="min-height: 150px;">
+        <img  class="img-center" src="../../../assets/images/1.jpg">
+        <h4 class="text-center">Approve the Booking</h4>
+        <p class="text-center">Your booking required will be evaluated and approval within 24 hours</p>
        
         
      
     </div>
-    <div class="col-md-4" style="min-height: 150px;">
-        <img  class="img-center" src="../../../assets/images/icon 3.jpg">
-      <p class="text-center">text</p>
+    <div class="col-md-3" style="min-height: 150px;">
+        <img  class="img-center" src="../../../assets/images/icon1.jpg">
+      <h4 class="text-center">Execute the Booking</h4>
+      <p class="text-center">Requirement is processed with industry professional and communicated at different stage</p>
+
+    </div>
+    <div class="col-md-3" style="min-height: 150px;">
+        <img  class="img-center" src="../../../assets/images/icon2.jpg">
+      <h4 class="text-center">Deliver the Booking</h4>
+      <p class="text-center">Booking completion and payment completion </p>
 
     </div>
 
   </div>
+
+  <!-- <div class="row">
+      <div class="col-md-3" style="min-height: 150px;">
+          <p class="text-center">Post your Digital requirement we will get executed</p>
+      </div>
+      <div class="col-md-3" style="min-height: 150px;">
+          <p class="text-center">Your booking required will be evaluated and approval within 24 hours</p>
+      </div>
+      <div class="col-md-3" style="min-height: 150px;">
+          <p class="text-center">Requirement is processed with industry professional and communicated at different stage</p>
+      </div>
+      <div class="col-md-3" style="min-height: 150px;">
+          <p class="text-center">Booking </p>
+      </div>
+  </div> -->
   <!-- <div class="row">
     <div class="col-md-12  text-center ">
       <h1 class="homeImage border-top border-bottom">Client</h1>
