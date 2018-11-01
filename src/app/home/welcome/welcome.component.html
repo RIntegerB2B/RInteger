@@ -1,323 +1,390 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12 ">
-      <!--  <slideshow [height]="'350px'" width="100%"
-        [minHeight]="'150px'"
-        [autoPlay]="true"
-        [showArrows]="true"
-        [imageUrls]="imageSources"
-        [lazyLoad]="imageSources?.length > 1"
-        [autoPlayWaitForLazyLoad]="true" [showDots]="true" [dotColor]="'black'"  >
-</slideshow> -->
       <img class="img-fluid" src="../../../assets/images/newbanner.jpg">
-
-      <!--  <carousel class="carousel-images" [showIndicators]="false" style="height:150px;">
-        <slide>
-          <img  class="banners" src="../../../assets/images/" alt="first slide" width="100%" >
-        </slide>
-        <slide>
-          <img class="banners" src="../../../assets/images/Banner-1.jpg" alt="second slide" width="100%">
-        </slide>
-        <slide>
-          <img class="banners" src="../../../assets/images/Banner-3.jpg" alt="third slide" width="100%">
-        </slide>
-      </carousel> -->
     </div>
   </div>
  
-  <div class="row" style = "margin-top:20px;padding-bottom: 20px;">
-    <div class="col-md-12">
-        <h1 class="text-center">Complete Booking Services for your Online Business</h1>
-    </div>
-
+  <div class="container headerBox" >
+        <h2 class="display-1 text-center">Complete Booking Services for your Online Business</h2>
   </div>
-  <div class="row">
-    <div class="col-md-4 border-right" style="min-height: 301px;">
-        <h5 class="text-center">Studio & Production</h5>
-        <p class="text-center"></p>
-        <div class="row">
-            <div class="col-md-1">
-  
-              </div>
-          <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-          border-radius: 2px;" >
-         <!--  <div *ngIf="!changeBannerText1" class="text-center">
-            <p>Select the Model </p>
-              <a [routerLink]="['/dashboard/registrationSetup']" class="text-center" style="color: green;" >Book Now</a>
-         </div> -->
-          <div  class="text-center"> 
-              <a [routerLink]="['/dashboard/registrationSetup']" class="text-center" >
-                <img class="img-center" src="../../../assets/images/scheduled_booking.jpg">
-                <span>&nbsp;</span>
-                <label> Scheduled Model</label>
-                <b><a [routerLink]="['/dashboard/registrationSetup']" class="text-center"  >Book Now</a></b>
-              </a>
-            </div>
-        
-          </div>
-          <div class="col-md-2">
-  
-          </div>
-          <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-          border-radius: 2px;" >
-         <div  class="text-center"> 
-          <a [routerLink]="['/dashboard/cataloging']" class="text-center">
-            <img  class="img-center" src="../../../assets/images/model shoot booking.jpg">
-            <span>&nbsp;</span>
-            <label>Model Shoot</label>
-            <b><a [routerLink]="['/dashboard/cataloging']" class="text-center">Book Now</a></b>
-          </a>
-        </div>
-          
-          </div>
-          <div class="col-md-1">
-  
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-1">
-  
-              </div>
-          <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-          border-radius: 2px;">
-         <div  class="text-center"> 
-          <a [routerLink]="['/dashboard/aplus']" class="text-center">
-            <img class="img-center" src="../../../assets/images/product shoot booking.jpg">
-            <span>&nbsp;</span>
-            <label> Product Shoot</label>
-            <b><a [routerLink]="['/dashboard/aplus']" class="text-center"  >Book Now</a></b>
-          </a>
-        </div>
-         
-          </div>
-          <div class="col-md-2">
-  
-          </div>
-          <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-          border-radius: 2px;">
-         <div  class="text-center"> 
-          <a [routerLink]="['/dashboard/digitalmgmt']" class="text-center">
-            <img  class="img-center" src="../../../assets/images/Creative shoot booking.jpg">
-            <span>&nbsp;</span>
-            <label>Creative Shoot</label>
-            <b><a [routerLink]="['/dashboard/digitalmgmt']" class="text-center"  >Book Now</a></b>
-          </a>
-        </div>
-         
-          </div>
-          <div class="col-md-1">
-  
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-1">
-  
-              </div>
-          <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-          border-radius: 2px;">
-         <div  class="text-center"> 
-          <a [routerLink]="['/dashboard/editing']" class="text-center">
-            <img class="img-center" src="../../../assets/images/Image Editing booking.jpg">
-            <span>&nbsp;</span>
-            <label> Image Editing</label>
-            <b><a [routerLink]="['/dashboard/editing']" class="text-center"  >Book Now</a></b>
-          </a>
-        </div>
-         
-          </div>
-          <div class="col-md-1">
-  
-          </div>
-         
-          
-        </div>
+  <div class="row display-small-none">
+  <div class="col-md-4 border-right">
+    <h4 class="text-center textSecondHeader">
+        Studio & Production
+    </h4>
+    <div class="row">
+    <div class="col-md-6 col-sm-12 headerSBox">
+        <a  [routerLink]="['/dashboard/viewschedulemodel']">
+      <div class="category">
+          <p class="text-center smallImage">
+            <img src="../../../assets/images/scheduled_booking.jpg">
+          <p>
+         <p class="text-center
+          smallImageText text-muted">Scheduled Model</p>
+          <p class="text-center bookingText">
+            <a>Book Now</a></p>
+      </div>
+    </a>
     </div>
-    <div class="col-md-4 border-right" style="min-height: 301px;">
-      <h5 class="text-center">Digital Business Services</h5>
-    <!--   <p class="text-center">Sample text</p> -->
-      <div class="row">
-          <div class="col-md-1">
-
-            </div>
-        <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-        border-radius: 2px;">
-       
-        <div class="text-center"> 
-            <a [routerLink]="['/dashboard/registrationSetup']" class="text-center" >
-              <img class="img-center" src="../../../assets/images/registrations.jpg">
-              <span>&nbsp;</span>
-              <label> Registration & SetUp</label>
-              <b><a [routerLink]="['/dashboard/registrationSetup']" class="text-center">Book Now</a></b>
-            </a>
-          </div>
-      
-        </div>
-        <div class="col-md-2">
-
-        </div>
-        <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-        border-radius: 2px;">
-       <div class="text-center"> 
-        <a [routerLink]="['/dashboard/cataloging']" class="text-center">
-          <img  class="img-center" src="../../../assets/images/catlog & listing booking.jpg">
-          <span>&nbsp;</span>
-          <label> Cataloging / Listing</label>
-          <b><a [routerLink]="['/dashboard/cataloging']" class="text-center">Book Now</a></b>
-        </a>
+    <div class="col-md-6 col-sm-12 headerSBox">
+        <a  [routerLink]="['/dashboard/models']">
+      <div class="category display-small-none">
+          <p class="text-center smallImage">
+              <img src="../../../assets/images/model shoot booking.jpg">
+          <p>
+         <p class="text-center
+          smallImageText text-muted">Model Shoot</p>
+          <p class="text-center bookingText">
+            <a>Book Now</a></p>
       </div>
-        
-        </div>
-        <div class="col-md-1">
-
-          </div>
-      </div>
-      <div class="row">
-          <div class="col-md-1">
-
-            </div>
-        <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-        border-radius: 2px;">
-       <div class="text-center"> 
-        <a [routerLink]="['/dashboard/aplus']" class="text-center">
-          <img class="img-center" src="../../../assets/images/a+ catlog.jpg">
-          <span>&nbsp;</span>
-          <label> A+ Cataloging</label>
-          <b><a [routerLink]="['/dashboard/aplus']" class="text-center">Book Now</a></b>
-        </a>
-      </div>
-       
-        </div>
-        <div class="col-md-2">
-
-        </div>
-        <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-        border-radius: 2px;">
-       <div  class="text-center"> 
-        <a [routerLink]="['/dashboard/digitalmgmt']" class="text-center">
-          <img  class="img-center" src="../../../assets/images/digital buisness.jpg">
-          <span>&nbsp;</span>
-          <label> Account Management</label>
-          <b><a [routerLink]="['/dashboard/digitalmgmt']" class="text-center">Book Now</a></b>
-        </a>
-      </div>
-       
-        </div>
-        <div class="col-md-1">
-
-          </div>
-      </div>
-      <div class="row">
-          <div class="col-md-1">
-
-            </div>
-        <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-        border-radius: 2px;" >
-       <div class="text-center"> 
-        <a [routerLink]="['/dashboard/marketingservices']" class="text-center">
-          <img class="img-center" src="../../../assets/images/marketing & service booking.jpg">
-          <span>&nbsp;</span>
-          <label> Marketing Services</label>
-          <b><a [routerLink]="['/dashboard/marketingservices']" class="text-center">Book Now</a></b>
-        </a>
-      </div>
-       
-        </div>
-        <div class="col-md-1">
-
-        </div>
-       
-        
-      </div>
+    </a>
     </div>
-    <div class="col-md-4 border-right" style="min-height: 301px;">
-       
-     <!--  <div class="row">
-        
-      </div> -->
-     
-    <div class="row" >
-        <div class="col-md-1">
-          </div>
-          <div  class="col-md-10 col-sm-12">
-              <h5 class="text-center"> IT-Services</h5>
-          </div>
-          <div class="col-md-1">
-            </div>
-       
+    <div class="col-md-6 col-sm-12 headerSBox">
+        <a  [routerLink]="['/dashboard/booking']">
+      <div class="category display-small-none">
+          <p class="text-center smallImage">
+              <img src="../../../assets/images/product shoot booking.jpg">
+          <p>
+         <p class="text-center
+          smallImageText text-muted">Product Shoot</p>
+          <p class="text-center bookingText">
+            <a>Book Now</a></p>
+      </div>
+    </a>
+    </div>
+    <div class="col-md-6 col-sm-12 headerSBox">
+        <a  [routerLink]="['/dashboard/creative']">
+      <div class="category display-small-none">
+          <p class="text-center smallImage">
+              <img src="../../../assets/images/Creative shoot booking.jpg">
+          <p>
+         <p class="text-center
+          smallImageText text-muted">Creative Shoot</p>
+          <p class="text-center bookingText">
+            <a>Book Now</a></p>
+      </div>
+    </a>
+    </div>
+    <div class="col-md-6 col-sm-12 headerSBox">
+        <a  [routerLink]="['/dashboard/editing']">
+      <div class="category display-small-none">
+          <p class="text-center smallImage">
+              <img src="../../../assets/images/Creative shoot booking.jpg">
+          <p>
+         <p class="text-center
+          smallImageText text-muted">Image Editing</p>
+          <p class="text-center bookingText">
+            <a>Book Now</a></p>
+      </div>
+    </a>
+    </div>
+    </div>
+  </div>
+  <div class="col-md-4 border-right">
+      <h4 class="text-center textSecondHeader">
+          Digital Business Services
+      </h4>
+      <div class="row">
+      <div class="col-md-6 col-sm-12 headerSBox">
+          <a  [routerLink]="['/dashboard/registrationSetup']">
+        <div class="category">
+            <p class="text-center smallImage">
+                <img  src="../../../assets/images/registrations.jpg">
+            <p>
+           <p class="text-muted smallImageText">Registration&SetUp</p>
+            <p class="text-center bookingText">
+              <a>Book Now</a></p>
         </div>
-  <!--         
-    <div class="row" >
-        <div class="col-md-1">
-          </div>
-          <div  class="col-md-10 col-sm-12">
-              <p class="text-center">Sample text</p>
-          </div>
-          <div class="col-md-1">
-            </div>
-       
-        </div> -->
-        <div class="row border-bottom" style="padding-bottom: 30px;">
-        <div class="col-md-4">
-          </div>
-      <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-      border-radius: 2px;">
-     <div  class="text-center"> 
-      <a [routerLink]="['/dashboard/itservices']" class="text-center">
-        <img class="img-center" src="../../../assets/images/It service booking.jpg">
-        <span>&nbsp;</span>
-        <label> IT-Services</label>
-        <b><a [routerLink]="['/dashboard/itservices']" class="text-center">Book Now</a></b>
       </a>
-    </div>
-     
       </div>
-      <div class="col-md-4">
-
-      </div>
-    </div>
-    <div class="row" >
-        <div class="col-md-1">
-          </div>
-          <div  class="col-md-10 col-sm-12">
-              <h5 class="text-center"> Booking Status</h5>
-          </div>
-          <div class="col-md-1">
-            </div>
-       
+      <div class="col-md-6 col-sm-12 headerSBox">
+          <a  [routerLink]="['/dashboard/cataloging']">
+        <div class="category">
+            <p class="text-center smallImage">
+                <img  src="../../../assets/images/catlog & listing booking.jpg">
+            <p>
+           <p class="text-center
+            smallImageText text-muted">Cataloging / Listing</p>
+            <p class="text-center bookingText">
+              <a>Book Now</a></p>
         </div>
-       <!--  <div class="row" >
-            <div class="col-md-1">
+      </a>
+      </div>
+      <div class="col-md-6 col-sm-12 headerSBox">
+          <a  [routerLink]="['/dashboard/aplus']">
+        <div class="category">
+            <p class="text-center smallImage">
+                <img src="../../../assets/images/a+ catlog.jpg">
+            <p>
+           <p class="text-center
+            smallImageText text-muted">A+ Cataloging</p>
+            <p class="text-center bookingText">
+              <a>Book Now</a></p>
+        </div>
+      </a>
+      </div>
+      <div class="col-md-6 col-sm-12 headerSBox">
+          <a  [routerLink]="['/dashboard/digitalmgmt']">
+        <div class="category">
+            <p class="text-center smallImage">
+                <img  src="../../../assets/images/digital buisness.jpg">
+            <p>
+           <p class="text-center
+            smallImageText text-muted">Account Management</p>
+            <p class="text-center bookingText">
+              <a>Book Now</a></p>
+        </div>
+      </a>
+      </div>
+      <div class="col-md-6 col-sm-12 headerSBox">
+          <a  [routerLink]="['/dashboard/marketingservices']" >
+        <div class="category">
+            <p class="text-center smallImage">
+                <img src="../../../assets/images/marketing & service booking.jpg">
+            <p>
+           <p class="text-center
+            smallImageText text-muted">
+            Marketing Services
+            </p>
+            <p class="text-center bookingText">
+              <a>Book Now</a></p>
+        </div>
+      </a>
+      </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+        <h4 class="text-center pr-2 textSecondHeader">
+            IT-Services
+        </h4>
+        <div class="row">
+        <div class="offset-md-3 col-md-6 offset-md-3 col-sm-12 headerSBox">
+            <a  [routerLink]="['/dashboard/itservices']">
+          <div class="category">
+              <p class="text-center smallImage">
+                  <img  src="../../../assets/images/It service booking.jpg">
+              <p>
+             <p class="text-muted smallImageText">
+                IT-Services</p>
+              <p class="text-center bookingText">
+                <a>Book Now</a></p>
+          </div>
+        </a>
+        </div>
+      </div>
+      <h4 class="text-center textSecondHeader">
+          Booking Status
+      </h4>
+      <div class="row">
+      <div class="offset-md-3 col-md-6 offset-md-3 col-sm-12 headerSBox">
+          <a  (click)="getStatus()" >
+        <div class="category">
+            <p class="text-center smallImage">
+                <img  src="../../../assets/images/Booking  status.jpg">
+            <p>
+           <p class="text-muted smallImageText" >
+              Booking Status</p>
+            <p class="text-center bookingText">
+              <a>Book Now</a></p>
+        </div>
+      </a>
+      </div>
+    </div>
+</div>
+</div>
+<!-- mobile View -->
+<div class="container d-md-none">
+    <h4 class="text-center textSecondHeader">
+        Studio & Production
+    </h4>
+  <a [routerLink]="['/dashboard/viewschedulemodel']">
+    <div class="row category">
+      <div class="col-3 imageMobile">
+          <img src="../../../assets/images/scheduled_booking.jpg">
+      </div>
+      <div class="col-5 textMobile">
+          Scheduled Model
+      </div>
+      <div class="col-4 bookingText textMobile">
+          <a>Book Now</a>
+      </div>
+    </div>
+    </a>
+    <a [routerLink]="['/dashboard/models']">
+    <div class="row category">
+        <div class="col-3 imageMobile">
+            <img src="../../../assets/images/model shoot booking.jpg">
+        </div>
+        <div class="col-5 textMobile">
+            Model Shoot
+        </div>
+        <div class="col-4 bookingText textMobile">
+            <a>Book Now</a>
+        </div>
+      </div>
+    </a>
+      <a [routerLink]="['/dashboard/booking']">
+    <div class="row category">
+        <div class="col-3 imageMobile">
+          <img src="../../../assets/images/product shoot booking.jpg">
+        </div>
+        <div class="col-5 textMobile">
+          Product Shoot
+        </div>
+        <div class="col-4 bookingText textMobile">
+            <a>Book Now</a>
+        </div>
+      </div>
+    </a>
+    <a  [routerLink]="['/dashboard/creative']">
+      <div class="row category">
+          <div class="col-3 imageMobile">
+            <img src="../../../assets/images/Creative shoot booking.jpg">
+          </div>
+          <div class="col-5 textMobile">
+            Creative Shoot
+          </div>
+          <div class="col-4 bookingText textMobile">
+              <a>Book Now</a>
+          </div>
+        </div>
+      </a>
+      <a [routerLink]="['/dashboard/editing']">
+        <div class="row category">
+            <div class="col-3 imageMobile">
+                <img src="../../../assets/images/Image Editing booking.jpg">
+            </div>
+            <div class="col-5 textMobile">
+              Image Editing
+            </div>
+            <div class="col-4 bookingText textMobile">
+                <a>Book Now</a>
+            </div>
+          </div>
+        </a>
+        <h4 class="text-center textSecondHeader">
+            Studio & Production
+        </h4>
+        <a [routerLink]="['/dashboard/registrationSetup']">
+          <div class="row category">
+              <div class="col-3 imageMobile">
+                <img  src="../../../assets/images/registrations.jpg">
               </div>
-              <div  class="col-md-10 col-sm-12">
-                  <p class="text-center"> Sample text</p>
+              <div class="col-5 textMobile">
+                Registration&SetUp
               </div>
-              <div class="col-md-1">
+              <div class="col-4 bookingText textMobile">
+                  <a>Book Now</a>
+              </div>
+            </div>
+          </a>
+          <a [routerLink]="['/dashboard/cataloging']">
+            <div class="row category">
+                <div class="col-3 imageMobile">
+                  <img  src="../../../assets/images/catlog & listing booking.jpg">
                 </div>
-           
-            </div> -->
+                <div class="col-5 textMobile">
+                  Cataloging / Listing
+                </div>
+                <div class="col-4 bookingText textMobile">
+                    <a>Book Now</a>
+                </div>
+              </div>
+            </a>
+            <a [routerLink]="['/dashboard/aplus']">
+              <div class="row category">
+                  <div class="col-3 imageMobile">
+                    <img src="../../../assets/images/a+ catlog.jpg">
+                  </div>
+                  <div class="col-5 textMobile">
+                    A+ Cataloging
+                  </div>
+                  <div class="col-4 bookingText textMobile">
+                      <a>Book Now</a>
+                  </div>
+                </div>
+              </a>
+              <a [routerLink]="['/dashboard/digitalmgmt']">
+                <div class="row category">
+                    <div class="col-3 imageMobile">
+                      <img  src="../../../assets/images/digital buisness.jpg">
+                    </div>
+                    <div class="col-5 textMobile">
+                      Account Management
+                    </div>
+                    <div class="col-4 bookingText textMobile">
+                        <a>Book Now</a>
+                    </div>
+                  </div>
+                </a>
+                <a [routerLink]="['/dashboard/marketingservices']" >
+                  <div class="row category">
+                      <div class="col-3 imageMobile">
+                          <img src="../../../assets/images/marketing & service booking.jpg">
+                      </div>
+                      <div class="col-5 textMobile">
+                          Marketing Services
+                      </div>
+                      <div class="col-4 bookingText textMobile">
+                          <a>Book Now</a>
+                      </div>
+                    </div>
+                  </a>
+                <h4 class="text-center textSecondHeader">
+                    Studio & Production
+                </h4>
+                <a [routerLink]="['/dashboard/itservices']">
+                  <div class="row category">
+                      <div class="col-3 imageMobile">
+                        <img  src="../../../assets/images/It service booking.jpg">
+                      </div>
+                      <div class="col-5 textMobile">
+                        IT-Services
+                      </div>
+                      <div class="col-4 bookingText textMobile">
+                          <a>Book Now</a>
+                      </div>
+                    </div>
+                  </a>
+                  <h4 class="text-center textSecondHeader">
+                      Studio & Production
+                  </h4>
+                  <a (click)="getStatus()">
+                    <div class="row category">
+                        <div class="col-3 imageMobile" >
+                          <img  src="../../../assets/images/Booking  status.jpg">
+                        </div>
+                        <div class="col-5 textMobile">
+                          Booking Status
+                        </div>
+                        <div class="col-4 bookingText textMobile">
+                            <a>Book Now</a>
+                        </div>
+                      </div>
+                    </a>
+  </div>
 
-      <div class="row">
-        <div class="col-md-4">
 
-          </div>
-      <div class="col-md-4 col-sm-12 shadow-lg p-3 mb-5 bg-white rounded" style="height: 120px;
-      border-radius: 2px;">
-     <div  class="text-center"> 
-      <a (click)="getStatus()" class="text-center">
-        <img class="img-center" src="../../../assets/images/Booking  status.jpg">
-        <span>&nbsp;</span>
-        <label> Booking Status</label>
-      </a>
-    </div>
-     
+
+
+<!-- 
+<div class="container">
+    <div class="row category">
+      <div class="col-3 imageMobile">
+          <img src="../../../assets/images/scheduled_booking.jpg">
       </div>
-      <div class="col-md-4">
-
+      <div class="col-5 textMobile">
+          Scheduled Model
       </div>
-    </div>
-
+      <div class="col-4 bookingText textMobile">
+          <a>Book Now</a>
+      </div>
     </div>
   </div>
+ -->
+
+
   <div class="row">
       <div class="col-md-12">
         <img class="img-fluid" src="../../../assets/images/strips.jpg">

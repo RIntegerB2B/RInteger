@@ -15,6 +15,7 @@ import {DashBoardService} from '../dashboard/dashboard.service';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  color = 'red';
   mobileNo: string;
   showIndicators = false;
   changeText: boolean;
@@ -66,6 +67,9 @@ export class WelcomeComponent implements OnInit {
       this.mobileNo = this.localStorageService.retrieve('mobileno');
       this.router.navigate(['/dashboard/statusView', this.mobileNo]);
     }
+}
+changeStyle($event){
+  this.color = $event.type == 'mouseover' ? 'yellow' : 'red';
 }
 
 }
