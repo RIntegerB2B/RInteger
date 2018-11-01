@@ -68,8 +68,4 @@ export class WelcomeComponent implements OnInit {
       this.router.navigate(['/dashboard/statusView', this.mobileNo]);
     }
 }
-changeStyle($event){
-  this.color = $event.type == 'mouseover' ? 'yellow' : 'red';
-}
-
 }
