@@ -4,13 +4,13 @@ a{
 ul li:not(:last-child)
 {
     padding-bottom: 10px;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 120%;
     color: #777;
 }
 ul li a
 {
-    font-size: 15px;
+    font-size: 12px;
     line-height: 120%;
     color: #777;
 }

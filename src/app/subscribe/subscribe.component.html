@@ -1,39 +1,45 @@
-<div class="container" style="margin-top: 60px; margin-bottom: 580px;" >
-  <div class="row">
-    <div class="offset-md-4">
 
-    </div> 
-    <div  class="col-md-4 subscribeMasterDiv">
-      <form [formGroup]="subscribeForm" (ngSubmit)="subscribeForm.valid && subscribe(subscribeForm,mobileNum.value) " novalidate >
-        <div class="form-group">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Mobile Number" maxlength="10" [(ngModel)]="mobileNo" formControlName="mobileNumber" 
-              #mobileNum required>
-            <button mat-button matSuffix mat-icon-button aria-label="Mobile Number">
-              <mat-icon>phone</mat-icon>
-            </button>
-            <mat-hint color="primary">Ex: 9988776655</mat-hint>
-            <mat-error *ngIf="subscribeForm.controls['mobileNumber'].errors?.required">
-              Mobile Number is
-              <strong>required</strong>
-            </mat-error>
-            <mat-error *ngIf="!subscribeForm.controls['mobileNumber'].errors?.required">
-              Enter valid mobile Number is
-              <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
+ <div class="jumbotron">
+    <div class="backgroundImageDiv">
+            <div class="row">
+              <div class="offset-md-4">
+              </div>
+              <div class="col-md-4 subscribeMasterDiv">
+                <form [formGroup]="subscribeForm" (ngSubmit)="subscribeForm.valid && subscribe(subscribeForm,mobileNum.value) "
+                  novalidate>
+                  <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Mobile Number" maxlength="10" [(ngModel)]="mobileNo" formControlName="mobileNumber"
+                        #mobileNum required>
+                      <button mat-button matSuffix mat-icon-button aria-label="Mobile Number">
+                        <mat-icon>phone</mat-icon>
+                      </button>
+                      <mat-hint color="primary">Ex: 9988776655</mat-hint>
+                      <mat-error *ngIf="subscribeForm.controls['mobileNumber'].errors?.required">
+                        Mobile Number is
+                        <strong>required</strong>
+                      </mat-error>
+                      <mat-error *ngIf="!subscribeForm.controls['mobileNumber'].errors?.required">
+                        Enter valid mobile Number is
+                        <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
         
-        <input   class="btn booking btn-block text-white"  value="Subscribe" type="submit" >
-
-      </form>
+                  <input class="btn booking btn-block text-white" value="Subscribe" type="submit">
+        
+                </form>
+              </div>
+              <div class="offset-md-1">
+        
+              </div>
+              <div class="col-md-3 subscribeDiv">
+        
+                <h5>To get Booking status notification click on the <mark>allow</mark> after clicking <mark>subscribe</mark></h5>
+        
+              </div>
+            </div>
+        
+          
     </div>
-    <div class="offset-md-1">
-
-      </div> 
-    <div class="col-md-3 subscribeDiv" >
-      
-        <h5>To get Booking status notification click on the <mark>allow</mark> after clicking <mark>subscribe</mark></h5>
-      
-      </div> 
-  </div>
+    </div>
