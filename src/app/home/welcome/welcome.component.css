@@ -1,196 +1,3 @@
-@media only screen and (max-width: 767px) {
-
-  /* Add your Mobile Styles here */
-  .div {
-    padding: 0px;
-  }
-
-  .banners {
-    height: 350px;
-    width: 100%;
-  }
-
-}
-
-/* .example-content-studio {
-      background-image: url('../../../assets/images/Studio.jpg');
-      background-size: cover;
-      width: 444px;
-      height:258px;
-      border-radius: 0px;
-      margin:auto;
-      background-position: center; 
-    }
-    .example-content-dbs {
-      background-image: url('../../../assets/images/DBS.jpg');
-      background-size: cover;
-      width: 444px;
-      height:258px;
-      border-radius: 0px;
-      margin:auto;
-      background-position: center; 
-    }
-    .example-content-it {
-      background-image: url('../../../assets/images/IT.jpg');
-      background-size: cover;
-      width: 444px;
-      height:258px;
-      border-radius: 0px;
-      margin:auto;
-      background-position: center; 
-    }
-  
-    .example-header-image-left {
-        background-image: url('../../../assets/images/model.jpg');
-        background-size: cover;
-        width: 110px;
-        height:110px;
-        border-radius: 0px;
-        margin:auto;
-        background-position: center; 
-      }
-      .example-header1-image-left {
-        background-image: url('../../../assets/images/Listing.png');
-        background-size: cover;
-        width: 110px;
-        height:110px;
-        border-radius: 0px;
-        margin:auto;
-        background-position: center; 
-      }
-      .example-header-image-center {
-        background-image: url('../../../assets/images/Shoot.jpg');
-        background-size: cover;
-        width: 110px;
-        height:110px;
-        border-radius: 0px;
-        margin:auto;
-        background-position: center; 
-      }
-      .example-header1-image-center {
-        background-image: url('../../../assets/images/registration.jpg');
-        background-size: cover;
-        width: 110px;
-        height:110px;
-        border-radius: 0px;
-        margin:auto;
-        background-position: center; 
-      }
-      .example-header-image-right {
-        background-image: url('../../../assets/images/Status.jpg');
-        background-size: cover;
-        width: 110px;
-        height:110px;
-        border-radius: 0px;
-        margin:auto;
-        background-position: center; 
-      }
-      .example-header1-image-right {
-        background-image: url('../../../assets/images/marketing.png');
-        background-size: cover;
-        width: 110px;
-        height:110px;
-        border-radius: 0px;
-        margin:auto;
-        background-position: center; 
-      } */
-.title {
-  color: #2f44b1;
-  padding: 10px;
-  margin: 0px;
-  font-size: 1.5em;
-}
-
-.subTitle {
-  padding-right: 18px;
-  padding-left: 18px;
-  text-align: center;
-}
-
-.mat-card {
-  background: #f8f9fa;
-}
-
-h5 a:hover {
-  border-bottom: 1px solid #2f44b1;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-.banner {
-  padding: 0px;
-}
-
-.carousel-images {
-  color: black
-}
-
-.glyphicon.glyphicon-chevron-right {
-  color: red;
-}
-
-.partners {
-  height: 100px;
-  padding-right: 40px;
-}
-
-.client {
-  height: 100px;
-  padding-right: 40px
-}
-
-.services {
-  border-bottom: 3px solid black;
-}
-
-@media screen and (max-width: 600px) {
-  .banners {
-    height: 150px;
-  }
-
-  .carousel img {
-    height: 500px;
-  }
-}
-
-.booking-ul {
-  width: 66%;
-  font-size: 15px;
-  padding: 0 10px 10px;
-}
-
-ul {
-  list-style: none;
-}
-
-ul li {
-  position: relative;
-  display: inline-block;
-  padding: 50px 10px 10px;
-  width: 50%;
-  font-size: 11px;
-  text-align: center;
-  text-transform: uppercase;
-  border-bottom: 1px solid #f5f5f5;
-  border-right: 1px solid #f5f5f5;
-  vertical-align: bottom;
-  transition: 0.5s ease;
-}
-
-.img-center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto
-}
-
-.box-menu {
-  height: 120px;
-  border-radius: 2px;
-  font-family: 'Gotham SSm', Helvetica, Arial, sans-serif;
-
-}
 
 .headerBox {
   margin-top: 30px;
@@ -217,7 +24,13 @@ padding-left: 5px;
 .smallImage {
   margin-top: 20px;
 }
-
+.textFont
+{
+  font-family: "Gotham SSm",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  padding-left: 20px;
+  line-height: 21px;
+}
 .category {
   width: 100%;
   height: 80%;
@@ -248,8 +61,39 @@ padding-left: 5px;
 .hiddenText{
 visibility: hidden
 }
-
+.responsive {
+  max-width: 100%;
+  height: auto;
+}
+.secondDiv
+{
+  background: #f9f9f9;
+}
+.textLarge
+{
+  padding-left: 20px;
+  line-height: 21px;
+}
+.vdash {
+  width: 100%;
+  display: block;
+  height: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: #e0e0e0;
+}
+.headerImage
+{
+  margin-top:10px;
+}
 @media screen and (max-width: 760px) {
+  .banners {
+    height: 150px;
+  }
+
+  .carousel img {
+    height: 500px;
+  }
   .category {
     height: 50px;
     border-radius: 2px;
@@ -279,18 +123,6 @@ visibility: hidden
     text-align: left !important;
     margin: 0px !important;
   }
-
-  /* .mobileList img {
-    float: left;
-    margin-right: 10px;
-    padding: 5px;
-  } */
-
-  /* .mobileList div {
-    display: inline;
-    margin-right: 10px;
-  }
- */
   .smallImage {
     text-align: left !important;
     margin-top: 5px;
@@ -319,5 +151,19 @@ visibility: hidden
   {
     padding-top:5px;
   }
+  .vdash {
+    width: 100%;
+    display: block;
+    height: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #e0e0e0;
+}
 
+}
+.item
+{
+  margin-left: .8%;
+    margin-right: .8%;
+    flex: 0 0 19%;
 }

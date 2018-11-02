@@ -10,7 +10,7 @@ import { CarouselModule } from 'ngx-bootstrap';
 import { AngularFontAwesomeModule} from 'angular-font-awesome';
 import { SliderModule } from 'angular-image-slider';
 import { DragScrollModule } from 'ngx-drag-scroll';
-
+import { OwlModule } from 'ngx-owl-carousel';
 
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -144,6 +144,7 @@ import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account
     ReactiveFormsModule,
     AngularFontAwesomeModule,
     Ng2Webstorage,
+    OwlModule,
     BrowserAnimationsModule,
     SliderModule,
     MatCardModule,

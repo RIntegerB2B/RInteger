@@ -1,4 +1,4 @@
-
+<!-- 
 
 <div class="container-fluid banner">
   
@@ -14,4 +14,15 @@
   </slide>
 </carousel>
 
+</div> -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <owl-carousel [options]="myCarouselOptions" [items]="images">
+        <div class="sliderImage" *ngFor="let image of fullImages;let i = index">
+          <img src={{image}} />
+        </div>
+      </owl-carousel>
+    </div>
+  </div>
 </div>

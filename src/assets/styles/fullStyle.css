@@ -52,5 +52,12 @@ body {
     .status {
       font-size:10px;
     }
+    .owl-next{
+      right: -20px;
+  }
+  .owl-prev{
+    right: -20px;
+}
+   
 }
 /* booking types */

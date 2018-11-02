@@ -52,6 +52,7 @@ const routes: Routes = [
     { path: 'digitalmgmtservice', component: DigitalMgmtComponent },
     { path: 'itservicesdetails', component: ItServicesComponent },
     { path: 'pricing', component: PricingComponent },
+    { path: 'banner', component: BannerComponent },
     {
             path: 'dashboard', component: DashboardComponent,
           children: [
@@ -66,7 +67,7 @@ const routes: Routes = [
     { path: 'bookingstatus', component: AllStatusComponent },
     { path: 'statusView', component: StautsViewComponent },
     { path: 'newUser', component: NewUserStatusComponent },
-    { path: 'banner', component: BannerComponent },
+    
     /* { path: 'aboutUs', component: AboutusComponent }, */
   /*   { path: 'contact', component: ContactComponent }, */
     /* { path: 'studio', component: StudioComponent }, */
