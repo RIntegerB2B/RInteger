@@ -1,50 +1,33 @@
 <div class="container" style="margin-top: 20px">
-  <div class="row navbar newBar">
-    <div class="nav-item text-white">
-      <a class="nav-link"><button mat-button class="menuBtn" (click)="onHiden()">ECOMMERCE STUDIO - PHOTO & VIDEO</button></a>
-    </div>
-    <div class="nav-item text-white">
-      <a class="nav-link"><button mat-button class="menuBtn" (click)="onCreative()">CREATIVE STUDIO - PHOTO & VIDEO</button></a>
-    </div>
-    <div class="nav-item text-white">
-      <a class="nav-link"><button mat-button class="menuBtn" (click)="onPreProduction()">PRE PRODUCTION</button></a>
-    </div>
-    <div class="nav-item text-white">
-      <a class="nav-link"><button mat-button class="menuBtn" (click)="onPostProduction()">POST PRODUCTION</button></a>
-    </div>
-    <div class="nav-item text-white">
-      <a class="nav-link"><button mat-button  class="menuBtn" (click)="onStudio()">STUDIO</button></a>
-    </div>
-  </div>
   <div class="col-md-12 text-center d-md-none d-lg-none">
     <div class="form-group">
       <mat-form-field>
-        <mat-select [(value)]="selected">
-          <mat-option value="Ecommerce Studio">
-            <button mat-button (click)="onHiden()">ECOMMERCE STUDIO - PHOTO & VIDEO</button>
+        <mat-select [(ngModel)]="selectedValue">
+          <mat-option  *ngFor="let service of services; let i =index"
+           (onSelectionChange)="onSelect(service)" 
+           [value]="service"
+           >
+            {{service.name}}
           </mat-option>
-          <mat-option value="Creative Studio">
-            <button mat-button (click)="onCreative()">CREATIVE STUDIO - PHOTO & VIDEO</button>
-          </mat-option>
-          <mat-option value="Pre Production">
-            <button mat-button (click)="onPreProduction()">PRE PRODUCTION</button>
-          </mat-option>
-          <mat-option value="Post Production">
-            <button mat-button (click)="onPostProduction()">POST PRODUCTION</button>
-          </mat-option>
-          <mat-option value="Studio">
-              <button mat-button (click)="onStudio()">STUDIO</button>
-            </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
-
   </div>
-  <div class="row" style="padding-top: 40px;">
-    <div class="col-md-12">
+  <div class="row fullServices">
+    <div class="col-md-4 display-small-none">
+        <h3 class="textSecondHeader">SERVICES</h3>
+        <ul class="services">
+          <li *ngFor="let service of services"
+            [class.selected]="service === selectedHero"
+            (click)="onSelect(service)" class="smallImageText">
+             {{service.name}}
+          </li>
+        </ul>
+    </div>
+    <div class="col-md-8 col-12">
       <div *ngIf="hideEcommerce">
-        <h5 class="text-center">ECOMMERCE PRODUCTION - PHOTO & VIDEO</h5>
-        <h6 class="text-center">Ecommerce product and model photography and videography Studio Service in Bangalore.</h6>
+        <h5 class="text-center textSecondHeader">ECOMMERCE PRODUCTION - PHOTO & VIDEO</h5>
+        <h6 class="text-center text-muted smallImageText">Ecommerce product and model photography and videography Studio Service in Bangalore.</h6>
         <p>RInteger Ecommerce productions objective is to create different products digital copy through photography
           and videography. The converted digital forms are used across different marketplaces like Amazon, Flipkart,
           PayTM, Snapdeal, Myntra, Jabong, Voonik and more. RInteger Ecommerce Studio understands the marketplace
@@ -62,8 +45,8 @@
 
       </div>
       <div *ngIf="hideCreative">
-        <h5 class="text-center">CREATIVE PRODUCTION - PHOTO & VIDEO</h5>
-        <h6 class="text-center">Creative product and model photography and videography studio services in bangalore
+        <h5 class="text-center textSecondHeader">CREATIVE PRODUCTION - PHOTO & VIDEO</h5>
+        <h6 class="text-center text-muted smallImageText">Creative product and model photography and videography studio services in bangalore
         </h6>
         <p>Unique designs and creations are displayed to the customers with more value using creative shoot services.
           Adding more visual content to a product through outdoor shoots, adding creative background , adding
@@ -109,25 +92,25 @@
         </ol>
       </div>
 
-      <div *ngIf="hidePreProduction">
-        <h5 class="text-center">PRE PRODUCTION</h5>
-        <h6 class="text-center">Model Agency , Studio setup ,  product and model photography and videography pre production  services in bangalore
+      <div *ngIf="hidePreProduction ">
+        <h5 class="text-center textSecondHeader">PRE PRODUCTION</h5>
+        <h6 class="text-center text-muted smallImageText">Model Agency , Studio setup ,  product and model photography and videography pre production  services in bangalore
           </h6>
         <p>Rinteger pre production unit organizes the entire resources required for both Ecommerce shoot and Creative Shoot, be it either indoor shoot or outdoor shoot. The team is well connected with multiple model agencies across the country to work with leading international and national models and artist. Leading photographers , stylist, art directors, makeup artist can also be engaged based on the requirement of the shoot. 
           </p>
 
       </div>
       <div *ngIf="hidePostProduction">
-        <h5 class="text-center">POST PRODUCTION</h5>
-        <h6 class="text-center">Photo Editing Services, Photo Enhancement services, Video Editing Services , Ecommerce photo editing, White background Image Editing, Image Background Removal 
+        <h5 class="text-center textSecondHeader">POST PRODUCTION</h5>
+        <h6 class="text-center text-muted smallImageText">Photo Editing Services, Photo Enhancement services, Video Editing Services , Ecommerce photo editing, White background Image Editing, Image Background Removal 
           </h6>
         <p>Rinteger post production team has indeed strong experience across image and video post production work for different domains. Image editing services from background removal to image enhancement is done under rinteger editing services. 
 
           </p>
       </div>
       <div *ngIf="hideStudio">
-          <h5 class="text-center">STUDIO</h5>
-          <h6 class="text-center">Studio rental in Bangalore, Ecommerce Studio Rental in Bangalore, Studio Rental with Equipments, Studio Rental with accessories, Accessories for model shoot, Shoot Props
+          <h5 class="text-center textSecondHeader">STUDIO</h5>
+          <h6 class="text-center text-muted smallImageText">Studio rental in Bangalore, Ecommerce Studio Rental in Bangalore, Studio Rental with Equipments, Studio Rental with accessories, Accessories for model shoot, Shoot Props
 
             </h6>
           <p>RInteger Studio is located at JP Nagar Bangalore, and the studio is equipped with accessories, backdrop, equipments required for photoshoot and video shoot. The studio is around 1500 Sq feet space and is available for 24/7 across the calendar year. 

@@ -12,17 +12,43 @@ export class StudioComponent implements OnInit {
   hidePostProduction = false;
   hideStudio = false;
   selected = 'Ecommerce Studio';
+  selectedHero;
+  num = 2;
+  services = [
+    {  name: 'Ecommerce Studio - Photo & Video' },
+    {  name: 'Creative Studio - Photo & Video' },
+    {  name: 'Pre Production' },
+    {  name: 'Post Production' },
+    {  name: 'Studio' },
+  ];
+  selectedValue = this.services[0].name;
+
   constructor() { }
 
   ngOnInit() {
-    this.onHiden();
+    this.onSelect(this.services[0]);
+    this.selectedValue = this.services[0].name;
   }
-  onHiden() {
+  onEcommerce() {
     this.hideEcommerce = true;
     this.hideCreative = false;
     this.hidePreProduction = false;
     this.hidePostProduction = false;
     this.hideStudio = false;
+    }
+  onSelect(service): void {
+    if (service.name  === 'Ecommerce Studio - Photo & Video') {
+      this.onEcommerce();
+   } else if (service.name  === 'Creative Studio - Photo & Video') {
+      this.onCreative();
+   } else if (service.name  === 'Pre Production') {
+      this.onPreProduction();
+   } else if (service.name  === 'Post Production') {
+        this.onPostProduction();
+   } else {
+      this.onStudio();
+    }
+    this.selectedHero = service;
   }
   onCreative()  {
     this.hideEcommerce = false;

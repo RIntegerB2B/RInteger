@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { DashBoardService } from '../dashboard/dashboard.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   logout() {
     this.logoutValue = this.localStorageService.retrieve('userLoggedIn');
     if (this.logoutValue === 'true') {
-this.showLogout = true;
+    this.showLogout = true;
     }
   }
   homePage() {

@@ -1,20 +1,41 @@
-
-.navbar {
+    .selected {
+    background-color: #37a000 !important;
+    color: white;
+  }
+  .services {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .services li {
+    cursor: pointer;
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding:0px;
-    justify-content: start;
-    background-color: #EEEEEE;
+    left: 0;
+    background-color: #EEE;
+    margin-bottom: .5em;
+    padding: 2em;
   }
-  .menuBtn {
-    background-color:lightslategray;
+  
+  .fullServices
+  {
+    height: 100%;
+    widows: 100%;
+    margin-bottom: 20%;
   }
-  @media screen and (max-width: 600px) {
-    .newBar
-    {
-        display:none;
-    }
-    
-}
+  .fullServices p
+  {
+    margin-bottom: 1rem;
+    line-height: 2em;
+  }
+  .fullServices ol li
+  {
+    margin-bottom: 1rem;
+    line-height: 2em;
+  }
+  .fullServices h6
+  {
+    margin-bottom: 1rem;
+    line-height: 2em;
+  }
