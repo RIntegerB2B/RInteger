@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ElementRef, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { DashBoardService } from '../dashboard/dashboard.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';

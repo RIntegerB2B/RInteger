@@ -16,7 +16,7 @@
   
         <li class="nav-item">
           <div class="dropdown">
-            <a [routerLink]="['/studio']" class="nav-link">Services</a>
+            <a [routerLink]="['/studio']" (click)="collapseMenu()" class="nav-link">Services</a>
             <!-- <div class="dropdown-content">
               <a [routerLink]="['/studio']" (click)="collapseMenu()">Studio & Production </a>
               <a [routerLink]="['/digitalmgmtservice']" (click)="collapseMenu()">Digital-Business-Management </a>
