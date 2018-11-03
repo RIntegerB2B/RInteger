@@ -153,7 +153,24 @@ li {
   right: 5px;
   font-size: 18px;
 }
-.sidenav-hold .sidenav
-{
+
+.sidenav-hold .sidenav {
   padding-left: 37px !important;
+}
+
+.mat-nav-list {
+  padding-top: 0px;
+}
+.navbar-nav .nav-item 
+{
+  padding-bottom: 5px !important;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: .3px;
+    font-weight: 400;
+}
+.navbar-nav .nav-item:hover
+{
+background: #6e6e6e;
+  color:  #ffff;
 }

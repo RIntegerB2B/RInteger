@@ -1,12 +1,7 @@
-<!-- <button (click)="showDashBoard()">Test</button> -->
-<!-- *ngIf="dashboardService?.menuTransparent" -->
-
 
 <div  class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar class="example-toolbar">
-    <!--  <button mat-icon-button (click)="homePage()">
-      <mat-icon>home</mat-icon>
-    </button> -->
+    
     
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
@@ -187,7 +182,8 @@
                           </mat-expansion-panel-header>
                           <ul class="navbar-nav">
                             <li class="nav-item ">
-                              <a class="pointer" [routerLink]="['itservices']">IT - Services </a><br>
+                              <a class="pointer" routerLinkActive="routeActive" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['itservices']"> 
+                                IT - Services </a><br>
                             </li>
                           </ul>
                          </mat-expansion-panel>
