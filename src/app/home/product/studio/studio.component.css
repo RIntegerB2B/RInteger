@@ -1,5 +1,20 @@
-    .selected {
-    background-color: #37a000 !important;
+  .selected {
+    background-color:rgb(161, 180, 238) !important;
+    color: white;
+  }
+  .subSelected
+  {
+    background-color:lightslategray !important;
+    color: white;
+  }
+  .digitalSubSelected
+  {
+    background-color:lightslategray !important;
+    color: white;
+  }
+  .itSubSelected
+  {
+    background-color:lightslategray !important;
     color: white;
   }
   .services {
@@ -15,13 +30,25 @@
     left: 0;
     background-color: #EEE;
     margin-bottom: .5em;
-    padding: 2em;
+  }
+
+  .headerService li {
+    cursor: pointer;
+    background-color: #DDD;
+    margin-right: .4em;
+    float: left;
+    list-style: none;
+    padding: 5px;
+  }
+  .headerService
+  {
+    margin: 1px;
   }
   
   .fullServices
   {
     height: 100%;
-    widows: 100%;
+    width: 100%;
     margin-bottom: 20%;
   }
   .fullServices p
@@ -39,3 +66,24 @@
     margin-bottom: 1rem;
     line-height: 2em;
   }
+  .sideMenu {
+    margin-top: 10px;
+    text-align: center !important;
+    font-size: 13px;
+    font-weight: bolder;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding:0px;
+  justify-content: start;
+  background-color: #EEEEEE;
+}
+.menuBtn {
+  background-color:lightslategray;
+}
