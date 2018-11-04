@@ -1,4 +1,4 @@
-<div *ngFor="let dataDashboard of routerData">
+<div *ngFor="let dataDashboard of routerData; let i = index">
   <app-header *ngIf="dataDashboard.path === 'dashboard'"></app-header>
 </div>
 <router-outlet></router-outlet>

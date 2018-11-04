@@ -16,12 +16,12 @@
     border: none;
 }
 
-.dropdown {
+/* .dropdown {
     position: relative;
     display: inline-block;
-}
+} */
 
-.dropdown-content {
+/* .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
@@ -39,4 +39,4 @@
 
 .dropdown-content a:hover {background-color: #ddd;}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: block;} */
