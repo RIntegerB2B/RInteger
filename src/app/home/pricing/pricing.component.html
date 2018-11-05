@@ -1,98 +1,13 @@
 <div class="container-fluid" style="margin-top: 60px; margin-bottom: 250px;">
   <div class="row">
-    <div class="col-md-3" style="padding-bottom:20px;">
-            <ul class="newBar">
-              <!-- <li class="nav-item  sub-heading menu">
-                <a class="nav-link" (click)="showOverView()">PORTFOLIO OVERVIEW</a>
-              </li> -->
-              <li class="nav-item  sub-head menu">
-                <a class="nav-link" (click)="showModel()">ECOMMERCE MODEL SHOOT</a>
-              </li>
-              <li class="nav-item   sub-head menu">
-                  <a class="nav-link" (click)="showProduct()">ECOMMERCE PRODUCT SHOOT</a>
-                </li>
-                <li class="nav-item   sub-head menu">
-                    <a class="nav-link" (click)="showKids()">ECOMMERCE KIDS SHOOT</a>
-                  </li>
-              <li class="nav-item   sub-head menu">
-                <a class="nav-link" (click)="showVideo()">ECOMMERCE VIDEO SHOOT </a>
-              </li>
-              <li class="nav-item   sub-head menu">
-                <a class="nav-link" (click)="showClientLocation()">ECOMMERCE CLIENT LOCATION</a>
-              </li>
-              <li class="nav-item   sub-head menu">
-                  <a class="nav-link" (click)="showEditing()">EDITING SERVICES</a>
-                </li>
-                <li class="nav-item   sub-head menu">
-          <a class="nav-link" (click)="showCreative()">CREATIVE SHOOT PRICING</a>
-                  </li>
-                  <li class="nav-item   sub-head menu">
-                      <a class="nav-link" (click)="showRegistration()">REGISTRATION & LISTING</a>
-                    </li>
-                    <li class="nav-item   sub-head menu">
-                        <a class="nav-link" (click)="showEnhance()">ENHANCE CATALOG</a>
-                      </li>
-                      <li class="nav-item  sub-head menu">
-                          <a class="nav-link" (click)="showDBMarketPlace()">DIGITAL BUSINESS MANAGEMENT - MARKET PLACE</a>
-                        </li>
-                        <li class="nav-item  sub-head menu">
-                            <a class="nav-link" (click)="showDBSocialMedia()">DIGITAL BUSINESS MANAGEMENT - SOCIAL MEDIA</a>
-                          </li>
-                          <li class="nav-item  sub-head menu">
-                              <a class="nav-link" (click)="showWebsiteDev()">WEBSITE DEVELOPMENT</a>
-                            </li>
-            </ul>
-          
+    <div class="col-md-3  col-12">
+      <ul class="services">
+        <li *ngFor="let service of services" [class.subPrice]="service === selectedPrice" (click)="onSelect(service)"
+          class="sideMenu">
+          {{service.name}}
+        </li>
+      </ul>
     </div>
-    <div class="col-md-12 text-center d-md-none d-lg-none">
-        <div class="form-group">
-
-          <mat-form-field>
-            <mat-select  placeholder="PRICING" >
-             <!--  <mat-option value="Overview">
-                <button mat-button (click)="showOverView()">PORTFOLIO OVERVIEW</button>
-              </mat-option> -->
-              <mat-option value="Ad">
-                <button mat-button (click)="showModel()">ECOMMERCE MODEL SHOOT</button>
-              </mat-option>
-              <mat-option value="BANNER SOCIAL">
-                  <button mat-button (click)="showProduct()">ECOMMERCE PRODUCT SHOOT</button>
-                </mat-option>
-                <mat-option value="Bottom">
-                    <button mat-button (click)="showKids()">ECOMMERCE KIDS SHOOT</button>
-                  </mat-option>
-                  <mat-option value="Bottom">
-                      <button mat-button (click)="showVideo()">ECOMMERCE VIDEO SHOOT</button>
-                    </mat-option>
-                    <mat-option value="Bottom">
-                        <button mat-button (click)="showClientLocation()">ECOMMERCE CLIENT LOCATION</button>
-                      </mat-option>
-                      <mat-option value="Bottom">
-                        <button mat-button (click)="showEditing()">EDITING SERVICES</button>
-                      </mat-option>
-                      <mat-option value="Bottom">
-                        <button mat-button (click)="showCreative()">CREATIVE SHOOT PRICING</button>
-                      </mat-option>
-                      <mat-option value="Bottom">
-                        <button mat-button (click)="showRegistration()">REGISTRATION & LISTING</button>
-                      </mat-option>
-                      <mat-option value="Bottom">
-                        <button mat-button (click)="showEnhance()">ENHANCE CATALOG</button>
-                      </mat-option>
-                      <mat-option value="Bottom">
-                        <button mat-button (click)="showDBMarketPlace()">DIGITAL BUSINESS MANAGEMENT - MARKET PLACE</button>
-                      </mat-option>
-                      <mat-option value="Bottom">
-                          <button mat-button (click)="showDBSocialMedia()">DIGITAL BUSINESS MANAGEMENT - SOCIAL MEDIA</button>
-                        </mat-option>
-                        <mat-option value="Bottom">
-                            <button mat-button (click)="showWebsiteDev()">WEBSITE DEVELOPMENT</button>
-                          </mat-option>
-            </mat-select>
-
-          </mat-form-field>
-        </div>
-      </div><br>
     <div class="col-md-9" style="padding-bottom:20px;" *ngIf="model">
       <p class="heading">Ecommerce Model Shoot Pricing </p>
       <div class="col-md-12 ">
@@ -159,281 +74,281 @@
     </div>
 
     <div class="col-md-9" style="padding-bottom:20px;" *ngIf="product">
-        <p class="heading">Ecommerce Product Shoot Pricing </p>
-        <p class="sub-heading">Products Shoot</p>
-        <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
-          <thead>
-            <tr>
-              <th scope="col">Services (Including Editing)</th>
-              <th scope="col">Price for 3 Angles of Images</th>
-              <th scope="col">Price for 5 Angles of Images</th>
-              <th scope="col">Additional Angles of Images</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> Jewellery</td>
-              <td> ₹100</td>
-              <td>NA</td>
-              <td>₹15</td>
-            </tr>
-            <tr>
-              <td>Footwear</td>
-              <td>₹80 </td>
-              <td>₹100</td>
-              <td>₹15</td>
-            </tr>
-            <tr>
-              <td> Bags (Backpacks, Hand Bags, Wallets)</td>
-              <td>₹80</td>
-              <td>₹100</td>
-              <td>₹15</td>
-            </tr>
-            <tr>
-              <td> Sunglasseses</td>
-              <td>₹80</td>
-              <td>₹100</td>
-              <td>₹15</td>
-            </tr>
-            <tr>
-              <td>
-                Computer & Mobile Accessories</td>
-              <td>₹70</td>
-              <td>₹100</td>
-              <td>₹10</td>
-            </tr>
-            <tr>
-              <td> Beauty & Health Care</td>
-              <td>₹70</td>
-              <td>₹100</td>
-              <td>₹10</td>
-            </tr>
-            <tr>
-              <td> Books</td>
-              <td>₹70</td>
-              <td> ₹100</td>
-              <td>₹10</td>
-            </tr>
-            <tr>
-              <td> Home Decor Products</td>
-              <td>NA</td>
-              <td> ₹100 - ₹250</td>
-              <td>₹15</td>
-            </tr>
-            <tr>
-              <td> Mannequin</td>
-              <td>₹100-₹150</td>
-              <td> NA</td>
-              <td>NA</td>
-            </tr>
-            <tr>
-              <td> Musical Instruments</td>
-              <td>NA</td>
-              <td> ₹100 - ₹250</td>
-              <td>₹15</td>
-            </tr>
-            <tr>
-              <td> Kitchen Needs</td>
-              <td>NA</td>
-              <td> ₹100 - ₹250</td>
-              <td>₹15</td>
-            </tr>
-            <tr>
-            </tr>
-          </tbody>
-        </table>
+      <p class="heading">Ecommerce Product Shoot Pricing </p>
+      <p class="sub-heading">Products Shoot</p>
+      <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
+        <thead>
+          <tr>
+            <th scope="col">Services (Including Editing)</th>
+            <th scope="col">Price for 3 Angles of Images</th>
+            <th scope="col">Price for 5 Angles of Images</th>
+            <th scope="col">Additional Angles of Images</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> Jewellery</td>
+            <td> ₹100</td>
+            <td>NA</td>
+            <td>₹15</td>
+          </tr>
+          <tr>
+            <td>Footwear</td>
+            <td>₹80 </td>
+            <td>₹100</td>
+            <td>₹15</td>
+          </tr>
+          <tr>
+            <td> Bags (Backpacks, Hand Bags, Wallets)</td>
+            <td>₹80</td>
+            <td>₹100</td>
+            <td>₹15</td>
+          </tr>
+          <tr>
+            <td> Sunglasseses</td>
+            <td>₹80</td>
+            <td>₹100</td>
+            <td>₹15</td>
+          </tr>
+          <tr>
+            <td>
+              Computer & Mobile Accessories</td>
+            <td>₹70</td>
+            <td>₹100</td>
+            <td>₹10</td>
+          </tr>
+          <tr>
+            <td> Beauty & Health Care</td>
+            <td>₹70</td>
+            <td>₹100</td>
+            <td>₹10</td>
+          </tr>
+          <tr>
+            <td> Books</td>
+            <td>₹70</td>
+            <td> ₹100</td>
+            <td>₹10</td>
+          </tr>
+          <tr>
+            <td> Home Decor Products</td>
+            <td>NA</td>
+            <td> ₹100 - ₹250</td>
+            <td>₹15</td>
+          </tr>
+          <tr>
+            <td> Mannequin</td>
+            <td>₹100-₹150</td>
+            <td> NA</td>
+            <td>NA</td>
+          </tr>
+          <tr>
+            <td> Musical Instruments</td>
+            <td>NA</td>
+            <td> ₹100 - ₹250</td>
+            <td>₹15</td>
+          </tr>
+          <tr>
+            <td> Kitchen Needs</td>
+            <td>NA</td>
+            <td> ₹100 - ₹250</td>
+            <td>₹15</td>
+          </tr>
+          <tr>
+          </tr>
+        </tbody>
+      </table>
 
-        
-        </div>
-        <div class="col-md-9" style="padding-bottom:20px;" *ngIf="kids">
-            <p class="heading">Ecommerce Kids Shoot Pricing </p>
-            <p class="sub-heading">Kid’s Photoshoot Section</p>
-        <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
-          <thead>
-            <tr>
-              <th scope="col">Services (Including Editing)</th>
-              <th scope="col">National</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> Boy & Girl Products</td>
-              <td> ₹250 - ₹300</td>
-            </tr>
-          </tbody>
-        </table>
-            
-            </div>
-          
-            <div class="col-md-9" style="padding-bottom:20px;" *ngIf="video">
-                <p class="heading">Ecommerce Video Shoot Pricing </p>
-                <p class="sub-heading">Ecommerce Video Shoot</p>
-        <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
-          <thead>
-            <tr>
-              <th scope="col">Services (Including Editing)</th>
-              <th scope="col">National</th>
-              <th scope="col">International</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> Men’s Wear</td>
-              <td> ₹400</td>
-              <td> ₹500</td>
-            </tr>
-            <tr>
-              <td> Women’s Wear</td>
-              <td> ₹400</td>
-              <td> ₹500</td>
-            </tr>
-          </tbody>
-        </table>
-                
-                </div>
 
-                <div class="col-md-9" style="padding-bottom:20px;" *ngIf="client">
-                    <p class="heading">Ecommerce Client Location Pricing </p>
-                    <p class="sub-heading">Ecommerce Client Location</p>
-                    <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
-                      <thead>
-                        <tr>
-                          <th scope="col">Services (Including Editing)</th>
-                          <th scope="col">Price</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td> Photographer with Complete Equipment</td>
-                          <td> ₹8000
-                            (Photographer, Canon 5d with Elinchrom lights(2))</td>
-                        </tr>
-                        <tr>
-                          <td>Photographer Travel & Food Cost</td>
-                          <td> At Actual</td>
-                        </tr>
-                        <tr>
-                          <td>Post Production Cost per Image</td>
-                          <td> ₹5</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    
-                    </div>
+    </div>
+    <div class="col-md-9" style="padding-bottom:20px;" *ngIf="kids">
+      <p class="heading">Ecommerce Kids Shoot Pricing </p>
+      <p class="sub-heading">Kid’s Photoshoot Section</p>
+      <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
+        <thead>
+          <tr>
+            <th scope="col">Services (Including Editing)</th>
+            <th scope="col">National</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> Boy & Girl Products</td>
+            <td> ₹250 - ₹300</td>
+          </tr>
+        </tbody>
+      </table>
 
-                    <div class="col-md-9" style="padding-bottom:20px;" *ngIf="editing">
-                        <p class="heading">Editing Services Pricing </p>
-                        <p class="sub-heading">Editing Services</p>
-                        <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
-                          <thead>
-                            <tr>
-                              <th scope="col">Services (Including Editing)</th>
-                              <th scope="col">Price</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td> White background Editing</td>
-                              <td> ₹10
-                                (Image Cropping and Background removal)</td>
-                            </tr>
-                            <tr>
-                              <td>White background Editing for Jewellery’s</td>
-                              <td> ₹15 - ₹50
-                                (Image Cropping and Background removal)</td>
-                            </tr>
-                            <tr>
-                              <td>Background Editing</td>
-                              <td> ₹50
-                                (Background setting, Color Enhancement)</td>
-                            </tr>
-                            <tr>
-                              <td>Creative Background Editing</td>
-                              <td> ₹100 - ₹500
-                                (Background image creation)</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        
-                        </div>
+    </div>
 
-                        <div class="col-md-9" style="padding-bottom:20px;" *ngIf="registration">
-                            <p class="heading">Registration & Listing  Pricing </p>
-                            <p class="sub-heading">Registration & Listing</p>
-                            <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Services </th>
-                                  <th scope="col">Price</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td> Account and brand registry</td>
-                                  <td> ₹1000
-                                    </td>
-                                </tr>
-                                <tr>
-                                  <td>Basic Listing</td>
-                                  <td> ₹15 
-                                   </td>
-                                </tr>
-                                <tr>
-                                  <td>Advance Listing</td>
-                                  <td> ₹30
-                                   </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            
-                            </div>
+    <div class="col-md-9" style="padding-bottom:20px;" *ngIf="video">
+      <p class="heading">Ecommerce Video Shoot Pricing </p>
+      <p class="sub-heading">Ecommerce Video Shoot</p>
+      <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
+        <thead>
+          <tr>
+            <th scope="col">Services (Including Editing)</th>
+            <th scope="col">National</th>
+            <th scope="col">International</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> Men’s Wear</td>
+            <td> ₹400</td>
+            <td> ₹500</td>
+          </tr>
+          <tr>
+            <td> Women’s Wear</td>
+            <td> ₹400</td>
+            <td> ₹500</td>
+          </tr>
+        </tbody>
+      </table>
 
-                            <div class="col-md-9" style="padding-bottom:20px;" *ngIf="enhance">
-                                <p class="heading">Enhance Catalog  Pricing </p>
-                                <p class="sub-heading">Enhance Catalog </p>
-                                <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">Services </th>
-                                      <th scope="col">Price</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <td> Only with Images</td>
-                                      <td> ₹400
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                      <td>Images with videos</td>
-                                      <td> ₹1000 
-                                       </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                                
-                                </div>
+    </div>
 
-                                
-                            <div class="col-md-9" style="padding-bottom:20px;" *ngIf="marketplace">
-                                <p class="heading">Digital Business Management MarketPlace  Pricing </p>
-                                <p class="sub-heading">Digital Business Management MarketPlace </p>
-                                <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">Services </th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <td> ₹2500 per MarketPlace</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                                
-                                </div>
-        
-    
+    <div class="col-md-9" style="padding-bottom:20px;" *ngIf="client">
+      <p class="heading">Ecommerce Client Location Pricing </p>
+      <p class="sub-heading">Ecommerce Client Location</p>
+      <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
+        <thead>
+          <tr>
+            <th scope="col">Services (Including Editing)</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> Photographer with Complete Equipment</td>
+            <td> ₹8000
+              (Photographer, Canon 5d with Elinchrom lights(2))</td>
+          </tr>
+          <tr>
+            <td>Photographer Travel & Food Cost</td>
+            <td> At Actual</td>
+          </tr>
+          <tr>
+            <td>Post Production Cost per Image</td>
+            <td> ₹5</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="col-md-9" style="padding-bottom:20px;" *ngIf="editing">
+      <p class="heading">Editing Services Pricing </p>
+      <p class="sub-heading">Editing Services</p>
+      <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
+        <thead>
+          <tr>
+            <th scope="col">Services (Including Editing)</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> White background Editing</td>
+            <td> ₹10
+              (Image Cropping and Background removal)</td>
+          </tr>
+          <tr>
+            <td>White background Editing for Jewellery’s</td>
+            <td> ₹15 - ₹50
+              (Image Cropping and Background removal)</td>
+          </tr>
+          <tr>
+            <td>Background Editing</td>
+            <td> ₹50
+              (Background setting, Color Enhancement)</td>
+          </tr>
+          <tr>
+            <td>Creative Background Editing</td>
+            <td> ₹100 - ₹500
+              (Background image creation)</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="col-md-9" style="padding-bottom:20px;" *ngIf="registration">
+      <p class="heading">Registration & Listing Pricing </p>
+      <p class="sub-heading">Registration & Listing</p>
+      <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
+        <thead>
+          <tr>
+            <th scope="col">Services </th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> Account and brand registry</td>
+            <td> ₹1000
+            </td>
+          </tr>
+          <tr>
+            <td>Basic Listing</td>
+            <td> ₹15
+            </td>
+          </tr>
+          <tr>
+            <td>Advance Listing</td>
+            <td> ₹30
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="col-md-9" style="padding-bottom:20px;" *ngIf="enhance">
+      <p class="heading">Enhance Catalog Pricing </p>
+      <p class="sub-heading">Enhance Catalog </p>
+      <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
+        <thead>
+          <tr>
+            <th scope="col">Services </th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> Only with Images</td>
+            <td> ₹400
+            </td>
+          </tr>
+          <tr>
+            <td>Images with videos</td>
+            <td> ₹1000
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+
+    <div class="col-md-9" style="padding-bottom:20px;" *ngIf="marketplace">
+      <p class="heading">Digital Business Management MarketPlace Pricing </p>
+      <p class="sub-heading">Digital Business Management MarketPlace </p>
+      <table class="table table-bordered table-hover" style="margin-top: 20px;padding-left: 30px;">
+        <thead>
+          <tr>
+            <th scope="col">Services </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> ₹2500 per MarketPlace</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+
 
   </div><br>
 

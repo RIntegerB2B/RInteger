@@ -55,7 +55,7 @@ export class StautsComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService, private dashBoardService: DashBoardService) {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    /* console.log( this.id); */
+    console.log( this.id);
   }
 
   ngOnInit() {

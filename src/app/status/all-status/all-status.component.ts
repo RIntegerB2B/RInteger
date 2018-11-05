@@ -91,6 +91,7 @@ export class AllStatusComponent implements OnInit {
   bookingCancelled: boolean;
   message: boolean;
   datacheck;
+  mobileNo;
   cancelledStatus: boolean;
   activeStatus: boolean;
   bookingStatus: boolean;
@@ -135,6 +136,7 @@ export class AllStatusComponent implements OnInit {
     this.status(this.no);
     this.createForm();
     this.orderDisplay();
+    this.mobileNo = this.localStorageService.retrieve('mobileno');
   }
 
   createForm() {

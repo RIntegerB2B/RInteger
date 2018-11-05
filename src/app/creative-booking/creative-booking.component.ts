@@ -50,6 +50,7 @@ export class CreativeBookingComponent implements OnInit {
     this.dashboardService.makeMenuTransparent();
     this.createForm();
     this.checkData();
+    this.mobileNo = this.localStorageService.retrieve('mobileno');
   }
   createForm() {
     this.creativeForm = this.fb.group({

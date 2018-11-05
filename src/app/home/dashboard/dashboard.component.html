@@ -1,8 +1,7 @@
-
-<div  class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar class="example-toolbar">
-    
-    
+
+
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -16,7 +15,7 @@
         <img src="../../../assets/images/logoheader.png">
       </a>
       <div id="navbarNavDropdown" class="navbar-collapse collapse sidebar">
-          <ul class="navbar-nav">
+        <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/subscribe']" (click)="collapseMenu()">Subscribe</a>
           </li>
@@ -24,67 +23,70 @@
             <a class="nav-link" [routerLink]="['/studio']" (click)="collapseMenu()">Services</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               Models
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" [routerLink]="['/dashboard/viewschedulemodel']" (click)="collapseMenu()">Scheduled
+              <a class="dropdown-item"  [routerLink]="['/dashboard/viewschedulemodel', 1]" (click)="collapseMenu(); ">Scheduled
                 Models </a>
-              <a class="dropdown-item" [routerLink]="['/dashboard/models']" (click)="collapseMenu()">Available Models </a>
+              <a class="dropdown-item"  [routerLink]="['/dashboard/models', 1]" (click)="collapseMenu()">Available Models
+              </a>
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               Booking
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" [routerLink]="['/dashboard/viewschedulemodel']" (click)="collapseMenu()">Scheduled
-                Model </a>
-              <a class="dropdown-item" [routerLink]="['/dashboard/models']" (click)="collapseMenu()">Model Shoot </a>
-              <a class="dropdown-item" [routerLink]="['/dashboard/booking']" (click)="collapseMenu()">Product Shoot</a>
-              <a class="dropdown-item" [routerLink]="['/dashboard/bookingstatus']">Booking Status</a>
+              <a class="dropdown-item" [routerLink]="['/dashboard/viewschedulemodel', 1]" (click)="collapseMenu()">
+                Studio & Production</a>
+              <a class="dropdown-item" [routerLink]="['/dashboard/registrationSetup', 2]" (click)="collapseMenu()">Digital-Business-Management</a>
+              <a class="dropdown-item" [routerLink]="['/dashboard/itservices', 3]" (click)="collapseMenu()">IT-Services</a>
+              <a class="dropdown-item" [routerLink]="['/dashboard/bookingstatus', 4]">Booking Status</a>
             </div>
           </li>
-    
-    
+
+
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               Booking Status
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" [routerLink]="'./'" (click)="getActive()">Active Booking</a>
-              <a class="dropdown-item" [routerLink]="['/dashboard/completed']" (click)="collapseMenu()">Completed Order</a>
-              <a class="dropdown-item" [routerLink]="['/dashboard/cancelled']" (click)="collapseMenu()">Cancelled Booking</a>
-              <a class="dropdown-item" [routerLink]="['/dashboard/bookingstatus']" (click)="collapseMenu()">All Booking</a>
+              <a class="dropdown-item" [routerLink]="['/dashboard/completed', 4]" (click)="collapseMenu()">Completed Order</a>
+              <a class="dropdown-item" [routerLink]="['/dashboard/cancelled', 4]" (click)="collapseMenu()">Cancelled
+                Booking</a>
+              <a class="dropdown-item" [routerLink]="['/dashboard/bookingstatus', 4]" (click)="collapseMenu()">All Booking</a>
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               Our Work
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" [routerLink]="['/creativeportfolio']" (click)="collapseMenu()">Ecommerce PortFolio
+              <a class="dropdown-item" [routerLink]="['/creativeportfolio']" (click)="collapseMenu()">Ecommerce
+                PortFolio
               </a>
               <a class="dropdown-item" [routerLink]="['/portfolio']" (click)="collapseMenu()">Creative PortFolio</a>
             </div>
           </li>
-    
+
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/pricing']" (click)="collapseMenu()">Pricing</a>
+            <a class="nav-link" [routerLink]="['/pricing', 5]" (click)="collapseMenu()">Pricing</a>
           </li>
-    
+
           <li class="nav-item">
-    
+
             <a class="nav-link" (click)="collapseMenu()" [routerLink]="['contact']">Contact</a>
-    
+
           </li>
-    
-    
-    
+
+
+
         </ul>
         <!-- <ul class="navbar-nav">
           <li>
@@ -246,10 +248,10 @@
       </nav> -->
   </mat-toolbar>
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav  [opened]="true"  [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+    <mat-sidenav #snav [opened]="true" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56" openedChange="true">
       <mat-nav-list>
-        <div class="navigation-hold" fxLayout="column">
+        <!--  <div class="navigation-hold" fxLayout="column">
           <div class="sidenav-hold">
             <ul class="sidenav" *ngFor="let item of menuItems">
               <div class="menu">
@@ -389,27 +391,211 @@
                   </mat-accordion>
                 </a>
               </div>
-              <!-- <div class="menu" *ngIf="showLogout">
-                <a matRipple class="nav-item-sep" *ngIf="item.type === 'dashboard'">
-                  <button mat-raised-button>Logout</button>
-                 
-                </a>
-              </div> -->
             </ul>
           </div>
+        </div> -->
+        <mat-list-item (click)="selectedFirst()" class="parent">
+          <div *ngIf="isExpanded || isShowing">Shoot Booking</div>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="showSubmenu">
+          <div id="scroll-area" class="navigation-hold" fxLayout="column">
+            <div class="sidenav-hold">
+              <ul class="navbar-nav">
+                <li class="nav-item text-center">
+                  <a class="nav-link" [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+              true}"
+                    [routerLink]="['viewschedulemodel', 1]"
+                    >
+                    Scheduled Model
+                  </a>
+                </li>
+                <li class="nav-item text-center">
+
+                  <a class="nav-link" [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+              true}"
+                    [routerLink]="['models', 1]">
+                    Model shoot
+                  </a>
+                </li>
+                <li class="nav-item text-center">
+                  <a class="nav-link" [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+              true}"
+                    [routerLink]="['booking', 1]"
+                    
+                    >
+
+                    Product Shoot
+                  </a>
+                </li>
+                <li class="nav-item text-center">
+
+                  <a class="nav-link" [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+              true}"
+                    [routerLink]="['creative', 1]">
+
+                    Creative Shoot
+                  </a>
+                </li>
+                <li class="nav-item text-center">
+                  <a [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+                true}"
+                    [routerLink]="['editing', 1]" class="nav-link">
+
+                    Image Editing
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+        <mat-list-item (click)="selectedSecond()" class="parent">
+          <div *ngIf="isExpanded || isShowing">Digital-Business-Mgmt Booking</div>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSecondSubmenu}" *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showSecondSubmenu}" *ngIf="showSecondSubmenu">
+          <div id="scroll-area" class="navigation-hold" fxLayout="column">
+            <div class="sidenav-hold">
+              <ul class="navbar-nav">
+                <li class="nav-item text-center">
+                  <a class="nav-link" [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+                true}"
+                    [routerLink]="['registrationSetup', 2]">
+                    Registration & Setup
+                  </a>
+                </li>
+                <li class="nav-item text-center">
+
+                  <a class="nav-link" [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+                true}"
+                    [routerLink]="['cataloging', 2]">
+                    Cataloging / Listing
+                  </a>
+                </li>
+                <li class="nav-item text-center">
+                  <a class="nav-link" [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+                true}"
+                    [routerLink]="['aplus', 2]">
+
+                    A+ Cataloging
+                  </a>
+                </li>
+                <li class="nav-item text-center">
+
+                  <a class="nav-link" [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+                true}"
+                    [routerLink]="['digitalmgmt', 2]">
+
+                    Account-Management
+                  </a>
+                </li>
+                <li class="nav-item text-center">
+                  <a [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+                  true}"
+                    [routerLink]="['marketingservices', 2]" class="nav-link">
+
+                    Marketing & Services
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <mat-list-item (click)="selectedThird()" class="parent">
+          <div *ngIf="isExpanded || isShowing">IT-Services Booking</div>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showThirdSubmenu}" *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showThirdSubmenu}" *ngIf="showThirdSubmenu">
+          <div id="scroll-area" class="navigation-hold" fxLayout="column">
+            <div class="sidenav-hold">
+              <ul class="navbar-nav">
+                <li class="nav-item text-center">
+                  <a class="nav-link" [routerLinkActive]="['activeLink']" 
+                  [routerLinkActiveOptions]="{exact:
+                  true}"
+                    [routerLink]="['itservices', 3]">
+                    IT - Services
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <mat-list-item (click)="selectedFourth()" class="parent">
+          <div *ngIf="isExpanded || isShowing">Booking Status</div>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showFourthSubmenu}" *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showFourthSubmenu}" *ngIf="showFourthSubmenu">
+          <div id="scroll-area" class="navigation-hold" fxLayout="column">
+            <div class="sidenav-hold">
+              <ul class="navbar-nav">
+                <li class="nav-item text-center">
+                  <a class="nav-link" [routerLinkActive]="['activeLink']"
+                   [routerLinkActiveOptions]="{exact:
+                    true}"
+                    [routerLink]= "mobileNo === null ? ['newUser']: ['statusView', 4 , mobileNo]"
+                     >
+                    Active Booking
+                  </a>
+                </li>
+                <li class="nav-item text-center">
+                  <a class="nav-link" [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+                      true}"
+                      [routerLink]="['completed', 4 ]">
+                    Completed Order
+                  </a>
+                </li>
+                <li class="nav-item text-center">
+                  <a class="nav-link"
+                  [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+                    true}"
+                  [routerLink]="['cancelled', 4 ]">
+                    Cancelled Booking
+                  </a>
+                </li>
+                <li class="nav-item text-center">
+                  <a class="nav-link" [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+                          true}"
+                          [routerLink]="['bookingstatus', 4 ]">
+                    All Booking
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <mat-list-item (click)="selectedFifth()" class="parent">
+            <div *ngIf="isExpanded || isShowing">Pricing</div>
+            <mat-icon class="menu-button" [ngClass]="{'rotated' : showFifthSubmenu}" 
+            *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
+          </mat-list-item>
+          <div class="submenu" [ngClass]="{'expanded' : showFifthSubmenu}" *ngIf="showFifthSubmenu">
+            <div id="scroll-area" class="navigation-hold" fxLayout="column">
+              <div class="sidenav-hold">
+                <ul class="navbar-nav">
+                  <li class="nav-item text-center">
+                    <a class="nav-link" [routerLinkActive]="['activeLink']" [routerLinkActiveOptions]="{exact:
+                      true}"
+                      [routerLink]="['pricing', 5]"
+                       >
+                       All
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
       <!--  <app-header></app-header> -->
-      
-          <router-outlet></router-outlet>
-      
-      
-          <app-footer></app-footer>
-      
+
+      <router-outlet></router-outlet>
+
+
+      <app-footer></app-footer>
+
     </mat-sidenav-content>
-    
+
   </mat-sidenav-container>
 </div>
-

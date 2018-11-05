@@ -140,6 +140,7 @@ export class StautsViewComponent implements OnInit {
     private localStorageService: LocalStorageService,
      private statusService: StatusService, private dashBoardService: DashBoardService) {
     this.no = this.activatedRoute.snapshot.paramMap.get('no');
+    console.log('number', this.no);
   }
 
   ngOnInit() {

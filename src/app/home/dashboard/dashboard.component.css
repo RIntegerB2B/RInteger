@@ -133,6 +133,51 @@ h1.example-app-name {
 .dropdown:hover .dropdown-content {
   display: block;
 } */
+.submenu ul li
+{
+  list-style: none;
+}
+.submenu li {
+  padding-left:15px;
+  padding-top: 5px;
+}
+.activeLink {
+  background-color: lightslategray !important;
+  color: white;
+}
+.submenu {
+  overflow-y: hidden;
+  transition: transform 300ms ease;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.submenu.expanded {
+  transform: scaleY(1);
+}
+.menu-button {
+  transition: 300ms ease-in-out;
+  transform: rotate(0deg);
+}
+.menu-button.rotated {
+  transform: rotate(90deg);
+}
+.mat-nav-list .mat-list-item
+{
+  font-size: 15px;
+}
+.parent mat-icon
+{
+ margin-left: auto;
+}
+ul li + .submenu {
+  display: block;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
 .mat-drawer-container
 {
   background-color: #fff;

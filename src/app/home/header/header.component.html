@@ -22,25 +22,24 @@
           Models
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" [routerLink]="['/dashboard/viewschedulemodel']" (click)="collapseMenu()">Scheduled
+          <a class="dropdown-item" [routerLink]="['/dashboard/viewschedulemodel', 1]" (click)="collapseMenu()">Scheduled
             Models </a>
-          <a class="dropdown-item" [routerLink]="['/dashboard/models']" (click)="collapseMenu()">Available Models </a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/models', 1]" (click)="collapseMenu()">Available Models </a>
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           Booking
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" [routerLink]="['/dashboard/viewschedulemodel']" (click)="collapseMenu()">Scheduled
-            Model </a>
-          <a class="dropdown-item" [routerLink]="['/dashboard/models']" (click)="collapseMenu()">Model Shoot </a>
-          <a class="dropdown-item" [routerLink]="['/dashboard/booking']" (click)="collapseMenu()">Product Shoot</a>
-          <a class="dropdown-item" [routerLink]="['/dashboard/bookingstatus']">Booking Status</a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/viewschedulemodel', 1]" (click)="collapseMenu()">
+            Studio & Production</a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/registrationSetup', 2]" (click)="collapseMenu()">Digital-Business-Management</a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/itservices', 3]" (click)="collapseMenu()">IT-Services</a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/bookingstatus', 4]">Booking Status</a>
         </div>
       </li>
-
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -49,9 +48,9 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" [routerLink]="'./'" (click)="getActive()">Active Booking</a>
-          <a class="dropdown-item" [routerLink]="['/dashboard/completed']" (click)="collapseMenu()">Completed Order</a>
-          <a class="dropdown-item" [routerLink]="['/dashboard/cancelled']" (click)="collapseMenu()">Cancelled Booking</a>
-          <a class="dropdown-item" [routerLink]="['/dashboard/bookingstatus']" (click)="collapseMenu()">All Booking</a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/completed', 4]" (click)="collapseMenu()">Completed Order</a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/cancelled', 4]" (click)="collapseMenu()">Cancelled Booking</a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/bookingstatus', 4]" (click)="collapseMenu()">All Booking</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -67,7 +66,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/pricing']" (click)="collapseMenu()">Pricing</a>
+        <a class="nav-link" [routerLink]="['/dashboard/pricing', 5]" (click)="collapseMenu()">Pricing</a>
       </li>
 
       <li class="nav-item">
@@ -75,9 +74,6 @@
         <a class="nav-link" (click)="collapseMenu()" [routerLink]="['contact']">Contact</a>
 
       </li>
-
-
-
     </ul>
 
   </div>

@@ -77,10 +77,10 @@ export class WelcomeComponent implements OnInit {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     console.log(this.mobileNo);
     if ( this.mobileNo === null) {
-      this.router.navigate(['/dashboard/newUser']);
+      this.router.navigate(['/dashboard/newUser', 1]);
     } else if (this.mobileNo != null) {
       this.mobileNo = this.localStorageService.retrieve('mobileno');
-      this.router.navigate(['/dashboard/statusView', this.mobileNo]);
+      this.router.navigate(['/dashboard/statusView', 1, this.mobileNo]);
     }
 }
 }

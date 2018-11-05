@@ -44,6 +44,7 @@ export class ModelBasedBookingComponent implements OnInit {
     private modelService: ModelManagementService, private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private swPush: SwPush , public snackBar: MatSnackBar , private dashBoardService: DashBoardService ) {
     this.id = this.activatedRoute.snapshot.paramMap.get('modelId');
+    console.log('model', this.id);
   }
 
   ngOnInit() {
