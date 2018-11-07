@@ -61,7 +61,7 @@ const routes: Routes = [
       { path: 'creative/:viewid', component: CreativeBookingComponent },
       /* { path: 'header', component: HeaderComponent }, */
       { path: 'booking/:viewid', component: BookingComponent },
-      { path: 'status/:viewid/:id', component: StautsComponent },
+      { path: 'status/:id', component: StautsComponent },
       { path: 'statusView/:viewid/:no', component: StautsViewComponent },
       { path: 'cancelled/:viewid', component: CancelledStatusComponent },
       { path: 'bookingstatus/:viewid', component: AllStatusComponent },

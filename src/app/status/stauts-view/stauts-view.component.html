@@ -37,8 +37,8 @@
       </div>
     </div>
     <div *ngIf="!hideStatus">
-
-      <div class=" col-sm-12 status d-flex border-bottom  flex-row" *ngFor="let data of Details | dataFilter:searchText ">
+      <div class=" col-sm-12 status d-flex border-bottom  flex-row" 
+      *ngFor="let data of Details | dataFilter:searchText ">
 
         <div class="col-sm-3 col p-2 ">{{data.bookingOrderId}}</div>
         <div class="col-sm-2  col p-2 text-center ">{{data.bookingDate}}</div>

@@ -28,10 +28,10 @@ export class HeaderComponent implements OnInit {
   getActive() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     if (this.mobileNo === null) {
-      this.router.navigate(['/dashboard/newUser', 4]);
+      this.router.navigate(['/dashboard/newUser', 12]);
     } else if (this.mobileNo != null) {
       this.mobileNo = this.localStorageService.retrieve('mobileno');
-      this.router.navigate(['/dashboard/statusView', 4, this.mobileNo]);
+      this.router.navigate(['/dashboard/statusView', 12, this.mobileNo]);
     }
   }
   }

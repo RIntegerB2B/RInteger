@@ -35,7 +35,8 @@
 
 .mat-toolbar-single-row {
   height: 64px;
-  font-size: medium;
+  font-size: 13px;
+  padding-top: 6.5px !important;
 }
 
 h1.example-app-name {
@@ -151,6 +152,7 @@ h1.example-app-name {
   transform: scaleY(0);
   transform-origin: top;
 }
+
 .submenu.expanded {
   transform: scaleY(1);
 }
@@ -192,10 +194,7 @@ ul li + .submenu {
   padding: 0rem 1rem .5rem 1rem;
   border-bottom: 1px solid black;
 }
-.mat-toolbar-single-row
-{
-  font-size: 13px;
-}
+
 
 .mat-expansion-panel-body
 {
@@ -242,3 +241,24 @@ ul li + .submenu {
 background: #6e6e6e;
   color:  #ffff;
 } */
+a{
+  color: #777;
+}
+.footerHead ul li a
+{
+  font-size: 12px;
+  line-height: 120%;
+  color: #777;
+}
+.footerHead
+{
+  margin-top: 1.5%;
+}
+
+.footerHead ul li:not(:last-child)
+{
+    padding-bottom: 10px;
+    font-size: 12px;
+    line-height: 120%;
+    color: #777;
+}

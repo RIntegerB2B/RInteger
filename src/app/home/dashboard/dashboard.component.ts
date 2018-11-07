@@ -1,10 +1,12 @@
 import { Component, OnInit, Input, OnDestroy, ElementRef, ViewChild, AfterViewInit, ChangeDetectorRef, DoCheck } from '@angular/core';
 import { DashBoardService } from '../dashboard/dashboard.service';
 import { Subscription } from 'rxjs';
+import * as Hammer from 'hammerjs';
 import { Router, ChildActivationEnd } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ActivatedRoute } from '@angular/router';
+import { MatSidenav } from '@angular/material';
 import { StatusService } from '../../status/status.service';
 import { StautsViewComponent } from '../../status/stauts-view/stauts-view.component';
 
@@ -14,8 +16,9 @@ import { StautsViewComponent } from '../../status/stauts-view/stauts-view.compon
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
-  @ViewChild(StautsViewComponent) child;
+export class DashboardComponent implements OnInit, OnDestroy {
+  @ViewChild(MatSidenav)
+  public sidenav: MatSidenav;
   subMenus: boolean;
   menuItems: any[];
   public hasIconTypeMenuItem: boolean;
@@ -38,12 +41,21 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   isShowing = false;
   viewId;
   toggleBar = 'collapseMenuBar';
+  selectedMenuList;
+  
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
   fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
   constructor(public dashboardService: DashBoardService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
     private localStorageService: LocalStorageService, private router: Router, private activeRoute: ActivatedRoute,
-    private statusService: StatusService) {
-
+    private statusService: StatusService, elementRef: ElementRef) {
+      const hammertime = new Hammer(elementRef.nativeElement, {});
+      hammertime.on('panright', (ev) => {
+          this.sidenav.open();
+          console.log(this.sidenav);
+      });
+      hammertime.on('panleft', (ev) => {
+          this.sidenav.close();
+      });
     this.mobileQuery = media.matchMedia('(max-width: 900px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -56,31 +68,48 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.logout();
     this.viewId = +this.activeRoute.snapshot.firstChild.params.viewid;
     console.log('viewId', this.viewId);
+    this.onSelect(this.viewId);
     this.openDashboardMenu();
   }
   openDashboardMenu() {
     switch (this.viewId) {
-      case 1: {
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 5: {
         this.selectedFirst();
         break;
       }
-      case 2: {
+      case 6:
+      case 7:
+      case 8:
+      case 9:
+      case 10: {
         this.selectedSecond();
         break;
       }
-      case 3: {
+      case 11: {
         this.selectedThird();
         break;
       }
-      case 4: {
+      case 12:
+      case 13:
+      case 14:
+      case 15: {
         this.selectedFourth();
         break;
       }
-      case 5: {
+      case 16: {
         this.selectedFifth();
       }
     }
   }
+  onSelect(id): void {
+    this.selectedMenuList = id;
+  }
+
+
   collapseMenu() {
     this.toggleBar = this.toggleBar === 'colapseMenuBar' ? 'expandMenuBar' : 'colapseMenuBar';
   }
@@ -91,8 +120,10 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showThirdSubmenu = false;
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = false;
+    this.onSelect(this.viewId);
   }
-  selectedDashboardFirst()   {
+  selectedDashboardFirst(id)   {
+    this.onSelect(id);
     this.showSubmenu = true;
     this.showSecondSubmenu = false;
     this.showThirdSubmenu = false;
@@ -106,8 +137,10 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showThirdSubmenu = false;
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = false;
+    this.onSelect(this.viewId);
   }
-  selectedDashboardSecond()   {
+  selectedDashboardSecond(id)   {
+    this.onSelect(id);
     this.showSubmenu = false;
     this.showSecondSubmenu = true;
     this.showThirdSubmenu = false;
@@ -121,8 +154,10 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showSecondSubmenu = false;
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = false;
+    this.onSelect(this.viewId);
   }
-  selectedDashboardThird() {
+  selectedDashboardThird(id) {
+    this.onSelect(id);
     this.showSubmenu = false;
     this.showSecondSubmenu = false;
     this.showThirdSubmenu = true;
@@ -136,8 +171,10 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showSecondSubmenu = false;
     this.showThirdSubmenu = false;
     this.showFifthSubmenu = false;
+    this.onSelect(this.viewId);
   }
-  selectedDashboardFourth() {
+  selectedDashboardFourth(id) {
+    this.onSelect(id);
     this.showSubmenu = false;
     this.showSecondSubmenu = false;
     this.showThirdSubmenu = false;
@@ -151,8 +188,10 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showSecondSubmenu = false;
     this.showThirdSubmenu = false;
     this.showFourthSubmenu = false;
+    this.onSelect(this.viewId);
   }
-  selectedDashboardFifth() {
+  selectedDashboardFifth(id) {
+    this.onSelect(id);
     this.showSubmenu = false;
     this.showSecondSubmenu = false;
     this.showThirdSubmenu = false;
@@ -160,15 +199,11 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showFifthSubmenu = true;
     this.collapseMenu();
   }
-  ngDoCheck() {
-    /* setTimeout(() => {
-    this.sidebarPS = new PerfectScrollbar('#sidebar-top-scroll-area', {
-    suppressScrollX: true
-       })
-     })*/
+/*   ngDoCheck() {
+  
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     console.log('return:', this.mobileNo);
-  }
+  } */
   mouseenter() {
     if (!this.isExpanded) {
       this.isShowing = true;
@@ -203,7 +238,8 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   getStatus() {
     this.router.navigate(['/dashboard/bookingstatus']);
    } */
-  getActive() {
+  getActive(id) {
+    this.onSelect(id);
     this.showSubmenu = false;
     this.showSecondSubmenu = false;
     this.showThirdSubmenu = false;
@@ -211,11 +247,11 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showFifthSubmenu = false;
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     if (this.mobileNo === null) {
-      this.router.navigate(['/dashboard/newUser', 4]);
+      this.router.navigate(['/dashboard/newUser', 12]);
       console.log(this.mobileNo);
     } else if (this.mobileNo != null) {
       this.mobileNo = this.localStorageService.retrieve('mobileno');
-      this.router.navigate(['/dashboard/statusView', 4, this.mobileNo]);
+      this.router.navigate(['/dashboard/statusView', 12, this.mobileNo]);
       console.log(this.mobileNo);
     }
     /* this.selectedDashboardFourth(); */
