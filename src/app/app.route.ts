@@ -70,7 +70,7 @@ const routes: Routes = [
       /* { path: 'aboutUs', component: AboutusComponent }, */
       /*   { path: 'contact', component: ContactComponent }, */
       /* { path: 'studio', component: StudioComponent }, */
-      { path: 'modelBooking/:viewid/:modelId', component: ModelBasedBookingComponent },
+      { path: 'modelBooking/:modelId', component: ModelBasedBookingComponent },
       { path: 'models/:viewid', component: ViewModelComponent },
       /* { path: 'subscribe', component: SubscribeComponent }, */
       { path: 'cataloging/:viewid', component: CatalogingListingBookingComponent },
