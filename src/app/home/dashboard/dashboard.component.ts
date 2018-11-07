@@ -43,8 +43,8 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   constructor(public dashboardService: DashBoardService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
     private localStorageService: LocalStorageService, private router: Router, private activeRoute: ActivatedRoute,
     private statusService: StatusService) {
+
     this.mobileQuery = media.matchMedia('(max-width: 900px)');
-   
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
@@ -55,6 +55,10 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     });
     this.logout();
     this.viewId = +this.activeRoute.snapshot.firstChild.params.viewid;
+    console.log('viewId', this.viewId);
+    this.openDashboardMenu();
+  }
+  openDashboardMenu() {
     switch (this.viewId) {
       case 1: {
         this.selectedFirst();
@@ -84,18 +88,36 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   selectedFirst() {
     this.showSubmenu = !this.showSubmenu;
   }
+  selectedDashboardFirst()   {
+    this.showSubmenu = true;
+    this.collapseMenu();
+  }
   selectedSecond() {
     this.showSecondSubmenu = !this.showSecondSubmenu;
+  }
+  selectedDashboardSecond()   {
+    this.showSecondSubmenu = true;
+    this.collapseMenu();
   }
   selectedThird() {
     this.showThirdSubmenu = !this.showThirdSubmenu;
   }
-  selectedFourth()
-  {
+  selectedDashboardThird() {
+    this.showThirdSubmenu = true;
+    this.collapseMenu();
+  }
+  selectedFourth() {
     this.showFourthSubmenu = !this.showFourthSubmenu;
   }
-  selectedFifth()
-  {
+  selectedDashboardFourth() {
+    this.showFourthSubmenu = true;
+    this.collapseMenu();
+  }
+  selectedDashboardFifth() {
+    this.showFifthSubmenu = true;
+    this.collapseMenu();
+  }
+  selectedFifth() {
     this.showFifthSubmenu = !this.showFifthSubmenu;
   }
   ngDoCheck() {
@@ -142,6 +164,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.router.navigate(['/dashboard/bookingstatus']);
    } */
   getActive() {
+    this.showFourthSubmenu = true;
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     if (this.mobileNo === null) {
       this.router.navigate(['/dashboard/newUser', 4]);
@@ -151,6 +174,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
       this.router.navigate(['/dashboard/statusView', 4, this.mobileNo]);
       console.log(this.mobileNo);
     }
+    /* this.selectedDashboardFourth(); */
   }
   /*   getCompleted() {
       this.router.navigate(['/dashboard/completed']);
