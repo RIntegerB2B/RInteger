@@ -87,38 +87,78 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
 
   selectedFirst() {
     this.showSubmenu = !this.showSubmenu;
+    this.showSecondSubmenu = false;
+    this.showThirdSubmenu = false;
+    this.showFourthSubmenu = false;
+    this.showFifthSubmenu = false;
   }
   selectedDashboardFirst()   {
     this.showSubmenu = true;
+    this.showSecondSubmenu = false;
+    this.showThirdSubmenu = false;
+    this.showFourthSubmenu = false;
+    this.showFifthSubmenu = false;
     this.collapseMenu();
   }
   selectedSecond() {
     this.showSecondSubmenu = !this.showSecondSubmenu;
+    this.showSubmenu = false;
+    this.showThirdSubmenu = false;
+    this.showFourthSubmenu = false;
+    this.showFifthSubmenu = false;
   }
   selectedDashboardSecond()   {
+    this.showSubmenu = false;
     this.showSecondSubmenu = true;
+    this.showThirdSubmenu = false;
+    this.showFourthSubmenu = false;
+    this.showFifthSubmenu = false;
     this.collapseMenu();
   }
   selectedThird() {
     this.showThirdSubmenu = !this.showThirdSubmenu;
+    this.showSubmenu = false;
+    this.showSecondSubmenu = false;
+    this.showFourthSubmenu = false;
+    this.showFifthSubmenu = false;
   }
   selectedDashboardThird() {
+    this.showSubmenu = false;
+    this.showSecondSubmenu = false;
     this.showThirdSubmenu = true;
+    this.showFourthSubmenu = false;
+    this.showFifthSubmenu = false;
     this.collapseMenu();
   }
   selectedFourth() {
     this.showFourthSubmenu = !this.showFourthSubmenu;
+    this.showSubmenu = false;
+    this.showSecondSubmenu = false;
+    this.showThirdSubmenu = false;
+    this.showFifthSubmenu = false;
   }
   selectedDashboardFourth() {
+    this.showSubmenu = false;
+    this.showSecondSubmenu = false;
+    this.showThirdSubmenu = false;
     this.showFourthSubmenu = true;
-    this.collapseMenu();
-  }
-  selectedDashboardFifth() {
-    this.showFifthSubmenu = true;
+    this.showFifthSubmenu = false;
     this.collapseMenu();
   }
   selectedFifth() {
     this.showFifthSubmenu = !this.showFifthSubmenu;
+    this.showSubmenu = false;
+    this.showSecondSubmenu = false;
+    this.showThirdSubmenu = false;
+    this.showFourthSubmenu = false;
+  }
+  selectedDashboardFifth() {
+    this.showSubmenu = false;
+    this.showSecondSubmenu = false;
+    this.showThirdSubmenu = false;
+    this.showFourthSubmenu = false;
+    this.showFifthSubmenu = true;
+    this.collapseMenu();
   }
   ngDoCheck() {
     /* setTimeout(() => {
@@ -164,7 +204,11 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.router.navigate(['/dashboard/bookingstatus']);
    } */
   getActive() {
+    this.showSubmenu = false;
+    this.showSecondSubmenu = false;
+    this.showThirdSubmenu = false;
     this.showFourthSubmenu = true;
+    this.showFifthSubmenu = false;
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     if (this.mobileNo === null) {
       this.router.navigate(['/dashboard/newUser', 4]);
