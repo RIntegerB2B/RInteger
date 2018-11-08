@@ -16,7 +16,7 @@ import { StautsViewComponent } from '../../status/stauts-view/stauts-view.compon
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   @ViewChild(MatSidenav)
   public sidenav: MatSidenav;
   subMenus: boolean;
@@ -42,7 +42,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   viewId;
   toggleBar = 'collapseMenuBar';
   selectedMenuList;
-  
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
   fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
   constructor(public dashboardService: DashBoardService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
@@ -124,6 +123,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
   selectedDashboardFirst(id)   {
     this.onSelect(id);
+    this.sidenav.open();
     this.showSubmenu = true;
     this.showSecondSubmenu = false;
     this.showThirdSubmenu = false;
@@ -141,6 +141,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
   selectedDashboardSecond(id)   {
     this.onSelect(id);
+    this.sidenav.open();
     this.showSubmenu = false;
     this.showSecondSubmenu = true;
     this.showThirdSubmenu = false;
@@ -158,6 +159,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
   selectedDashboardThird(id) {
     this.onSelect(id);
+    this.sidenav.open();
     this.showSubmenu = false;
     this.showSecondSubmenu = false;
     this.showThirdSubmenu = true;
@@ -175,6 +177,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
   selectedDashboardFourth(id) {
     this.onSelect(id);
+    this.sidenav.open();
     this.showSubmenu = false;
     this.showSecondSubmenu = false;
     this.showThirdSubmenu = false;
@@ -192,6 +195,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
   selectedDashboardFifth(id) {
     this.onSelect(id);
+    this.sidenav.open();
     this.showSubmenu = false;
     this.showSecondSubmenu = false;
     this.showThirdSubmenu = false;
@@ -199,11 +203,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.showFifthSubmenu = true;
     this.collapseMenu();
   }
-/*   ngDoCheck() {
-  
+  ngDoCheck() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     console.log('return:', this.mobileNo);
-  } */
+  }
   mouseenter() {
     if (!this.isExpanded) {
       this.isShowing = true;
