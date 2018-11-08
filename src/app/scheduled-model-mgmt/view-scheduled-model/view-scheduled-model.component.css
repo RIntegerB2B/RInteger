@@ -29,8 +29,40 @@
 }
 .navbar-nav li
 {
-    padding-right:5px;
+    flex-direction: row;
+  /*   padding-right:5px;
     padding-left:5px;
-
+ */
 }
 
+.subPrice {
+    background-color: lightslategray !important;
+    color: white;
+  }
+
+  .services li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin-bottom: .5em;
+    padding: 0 16px;
+  }
+.menu {
+    flex-direction: row;
+    box-sizing:inherit;
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    display: block;
+    white-space: nowrap;
+    text-decoration: none;
+    text-align: center;
+    margin: 0;
+    min-width: 88px;
+    line-height: 29px;
+    padding: 0 16px;
+    border-radius: 2px;
+    overflow: visible;
+}

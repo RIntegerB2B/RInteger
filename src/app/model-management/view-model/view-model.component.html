@@ -5,30 +5,11 @@
         <div class="row newBar">
             <div class="col-md-12">
                 <ul class="navbar-nav">
-                        <li class="nav-item">
-                                <a class="nav-link"> 
-                               <button mat-button (click)="allModels()">All</button></a>
-                            </li>
-                    <li class="nav-item">
-                            <a class="nav-link"><button mat-button (click)="interNationalMenModels()">Men International</button></a>
-                        </li>
-                        <li class="nav-item">
-                                <a class="nav-link"><button mat-button (click)="interNationalWomenModels()">Women International</button></a>
-                            </li>
-                    <li class="nav-item">
-                      <a class="nav-link"><button mat-button (click)="nationalMenModels()">Men National</button></a>
-                  </li>
-                  <li class="nav-item">
-                        <a class="nav-link"><button mat-button (click)="nationalWomenModels()">Women National</button></a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <select #selectElem  (change)="selectServiceProvider(selectElem.value)"  class="nav-link" >
-                            <option>Select service provider</option>
-                            <option *ngFor="let sp of serviceProvider" [value]="sp.Id">
-                                {{sp.userName}}
-                            </option>
-                        </select>
-                    </li> -->
+                        <li class="menu" *ngFor="let service of services" [class.subPrice]="service === selectedType" (click)="onSelect(service)">
+                            
+                            <a class="nav-link"> 
+                               {{service.name}}</a>
+                          </li>
                 </ul>             
             </div> 
         </div>

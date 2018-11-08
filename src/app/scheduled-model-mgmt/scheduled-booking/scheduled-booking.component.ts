@@ -42,6 +42,12 @@ export class ScheduledBookingComponent implements OnInit {
   showPortFolio: boolean;
   email;
   selected = 'Portfolio';
+  selectedType;
+  services = [
+    { id: 0, name: 'Portfolio' },
+    { id: 1, name: 'Ecommerce' },
+    { id: 2, name: 'Product' },
+  ];
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
     private scheduledService: ScheduledModelService, private localStorageService: LocalStorageService,
@@ -55,6 +61,7 @@ export class ScheduledBookingComponent implements OnInit {
     this.createForm();
     this.checkData();
     this.showPortFolio = true;
+    this.onSelect(this.services[0]);
   }
   createForm() {
     this.bookScheduledModelForm = this.fb.group({
@@ -68,7 +75,23 @@ export class ScheduledBookingComponent implements OnInit {
       emailId: ['']
     });
   }
-
+  onSelect(service): void {
+    switch (service.id) {
+      case 0: {
+        this.portFolioImage();
+        break;
+      }
+      case 1: {
+        this.ecommerceImage();
+        break;
+      }
+      case 2: {
+        this.productImage();
+        break;
+      }
+  }
+  this.selectedType = service;
+}
   checkData() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');

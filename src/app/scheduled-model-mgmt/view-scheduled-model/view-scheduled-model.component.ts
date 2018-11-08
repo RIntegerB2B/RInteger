@@ -17,19 +17,52 @@ export class ViewScheduledModelComponent implements OnInit {
   Detail: Model;
   showMessage: boolean;
   selected = 'All';
+  selectedType;
+  services = [
+    { id: 0, name: 'All' },
+    { id: 1, name: 'Men International' },
+    { id: 2, name: 'Women International' },
+    { id: 3, name: 'Men National' },
+    { id: 4, name: 'Women National' },
+  ];
   constructor(private fb: FormBuilder, private router: Router, private scheduledmodelService: ScheduledModelService,
      private dashBoardService: DashBoardService) { }
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
     this.allModels();
     this.createForm();
+    this.onSelect(this.services[0]);
   }
   createForm() {
     this.viewModelForm = this.fb.group({
       id: ['']
     });
   }
-
+  onSelect(service): void {
+    switch (service.id) {
+      case 0: {
+        this.allModels();
+        break;
+      }
+      case 1: {
+        this.interNationalMenModels();
+        break;
+      }
+      case 2: {
+        this.interNationalWomenModels();
+        break;
+      }
+      case 3: {
+        this.nationalMenModels();
+        break;
+      }
+      case 4: {
+        this.nationalWomenModels();
+        break;
+      }
+  }
+  this.selectedType = service;
+}
   allModels() {
     this.scheduledmodelService.getScheduledModelDetails().subscribe(data => {
       this.Detail = data;
