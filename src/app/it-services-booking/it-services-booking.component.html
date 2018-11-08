@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6 mx-auto bookingMasterDiv">
-        <div class="text-center text-secondary" style="padding:15px;">
-          <h6><strong>IT SERVICES BOOKING</strong></h6>
+        <div class="container">
+          <h5 class="textTopHeader">IT SERVICES BOOKING</h5>
         </div>
 
         <div class="col-md-12 mx-auto ">
@@ -72,18 +72,16 @@
 
     <div class="row">
       <div class="col-md-6 mx-auto bookingMasterDiv">
-        <label><strong>SERVICES</strong></label><br>
+      <div class="text-secondary" style="padding-top:10px"><h6>Services</h6></div>
         <div class="row">
-          <div class="form-group  col-md-4 mx-auto" *ngFor="let marketing of itServices">
+          <div class="form-group  col-md-6 mx-auto" *ngFor="let marketing of itServices">
             <input type="checkbox" formControlName="marketing" [value]="marketing" (change)="getValue(itServicesBookingForm,marketing,$event.target.checked)">
             {{marketing}}
           </div>
+          <div class="col-md-12 mx-auto">
+              <input class="btn booking btn-block text-white" value="Book Now" type="submit" (click)="itServicesBookingForm.valid  && booking(itServicesBookingForm)">
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 mx-auto ">
-        <input class="btn booking btn-block text-white" value="Book Now" type="submit" (click)="itServicesBookingForm.valid  && booking(itServicesBookingForm)">
       </div>
     </div>
   </div>

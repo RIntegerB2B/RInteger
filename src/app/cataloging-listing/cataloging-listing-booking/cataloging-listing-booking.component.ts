@@ -54,6 +54,14 @@ export class CatalogingListingBookingComponent implements OnInit {
   bookingId;
   email;
   mailId;
+  selectedService;
+  services = [
+    { id: 0, name: 'B2CNational' },
+    { id: 1, name: 'B2CInternational' },
+    { id: 2, name: 'B2BNational' },
+    { id: 3, name: 'B2BInternational' },
+    { id: 4, name: 'SocialMedia' },
+  ];
   swPush: SwPush;
   selected = 'b2cNationalValue';
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
@@ -66,6 +74,7 @@ export class CatalogingListingBookingComponent implements OnInit {
     this.createForm();
     this.checkData();
     this.showb2cNational = true;
+    this.onSelect(this.services[0]);
   }
   createForm() {
     this.catalogListingForm = this.fb.group({
@@ -87,6 +96,31 @@ export class CatalogingListingBookingComponent implements OnInit {
     this.dashBoard.showDashBoard();
   } */
 
+  onSelect(service)   {
+    switch (service.id) {
+    case 0: {
+      this.viewb2bNational();
+      break;
+    }
+    case 1: {
+      this.viewb2bInterNational();
+      break;
+    }
+    case 2: {
+      this.viewb2cNational();
+      break;
+    }
+    case 3: {
+      this.viewb2cInterNational();
+      break;
+    }
+    case 4: {
+      this.viewSocialMedia();
+      break;
+    }
+  }
+  this.selectedService = service;
+  }
   checkData() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');

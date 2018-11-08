@@ -1,10 +1,10 @@
-<form class="bookingMasterDiv" [formGroup]="aplusForm" (ngSubmit)="aplusForm.valid && bookSubmit(aplusForm,mobileNum.value,name.value,location.value,mailId.value)"
+<form  [formGroup]="aplusForm" (ngSubmit)="aplusForm.valid && bookSubmit(aplusForm,mobileNum.value,name.value,location.value,mailId.value)"
   novalidate style="padding-bottom:60px">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6 mx-auto">
-        <div class="text-center text-secondary" style="padding:15px;">
-          <h6><strong>A+ CATALOG BOOKING</strong></h6>
+      <div class="col-md-6 mx-auto bookingMasterDiv">
+        <div class="container">
+            <h5 class="textTopHeader">A+ CATALOG BOOKING</h5>
         </div>
         <div class="col-md-12">
           <div class="form-group">

@@ -49,6 +49,13 @@ export class RegistrationSetupBookingComponent implements OnInit {
   mailId;
   email;
   selected = 'b2cNationalValue';
+  selectedService;
+  services = [
+    { id: 0, name: 'B2CNational' },
+    { id: 1, name: 'B2CInternational' },
+    { id: 2, name: 'B2BNational' },
+    { id: 3, name: 'B2BInternational' }
+  ];
   notificationModel: Notification;
   swPush: SwPush;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
@@ -61,6 +68,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
     this.dashBoardService.makeMenuTransparent();
     this.createForm();
     this.checkData();
+    this.onSelect(this.services[0]);
     this.showb2cNational = true;
   }
   createForm() {
@@ -84,6 +92,29 @@ export class RegistrationSetupBookingComponent implements OnInit {
     this.locat = this.localStorageService.retrieve('location');
     this.email = this.localStorageService.retrieve('emailId');
   }
+
+  onSelect(service)   {
+    switch (service.id) {
+    case 0: {
+      this.viewb2bNational();
+      break;
+    }
+    case 1: {
+      this.viewb2bInterNational();
+      break;
+    }
+    case 2: {
+      this.viewb2cNational();
+      break;
+    }
+    case 3: {
+      this.viewb2cInterNational();
+      break;
+    }
+  }
+  this.selectedService = service;
+  }
+
 
   viewb2bNational() {
     this.showb2bNational = true;

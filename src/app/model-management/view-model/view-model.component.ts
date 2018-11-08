@@ -20,6 +20,14 @@ export class ViewModelComponent implements OnInit {
   showMessage: boolean;
   serviceProvider: ServiceProviders;
   serviceProviderId;
+  selectedType;
+  services = [
+    { id: 0, name: 'All' },
+    { id: 1, name: 'Men International' },
+    { id: 2, name: 'Women International' },
+    { id: 3, name: 'Men National' },
+    { id: 4, name: 'Women National' },
+  ];
   constructor(private fb: FormBuilder, private router: Router, private modelService: ModelManagementService,
      private dashBoardService: DashBoardService) { }
   ngOnInit() {
@@ -27,12 +35,38 @@ export class ViewModelComponent implements OnInit {
     this.allModels();
     this.createForm();
     this.serviceProviders();
+    this.onSelect(this.services[0]);
   }
   createForm() {
     this.viewModelForm = this.fb.group({
       id: ['']
     });
   }
+  onSelect(service): void {
+    switch (service.id) {
+      case 0: {
+        this.allModels();
+        break;
+      }
+      case 1: {
+        this.interNationalMenModels();
+        break;
+      }
+      case 2: {
+        this.interNationalWomenModels();
+        break;
+      }
+      case 3: {
+        this.nationalMenModels();
+        break;
+      }
+      case 4: {
+        this.nationalWomenModels();
+        break;
+      }
+  }
+  this.selectedType = service;
+}
   serviceProviders() {
     this.modelService.getServiceProviders().subscribe(data => {
       this.serviceProvider = data;

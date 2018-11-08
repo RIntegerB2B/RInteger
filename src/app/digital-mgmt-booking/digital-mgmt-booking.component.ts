@@ -37,6 +37,12 @@ export class DigitalMgmtBookingComponent implements OnInit {
   b2cNational = ['Amazon', 'Flipkart', 'Jabong', 'LimeRoad', 'Mr.Voonik', 'Myntra', 'Paytm', 'Shopclues', 'Voonik'];
   b2cInternational = ['Amazon.com',  'Cbazaar', 'Utsav'];
   socialmedia = ['Facebook', 'Google' , 'WhatsApp', 'Blog'];
+  services = [
+    { id: 0, name: 'B2CNational' },
+    { id: 1, name: 'B2CInternational' },
+    { id: 2, name: 'B2BNational' },
+    { id: 3, name: 'B2BInternational' }
+  ];
   showb2bNational: boolean;
   showb2cNational: boolean;
   showb2bInternational: boolean;
@@ -52,6 +58,7 @@ export class DigitalMgmtBookingComponent implements OnInit {
   email;
   mailId;
   swPush: SwPush;
+  selectedService;
   selected = 'b2cNationalValue';
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private fb: FormBuilder, private router: Router,
@@ -63,6 +70,7 @@ export class DigitalMgmtBookingComponent implements OnInit {
     this.createForm();
     this.checkData();
     this.showb2cNational = true;
+    this.onSelect(this.services[0]);
   }
   createForm() {
     this.digitalMgmtForm = this.fb.group({
@@ -90,6 +98,27 @@ export class DigitalMgmtBookingComponent implements OnInit {
     this.userName = this.localStorageService.retrieve('name');
     this.locat = this.localStorageService.retrieve('location');
     this.email = this.localStorageService.retrieve('emailId');
+  }
+  onSelect(service)   {
+    switch (service.id) {
+    case 0: {
+      this.viewb2bNational();
+      break;
+    }
+    case 1: {
+      this.viewb2bInterNational();
+      break;
+    }
+    case 2: {
+      this.viewb2cNational();
+      break;
+    }
+    case 3: {
+      this.viewb2cInterNational();
+      break;
+    }
+  }
+  this.selectedService = service;
   }
 
   viewb2bNational() {

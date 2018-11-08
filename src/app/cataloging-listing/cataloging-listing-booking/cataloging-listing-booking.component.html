@@ -1,11 +1,10 @@
 <form [formGroup]="catalogListingForm" novalidate style="padding-bottom:60px">
-  <div class="container-fluid" >
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6 mx-auto bookingMasterDiv" >
-        <div class="text-center text-secondary" style="padding:15px;">
-          <h6><strong>CATALOGING / LISTING BOOKING</strong></h6>
+      <div class="col-md-7 mx-auto bookingMasterDiv">
+        <div class="container">
+          <h5 class="textTopHeader">CATALOGING / LISTING BOOKING</h5>
         </div>
-
         <div class="col-md-12 mx-auto ">
           <div class="form-group">
             <mat-form-field class="example-full-width">
@@ -39,9 +38,9 @@
             </mat-form-field>
           </div>
           <div class="form-group">
-            <mat-form-field class="example-full-width"> 
-              <input matInput placeholder="EmailId" [(ngModel)]="email"  formControlName="emailId" type="text"
-                #mailId [required]="false">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="EmailId" [(ngModel)]="email" formControlName="emailId" type="text" #mailId
+                [required]="false">
               <button mat-button matSuffix mat-icon-button aria-label="Name">
                 <mat-icon>account_circle</mat-icon>
               </button>
@@ -79,75 +78,68 @@
         </div>
       </div>
     </div>
-   
-   
-    <div class="row">
-      <div class="col-md-6 mx-auto bookingMasterDiv">
-          <label><strong>Listing & Publishing</strong></label><br>
-          <div class="col-md-12 text-center d-md-none d-lg-none">
-              <div class="form-group">
-      
-                <mat-form-field>
-                  <mat-select [(value)]="selected">
-      
-                    <mat-option value="b2cNationalValue">
-                      <button mat-button (click)="viewb2cNational()">B2CNational</button>
-                    </mat-option>
-                    <mat-option value="b2cInterNationalValue">
-                      <button mat-button (click)="viewb2cInterNational()">B2CInternational</button>
-                    </mat-option>
-                    <mat-option value="b2bNationalValue">
-                      <button mat-button (click)="viewb2bNational()">B2BNational</button>
-                    </mat-option>
-                    <mat-option value="b2bInterNationalValue" >
-                      <button mat-button (click)="viewb2bInterNational()">B2BInternational</button>
-                    </mat-option>
-                    <mat-option value="socialMediaValue">
-                        <button mat-button (click)="viewSocialMedia()">SocialMedia</button>
-                      </mat-option>
-                  </mat-select>
-      
-                </mat-form-field>
-              </div>
-            </div><br>
-          <div class="row newBar">
-              <div class="col-md-12">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link">
-                      <button mat-button (click)="viewb2cNational()">B2CNational</button></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link"><button mat-button (click)="viewb2cInterNational()">B2CInternational</button></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link"><button mat-button (click)="viewb2bNational()">B2BNational</button></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link"><button mat-button (click)="viewb2bInterNational()">B2BInternational</button></a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link"><button mat-button (click)="viewSocialMedia()">SocialMedia</button></a>
-                    </li>
-                </ul>
-              </div>
-            </div>
-        
-      
 
-        <div class="row" *ngIf="showb2bNational">
-          <!-- <label><strong>B2B National</strong></label> -->
-          <div class="form-group  col-md-4 mx-auto" *ngFor="let b2bnat of b2bNational">
-            <input type="checkbox" formControlName="b2bNat" [value]="b2bnat" (change)="getB2bNationalValue(catalogListingForm,b2bnat,$event.target.checked)">
-            {{b2bnat}}
+
+    <div class="row">
+      <div class="col-md-7 mx-auto bookingMasterDiv">
+        <div class="text-secondary" style="padding-top:10px"><h6>Listing & Publishing</h6></div>
+        <div class="col-md-12 text-center d-md-none d-lg-none">
+          <div class="form-group">
+
+
+            <mat-form-field>
+              <mat-select [(value)]="selected">
+                <mat-option value="b2cNationalValue">
+                  <button mat-button (click)="viewb2cNational()">B2CNational</button>
+                </mat-option>
+                <mat-option value="b2cInterNationalValue">
+                  <button mat-button (click)="viewb2cInterNational()">B2CInternational</button>
+                </mat-option>
+                <mat-option value="b2bNationalValue">
+                  <button mat-button (click)="viewb2bNational()">B2BNational</button>
+                </mat-option>
+                <mat-option value="b2bInterNationalValue">
+                  <button mat-button (click)="viewb2bInterNational()">B2BInternational</button>
+                </mat-option>
+                <mat-option value="socialMediaValue">
+                  <button mat-button (click)="viewSocialMedia()">SocialMedia</button>
+                </mat-option>
+              </mat-select>
+
+            </mat-form-field>
+
+          </div>
+        </div>
+        <div class="row display-small-none">
+          <div class="col-md-12">
+            <ul class="servicesSub">
+              <li *ngFor="let service of services"
+               [class.selectedCataloging]="service === selectedService"
+                (click)="onSelect(service)">
+                <a>{{service.name}}</a>
+              </li>
+            </ul>
           </div>
         </div>
 
 
+
+        <div class="row" *ngIf="showb2bNational">
+          <!-- <label><strong>B2B National</strong></label> -->
+          <div class="form-group  col-md-4 mx-auto" *ngFor="let b2bnat of b2bNational">
+            <input type="checkbox" formControlName="b2bNat"
+             [value]="b2bnat"
+            (change)="getB2bNationalValue(catalogListingForm,b2bnat,$event.target.checked)">
+            {{b2bnat}}
+          </div>
+        </div>
         <div class="row " *ngIf="showb2cNational">
           <!-- <label><strong>B2C National</strong></label> -->
-          <div class="form-group col-md-4 mx-auto" *ngFor="let b2cnat of b2cNational">
-            <input type="checkbox" formControlName="b2cNat" [value]="b2cnat" (change)="getB2cNationalValue(catalogListingForm,b2cnat,$event.target.checked)">
+          <div class="form-group col-md-4 mx-auto"
+           *ngFor="let b2cnat of b2cNational">
+            <input type="checkbox" formControlName="b2cNat" 
+            [value]="b2cnat"
+             (change)="getB2cNationalValue(catalogListingForm,b2cnat,$event.target.checked)">
             {{b2cnat}}
           </div>
         </div>
@@ -155,40 +147,45 @@
 
         <div class="row" *ngIf="showb2bInternational">
           <!-- <label><strong>B2B InterNational</strong></label> -->
-          <div class="form-group col-md-4 mx-auto" *ngFor="let b2binternat of b2bInternational">
-            <input type="checkbox" formControlName="b2bInter" [value]="b2binternat" (change)="getB2bInterNationalValue(catalogListingForm,b2binternat,$event.target.checked)">
+          <div class="form-group col-md-4" 
+          *ngFor="let b2binternat of b2bInternational">
+            <input type="checkbox" formControlName="b2bInter"
+             [value]="b2binternat"
+              (change)="getB2bInterNationalValue(catalogListingForm,b2binternat,$event.target.checked)">
             {{b2binternat}}
           </div>
         </div>
-
-
-
         <div class="row" *ngIf="showb2cInternational">
-         <!--  <label><strong>B2C InterNational</strong></label> -->
-          <div class="form-group col-md-4 mx-auto" *ngFor="let b2cinternat of b2cInternational">
-            <input type="checkbox" formControlName="b2cInter" [value]="b2cinternat" (change)="getB2cInterNationalValue(catalogListingForm,b2cinternat,$event.target.checked)">
+            <!-- <label><strong>B2C InterNational</strong></label> -->
+            <div class="form-group col-md-4 mx-auto" 
+            *ngFor="let b2cinternat of b2cInternational">
+            <input type="checkbox" 
+            formControlName="b2cInter"
+             [value]="b2cinternat" (change)="getB2cInterNationalValue(catalogListingForm,b2cinternat,$event.target.checked)">
             {{b2cinternat}}
+            </div>
           </div>
-        </div>
 
 
         <div class="row" *ngIf="showSocialMedia">
-         <!--  <label><strong>Social Media</strong></label> -->
-          <div class="form-group col-md-4 mx-auto" *ngFor="let socialMediaData of socialmedia">
+          <!--  <label><strong>Social Media</strong></label> -->
+          <div class="form-group col-md-4" *ngFor="let socialMediaData of socialmedia">
             <input type="checkbox" formControlName="socialMedia" [value]="socialMediaData" (change)="getSocialMediaValue(catalogListingForm,socialMediaData,$event.target.checked)">
             {{socialMediaData}}
           </div>
         </div>
+        <div class="row">
+            <div class="col-md-12 mx-auto ">
+              <input class="btn booking btn-block text-white" value="Book Now" type="submit" (click)="catalogListingForm.valid  && booking(catalogListingForm)">
+            </div>
+          </div>
       </div>
+      
     </div>
 
-    <div class="row">
-      <div class="col-md-6 mx-auto ">
-        <input class="btn booking btn-block text-white" value="Book Now" type="submit" (click)="catalogListingForm.valid  && booking(catalogListingForm)">
-      </div>
-    </div>
+   
     <!-- <button (click)="test()">Test</button> -->
-    
+
   </div>
- 
+
 </form>
