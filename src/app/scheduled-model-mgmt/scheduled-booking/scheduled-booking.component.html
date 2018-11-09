@@ -1,76 +1,79 @@
 <form [formGroup]="bookScheduledModelForm" novalidate style="padding-top:20px; margin-bottom:200px">
-    <div class="container">
-  
-      <div class="row">
-        <div class="col-md-6" *ngFor="let model of Model">
-          <div class="row newBar">
-            <div class="col-md-12">
-              <ul class="navbar-nav">
-                <li class="menu" *ngFor="let service of services" [class.subPrice]="service === selectedType" (click)="onSelect(service)">
-                      
-                  <a class="nav-link"> 
-                     {{service.name}}</a>
-                </li>
-                
-              </ul>
-            </div>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-6" *ngFor="let model of Model">
+        <div class="row newBar">
+          <div class="col-md-12">
+            <ul class="navbar-nav">
+              <li class="menu" *ngFor="let service of services" [class.subPrice]="service === selectedType" (click)="onSelect(service)">
+
+                <a class="nav-link">
+                  {{service.name}}</a>
+              </li>
+
+            </ul>
           </div>
-          <div class="col-md-12 text-center d-md-none d-lg-none">
-            <div class="form-group">
-  
-              <mat-form-field>
-                <mat-select [(value)]="selected">
-  
-                  <mat-option>
-                    <button mat-button (click)="ecommerceImage()">Ecommerce</button>
-                  </mat-option>
-                  <!-- <mat-option>
+        </div>
+        <div class="col-md-12 text-center d-md-none d-lg-none">
+          <div class="form-group">
+
+            <mat-form-field>
+              <mat-select [(value)]="selected">
+
+                <mat-option value="ecommerce">
+                  <button mat-button (click)="ecommerceImage()">Ecommerce</button>
+                </mat-option>
+                <!-- <mat-option>
                     <button mat-button (click)="portraitImage()">Portrait</button>
                   </mat-option>-->
-                  <mat-option>
-                    <button mat-button (click)="productImage()">Product</button>
-                  </mat-option>
-                  <mat-option value="Portfolio">
-                    <button mat-button (click)="portFolioImage()">Portfolio</button>
-                  </mat-option>
-                </mat-select>
-  
-              </mat-form-field>
+                <mat-option value="product">
+                  <button mat-button (click)="productImage()">Product</button>
+                </mat-option>
+                <mat-option value="portfolio">
+                  <button mat-button (click)="portFolioImage()">Portfolio</button>
+                </mat-option>
+              </mat-select>
+
+            </mat-form-field>
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-md-1">
+          </div>
+          <div class="col-md-10 owl-carousel-holder">
+            <div class="carousel-section images" *ngIf="showEcommerce">
+              <owl-carousel [options]="myCarouselOptions">
+                <div class="item" *ngFor="let images of this.model?.ecommerceImageName;let i = index">
+                  <div>
+                    <img [src]=this.images />
+                  </div>
+                </div>
+              </owl-carousel>
+            </div>
+            <div class="carousel-section images" *ngIf="showPortFolio">
+              <owl-carousel [options]="myCarouselOptions">
+                <div class="item" *ngFor="let images of this.model?.portFolioImageName;let i = index">
+                  <div>
+                    <img [src]=this.images />
+                  </div>
+                </div>
+              </owl-carousel>
+            </div>
+            <div class="carousel-section images" *ngIf="showProduct">
+              <owl-carousel [options]="myCarouselOptions">
+                <div class="item" *ngFor="let images of this.model?.productImageName;let i = index">
+                  <div>
+                    <img [src]=this.images />
+                  </div>
+                </div>
+              </owl-carousel>
             </div>
           </div>
-          <br>
-  
-          <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-6">
-              <mat-card class="example-card  images" *ngIf="showEcommerce">
-                <carousel class="images" [showIndicators]="false">
-                  <slide *ngFor="let images of this.model?.ecommerceImageName">
-                    <img mat-card-image [src]="this.images" alt="first slide">
-                  </slide>
-                </carousel>
-              </mat-card>
-  
-              <mat-card class="example-card images" *ngIf="showPortFolio">
-                <carousel class="images" [showIndicators]="false">
-                  <slide *ngFor="let images of this.model?.portFolioImageName">
-                    <img mat-card-image [src]="this.images" alt="first slide">
-                  </slide>
-                </carousel>
-              </mat-card>
-              <mat-card class="example-card images" *ngIf="showProduct">
-                <carousel [showIndicators]="false">
-                  <slide *ngFor="let images of this.model?.productImageName">
-                    <img mat-card-image [src]="this.images" alt="first slide">
-                  </slide>
-                </carousel>
-              </mat-card>
-            </div>
-  
-  
-  
-            <!-- 
+
+      <!-- 
                     <mat-card class="example-card image" *ngIf="showPortrait" >
                     <carousel  [showIndicators]="false"   >
                         <slide *ngFor="let images of this.model?.portraitImageName">
@@ -79,101 +82,101 @@
                       </carousel>
                     </mat-card>
                  -->
-  
-  
-  
-  
-          </div>
-          <!-- <div class="col-md-12" *ngIf="showEcommerce"  >
+
+        </div>
+        <!-- <div class="col-md-12" *ngIf="showEcommerce"  >
                 <angular-image-slider class="images" [images]="imagesUrl"></angular-image-slider>
                     </div> -->
-  
+
+      </div>
+
+      <div class="col-md-5 col-md-offset-1">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h6>
+              <strong>SCHEDULED MODEL BOOKING</strong>
+            </h6>
+          </div>
         </div>
-  
-        <div class="col-md-5 col-md-offset-1">
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <h6>
-                <strong>SCHEDULED MODEL BOOKING</strong>
-              </h6>
-            </div>
-          </div>
-          <br>
-          <div class="form-group">
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Mobile Number" maxlength="10" [(ngModel)]="mobileNo" formControlName="mobileNumber" type="phone"
-                #mobileNum required>
-              <button mat-button matSuffix mat-icon-button aria-label="Mobile Number">
-                <mat-icon>phone</mat-icon>
-              </button>
-              <mat-hint color="primary">Ex: 9988776655</mat-hint>
-              <mat-error *ngIf="bookScheduledModelForm.controls['mobileNumber'].errors?.required">
-                Mobile Number is
-                <strong>required</strong>
-              </mat-error>
-              <mat-error *ngIf="!bookScheduledModelForm.controls['mobileNumber'].errors?.required">
-                Enter valid mobile Number is
-                <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div class="form-group">
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Name" [(ngModel)]="userName" maxlength="20" formControlName="name" type="text" #name [required]="false">
-              <button mat-button matSuffix mat-icon-button aria-label="Name">
-                <mat-icon>account_circle</mat-icon>
-              </button>
-              <mat-error *ngIf="bookScheduledModelForm.controls['name'].errors?.required">
-                Name is
-                <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div class="form-group">
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="EmailId" [(ngModel)]="email" formControlName="emailId" type="text" #mailId [required]="false">
-              <button mat-button matSuffix mat-icon-button aria-label="Name">
-                <mat-icon>account_circle</mat-icon>
-              </button>
-              <mat-error *ngIf="bookScheduledModelForm.controls['emailId'].errors?.required">
-                EmailId is
-                <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div class="form-group">
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Location" maxlength="20" [(ngModel)]="locat" style="margin-bottom:5px" formControlName="location"
-                type="text" [required]="false" #location>
-              <button mat-button matSuffix mat-icon-button aria-label="Name">
-                <mat-icon>location_on</mat-icon>
-              </button>
-              <mat-error *ngIf="bookScheduledModelForm.controls['location'].errors?.required">
-                Location is
-                <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div class="form-group">
-            <mat-form-field appearance="outline">
-              <mat-label>Product Description</mat-label>
-              <input matInput formControlName="productDescription" type="text">
-              <mat-hint>Ex: Shirts, Pants, Sarees</mat-hint>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Quantity Description</mat-label>
-              <input matInput formControlName="qtyDescription" type="text">
-              <mat-hint>Ex: 10 shirts, 10 pants, 10 Sarees</mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="form-group" style="margin-top:40px;" *ngFor="let model of Model">
-            <input type="text" formControlName="id" hidden [value]="model._id" #modelsId>
-            <input type="text" formControlName="modelsname" hidden [value]="model.userName" #modelNm>
-            <button class="btn booking btn-block text-white" (click)="bookScheduledModelForm.valid && bookSubmit(bookScheduledModelForm,modelsId.value,modelNm.value,mailId.value)">Book Now
+        <br>
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Mobile Number" maxlength="10" [(ngModel)]="mobileNo" formControlName="mobileNumber"
+              type="phone" #mobileNum required>
+            <button mat-button matSuffix mat-icon-button aria-label="Mobile Number">
+              <mat-icon>phone</mat-icon>
             </button>
-          </div>
-  
+            <mat-hint color="primary">Ex: 9988776655</mat-hint>
+            <mat-error *ngIf="bookScheduledModelForm.controls['mobileNumber'].errors?.required">
+              Mobile Number is
+              <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="!bookScheduledModelForm.controls['mobileNumber'].errors?.required">
+              Enter valid mobile Number is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name" [(ngModel)]="userName" maxlength="20" formControlName="name" type="text"
+              #name [required]="false">
+            <button mat-button matSuffix mat-icon-button aria-label="Name">
+              <mat-icon>account_circle</mat-icon>
+            </button>
+            <mat-error *ngIf="bookScheduledModelForm.controls['name'].errors?.required">
+              Name is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="EmailId" [(ngModel)]="email" formControlName="emailId" type="text" #mailId
+              [required]="false">
+            <button mat-button matSuffix mat-icon-button aria-label="Name">
+              <mat-icon>account_circle</mat-icon>
+            </button>
+            <mat-error *ngIf="bookScheduledModelForm.controls['emailId'].errors?.required">
+              EmailId is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Location" maxlength="20" [(ngModel)]="locat" style="margin-bottom:5px"
+              formControlName="location" type="text" [required]="false" #location>
+            <button mat-button matSuffix mat-icon-button aria-label="Name">
+              <mat-icon>location_on</mat-icon>
+            </button>
+            <mat-error *ngIf="bookScheduledModelForm.controls['location'].errors?.required">
+              Location is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline">
+            <mat-label>Product Description</mat-label>
+            <input matInput formControlName="productDescription" type="text">
+            <mat-hint>Ex: Shirts, Pants, Sarees</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Quantity Description</mat-label>
+            <input matInput formControlName="qtyDescription" type="text">
+            <mat-hint>Ex: 10 shirts, 10 pants, 10 Sarees</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="form-group" style="margin-top:40px;" *ngFor="let model of Model">
+          <input type="text" formControlName="id" hidden [value]="model._id" #modelsId>
+          <input type="text" formControlName="modelsname" hidden [value]="model.userName" #modelNm>
+          <button class="btn booking btn-block text-white" (click)="bookScheduledModelForm.valid && bookSubmit(bookScheduledModelForm,modelsId.value,modelNm.value,mailId.value)">Book
+            Now
+          </button>
+        </div>
+
       </div>
     </div>
-  </form>
+  </div>
+</form>

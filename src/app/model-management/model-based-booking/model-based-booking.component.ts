@@ -40,6 +40,8 @@ export class ModelBasedBookingComponent implements OnInit {
   email;
   selected = 'Portfolio';
   selectedType;
+  myCarouselOptions = { items: 1, dots: true, nav: true,
+  };
   services = [
     { id: 0, name: 'Portfolio' },
     { id: 1, name: 'Ecommerce' },

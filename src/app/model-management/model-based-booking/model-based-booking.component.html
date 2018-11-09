@@ -46,29 +46,37 @@
           <div class="row">
             <div class="col-md-1">
             </div>
-            <div class="col-md-6">
-              <mat-card class="example-card  images" *ngIf="showEcommerce">
-                <carousel class="images" [showIndicators]="false">
-                  <slide *ngFor="let images of this.model?.ecommerceImageName">
-                    <img mat-card-image [src]="this.images" alt="first slide">
-                  </slide>
-                </carousel>
-              </mat-card>
+            <div class="col-md-10 owl-carousel-holder " >
+                
+                    <div class="carousel-section images" *ngIf="showEcommerce">
+                            <owl-carousel  [options]="myCarouselOptions">
+                                <div  class="item" *ngFor="let images of this.model?.ecommerceImageName;let i = index">
+                                    <div>
+                                        <img [src]=this.images/>
+                                    </div>
+                                </div>
+                            </owl-carousel>
+                    </div>
+
+                    <div class="carousel-section images" *ngIf="showPortFolio">
+                        <owl-carousel  [options]="myCarouselOptions">
+                            <div  class="item" *ngFor="let images of this.model?.portFolioImageName;let i = index">
+                                <div>
+                                    <img [src]=this.images/>
+                                </div>
+                            </div>
+                        </owl-carousel>
+                </div>
+                <div class="carousel-section images" *ngIf="showProduct">
+                    <owl-carousel  [options]="myCarouselOptions">
+                        <div  class="item" *ngFor="let images of this.model?.productImageName;let i = index">
+                            <div>
+                                <img [src]=this.images/>
+                            </div>
+                        </div>
+                    </owl-carousel>
+            </div>
   
-              <mat-card class="example-card images" *ngIf="showPortFolio">
-                <carousel class="images" [showIndicators]="false">
-                  <slide *ngFor="let images of this.model?.portFolioImageName">
-                    <img mat-card-image [src]="this.images" alt="first slide">
-                  </slide>
-                </carousel>
-              </mat-card>
-              <mat-card class="example-card images" *ngIf="showProduct">
-                <carousel [showIndicators]="false">
-                  <slide *ngFor="let images of this.model?.productImageName">
-                    <img mat-card-image [src]="this.images" alt="first slide">
-                  </slide>
-                </carousel>
-              </mat-card>
             </div>
   
   

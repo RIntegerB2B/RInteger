@@ -41,8 +41,10 @@ export class ScheduledBookingComponent implements OnInit {
   showAll: boolean;
   showPortFolio: boolean;
   email;
-  selected = 'Portfolio';
+  selected = 'portfolio';
   selectedType;
+  myCarouselOptions = { items: 1, dots: true, nav: true,
+  };
   services = [
     { id: 0, name: 'Portfolio' },
     { id: 1, name: 'Ecommerce' },
