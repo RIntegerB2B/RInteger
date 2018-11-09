@@ -14,7 +14,6 @@ export class AppComponent implements OnInit  {
     console.log(route);
     this.routerData = route.config;
   }
-  ngOnInit()
-  {
+  ngOnInit() {
   }
 }

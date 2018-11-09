@@ -205,7 +205,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   }
   ngDoCheck() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
-    console.log('return:', this.mobileNo);
+   /*  console.log('return:', this.mobileNo); */
   }
   mouseenter() {
     if (!this.isExpanded) {

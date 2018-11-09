@@ -53,7 +53,7 @@
     width:400px;
 
 }
-.carousel-control-next-icon{
+/* .carousel-control-next-icon{
     background-color: black
 }
 .carousel-inner {
@@ -66,7 +66,7 @@ slide.item.carousel-item.ng-star-inserted {
 
 .carousel-control-prev {
     left: 11%;
-}
+} */
 .mat-card-image {
      margin: 0px !important; 
 }
@@ -110,4 +110,8 @@ background-color: black;
     padding: 0 16px;
     border-radius: 2px;
     overflow: visible;
+}
+.owl-carousel .img {
+    display: block;
+    /* width: 100%; */
 }
