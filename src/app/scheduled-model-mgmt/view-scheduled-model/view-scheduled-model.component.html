@@ -74,6 +74,7 @@
         <form [formGroup]="viewModelForm" novalidate>
               <div class="row">
               <div class="col-md-4" *ngFor="let model of Detail" >
+                        <h4 class="text-center">{{model.userName}}</h4>
                   <input type="text" hidden [value]="model._id" formControlName="id" #modelId>
                   <a (click)="bookModel(viewModelForm,modelId.value)">
                     <mat-card class="example-card image">
