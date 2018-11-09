@@ -74,7 +74,9 @@
         <form [formGroup]="viewModelForm" novalidate>
               <div class="row">
               <div class="col-md-4" *ngFor="let model of Detail" >
-                        <h4 style="text-align: justify"> {{model.userName | uppercase}}</h4>
+                        <h5 style="text-align: justify">{{model.userName | uppercase}}</h5>
+                        <h5 style="text-align: justify">{{model.scheduledDate | uppercase}}</h5>
+                        
                   <input type="text" hidden [value]="model._id" formControlName="id" #modelId>
                   <a (click)="bookModel(viewModelForm,modelId.value)">
                     <mat-card class="example-card image">

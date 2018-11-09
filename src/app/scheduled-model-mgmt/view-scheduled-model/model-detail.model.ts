@@ -18,9 +18,18 @@ export class Model {
     modelType: string;
     categoryType: string;
     height: string;
-    measurements: string;
+    bust: string;
+    chest: string;
+    waist: string;
+    hips: string;
+    hair: string;
+    eyes: string;
     shoulder: string;
     shoeSize: string;
+    topsize: string;
+    bottomsize: string;
+    isScheduledBooking: boolean;
+    scheduledDate: string;
     constructor(
         userName: string,
         description: string,
@@ -31,10 +40,7 @@ export class Model {
         whatsapp: string,
         modelType: string,
         categoryType: string,
-        height: string,
-        measurements: string,
-        shoulder: string,
-        shoeSize: string) {
+       ) {
         this.userName = userName;
         this.description = description;
         this.availability = availability;
@@ -44,9 +50,5 @@ export class Model {
         this.whatsapp = whatsapp;
         this.modelType = modelType;
         this.categoryType = categoryType;
-        this.height = height;
-        this.measurements = measurements;
-        this.shoulder = shoulder;
-        this.shoeSize = shoeSize;
     }
 }
