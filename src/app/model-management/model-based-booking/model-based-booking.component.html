@@ -36,6 +36,9 @@
                   <mat-option value="Portfolio">
                     <button mat-button (click)="portFolioImage()">Portfolio</button>
                   </mat-option>
+                  <mat-option value="Measurements">
+                      <button mat-button (click)="measurements()">Measurements</button>
+                    </mat-option>
                 </mat-select>
   
               </mat-form-field>
@@ -47,7 +50,7 @@
             <div class="col-md-1">
             </div>
             <div class="col-md-10 owl-carousel-holder " >
-                
+                <p style="text-align: justify;font-size: 12px;">MODEL NAME: <b>{{model.userName | uppercase}}</b>  </p>
                     <div class="carousel-section images" *ngIf="showEcommerce">
                             <owl-carousel  [options]="myCarouselOptions">
                                 <div  class="item" *ngFor="let images of this.model?.ecommerceImageName;let i = index">
@@ -76,6 +79,19 @@
                         </div>
                     </owl-carousel>
             </div>
+            <div class="carousel-section images" *ngIf="showMeasurements">
+                <p style="text-align: justify;font-size: 12px;">HEIGHT: <b>{{model.height | uppercase}}</b>  </p> 
+                <p style="text-align: justify;font-size: 12px;">   WAIST: <b>{{model.waist | uppercase}} </b> </p>
+                <p style="text-align: justify;font-size: 12px;" *ngIf="model.categoryType == 'Men'">      CHEST: <b>{{model.chest | uppercase}} </b> </p>
+                <p style="text-align: justify;font-size: 12px;" *ngIf="model.categoryType == 'Women'">      BUST: <b>{{model.bust | uppercase}} </b> </p>
+                <p style="text-align: justify;font-size: 12px;">      HIPS: <b>{{model.hips | uppercase}} </b> </p>
+                <p style="text-align: justify;font-size: 12px;">      SHOE SIZE: <b>{{model.shoeSize | uppercase}} </b> </p>
+                <p style="text-align: justify;font-size: 12px;">      HAIR: <b>{{model. hair | uppercase}} </b> </p>
+                <p style="text-align: justify;font-size: 12px;">      EYES: <b>{{model. eyes | uppercase}} </b> </p>
+                <p style="text-align: justify;font-size: 12px;">      SHOULDER: <b>{{model. shoulder | uppercase}} </b> </p>
+                <p style="text-align: justify;font-size: 12px;">      TOP SIZE: <b>{{model. topsize | uppercase}} </b> </p>
+                <p style="text-align: justify;font-size: 12px;">      BOTTOM SIZE: <b>{{model.  bottomsize | uppercase}} </b> </p>
+              </div>
   
             </div>
   
@@ -94,6 +110,14 @@
   
   
   
+          </div>
+          <div class="row"  *ngIf="!showMeasurements">
+              <p style="text-align: justify;font-size: 12px;">HEIGHT: <b>{{model.height | uppercase}}</b>  </p> 
+              <p style="text-align: justify;font-size: 12px;">   WAIST: <b>{{model.waist | uppercase}} </b> </p>
+              <p style="text-align: justify;font-size: 12px;" *ngIf="model.categoryType == 'Men'">      CHEST: <b>{{model.chest | uppercase}} </b> </p>
+              <p style="text-align: justify;font-size: 12px;" *ngIf="model.categoryType == 'Women'">      BUST: <b>{{model.bust | uppercase}} </b> </p>
+              <p style="text-align: justify;font-size: 12px;">      HIPS: <b>{{model.hips | uppercase}} </b> </p>
+          
           </div>
           <!-- <div class="col-md-12" *ngIf="showEcommerce"  >
                 <angular-image-slider class="images" [images]="imagesUrl"></angular-image-slider>

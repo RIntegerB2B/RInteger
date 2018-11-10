@@ -40,6 +40,7 @@ export class ScheduledBookingComponent implements OnInit {
   showProfile: boolean;
   showAll: boolean;
   showPortFolio: boolean;
+  showMeasurements: boolean;
   email;
   selected = 'portfolio';
   selectedType;
@@ -49,6 +50,7 @@ export class ScheduledBookingComponent implements OnInit {
     { id: 0, name: 'Portfolio' },
     { id: 1, name: 'Ecommerce' },
     { id: 2, name: 'Product' },
+    { id: 3, name: 'Measurements' },
   ];
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
@@ -91,6 +93,10 @@ export class ScheduledBookingComponent implements OnInit {
         this.productImage();
         break;
       }
+      case 3: {
+        this.measurements();
+        break;
+      }
   }
   this.selectedType = service;
 }
@@ -113,6 +119,7 @@ export class ScheduledBookingComponent implements OnInit {
     this.showProduct = false;
     this.showAll = false;
     this.showPortFolio = false;
+    this.showMeasurements = false;
   }
   productImage() {
     this.showEcommerce = false;
@@ -121,6 +128,7 @@ export class ScheduledBookingComponent implements OnInit {
     this.showProduct = true;
     this.showAll = false;
     this.showPortFolio = false;
+    this.showMeasurements = false;
   }
   portraitImage() {
     this.showEcommerce = false;
@@ -129,6 +137,7 @@ export class ScheduledBookingComponent implements OnInit {
     this.showProduct = false;
     this.showAll = false;
     this.showPortFolio = false;
+    this.showMeasurements = false;
   }
   portFolioImage() {
     this.showEcommerce = false;
@@ -137,6 +146,16 @@ export class ScheduledBookingComponent implements OnInit {
     this.showProduct = false;
     this.showAll = false;
     this.showPortFolio = true;
+    this.showMeasurements = false;
+  }
+  measurements() {
+    this.showEcommerce = false;
+    this.showProfile = false;
+    this.showPortrait = false;
+    this.showProduct = false;
+    this.showAll = false;
+    this.showPortFolio = false;
+    this.showMeasurements = true;
   }
   bookSubmit(bookScheduledModelForm: FormGroup, modelsId: any, modelNm: any, mailId: any) {
     this.message = 'Scheduled Model Shoot Booking Done';
