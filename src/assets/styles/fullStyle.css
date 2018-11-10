@@ -26,6 +26,7 @@ body {
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(156, 39, 176, .4);
 }
 
+
 /* .dropdown:hover .dropdown-menu {
   display: block;
   margin-top: 0;
@@ -214,14 +215,29 @@ a {
   padding-top: 2%;
   padding-bottom: 2%;
 }
+.modelName
+{
+font-size: 1.2em;
+color: #1F3D5C;
+}
+.modelHeader
+{
+    font-size: 0.8em; 
+    color: lightslategrey;
+}
+.modelMeasurement
+{
+    font-size: 1em; 
+    color: #1F3D5C;
+}
+.mat-card {
+  padding: 5px 24px 0px 24px !important;
+  margin-bottom: 2%;
+}
 
 
 
 @media screen and (max-width: 760px) {
-  .banners {
-    height: 150px;
-  }
-
   .carousel img {
     height: 500px;
   }
@@ -312,11 +328,5 @@ a {
     position: relative;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
-
-  .image {
-    height: 330px;
-    width: 330px;
-    margin: auto;
-    margin-bottom: 2%;
-  }
 }
+

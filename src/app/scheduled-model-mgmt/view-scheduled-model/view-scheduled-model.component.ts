@@ -9,7 +9,7 @@ import {DashBoardService} from '../../home/dashboard/dashboard.service';
 @Component({
   selector: 'app-view-scheduled-model',
   templateUrl: './view-scheduled-model.component.html',
-  styleUrls: ['./view-scheduled-model.component.css']
+  styleUrls: ['./view-scheduled-model.component.css'],
 })
 export class ViewScheduledModelComponent implements OnInit {
 

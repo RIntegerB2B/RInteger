@@ -1,26 +1,4 @@
-@media screen and (max-width: 992px) {
-    .image{
-        height:330px;
-        width: 330px;
-        margin: auto;
-        margin-bottom: 15px;
-    }
-    .newBar
-    {
-        display:none;
-    }
-    
-}
 
-@media screen and (min-width: 992px) {
-    .image{
-        height:300px;
-        width: 300px;
-        margin-bottom: 15px;
-    }
-    
-
-}
 .navbar-nav
 {
     flex-direction: row;
@@ -35,11 +13,11 @@
  */
 }
 
+
 .subPrice {
     background-color: lightslategray !important;
     color: white;
   }
-
   .services li {
     cursor: pointer;
     position: relative;
@@ -66,3 +44,4 @@
     border-radius: 2px;
     overflow: visible;
 }
+
