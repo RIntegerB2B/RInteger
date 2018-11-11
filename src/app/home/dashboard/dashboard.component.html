@@ -1,8 +1,6 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches"
 >
   <mat-toolbar class="example-toolbar">
-
-      
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -116,7 +114,7 @@
   [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #sidenav  [mode]="mobileQuery.matches ? 'over' : 'side'"
      [fixedInViewport]="mobileQuery.matches"
-      fixedTopGap="56" openedChange="true" [opened]="true"
+      fixedTopGap="56" [opened]="true"
       >
       <mat-nav-list>
         <mat-list-item (click)="selectedFirst()" class="parent">
@@ -130,7 +128,7 @@
                 <li class="nav-item text-center"
                  (click)="onSelect(1)">
                   <a class="nav-link" 
-                  [class.activeLink]="1 === selectedMenuList"
+                  [class.activeLink]=" 1 === selectedMenuList"
                   [routerLink]="['viewschedulemodel', 1]"
                     >
                     Scheduled Models

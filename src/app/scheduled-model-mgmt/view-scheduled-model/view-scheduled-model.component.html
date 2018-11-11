@@ -5,7 +5,7 @@
   <div class="row display-small-none">
     <div class="col-md-12">
       <ul class="navbar-nav">
-        <li class="menu" *ngFor="let service of services" [class.subPrice]="service === selectedType" (click)="onSelect(service)">
+        <li class="navbar-item" *ngFor="let service of services" [class.subPrice]="service === selectedType" (click)="onSelect(service)">
 
           <a class="nav-link">
             {{service.name}}</a>
@@ -53,6 +53,7 @@
     <div class="row">
       <div class="col-md-4" *ngFor="let model of Detail"
       >
+      
         <input type="text" hidden [value]="model._id" formControlName="id" #modelId>
         <a (click)="bookModel(viewModelForm,modelId.value)">
           <mat-card class="example-card">
@@ -67,7 +68,8 @@
                 <a class="modelName">{{model.scheduledDate | uppercase}}</a>
               </div>
             </div>
-            <img mat-card-image [src]="this.model?.primeImage">
+            <img mat-card-image 
+            [src]="this.model?.primeImage">
             <div class="row">
               <div class="col-md-3 col-3">
                 <h6 class="modelHeader">Height</h6>
@@ -79,15 +81,15 @@
               </div>
               <div class="col-md-3 col-3"  *ngIf="model.categoryType == 'Men'">
                 <h6 class="modelHeader">Chest</h6>
-                <a class="modelMeasurement">{{model.scheduledDate | uppercase}}</a>
+                <a class="modelMeasurement">{{model.chest | uppercase}}</a>
               </div>
               <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Women'">
                 <h6 class="modelHeader">Bust</h6>
-                <a class="modelMeasurement">{{model.scheduledDate | uppercase}}</a>
+                <a class="modelMeasurement">{{model.bust | uppercase}}</a>
               </div>
               <div class="col-md-3 col-3">
                         <h6 class="modelHeader">Hips</h6>
-                        <a class="modelMeasurement">{{model.scheduledDate | uppercase}}</a>
+                        <a class="modelMeasurement">{{model.hips | uppercase}}</a>
                 </div>
             </div>
           </mat-card>

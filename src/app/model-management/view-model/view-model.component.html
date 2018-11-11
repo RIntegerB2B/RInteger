@@ -5,7 +5,7 @@
     <div class="row display-small-none">
         <div class="col-md-12">
             <ul class="navbar-nav">
-                <li class="menu" *ngFor="let service of services" [class.subPrice]="service === selectedType" (click)="onSelect(service)">
+                <li class="nav-item" *ngFor="let service of services" [class.subPrice]="service === selectedType" (click)="onSelect(service)">
 
                     <a class="nav-link">
                         {{service.name}}</a>

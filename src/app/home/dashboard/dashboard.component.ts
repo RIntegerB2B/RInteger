@@ -16,7 +16,7 @@ import { StautsViewComponent } from '../../status/stauts-view/stauts-view.compon
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
+export class DashboardComponent implements OnInit, OnDestroy {
   @ViewChild(MatSidenav)
   public sidenav: MatSidenav;
   subMenus: boolean;
@@ -77,7 +77,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
       case 3:
       case 4:
       case 5: {
-        this.selectedFirst();
+        this.selectedDashboardFirst(this.viewId);
         break;
       }
       case 6:
@@ -85,22 +85,22 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
       case 8:
       case 9:
       case 10: {
-        this.selectedSecond();
+        this.selectedDashboardSecond(this.viewId);
         break;
       }
       case 11: {
-        this.selectedThird();
+        this.selectedDashboardThird(this.viewId);
         break;
       }
       case 12:
       case 13:
       case 14:
       case 15: {
-        this.selectedFourth();
+        this.selectedDashboardFourth(this.viewId);
         break;
       }
       case 16: {
-        this.selectedFifth();
+        this.selectedDashboardFifth(this.viewId);
       }
     }
   }
@@ -119,7 +119,6 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showThirdSubmenu = false;
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = false;
-    this.onSelect(this.viewId);
   }
   selectedDashboardFirst(id)   {
     this.onSelect(id);
@@ -137,7 +136,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showThirdSubmenu = false;
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = false;
-    this.onSelect(this.viewId);
+
   }
   selectedDashboardSecond(id)   {
     this.onSelect(id);
@@ -155,7 +154,6 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showSecondSubmenu = false;
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = false;
-    this.onSelect(this.viewId);
   }
   selectedDashboardThird(id) {
     this.onSelect(id);
@@ -173,7 +171,6 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showSecondSubmenu = false;
     this.showThirdSubmenu = false;
     this.showFifthSubmenu = false;
-    this.onSelect(this.viewId);
   }
   selectedDashboardFourth(id) {
     this.onSelect(id);
@@ -191,7 +188,6 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showSecondSubmenu = false;
     this.showThirdSubmenu = false;
     this.showFourthSubmenu = false;
-    this.onSelect(this.viewId);
   }
   selectedDashboardFifth(id) {
     this.onSelect(id);
@@ -203,10 +199,10 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showFifthSubmenu = true;
     this.collapseMenu();
   }
-  ngDoCheck() {
+  /* ngDoCheck() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
-   /*  console.log('return:', this.mobileNo); */
-  }
+    console.log('return:', this.mobileNo); 
+} */
   mouseenter() {
     if (!this.isExpanded) {
       this.isShowing = true;

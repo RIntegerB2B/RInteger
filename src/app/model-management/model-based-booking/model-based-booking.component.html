@@ -4,21 +4,26 @@
       <div class="row">
         <div class="col-md-6" *ngFor="let model of Model">
             
-          <div class="row newBar">
-            <div class="col-md-12">
-              <ul class="navbar-nav">
-               
+          <div class="row display-small-none">
+            <div class="col-md-12">               
                 <ul class="navbar-nav">
-                  <li class="menu" *ngFor="let service of services" [class.subPrice]="service === selectedType" (click)="onSelect(service)">
-                      
+                  <li class="navbar-item" *ngFor="let service of services"
+                   [class.subPrice]="service === selectedType"
+                    (click)="onSelect(service)">
                       <a class="nav-link"> 
                          {{service.name}}</a>
                     </li>
           </ul>         
-              </ul>
             </div>
           </div>
           <div class="col-md-12 text-center d-md-none d-lg-none">
+              <div class="row">
+                  <div class="col-md-12 text-center">
+                    <h6>
+                      <strong>MODEL BOOKING</strong>
+                    </h6>
+                  </div>
+                </div>
             <div class="form-group">
   
               <mat-form-field>
@@ -47,16 +52,47 @@
           <br>
   
           <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-10 owl-carousel-holder " >
-                <p style="text-align: justify;font-size: 12px;">MODEL NAME: <b>{{model.userName | uppercase}}</b>  </p>
+            <div class="col-md-12 owl-carousel-holder " >
                     <div class="carousel-section images" *ngIf="showEcommerce">
                             <owl-carousel  [options]="myCarouselOptions">
                                 <div  class="item" *ngFor="let images of this.model?.ecommerceImageName;let i = index">
-                                    <div>
-                                        <img [src]=this.images/>
-                                    </div>
+                                    <div class="row modelRow">
+                                        <div class="col-md-6 col-6">
+                                          <h6 class="modelHeader">Model Name</h6>
+                                          <a class="modelName">{{model.userName | uppercase}}</a>
+                                        </div>
+                                        <div class="col-md-6 col-6">
+                                          <h6 class="modelHeader">Schedule Date</h6>
+                                          <a class="modelName">{{model.scheduledDate | uppercase}}</a>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-12 col-12">
+                                          <img mat-card-image [src]=this.images />
+                                        </div>
+                                      </div>
+                                      <div class="row modelRow">
+                                        <div class="col-md-3 col-3">
+                                          <h6 class="modelHeader">Height</h6>
+                                          <a class="modelMeasurement">{{model.height | uppercase}}</a>
+                                        </div>
+                                        <div class="col-md-3 col-3">
+                                          <h6 class="modelHeader">Waist</h6>
+                                          <a class="modelMeasurement">{{model.waist | uppercase}}</a>
+                                        </div>
+                                        <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Men'">
+                                          <h6 class="modelHeader">Chest</h6>
+                                          <a class="modelMeasurement">{{model.chest | uppercase}}</a>
+                                        </div>
+                                        <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Women'">
+                                          <h6 class="modelHeader">Bust</h6>
+                                          <a class="modelMeasurement">{{model.bust | uppercase}}</a>
+                                        </div>
+                                        <div class="col-md-3 col-3">
+                                          <h6 class="modelHeader">Hips</h6>
+                                          <a class="modelMeasurement">{{model.hips | uppercase}}</a>
+                                        </div>
+                                      </div>
                                 </div>
                             </owl-carousel>
                     </div>
@@ -64,77 +100,140 @@
                     <div class="carousel-section images" *ngIf="showPortFolio">
                         <owl-carousel  [options]="myCarouselOptions">
                             <div  class="item" *ngFor="let images of this.model?.portFolioImageName;let i = index">
-                                <div>
-                                    <img [src]=this.images/>
-                                </div>
+                                <div class="row modelRow">
+                                    <div class="col-md-6 col-6">
+                                      <h6 class="modelHeader">Model Name</h6>
+                                      <a class="modelName">{{model.userName | uppercase}}</a>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                      <h6 class="modelHeader">Schedule Date</h6>
+                                      <a class="modelName">{{model.scheduledDate | uppercase}}</a>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-12 col-12">
+                                      <img mat-card-image [src]=this.images />
+                                    </div>
+                                  </div>
+                                  <div class="row modelRow">
+                                    <div class="col-md-3 col-3">
+                                      <h6 class="modelHeader">Height</h6>
+                                      <a class="modelMeasurement">{{model.height | uppercase}}</a>
+                                    </div>
+                                    <div class="col-md-3 col-3">
+                                      <h6 class="modelHeader">Waist</h6>
+                                      <a class="modelMeasurement">{{model.waist | uppercase}}</a>
+                                    </div>
+                                    <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Men'">
+                                      <h6 class="modelHeader">Chest</h6>
+                                      <a class="modelMeasurement">{{model.chest | uppercase}}</a>
+                                    </div>
+                                    <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Women'">
+                                      <h6 class="modelHeader">Bust</h6>
+                                      <a class="modelMeasurement">{{model.bust | uppercase}}</a>
+                                    </div>
+                                    <div class="col-md-3 col-3">
+                                      <h6 class="modelHeader">Hips</h6>
+                                      <a class="modelMeasurement">{{model.hips | uppercase}}</a>
+                                    </div>
+                                  </div>
                             </div>
                         </owl-carousel>
                 </div>
                 <div class="carousel-section images" *ngIf="showProduct">
                     <owl-carousel  [options]="myCarouselOptions">
                         <div  class="item" *ngFor="let images of this.model?.productImageName;let i = index">
-                            <div>
-                                <img [src]=this.images/>
-                            </div>
+                            <div class="row modelRow">
+                                <div class="col-md-6 col-6">
+                                  <h6 class="modelHeader">Model Name</h6>
+                                  <a class="modelName">{{model.userName | uppercase}}</a>
+                                </div>
+                                <div class="col-md-6 col-6">
+                                  <h6 class="modelHeader">Schedule Date</h6>
+                                  <a class="modelName">{{model.scheduledDate | uppercase}}</a>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12 col-12">
+                                  <img mat-card-image [src]=this.images />
+                                </div>
+                              </div>
+                              <div class="row modelRow">
+                                <div class="col-md-3 col-3">
+                                  <h6 class="modelHeader">Height</h6>
+                                  <a class="modelMeasurement">{{model.height | uppercase}}</a>
+                                </div>
+                                <div class="col-md-3 col-3">
+                                  <h6 class="modelHeader">Waist</h6>
+                                  <a class="modelMeasurement">{{model.waist | uppercase}}</a>
+                                </div>
+                                <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Men'">
+                                  <h6 class="modelHeader">Chest</h6>
+                                  <a class="modelMeasurement">{{model.chest | uppercase}}</a>
+                                </div>
+                                <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Women'">
+                                  <h6 class="modelHeader">Bust</h6>
+                                  <a class="modelMeasurement">{{model.bust | uppercase}}</a>
+                                </div>
+                                <div class="col-md-3 col-3">
+                                  <h6 class="modelHeader">Hips</h6>
+                                  <a class="modelMeasurement">{{model.hips | uppercase}}</a>
+                                </div>
+                              </div>
                         </div>
                     </owl-carousel>
-            </div>
-            <div class="carousel-section images" *ngIf="showMeasurements">
-                <p style="text-align: justify;font-size: 12px;">HEIGHT: <b>{{model.height | uppercase}}</b>  </p> 
-                <p style="text-align: justify;font-size: 12px;">   WAIST: <b>{{model.waist | uppercase}} </b> </p>
-                <p style="text-align: justify;font-size: 12px;" *ngIf="model.categoryType == 'Men'">      CHEST: <b>{{model.chest | uppercase}} </b> </p>
-                <p style="text-align: justify;font-size: 12px;" *ngIf="model.categoryType == 'Women'">      BUST: <b>{{model.bust | uppercase}} </b> </p>
-                <p style="text-align: justify;font-size: 12px;">      HIPS: <b>{{model.hips | uppercase}} </b> </p>
-                <p style="text-align: justify;font-size: 12px;">      SHOE SIZE: <b>{{model.shoeSize | uppercase}} </b> </p>
-                <p style="text-align: justify;font-size: 12px;">      HAIR: <b>{{model. hair | uppercase}} </b> </p>
-                <p style="text-align: justify;font-size: 12px;">      EYES: <b>{{model. eyes | uppercase}} </b> </p>
-                <p style="text-align: justify;font-size: 12px;">      SHOULDER: <b>{{model. shoulder | uppercase}} </b> </p>
-                <p style="text-align: justify;font-size: 12px;">      TOP SIZE: <b>{{model. topsize | uppercase}} </b> </p>
-                <p style="text-align: justify;font-size: 12px;">      BOTTOM SIZE: <b>{{model.  bottomsize | uppercase}} </b> </p>
+            </div>  
+                <div class="row measurementRow" *ngIf="showMeasurements">
+                    <div class="col-md-6 col">
+                      <h6 class="measurementHeader">Height</h6>
+                      <h6 class="measurementHeader">Waist</h6>
+                      <h6 class="measurementHeader" 
+                      *ngIf="model.categoryType == 'Men'">Chest</h6>
+                      <h6 class="measurementHeader" 
+                      *ngIf="model.categoryType == 'Women'">Bust</h6>
+                      <h6 class="measurementHeader">Hips</h6>
+                      <h6 class="measurementHeader">Shoe Size</h6>
+                      <h6 class="measurementHeader">Hair</h6>
+                      <h6 class="measurementHeader">Shoulder</h6>
+                      <h6 class="measurementHeader">Top Size</h6>
+                      <h6 class="measurementHeader">Bottom Size</h6>
+                    </div>
+                    <div class="col-md-6 col">
+                        <h6 class="measurementSize">{{model.height | uppercase}}</h6>
+                        <h6 class="measurementSize">{{model.waist | uppercase}}</h6>
+                        <h6 class="measurementSize" *ngIf="model.categoryType == 'Men'">
+                            {{model.chest | uppercase}}
+                        </h6>
+                        <h6 class="measurementSize" *ngIf="model.categoryType == 'Women'">
+                            {{model.bust | uppercase}}
+                        </h6>
+                        <h6 class="measurementSize">
+                            {{model.hips | uppercase}}
+                        </h6>
+                        <h6 class="measurementSize">
+                            {{model.shoeSize | uppercase}}
+                        </h6>
+                        <h6 class="measurementSize"> {{model.hair | uppercase}}</h6>
+                        <h6 class="measurementSize"> {{model.shoulder | uppercase}}</h6>
+                        <h6 class="measurementSize">{{model.topSize | uppercase}}</h6>
+                        <h6 class="measurementSize">{{model.bottomSize | uppercase}}</h6>
+                    </div>
+                  </div>
+                
               </div>
-  
-            </div>
-  
-  
-  
-            <!-- 
-                    <mat-card class="example-card image" *ngIf="showPortrait" >
-                    <carousel  [showIndicators]="false"   >
-                        <slide *ngFor="let images of this.model?.portraitImageName">
-                          <img   mat-card-image   [src]="this.images"  alt="first slide" >
-                        </slide>
-                      </carousel>
-                    </mat-card>
-                 -->
-  
-  
-  
-  
           </div>
-          <div class="row"  *ngIf="!showMeasurements">
-              <p style="text-align: justify;font-size: 12px;">HEIGHT: <b>{{model.height | uppercase}}</b>  </p> 
-              <p style="text-align: justify;font-size: 12px;">   WAIST: <b>{{model.waist | uppercase}} </b> </p>
-              <p style="text-align: justify;font-size: 12px;" *ngIf="model.categoryType == 'Men'">      CHEST: <b>{{model.chest | uppercase}} </b> </p>
-              <p style="text-align: justify;font-size: 12px;" *ngIf="model.categoryType == 'Women'">      BUST: <b>{{model.bust | uppercase}} </b> </p>
-              <p style="text-align: justify;font-size: 12px;">      HIPS: <b>{{model.hips | uppercase}} </b> </p>
-          
-          </div>
-          <!-- <div class="col-md-12" *ngIf="showEcommerce"  >
-                <angular-image-slider class="images" [images]="imagesUrl"></angular-image-slider>
-                    </div> -->
-  
         </div>
   
         <div class="col-md-5 col-md-offset-1">
           <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-md-12  display-small-none text-center">
               <h6>
                 <strong>MODEL BOOKING</strong>
               </h6>
             </div>
           </div>
           <br>
-          <div class="form-group">
+          <div class="form-group mt-2">
             <mat-form-field class="example-full-width">
               <input matInput placeholder="Mobile Number" maxlength="10" [(ngModel)]="mobileNo" formControlName="mobileNumber" type="phone"
                 #mobileNum required>
