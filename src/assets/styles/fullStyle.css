@@ -335,3 +335,102 @@ font-weight: 700;
   }
 }
 
+.gridRowHeader {
+  /* box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19); */
+  margin: 12px 0px;
+  color: #FFF;
+  font-size: 14px;
+  background-color:lightslategray;
+}
+.gridRow {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+  margin: 12px 0px;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+
+
+.gridEdit {
+  cursor: pointer;
+}
+
+.gridRowEditPadding {
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 900px) {
+
+  /*Small */
+  .pageBox {
+    width: 90%;
+  }
+
+  .pageBoxLg {
+    padding-top: 60px;
+  }
+
+  .display-none-small {
+    display: none;
+  }
+
+  .container-fuid-padding-small {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  .editImage {
+    position: absolute;
+    right: 15px;
+  }
+
+  .gridLabel {
+    color: lightslategray;
+    font-size: 8pt;
+  }
+}
+
+@media screen and (min-width: 900) {
+
+  /* Large */
+  .btnpink-textbox-inline {
+    margin-top: 14px;
+  }
+
+  /* .pageBoxLg {
+    border: 1px solid #570015;
+    margin: 60px 20px 20px 20px;
+    padding: 20px;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  } */
+  .pageBoxLg-label {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: white;
+    padding: 0px 5px;
+    transition: padding 3s;
+    -moz-transition: padding 3s;
+    -webkit-transition: padding 3s;
+  }
+
+  .vcenterHeader {
+    top: 8px;
+  }
+
+  .vcenter {
+    top: 6px;
+  }
+
+  .display-none-large {
+    display: none;
+  }
+}
+
+.mat-form-field {
+  display: block !important;
+  position: relative;
+  text-align: left;
+}

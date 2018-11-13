@@ -1,2 +1,296 @@
-
-{{StatusModel}}
+<mat-horizontal-stepper  #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Monthly plan</ng-template>
+        <div class="row">
+            <h6 class="alert
+            alert-danger">Monthly plan</h6>
+          <div  class="col-md-6 col-6  alert
+              alert-success
+              ">
+            Month: <strong>{{selectedMonthName}}</strong>
+            Year: <strong>{{selectedYearName}}</strong>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-6 form-group">
+          </div>
+        </div>
+        <!-- mobile view -->
+        <div class="d-lg-none d-md-none" *ngFor="let data of Status">
+          <div *ngFor="let val of this.data?.monthlyPlan">
+            <div class="row gridRow" *ngIf="!val.newShowEdit">
+              <div class="col-4 vcenter form-group">
+                <label class="gridLabel">Title:</label>
+                <p>{{val.planTitle}}</p>
+              </div>
+              <div class="col-4 vcenter form-group">
+                <label class="gridLabel">Description:</label>
+                <p>{{val.planDescription}}</p>
+              </div>
+              <div class="col-4 vcenter form-group">
+                <label class="gridLabel">Status:</label>
+                <p>{{val.status}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="display-none-small">
+          <div class="labelHeader">Task Details</div>
+          <div class="pageBoxLg">
+            <div class="container-fluid container-fuid-padding-small">
+  
+              <!-- show the table -->
+  
+              <div class="row gridRowHeader">
+  
+                <div class="col-md-4 vcenterHeader">
+                  <div class="form-group">
+                    <label>Title</label>
+                  </div>
+                </div>
+                <div class="col-md-4 vcenterHeader">
+                  <div class="form-group">
+                    <label>Description</label>
+                  </div>
+                </div>
+                <div class="col-md-4 vcenterHeader">
+                  <div>
+                    <label> Status</label>
+                  </div>
+                </div>
+  
+              </div>
+              <!--data-->
+              <div *ngIf="noresult">
+                No results found
+              </div>
+  
+              <div *ngFor="let data of Status">
+                <div *ngFor="let val of this.data?.monthlyPlan">
+                  <div class="row gridRow" *ngIf="!val.newShowEdit">
+                    <div class="col-sm-12 col-md-4 vcenter form-group">
+                      <label class="labelText">{{val.planTitle}}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-4 vcenter form-group">
+                      <label class="labelText">{{val.planDescription}}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-4 vcenter form-group">
+                        <label class="labelText">{{val.status}}</label>
+                      </div>
+                  </div>
+                 
+                </div>
+              </div>
+  
+              <!--clossing-->
+            </div>
+          </div>
+        </div>
+        <button mat-button matStepperNext>Next</button>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup" >
+        <ng-template matStepLabel><button mat-raised-button (click)="viewAllWeeklyPlan()">
+            Weekly Plan
+          </button></ng-template>
+          <div class="row">
+                <h6 class="alert
+                alert-danger"> Weekly Plan</h6>
+                <div class="col-md-6 col-offset-6 alert
+                alert-success
+                ">
+               
+                Month: <strong>{{selectedMonthName}}</strong>
+                Year: <strong>{{selectedYearName}}</strong>
+              </div>
+          </div>
+       
+        <!-- mobile View -->
+        <div class="d-lg-none d-md-none" *ngFor="let data of Status">
+          <div *ngFor="let val of this.data?.weeklyPlan">
+            <div class="row gridRow" *ngIf="!val.newShowEditWeek">
+              <div class="col-3 vcenter form-group">
+                <label class="gridLabel">Title:</label>
+                <p>{{val.planTitle}}</p>
+              </div>
+              <div class="col-3 vcenter form-group">
+                <label class="gridLabel">Week:</label>
+                <p>{{val.week}}</p>
+              </div>
+              
+  
+              <div class="col-3 vcenter form-group">
+                <label class="gridLabel">Description:</label>
+                <p>{{val.planDescription}}</p>
+              </div>
+              
+              <div class="col-3 vcenter form-group">
+                <label class="gridLabel">Status:</label>
+                <p>{{val.status}}</p>
+              </div>
+    
+            </div>
+          </div>
+        </div>
+        <!-- mobile view end -->
+        <div class="pageBoxLg">
+          <div class="display-none-small">
+            <div class="container-fluid container-fuid-padding-small">
+              <div class="row gridRowHeader">
+  
+                <div class="col-md-3 vcenterHeader">
+                  <div class="form-group">
+                    <label>Title</label>
+                  </div>
+                </div>
+                <div class="col-md-3 vcenterHeader">
+                  <div class="form-group">
+                    <label>Description</label>
+                  </div>
+                </div>
+                <div class="col-md-3 vcenterHeader">
+                  <div class="form-group">
+                    <label>Week</label>
+                  </div>
+              </div>
+              <div class="col-md-3 vcenterHeader">
+                <div>
+                  <label> Status</label>
+                </div>
+              </div>
+              <div *ngIf="noresult">
+                No results found
+              </div>
+              
+            </div>
+            <div *ngFor="let data of Status">
+                <div *ngFor="let val of this.data?.weeklyPlan">
+                  <div class="row gridRow" *ngIf="!val.newShowEditWeek">
+                    <div class="col-sm-12 col-md-3 vcenter form-group">
+                      <label class="labelText">{{val.planTitle}}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-3 vcenter form-group">
+                      <label class="labelText">{{val.planDescription}}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-3 vcenter form-group">
+                      <label class="labelText">{{val.week}}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-3 vcenter form-group">
+                        <label class="labelText">{{val.status}}</label>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+     
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel><button mat-raised-button (click)="viewDailyPlan()">
+            Daily Plan
+          </button></ng-template>
+          <div class="row">
+          <h6 class="alert
+          alert-danger"> Daily Plan</h6>
+          <div class="col-md-6 col-offset-6 alert
+          alert-success
+          ">
+         
+          Month: <strong>{{selectedMonthName}}</strong>
+          Year: <strong>{{selectedYearName}}</strong>
+        </div>
+    </div>
+  
+        <!-- mobile View -->
+        <div class="d-lg-none d-md-none" *ngFor="let data of Status">
+          <div *ngFor="let val of this.data?.dailyPlan">
+            <div class="row gridRow" 
+  *ngIf="!val.newShowEditDaily">
+              <div class="col-3 vcenter form-group">
+                <label class="gridLabel">Title:</label>
+                <p>{{val.planTitle}}</p>
+              </div>
+              <div class="col-3 vcenter form-group">
+                <label class="gridLabel">Date:</label>
+                <p>{{val.date}}</p>
+              </div>
+              <div class="col-3 vcenter form-group">
+                <label class="gridLabel">Description:</label>
+                <p>{{val.planDescription}}</p>
+              </div>
+              <div class="col-3 vcenter form-group">
+                <label class="gridLabel">Status:</label>
+                <p>{{val.status}}</p>
+              </div>
+    
+            </div>
+          </div>
+        </div>
+        <!-- mobile view end -->
+  
+  
+        <div class="pageBoxLg">
+          <div class="display-none-small">
+            <div class="container-fluid container-fuid-padding-small">
+              <div class="row gridRowHeader">
+                <div class="col-md-3 vcenterHeader">
+                  <div class="form-group">
+                    <label>Title</label>
+                  </div>
+                </div>
+                <div class="col-md-3 vcenterHeader">
+                  <div class="form-group">
+                    <label>Description</label>
+                  </div>
+                </div>
+                <div class="col-md-3 vcenterHeader">
+                  <div class="form-group">
+                    <label>Date</label>
+                  </div>
+                </div>
+                <div class="col-md-3 vcenterHeader">
+                  <div>
+                    <label> Status</label>
+                  </div>
+                </div>
+  
+              </div>
+              <div *ngIf="noresult">
+                No results found
+              </div>
+  
+              <div *ngFor="let data of Status">
+                <div *ngFor="let val of this.data?.dailyPlan">
+                  <div class="row gridRow" *ngIf="!val.newShowEditDaily">
+                    <div class="col-sm-12 col-md-3 vcenter form-group">
+                      <label class="labelText">{{val.planTitle}}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-3 vcenter form-group">
+                      <label class="labelText">{{val.planDescription}}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-3 vcenter form-group">
+                      <label class="labelText">{{val.date}}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-3 vcenter form-group">
+                        <label class="labelText">{{val.status}}</label>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>

@@ -66,6 +66,8 @@ import {
   MatInputModule,
   MatFormFieldModule,
   MatStepperModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 import {DashBoardService} from './home/dashboard/dashboard.service';
 import { ImageEditingBookingComponent } from './image-editing-booking/image-editing-booking.component';
@@ -164,6 +166,8 @@ import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account
     MatExpansionModule,
     DragScrollModule,
     MatMenuModule,
+    MatStepperModule,
+    MatDatepickerModule,
     SlideshowModule,
     NgbModule.forRoot(),
     CarouselModule.forRoot(),

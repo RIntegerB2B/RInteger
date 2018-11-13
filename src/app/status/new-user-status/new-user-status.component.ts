@@ -110,9 +110,9 @@ export class NewUserStatusComponent implements OnInit {
   documentsReq: boolean;
   registrationStatusView: boolean;
   aplusStatusView: boolean;
-  filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
-    'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Digital Business Management Booking',
-    'Scheduled Model Booking'];
+  filterOption = ['Scheduled Model Booking', 'Model Booking', 'Product Booking', 'Creative Booking',
+  'Editing Booking',  'Registration Booking', 'Catalog Booking', 'A+ Cataloging Booking', 'Account Management Booking',
+   'Marketing  Booking',  'IT Services Booking'];
   constructor(private fb: FormBuilder, private router: Router,
     private statusService: StatusService, private localStorageService: LocalStorageService, private dashboardservice: DashBoardService) { }
 
@@ -138,8 +138,8 @@ export class NewUserStatusComponent implements OnInit {
   }
   findStatus(newUserForm: FormGroup, mobileNum: any) {
     this.localStorageService.store('mobileno', mobileNum);
-    this.router.navigate(['/dashboard/statusView', 12, mobileNum]);
-    this.statusService.getActiveBookings(mobileNum).subscribe(data => {
+    this.router.navigate(['/dashboard/statusView', 12,  mobileNum]);
+   /*  this.statusService.getActiveBookings(mobileNum).subscribe(data => {
       this.status = data;
       this.show = true;
       console.log(data);
@@ -147,7 +147,7 @@ export class NewUserStatusComponent implements OnInit {
       error => {
         console.log(error);
       }
-    );
+    ); */
   }
   showStatus() {
     this.hideStatus = false;
@@ -161,7 +161,7 @@ export class NewUserStatusComponent implements OnInit {
     this.message = false;
   }
   statusView(statusViewForm: FormGroup, id: any, type: any) {
-    if (type === 'Direct Booking' || type === 'Model Booking' || type === 'Scheduled Model Booking') {
+    if (type === 'Product Booking' || type === 'Model Booking' || type === 'Scheduled Model Booking') {
       this.displayStatus = true;
       this.hideStatus = true;
       this.message = false;
@@ -245,7 +245,7 @@ export class NewUserStatusComponent implements OnInit {
       this.bookingStatus = false;
       this.registrationStatusView = false;
       this.aplusStatusView = false;
-    } else if (type === 'Digital Business Management Booking') {
+    } else if (type === 'Account Management Booking') {
       this.message = true;
       this.displayStatus = false;
       this.hideStatus = true;

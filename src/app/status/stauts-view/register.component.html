@@ -2,9 +2,9 @@
   <div fxLayout="row wrap"  fxLayout.lt-sm="column">
       <h3 class="text-center" *ngIf="!register">Login</h3>
       <h3 class="text-center" *ngIf="register">Register</h3>
-    <div fxFlex="100" class="pr-1">
+    <div fxFlex="100" class="pr-1" >
       <mat-form-field class="full-width">
-        <input matInput formControlName="mobileNo" [(ngModel)]="storedMobileNo" maxlength="10"  placeholder="Mobile Number" required>
+        <input matInput formControlName="mobileNo" [(ngModel)]="storedMobileNo" disabled maxlength="10"  placeholder="Mobile Number" >
         <mat-error *ngIf="registerForm.controls['mobileNo'].errors?.required" required>
           Enter Mobile Number
           <strong>required</strong>
