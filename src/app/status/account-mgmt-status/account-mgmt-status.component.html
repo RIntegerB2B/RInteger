@@ -215,15 +215,15 @@
       <div class="d-lg-none d-md-none" *ngFor="let data of Status">
         <div *ngFor="let val of this.data?.dailyPlan">
           <div class="row gridRow" *ngIf="!val.newShowEditDaily">
-                <div class="col-3 vcenter form-group">
-                        <label class="gridLabel">Date:</label>
-                        <p>{{val.date}}</p>
-                      </div>
+            <div class="col-3 vcenter form-group">
+              <label class="gridLabel">Date:</label>
+              <p>{{val.date}}</p>
+            </div>
             <div class="col-3 vcenter form-group">
               <label class="gridLabel">Title:</label>
               <p>{{val.planTitle}}</p>
             </div>
-          
+
             <div class="col-3 vcenter form-group">
               <label class="gridLabel">Description:</label>
               <p>{{val.planDescription}}</p>
@@ -243,11 +243,11 @@
         <div class="display-none-small">
           <div class="container-fluid container-fuid-padding-small">
             <div class="row gridRowHeader">
-                    <div class="col-md-3 vcenterHeader">
-                            <div class="form-group">
-                              <label>Date</label>
-                            </div>
-                          </div>
+              <div class="col-md-3 vcenterHeader">
+                <div class="form-group">
+                  <label>Date</label>
+                </div>
+              </div>
               <div class="col-md-3 vcenterHeader">
                 <div class="form-group">
                   <label>Title</label>
@@ -258,7 +258,7 @@
                   <label>Description</label>
                 </div>
               </div>
-             
+
               <div class="col-md-3 vcenterHeader">
                 <div>
                   <label> Status</label>
@@ -273,16 +273,16 @@
             <div *ngFor="let data of Status">
               <div *ngFor="let val of this.data?.dailyPlan">
                 <div class="row gridRow" *ngIf="!val.newShowEditDaily">
-                        <div class="col-sm-12 col-md-3 vcenter form-group">
-                                <label class="labelText">{{val.date}}</label>
-                              </div>
+                  <div class="col-sm-12 col-md-3 vcenter form-group">
+                    <label class="labelText">{{val.date}}</label>
+                  </div>
                   <div class="col-sm-12 col-md-3 vcenter form-group">
                     <label class="labelText">{{val.planTitle}}</label>
                   </div>
                   <div class="col-sm-12 col-md-3 vcenter form-group">
                     <label class="labelText">{{val.planDescription}}</label>
                   </div>
-                  
+
                   <div class="col-sm-12 col-md-3 vcenter form-group">
                     <label class="labelText">{{val.status}}</label>
                   </div>

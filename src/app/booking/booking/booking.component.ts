@@ -125,7 +125,7 @@ export class BookingComponent implements OnInit {
       onBookInForm.controls.location.value,
       onBookInForm.controls.emailId.value
     );
-    this.customer.bookingType = 'Direct Booking';
+    this.customer.bookingType = 'Product Shoot Booking';
     this.customer.modelType =  onBookInForm.controls.modelType.value;
     this.customer.shootType = onBookInForm.controls.shootType.value;
     this.customer.product = onBookInForm.controls.productType.value;
