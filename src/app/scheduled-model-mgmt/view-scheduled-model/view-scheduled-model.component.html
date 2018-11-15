@@ -57,7 +57,7 @@
         <input type="text" hidden [value]="model._id" formControlName="id" #modelId>
         <a (click)="bookModel(viewModelForm,modelId.value)">
           <mat-card class="example-card">
-
+            {{this.model?.primeImage}}
             <div class="row">
               <div class="col-md-6 col-6">
                 <h6 class="modelHeader">Model Name</h6>
@@ -66,6 +66,7 @@
               <div class="col-md-6 col-6">
                 <h6 class="modelHeader">Schedule Date</h6>
                 <a class="modelName">{{model.scheduledDate | uppercase}}</a>
+                <a  href="https://api.whatsapp.com/send?text=https://rinteger.com/dashboard/scheduledmodelBooking/5be2e8c7011f02634c159529" data-action="share/whatsapp/share">Hello</a>
               </div>
             </div>
             <img mat-card-image 
