@@ -19,6 +19,7 @@ export class ViewScheduledModelComponent implements OnInit {
   selected = 'All';
   selectedType;
   imageUrl;
+  whatsappShareUrl;
   services = [
     { id: 0, name: 'All' },
     { id: 1, name: 'Men International' },
@@ -28,9 +29,7 @@ export class ViewScheduledModelComponent implements OnInit {
   ];
   constructor(private fb: FormBuilder, private router: Router, private scheduledmodelService: ScheduledModelService,
      private dashBoardService: DashBoardService, private metaService: Meta) {
-      this.imageUrl = 'https://rinteger.com/admin/images/SP_sprinteger_models/Farid/3.jpg';
-      this.metaService.addTag( { property: 'og:image', content: this.imageUrl } );
-      /* this.metaService.updateTag({ property: 'og:image', content: this.imageUrl }); */
+
       }
 
   ngOnInit() {
@@ -43,6 +42,13 @@ export class ViewScheduledModelComponent implements OnInit {
     this.viewModelForm = this.fb.group({
       id: ['']
     });
+  }
+  whatsappShare(imageShare) {
+    this.imageUrl = 'https://rinteger.com/welcome';
+    this.metaService.addTag( { property: 'og:image', content: imageShare } );
+    this.metaService.updateTag({ property: 'og:image', content: imageShare });
+    this.whatsappShareUrl = 'https://api.whatsapp.com/send?text=' + this.imageUrl;
+    window.open(this.whatsappShareUrl);
   }
   onSelect(service): void {
     switch (service.id) {

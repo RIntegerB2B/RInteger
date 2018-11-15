@@ -65,7 +65,7 @@
               <div class="col-md-6 col-6">
                 <h6 class="modelHeader">Schedule Date</h6>
                 <a class="modelName">{{model.scheduledDate | uppercase}}</a>
-                <a  href="https://api.whatsapp.com/send?text=https://rinteger.com/dashboard/scheduledmodelBooking/5be2e8c7011f02634c159529" data-action="share/whatsapp/share">
+                <a (click)="whatsappShare(this.model?.primeImage)">
                   SHARE</a>
               </div>
             </div>
