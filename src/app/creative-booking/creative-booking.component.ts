@@ -103,7 +103,7 @@ console.log(this.shooting);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.saveCustomerDetail(creativeForm);
-  /*   this.subscribe(this.mobileNo); */
+    this.subscribe(this.mobileNo);
   }
   subscribe(mobNo) {
     this.swPush.requestSubscription({
