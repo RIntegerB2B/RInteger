@@ -13,6 +13,7 @@ import {ScheduledModelService} from '../scheduled-model.service';
 import {ScheduledBooking} from './scheduled-booking.model';
 import {Customer} from '../../shared/customer.model';
 import {Model} from '../view-scheduled-model/model-detail.model';
+import { Title, Meta } from '@angular/platform-browser';
 
 
 @Component({
@@ -55,8 +56,11 @@ export class ScheduledBookingComponent implements OnInit {
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
     private scheduledService: ScheduledModelService, private localStorageService: LocalStorageService,
-    private swUpdate: SwUpdate, private swPush: SwPush , public snackBar: MatSnackBar , private dashBoardService: DashBoardService ) {
+    private swUpdate: SwUpdate, private swPush: SwPush , public snackBar: MatSnackBar , private dashBoardService: DashBoardService,
+     private metaService: Meta ) {
+    const imageUrl = 'https://rinteger.com/admin/images/SP_sprinteger_models/Farid/3.jpg';
     this.id = this.activatedRoute.snapshot.paramMap.get('modelId');
+    this.metaService.addTag( { property: 'og:image', content: imageUrl } );
   }
 
   ngOnInit() {

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import {Model} from './model-detail.model';
 import {ScheduledModelService} from '../scheduled-model.service';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-view-scheduled-model',
@@ -18,6 +18,7 @@ export class ViewScheduledModelComponent implements OnInit {
   showMessage: boolean;
   selected = 'All';
   selectedType;
+  imageUrl;
   services = [
     { id: 0, name: 'All' },
     { id: 1, name: 'Men International' },
@@ -26,7 +27,12 @@ export class ViewScheduledModelComponent implements OnInit {
     { id: 4, name: 'Women National' },
   ];
   constructor(private fb: FormBuilder, private router: Router, private scheduledmodelService: ScheduledModelService,
-     private dashBoardService: DashBoardService) { }
+     private dashBoardService: DashBoardService, private metaService: Meta) {
+      this.imageUrl = 'https://rinteger.com/admin/images/SP_sprinteger_models/Farid/3.jpg';
+      this.metaService.addTag( { property: 'og:image', content: this.imageUrl } );
+      /* this.metaService.updateTag({ property: 'og:image', content: this.imageUrl }); */
+      }
+
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
     this.allModels();
