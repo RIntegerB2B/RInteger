@@ -21,6 +21,7 @@ import {RegisterComponent} from '../stauts-view/stauts-view.component';
   styleUrls: ['./all-status.component.css']
 })
 export class AllStatusComponent implements OnInit {
+  bookingmobileno;
  AplusDetails: AplusCatalogingStatus;
   shootPlanningTrue: boolean;
   CreativeDetails: CreativeStatus;
@@ -255,12 +256,12 @@ export class AllStatusComponent implements OnInit {
       this.bookingStatus = false;
       this.registrationStatusView = false;
       this.aplusStatusView = false;
-    } else if (type === 'Digital Business Management Booking') {
+    } else if (type === 'Account Management Booking') {
       this.userLoggedInCheck  = this.localStorageService.retrieve('userLoggedIn');
       this.registeredMobileCheck = this.localStorageService.retrieve('registeredmobileno');
-      console.log(this.userLoggedInCheck);
-      console.log(this.registeredMobileCheck);
-      if ( this.userLoggedInCheck === null && this.registeredMobileCheck === null) {
+      this.bookingmobileno = this.localStorageService.retrieve('mobileno');
+      if ( this.userLoggedInCheck === null || this.registeredMobileCheck === null
+        || this.registeredMobileCheck !==  this.bookingmobileno ) {
       const dialogRef = this.dialog.open(RegisterComponent, {
         width: '520px',
         disableClose: true,

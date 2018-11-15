@@ -16,7 +16,7 @@ import { StautsViewComponent } from '../../status/stauts-view/stauts-view.compon
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   @ViewChild(MatSidenav)
   public sidenav: MatSidenav;
   subMenus: boolean;
@@ -199,10 +199,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.showFifthSubmenu = true;
     this.collapseMenu();
   }
-  /* ngDoCheck() {
+  ngDoCheck() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
-    console.log('return:', this.mobileNo); 
-} */
+    console.log('return:', this.mobileNo);
+}
   mouseenter() {
     if (!this.isExpanded) {
       this.isShowing = true;
@@ -247,11 +247,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     if (this.mobileNo === null) {
       this.router.navigate(['/dashboard/newUser', 12]);
-      console.log(this.mobileNo);
     } else if (this.mobileNo != null) {
       this.mobileNo = this.localStorageService.retrieve('mobileno');
       this.router.navigate(['/dashboard/statusView', 12, this.mobileNo]);
-      console.log(this.mobileNo);
     }
     /* this.selectedDashboardFourth(); */
   }

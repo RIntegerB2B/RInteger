@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   mobileNo;
-  
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   toggleBar = 'colapseMenuBar';
   constructor( private localStorageService: LocalStorageService,

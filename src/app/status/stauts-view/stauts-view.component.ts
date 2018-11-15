@@ -131,6 +131,7 @@ export class StautsViewComponent implements OnInit {
   aplusStatusView: boolean;
   userLoggedInCheck;
   registeredMobileCheck;
+  bookingmobileno;
   filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
     'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Digital Business Management Booking',
     'Scheduled Model Booking'];
@@ -139,7 +140,7 @@ export class StautsViewComponent implements OnInit {
     private activatedRoute: ActivatedRoute, private dialog: MatDialog, private router: Router,
     private localStorageService: LocalStorageService,
      private statusService: StatusService, private dashBoardService: DashBoardService) {
-    this.no = this.activatedRoute.snapshot.paramMap.get('no');
+      this.no = this.localStorageService.retrieve('mobileno');
     console.log('number', this.no);
   }
 
@@ -267,12 +268,12 @@ export class StautsViewComponent implements OnInit {
       this.bookingStatus = false;
       this.registrationStatusView = false;
       this.aplusStatusView = false;
-    } else if (type === 'Digital Business Management Booking') {
+    } else if (type === 'Account Management Booking') {
       this.userLoggedInCheck  = this.localStorageService.retrieve('userLoggedIn');
       this.registeredMobileCheck = this.localStorageService.retrieve('registeredmobileno');
-      console.log(this.userLoggedInCheck);
-      console.log(this.registeredMobileCheck);
-      if ( this.userLoggedInCheck === null && this.registeredMobileCheck === null) {
+      this.bookingmobileno = this.localStorageService.retrieve('mobileno');
+      if ( this.userLoggedInCheck === null || this.registeredMobileCheck === null ||
+         this.registeredMobileCheck !==  this.bookingmobileno  ) {
       const dialogRef = this.dialog.open(RegisterComponent, {
         width: '520px',
         disableClose: true,
@@ -1313,7 +1314,7 @@ export class RegisterComponent implements OnInit {
   }
   createViewForm() {
     this.registerForm = this.fb.group({
-      mobileNo: ['', mobileNumber],
+      mobileNo: [{value: '', disabled: true}, mobileNumber],
       password: ['', Validators.required]
     });
   }
@@ -1328,6 +1329,8 @@ this.register = true;
     this.registerCustomer = new RegisterCustomer();
     this.registerCustomer.mobileNumber = registerForm.controls.mobileNo.value;
     this.registerCustomer.password = registerForm.controls.password.value;
+this.localStorageService.store('registeredmobileno', registerForm.controls.mobileNo.value);
+this.localStorageService.clear('userLoggedIn');
     this.statusService.userRegister(this.registerCustomer).subscribe( data => {
      if (data !== null) {
       this.snackBar.open(this.message, this.action, {
@@ -1335,6 +1338,7 @@ this.register = true;
       });
       this.register = false;
       registerForm.reset();
+      this.cancel();
      }
     }, error => {
       console.log(error);
@@ -1346,12 +1350,13 @@ this.register = true;
     this.registerCustomer.mobileNumber = registerForm.controls.mobileNo.value;
     this.registerCustomer.password = registerForm.controls.password.value;
     this.statusService.signIn(this.registerCustomer).subscribe( data => {
+      console.log(data);
   if (data === null) {
 this.showError = false;
 this.showError2 = true;
   } else if (data.password === undefined) {
-    this.showError2 = false;
-    this.showError = true;
+    this.showError2 = true;
+    this.showError = false;
   } else if (data.password !==  registerForm.controls.password.value) {
     this.showError2 = false;
     this.showError = true;
@@ -1359,7 +1364,7 @@ this.showError2 = true;
     this.dialogRef.close();
    this.router.navigate(['/dashboard/accmgmtstatus', this.data]);
    this.localStorageService.store('userLoggedIn', 'true');
-   this.localStorageService.store('registeredmobileno', registerForm.controls.mobileNo.value);
+ /*   this.localStorageService.store('registeredmobileno', this.storedMobileNo ); */
    this.localStorageService.store('password',  registerForm.controls.password.value);
   }
     }, error => {
