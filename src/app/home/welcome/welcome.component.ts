@@ -75,8 +75,8 @@ export class WelcomeComponent implements OnInit {
      this.dashBoardService.generateTags({
       title: 'welcome',
       description: 'welcome',
-      image: 'https://rinteger.com/assets/icons/icon-384x384.png',
-      slug: 'contact-page'
+      url: 'https://rinteger.com/',
+      image: 'https://rinteger.com/assets/icons/icon-384x384.png'
     });
   }
   getStatus() {

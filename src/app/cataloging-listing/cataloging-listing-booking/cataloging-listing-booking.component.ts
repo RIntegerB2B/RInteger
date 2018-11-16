@@ -78,8 +78,8 @@ export class CatalogingListingBookingComponent implements OnInit {
     this.dashBoardService.generateTags({
       title: 'welcome',
       description: 'welcome',
+      url: 'https://rinteger.com/',
       image: 'https://rinteger.com/admin/images/SP_sprinteger_models/Akash Model/1.jpg',
-      slug: 'contact-page'
     });
   }
   createForm() {

@@ -69,8 +69,9 @@ export class DashBoardService {
   generateTags(config) {
     // default values
     config = {
-      title: 'default',
-      description: 'rinteger',
+      title: 'welcome',
+      description: 'welcome',
+      url: 'https://rinteger.com/',
       image: 'https://rinteger.com/assets/icons/icon-384x384.png',
       ...config
     };
