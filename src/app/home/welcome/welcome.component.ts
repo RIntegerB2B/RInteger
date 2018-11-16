@@ -56,7 +56,7 @@ export class WelcomeComponent implements OnInit {
   '../../../assets/images/arvind.png', '../../../assets/images/pothys.png', '../../../assets/images/lee.jpg'];
 
   constructor(private router: Router, private localStorageService: LocalStorageService, private  dashBoard: DashboardComponent,
-    private dashboardService: DashBoardService) {
+    private dashBoardService: DashBoardService) {
       this.changeText = true;
       this.changeText1 = true;
       this.changeText2 = true;
@@ -72,6 +72,12 @@ export class WelcomeComponent implements OnInit {
      }
   ngOnInit() {
    /*  this.dashboardService.hideMenuTransparent(); */
+     this.dashBoardService.generateTags({
+      title: 'welcome',
+      description: 'welcome',
+      image: '../../../assets/images/Creative shoot booking.jpg',
+      slug: 'contact-page'
+    });
   }
   getStatus() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');

@@ -37,6 +37,11 @@ export class ViewScheduledModelComponent implements OnInit {
     this.allModels();
     this.createForm();
     this.onSelect(this.services[0]);
+    this.dashBoardService.generateTags({
+      title: 'view',
+      description: 'view Scheduled',
+      image: 'https://rinteger.com/admin/images/SP_sprinteger_models/Akash Model/1.jpg',
+    });
   }
   createForm() {
     this.viewModelForm = this.fb.group({
@@ -45,8 +50,10 @@ export class ViewScheduledModelComponent implements OnInit {
   }
   whatsappShare(imageShare) {
     this.imageUrl = 'https://rinteger.com/welcome';
-    this.metaService.addTag( { property: 'og:image', content: imageShare } );
-    this.metaService.updateTag({ property: 'og:image', content: imageShare });
+    this.metaService.addTag( { property: 'og:image', content: 'https://rinteger.com/admin/images/SP_sprinteger_models/Farid/3.jpg' } );
+    /*
+    this.metaService.updateTag({ property: 'og:image', content: 'https://rinteger.com/admin/images/SP_sprinteger_models/Farid/3.jpg'  });
+     */
     this.whatsappShareUrl = 'https://api.whatsapp.com/send?text=' + this.imageUrl;
     window.open(this.whatsappShareUrl);
   }

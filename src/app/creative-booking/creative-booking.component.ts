@@ -38,7 +38,7 @@ export class CreativeBookingComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router,
     private creativeService: CreativeBookingService, private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private injector: Injector, private snackBar: MatSnackBar,
-    private dashboardService: DashBoardService) {
+    private dashBoardService: DashBoardService) {
       try {
         this.swPush = this.injector.get(SwPush);
       } catch (error) {
@@ -47,10 +47,16 @@ export class CreativeBookingComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.dashboardService.makeMenuTransparent();
+    this.dashBoardService.makeMenuTransparent();
     this.createForm();
     this.checkData();
     this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.dashBoardService.generateTags({
+      title: 'welcome',
+      description: 'welcome',
+      image: 'https://rinteger.com/admin/images/SP_sprinteger_models/Rohith/1.jpg',
+      slug: 'contact-page'
+    });
   }
   createForm() {
     this.creativeForm = this.fb.group({

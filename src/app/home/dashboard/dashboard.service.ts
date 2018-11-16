@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Observable, of } from 'rxjs';
-
+import { Meta } from '@angular/platform-browser';
 interface IMenuItem {
   type: string; // Possible values: link/dropDown/icon/separator/extLink
   name?: string;     // Used as display text for item and title for separator type
@@ -29,6 +29,7 @@ interface IBadge {
 @Injectable()
 
 export class DashBoardService {
+  
   menuTransparent: boolean;
   /*   hideTransparent: boolean; */
   iconMenu: IMenuItem[] = [
@@ -50,7 +51,7 @@ export class DashBoardService {
   menuItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
   // navigation component has subscribed to this Observable
   menuItems$ = this.menuItems.asObservable();
-  constructor() { }
+  constructor(private meta: Meta) { }
   makeMenuTransparent() {
     this.menuTransparent = true;
   }
@@ -65,4 +66,17 @@ export class DashBoardService {
         break;
     }
   }
+  generateTags(config) {
+    // default values
+    config = {
+      title: 'default',
+      description: 'rinteger',
+      image: 'https://rinteger.com/assets/icons/icon-384x384.png',
+      ...config
+    };
+    this.meta.updateTag({ property: 'og:title', content: config.title });
+    this.meta.updateTag({ property: 'og:description', content: config.description });
+    this.meta.updateTag({ property: 'og:image', content: config.image });
+  }
+
 }

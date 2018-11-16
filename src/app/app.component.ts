@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { Title, Meta } from '@angular/platform-browser';
+import { DashBoardService } from './home/dashboard/dashboard.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AppComponent implements OnInit  {
   title = 'app';
   routerData: any;
-  constructor(private route: Router) {
+  constructor(private route: Router, private metaService: Meta, private dashBoardService: DashBoardService) {
     console.log(route.config);
     console.log(route);
     this.routerData = this.route.config;

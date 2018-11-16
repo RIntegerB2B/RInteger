@@ -67,14 +67,20 @@ export class CatalogingListingBookingComponent implements OnInit {
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private fb: FormBuilder, private router: Router,
     private catalogService: CatalogListingService, private localStorageService: LocalStorageService, public snackBar: MatSnackBar,
-    private swUpdate: SwUpdate, private dashboardService: DashBoardService, private dashBoard: DashboardComponent) { }
+    private swUpdate: SwUpdate, private dashBoardService: DashBoardService, private dashBoard: DashboardComponent) { }
 
   ngOnInit() {
-    this.dashboardService.makeMenuTransparent();
+    this.dashBoardService.makeMenuTransparent();
     this.createForm();
     this.checkData();
     this.showb2cNational = true;
     this.onSelect(this.services[0]);
+    this.dashBoardService.generateTags({
+      title: 'welcome',
+      description: 'welcome',
+      image: 'https://rinteger.com/admin/images/SP_sprinteger_models/Akash Model/1.jpg',
+      slug: 'contact-page'
+    });
   }
   createForm() {
     this.catalogListingForm = this.fb.group({

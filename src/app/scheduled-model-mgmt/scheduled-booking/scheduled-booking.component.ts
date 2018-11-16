@@ -58,9 +58,7 @@ export class ScheduledBookingComponent implements OnInit {
     private scheduledService: ScheduledModelService, private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private swPush: SwPush , public snackBar: MatSnackBar , private dashBoardService: DashBoardService,
      private metaService: Meta ) {
-    const imageUrl = 'https://rinteger.com/admin/images/SP_sprinteger_models/Farid/3.jpg';
-    this.id = this.activatedRoute.snapshot.paramMap.get('modelId');
-    this.metaService.addTag( { property: 'og:image', content: imageUrl } );
+      this.id = this.activatedRoute.snapshot.paramMap.get('modelId');
   }
 
   ngOnInit() {
@@ -70,6 +68,11 @@ export class ScheduledBookingComponent implements OnInit {
     this.checkData();
     this.showPortFolio = true;
     this.onSelect(this.services[0]);
+    this.dashBoardService.generateTags({
+      title: 'appcomponent',
+      description: 'appcomponent',
+      image: 'https://rinteger.com/admin/images/SP_sprinteger_models/Farid/1.jpg',
+    });
   }
   createForm() {
     this.bookScheduledModelForm = this.fb.group({
