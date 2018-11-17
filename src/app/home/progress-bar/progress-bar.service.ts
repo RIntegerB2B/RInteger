@@ -9,10 +9,9 @@ export class ProgressBarService {
 
   dialogRef: MatDialogRef<ProgressBarComponent>;
   constructor(private dialog: MatDialog) { }
-
   public open(title: string = 'Please wait') {
-    Promise.resolve().then(() => {
-    this.dialogRef = this.dialog.open(ProgressBarComponent, { disableClose: true});
+    Promise.resolve(null).then(() => {
+      this.dialogRef = this.dialog.open(ProgressBarComponent, { disableClose: true, backdropClass: 'light-backdrop'});
     this.dialogRef.updateSize('200px');
     this.dialogRef.componentInstance.title = title;
     return this.dialogRef.afterClosed();

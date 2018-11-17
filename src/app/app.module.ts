@@ -90,6 +90,7 @@ import { ViewScheduledModelComponent } from './scheduled-model-mgmt/view-schedul
 import { DigitalMgmtComponent } from './home/product/digital-mgmt/digital-mgmt.component';
 import { ItServicesComponent } from './home/product/it-services/it-services.component';
 import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account-mgmt-status.component';
+import { ProgressBarComponent } from './home/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -134,7 +135,8 @@ import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account
     DigitalMgmtComponent,
     ItServicesComponent,
     RegisterComponent,
-    AccountMgmtStatusComponent
+    AccountMgmtStatusComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
@@ -168,6 +170,7 @@ import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account
     MatMenuModule,
     MatStepperModule,
     MatDatepickerModule,
+    MatProgressSpinnerModule,
     SlideshowModule,
     NgbModule.forRoot(),
     CarouselModule.forRoot(),
@@ -175,7 +178,7 @@ import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account
   ],
   providers: [BookingService,
   LocalStorageService, DashBoardService],
-  entryComponents: [RegisterComponent],
+  entryComponents: [RegisterComponent, ProgressBarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

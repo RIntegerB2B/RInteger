@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -11,15 +11,16 @@ import { ModelDetail } from './model.model';
 import { ModelBooking } from './model-booking.model';
 import { Customer } from '../../shared/customer.model';
 import { Notification } from '../../shared/notification.model';
-import {mobileNumber} from '../../shared/validation';
-import {DashBoardService} from '../../home/dashboard/dashboard.service';
+import { mobileNumber } from '../../shared/validation';
+import { DashBoardService } from '../../home/dashboard/dashboard.service';
+import { ProgressBarService } from '../../home/progress-bar/progress-bar.service';
 
 @Component({
   selector: 'app-model-based-booking',
   templateUrl: './model-based-booking.component.html',
   styleUrls: ['./model-based-booking.component.css']
 })
-export class ModelBasedBookingComponent implements OnInit {
+export class ModelBasedBookingComponent implements OnInit, AfterViewInit {
   message;
   action;
   id;
@@ -52,14 +53,16 @@ export class ModelBasedBookingComponent implements OnInit {
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
     private modelService: ModelManagementService, private localStorageService: LocalStorageService,
-    private swUpdate: SwUpdate, private swPush: SwPush , public snackBar: MatSnackBar , private dashBoardService: DashBoardService ) {
+    private swUpdate: SwUpdate, private swPush: SwPush, public snackBar: MatSnackBar , private dashBoardService: DashBoardService, 
+    private progressBarService: ProgressBarService
+     ) {
     this.id = this.activatedRoute.snapshot.paramMap.get('modelId');
     console.log('model', this.id);
   }
 
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
-    this.viewModel(this.id);
+    /* this.viewModel(this.id); */
     this.createForm();
     this.checkData();
     this.showPortFolio = true;
@@ -98,7 +101,9 @@ export class ModelBasedBookingComponent implements OnInit {
   }
   this.selectedType = service;
 }
-
+ngAfterViewInit() {
+  setTimeout(() =>  this.viewModel(this.id));
+}
   checkData() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');
@@ -106,8 +111,10 @@ export class ModelBasedBookingComponent implements OnInit {
     this.email = this.localStorageService.retrieve('emailId');
   }
   viewModel(id) {
+    this.progressBarService.open();
     this.modelService.modelDetail(id).subscribe(data => {
       this.Model = data;
+      this.progressBarService.close();
       console.log(this.Model);
     });
   }

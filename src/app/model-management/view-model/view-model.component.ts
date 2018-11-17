@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -6,6 +6,7 @@ import { ModelManagementService } from '../model-management.service';
 import { Model } from './model.model';
 import { ServiceProviders } from './service-provider.model';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
+import { ProgressBarService } from '../../home/progress-bar/progress-bar.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import {DashBoardService} from '../../home/dashboard/dashboard.service';
   templateUrl: './view-model.component.html',
   styleUrls: ['./view-model.component.css']
 })
-export class ViewModelComponent implements OnInit {
+export class ViewModelComponent implements OnInit, AfterViewInit {
   viewModelForm: FormGroup;
   Detail: Model;
   selected = 'All';
@@ -29,14 +30,19 @@ export class ViewModelComponent implements OnInit {
     { id: 4, name: 'Women National' },
   ];
   constructor(private fb: FormBuilder, private router: Router, private modelService: ModelManagementService,
-     private dashBoardService: DashBoardService) { }
+     private dashBoardService: DashBoardService, private progressBarService: ProgressBarService) { }
   ngOnInit() {
    /*  this.dashBoardService.makeMenuTransparent(); */
-    this.allModels();
+    /* this.allModels(); */
+    setTimeout(() => this.allModels());
     this.createForm();
     this.serviceProviders();
     this.onSelect(this.services[0]);
   }
+  ngAfterViewInit() {
+   
+  }
+
   createForm() {
     this.viewModelForm = this.fb.group({
       id: ['']
@@ -85,8 +91,10 @@ export class ViewModelComponent implements OnInit {
   }
 
   allModels() {
+    this.progressBarService.open();
     this.modelService.getAllModels().subscribe(data => {
       this.Detail = data;
+      this.progressBarService.close();
       console.log(data.length);
       if (data.length === 0) {
 this.showMessage = true;
