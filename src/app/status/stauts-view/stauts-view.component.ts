@@ -132,8 +132,8 @@ export class StautsViewComponent implements OnInit {
   userLoggedInCheck;
   registeredMobileCheck;
   bookingmobileno;
-  filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
-    'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Digital Business Management Booking',
+  filterOption = ['Model Booking', 'Product Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
+    'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Account Management Booking',
     'Scheduled Model Booking'];
   searchText: string;
   constructor(private fb: FormBuilder,
@@ -182,7 +182,7 @@ export class StautsViewComponent implements OnInit {
     console.log(this.datacheck);
   }
   statusView(statusViewForm: FormGroup, id: any, type: any) {
-    if (type === 'Direct Booking' || type === 'Model Booking' || type === 'Scheduled Model Booking') {
+    if (type === 'Product Booking' || type === 'Model Booking' || type === 'Scheduled Model Booking') {
       this.displayStatus = true;
       this.hideStatus = true;
       this.message = false;

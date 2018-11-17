@@ -50,8 +50,8 @@ orders;
  cancelledStatus: boolean;
  activeStatus: boolean;
  mobileNo;
-filterOption = ['Model Booking', 'Direct Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
-'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Digital Business Management Booking',
+filterOption = ['Model Booking', 'Product Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
+'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Account Management Booking',
 'Scheduled Model Booking'];
  searchText: string;
   constructor(private fb: FormBuilder,
