@@ -1,4 +1,5 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit, AfterViewInit , Inject} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -53,7 +54,8 @@ export class ScheduledBookingComponent implements OnInit, AfterViewInit {
     { id: 3, name: 'Measurements' },
   ];
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
-  constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any,
+   private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
     private scheduledService: ScheduledModelService, private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private swPush: SwPush , public snackBar: MatSnackBar , private dashBoardService: DashBoardService,
      private metaService: Meta, private progressBarService: ProgressBarService ) {
@@ -62,7 +64,7 @@ export class ScheduledBookingComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
-    /* this.viewModel(this.id); */
+    this.viewModel(this.id);
     this.createForm();
     this.checkData();
     this.showPortFolio = true;
@@ -74,7 +76,7 @@ export class ScheduledBookingComponent implements OnInit, AfterViewInit {
     });
   }
   ngAfterViewInit() {
-    setTimeout(() => this.viewModel(this.id));
+    /* setTimeout(() => this.viewModel(this.id)); */
   }
   createForm() {
     this.bookScheduledModelForm = this.fb.group({

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit , Inject} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -54,7 +55,7 @@ filterOption = ['Model Booking', 'Product Booking', 'Catalog Booking', 'Registra
 'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Account Management Booking',
 'Scheduled Model Booking'];
  searchText: string;
-  constructor(private fb: FormBuilder,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService , private localStorageService: LocalStorageService,
     private dashBoardService: DashBoardService) {
      }

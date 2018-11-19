@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit , Inject} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -60,7 +61,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
   swPush: SwPush;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
 
-  constructor(private fb: FormBuilder, private router: Router,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private fb: FormBuilder, private router: Router,
     private registrationService: RegistrationSetupService, private localStorageService: LocalStorageService, private swUpdate: SwUpdate,
     public snackBar: MatSnackBar, private dashBoardService: DashBoardService) { }
 

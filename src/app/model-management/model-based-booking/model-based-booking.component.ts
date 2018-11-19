@@ -1,4 +1,5 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit, AfterViewInit , Inject} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -20,7 +21,7 @@ import { ProgressBarService } from '../../home/progress-bar/progress-bar.service
   templateUrl: './model-based-booking.component.html',
   styleUrls: ['./model-based-booking.component.css']
 })
-export class ModelBasedBookingComponent implements OnInit, AfterViewInit {
+export class ModelBasedBookingComponent implements OnInit {
   message;
   action;
   id;
@@ -51,7 +52,8 @@ export class ModelBasedBookingComponent implements OnInit, AfterViewInit {
     { id: 3, name: 'Measurements' },
   ];
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
-  constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private activatedRoute: ActivatedRoute,
+   private fb: FormBuilder, private router: Router,
     private modelService: ModelManagementService, private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private swPush: SwPush, public snackBar: MatSnackBar , private dashBoardService: DashBoardService, 
     private progressBarService: ProgressBarService
@@ -62,7 +64,7 @@ export class ModelBasedBookingComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
-    /* this.viewModel(this.id); */
+    this.viewModel(this.id);
     this.createForm();
     this.checkData();
     this.showPortFolio = true;
@@ -101,9 +103,6 @@ export class ModelBasedBookingComponent implements OnInit, AfterViewInit {
   }
   this.selectedType = service;
 }
-ngAfterViewInit() {
-  setTimeout(() =>  this.viewModel(this.id));
-}
   checkData() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
     this.userName = this.localStorageService.retrieve('name');
@@ -111,10 +110,10 @@ ngAfterViewInit() {
     this.email = this.localStorageService.retrieve('emailId');
   }
   viewModel(id) {
-    this.progressBarService.open();
+    /* this.progressBarService.open(); */
     this.modelService.modelDetail(id).subscribe(data => {
       this.Model = data;
-      this.progressBarService.close();
+      /* this.progressBarService.close(); */
       console.log(this.Model);
     });
   }

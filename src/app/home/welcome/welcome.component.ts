@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit, ViewChild , Inject, OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import { empty } from 'rxjs';
@@ -6,6 +7,7 @@ import {map} from 'rxjs/operators';
 
 import {DashboardComponent} from '../dashboard/dashboard.component';
 import {DashBoardService} from '../dashboard/dashboard.service';
+import { ProgressBarService  } from '../progress-bar/progress-bar.service'
 
 
 @Component({
@@ -14,7 +16,7 @@ import {DashBoardService} from '../dashboard/dashboard.service';
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent implements OnInit, OnDestroy {
   fullImages = [ '../../../assets/images/services/silder1.jpg',
   '../../../assets/images/services/silder2.jpg' ,
   '../../../assets/images/services/silder3.jpg',
@@ -55,7 +57,9 @@ export class WelcomeComponent implements OnInit {
   clientImages = ['../../../assets/images/flf.png', '../../../assets/images/tcs.png',
   '../../../assets/images/arvind.png', '../../../assets/images/pothys.png', '../../../assets/images/lee.jpg'];
 
-  constructor(private router: Router, private localStorageService: LocalStorageService, private  dashBoard: DashboardComponent,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private router: Router, private localStorageService: LocalStorageService, 
+  private progressBarService: ProgressBarService, 
+  private  dashBoard: DashboardComponent,
     private dashBoardService: DashBoardService) {
       this.changeText = true;
       this.changeText1 = true;
@@ -78,6 +82,9 @@ export class WelcomeComponent implements OnInit {
       url: 'https://rinteger.com/',
       image: 'https://rinteger.com/assets/icons/icon-384x384.png'
     });
+  }
+  ngOnDestroy() {
+    this.progressBarService.close();
   }
   getStatus() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');

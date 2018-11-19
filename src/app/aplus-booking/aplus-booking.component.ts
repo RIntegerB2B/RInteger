@@ -1,3 +1,4 @@
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 import { Component, OnInit, Injector } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
@@ -34,7 +35,7 @@ export class AplusBookingComponent implements OnInit {
   videoShoot = ['Yes', 'No'];
   shooting = [];
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
-  constructor(private fb: FormBuilder, private router: Router,
+  constructor( private fb: FormBuilder, private router: Router,
     private aplusService: AplusBookingService, private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private injector: Injector, private snackBar: MatSnackBar,
     private dashboardService: DashBoardService) {

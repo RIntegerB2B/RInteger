@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -14,7 +14,7 @@ import { ProgressBarService } from '../../home/progress-bar/progress-bar.service
   templateUrl: './view-model.component.html',
   styleUrls: ['./view-model.component.css']
 })
-export class ViewModelComponent implements OnInit, AfterViewInit {
+export class ViewModelComponent implements OnInit {
   viewModelForm: FormGroup;
   Detail: Model;
   selected = 'All';
@@ -34,15 +34,11 @@ export class ViewModelComponent implements OnInit, AfterViewInit {
   ngOnInit() {
    /*  this.dashBoardService.makeMenuTransparent(); */
     /* this.allModels(); */
-    setTimeout(() => this.allModels());
+  /*   setTimeout(() => this.allModels()); */
     this.createForm();
     this.serviceProviders();
     this.onSelect(this.services[0]);
   }
-  ngAfterViewInit() {
-   
-  }
-
   createForm() {
     this.viewModelForm = this.fb.group({
       id: ['']
@@ -91,13 +87,13 @@ export class ViewModelComponent implements OnInit, AfterViewInit {
   }
 
   allModels() {
-    this.progressBarService.open();
+    /* this.progressBarService.open(); */
     this.modelService.getAllModels().subscribe(data => {
       this.Detail = data;
-      this.progressBarService.close();
+      /* this.progressBarService.close(); */
       console.log(data.length);
       if (data.length === 0) {
-this.showMessage = true;
+  this.showMessage = true;
       } else if (data.length !== 0) {
         this.showMessage = false;
       }

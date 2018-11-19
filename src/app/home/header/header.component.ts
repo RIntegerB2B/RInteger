@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit, ViewChild , Inject} from '@angular/core';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 
 import { LocalStorageService } from 'ngx-webstorage';
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
   mobileNo;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   toggleBar = 'colapseMenuBar';
-  constructor( private localStorageService: LocalStorageService,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any,  private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private swPush: SwPush, private router: Router) {
     }
 

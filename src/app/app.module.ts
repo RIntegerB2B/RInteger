@@ -1,3 +1,5 @@
+import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule} from '@angular/forms';
@@ -7,6 +9,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { Ng2Webstorage, LocalStorageService } from 'ngx-webstorage';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap';
+import { Routes, RouterModule } from '@angular/router';
 import { AngularFontAwesomeModule} from 'angular-font-awesome';
 import { SliderModule } from 'angular-image-slider';
 import { DragScrollModule } from 'ngx-drag-scroll';
@@ -91,9 +94,11 @@ import { DigitalMgmtComponent } from './home/product/digital-mgmt/digital-mgmt.c
 import { ItServicesComponent } from './home/product/it-services/it-services.component';
 import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account-mgmt-status.component';
 import { ProgressBarComponent } from './home/progress-bar/progress-bar.component';
+import { SeoComponent } from './seo/seo/seo.component';
 
 @NgModule({
   declarations: [
+    SeoComponent,
     AppComponent,
     BookingComponent,
     WelcomeComponent,
@@ -139,7 +144,8 @@ import { ProgressBarComponent } from './home/progress-bar/progress-bar.component
     ProgressBarComponent
   ],
   imports: [
-    BrowserModule,
+ CommonModule,
+  NgtUniversalModule,
     HttpModule,
     HttpClientModule,      // (Required) for share counts
     HttpClientJsonpModule,
@@ -179,6 +185,6 @@ import { ProgressBarComponent } from './home/progress-bar/progress-bar.component
   providers: [BookingService,
   LocalStorageService, DashBoardService],
   entryComponents: [RegisterComponent, ProgressBarComponent],
-  bootstrap: [AppComponent]
+  exports: [RouterModule]
 })
 export class AppModule { }

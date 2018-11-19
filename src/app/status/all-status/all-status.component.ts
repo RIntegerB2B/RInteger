@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit , Inject} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -125,7 +126,7 @@ export class AllStatusComponent implements OnInit {
   searchText: string;
   userLoggedInCheck;
   registeredMobileCheck;
-  constructor(private fb: FormBuilder,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService, private dialog: MatDialog, private router: Router,
      private dashBoardService: DashBoardService,
     private localStorageService: LocalStorageService) {

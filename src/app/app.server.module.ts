@@ -1,0 +1,23 @@
+import { NgtPwaMockModule } from '@ng-toolkit/pwa';
+import { AppComponent } from './app.component';
+import { AppModule } from './app.module';
+import { NgModule } from '@angular/core';
+import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
+import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
+import { BrowserModule } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+@NgModule({
+    imports: [
+        NgtPwaMockModule,
+        ServerModule,
+        NoopAnimationsModule,
+        ModuleMapLoaderModule,
+        ServerTransferStateModule, // comment
+        AppModule,
+        BrowserModule.withServerTransition({ appId: 'app-root' }),
+    ],
+    bootstrap: [AppComponent],
+
+})
+export class AppServerModule { }

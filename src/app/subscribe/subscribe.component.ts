@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit , Inject} from '@angular/core';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -20,7 +21,7 @@ export class SubscribeComponent implements OnInit {
   mobileNo;
   subscribeForm: FormGroup;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
-  constructor(private localStorageService: LocalStorageService, private fb: FormBuilder, private router: Router,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private localStorageService: LocalStorageService, private fb: FormBuilder, private router: Router,
     private swUpdate: SwUpdate, private swPush: SwPush, private subscribeService: SubscribeService) { }
 
   ngOnInit() {
@@ -35,7 +36,7 @@ export class SubscribeComponent implements OnInit {
   subscribe(subscribeForm: FormGroup, mobileNo: any) {
     this. mobNo  = mobileNo;
     console.log(this.mobNo);
-   this.localStorageService.store('mobileno', this.mobNo);
+    this.localStorageService.store('mobileno', this.mobNo);
    this.router.navigate(['/welcome']);
      this.swPush.requestSubscription({
        serverPublicKey: this.VAPID_PUBLIC_KEY
