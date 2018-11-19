@@ -39,6 +39,8 @@ export class ViewModelComponent implements OnInit {
     this.serviceProviders();
     this.onSelect(this.services[0]);
   }
+
+
   createForm() {
     this.viewModelForm = this.fb.group({
       id: ['']
@@ -93,7 +95,7 @@ export class ViewModelComponent implements OnInit {
       /* this.progressBarService.close(); */
       console.log(data.length);
       if (data.length === 0) {
-  this.showMessage = true;
+this.showMessage = true;
       } else if (data.length !== 0) {
         this.showMessage = false;
       }

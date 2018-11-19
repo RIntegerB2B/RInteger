@@ -16,17 +16,16 @@ import { ProgressBarService  } from '../progress-bar/progress-bar.service'
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent implements OnInit, OnDestroy {
-  fullImages = [ '../../../assets/images/services/silder1.jpg',
-  '../../../assets/images/services/silder2.jpg' ,
-  '../../../assets/images/services/silder3.jpg',
-   '../../../assets/images/services/silder4.jpg' ,
-  '../../../assets/images/services/silder5.jpg',
-  '../../../assets/images/services/silder6.jpg',
-  '../../../assets/images/services/silder7.jpg',
-  '../../../assets/images/services/silder8.jpg' ,
-  '../../../assets/images/services/silder9.jpg',
-  '../../../assets/images/services/silder10.jpg',
+export class WelcomeComponent implements OnInit {
+  fullImages = [ '../../../assets/images/services/slider1.jpg',
+  '../../../assets/images/services/slider2.jpg' ,
+  '../../../assets/images/services/slider3.jpg',
+   '../../../assets/images/services/slider4.jpg' ,
+  '../../../assets/images/services/slider5.jpg',
+  '../../../assets/images/services/slider6.jpg',
+  '../../../assets/images/services/slider7.jpg',
+  '../../../assets/images/services/slider8.jpg' ,
+  '../../../assets/images/services/slider9.jpg'
    ] ;
   myCarouselOptions = { items: 5, dots: true, nav: true,
   };
@@ -57,8 +56,9 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   clientImages = ['../../../assets/images/flf.png', '../../../assets/images/tcs.png',
   '../../../assets/images/arvind.png', '../../../assets/images/pothys.png', '../../../assets/images/lee.jpg'];
 
-  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private router: Router, private localStorageService: LocalStorageService, 
-  private progressBarService: ProgressBarService, 
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private router: Router, private localStorageService: LocalStorageService,
+  
+  private progressBarService: ProgressBarService,
   private  dashBoard: DashboardComponent,
     private dashBoardService: DashBoardService) {
       this.changeText = true;
@@ -82,9 +82,6 @@ export class WelcomeComponent implements OnInit, OnDestroy {
       url: 'https://rinteger.com/',
       image: 'https://rinteger.com/assets/icons/icon-384x384.png'
     });
-  }
-  ngOnDestroy() {
-    this.progressBarService.close();
   }
   getStatus() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
