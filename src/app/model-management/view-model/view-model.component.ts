@@ -90,7 +90,7 @@ export class ViewModelComponent implements OnInit, AfterViewInit {
   }
 
   allModels() {
-    this.progressBarService.open();
+    /* this.progressBarService.open(); */
     this.modelService.getAllModels().subscribe(data => {
       this.Detail = data;
       this.progressBarService.close();

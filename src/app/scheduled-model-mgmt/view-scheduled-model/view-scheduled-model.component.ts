@@ -87,7 +87,7 @@ export class ViewScheduledModelComponent implements OnInit, AfterViewInit {
   this.selectedType = service;
 }
   allModels() {
-    this.progressBarService.open();
+/*     this.progressBarService.open(); */
     this.scheduledmodelService.getScheduledModelDetails().subscribe(data => {
       this.Detail = data;
       if (data.length === 0) {

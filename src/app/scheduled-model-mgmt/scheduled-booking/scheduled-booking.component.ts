@@ -116,7 +116,7 @@ export class ScheduledBookingComponent implements OnInit, AfterViewInit {
     this.email = this.localStorageService.retrieve('emailId');
   }
   viewModel(id) {
-    this.progressBarService.open();
+    /* this.progressBarService.open(); */
     this.scheduledService.modelDetail(id).subscribe(data => {
       this.Model = data;
       console.log(this.Model);
