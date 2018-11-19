@@ -526,25 +526,36 @@ Booking completion follows entire booking cycle and the feedback is collected to
                 [options]="myCarouselOptions"
                 
                >
-                <div  class="item" *ngFor="let image of fullImages;let i = index">
-                    <div>
-                        <img src={{image}}/>
-                    </div>
-                </div>
+               <div  class="item" *ngFor="let image of fullImages;let i = index">
+                   
+                  <div>
+                      <a [routerLink]="['/studio']">
+                    <img src={{image}}/>
+                  </a>
+                  </div>
+               
+              </div>
             </owl-carousel>
     </div>
 </div>
 <div class="owl-carousel-holder d-md-none d-xs-none">
   <div class="carousel-section">
+    
           <owl-carousel
-              [options]="myCarouselOptionsMobile"
-             >
+              [options]="myCarouselOptionsMobile">
+         
               <div  class="item" *ngFor="let image of fullImages;let i = index">
+                   
                   <div>
-                      <img src={{image}}/>
+                      <a [routerLink]="['/studio']">
+                    <img src={{image}}/>
+                  </a>
                   </div>
+               
               </div>
+              
           </owl-carousel>
+       
   </div>
 </div>
 </div>

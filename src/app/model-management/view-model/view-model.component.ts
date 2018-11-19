@@ -40,7 +40,6 @@ export class ViewModelComponent implements OnInit, AfterViewInit {
     this.onSelect(this.services[0]);
   }
   ngAfterViewInit() {
-   
   }
 
   createForm() {

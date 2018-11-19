@@ -96,7 +96,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
   onSelect(service)   {
     switch (service.id) {
     case 0: {
-      this.viewb2bNational();
+      this.viewb2cNational();
       break;
     }
     case 1: {
@@ -104,7 +104,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
       break;
     }
     case 2: {
-      this.viewb2cNational();
+      this.viewb2bNational();
       break;
     }
     case 3: {

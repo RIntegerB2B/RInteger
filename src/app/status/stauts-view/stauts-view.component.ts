@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import {  Component, OnInit, Inject, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -136,6 +136,17 @@ export class StautsViewComponent implements OnInit {
     'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Account Management Booking',
     'Scheduled Model Booking'];
   searchText: string;
+  arrayBuffer: any;
+  file: File;
+  @ViewChild('myTable') table: any;
+  temp = [];
+  currentPageLimit = 0;
+  pageLimitOptions = [
+    {value: 10},
+    {value: 25},
+    {value: 50},
+    {value: 100},
+  ];
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private dialog: MatDialog, private router: Router,
     private localStorageService: LocalStorageService,
@@ -157,6 +168,20 @@ export class StautsViewComponent implements OnInit {
       bookingType: [''],
       filterText: [],
       test: []
+    });
+  }
+  changePageLimit(limit: any) {
+    this.currentPageLimit = parseInt(limit, 10);
+  }
+  onLimitChange(limit: any) {
+    this.changePageLimit(limit);
+    this.table.limit = this.currentPageLimit;
+    this.table.recalculate();
+    setTimeout(() => {
+      if (this.table.bodyComponent.temp.length <= 0) {
+        // TODO[Dmitry Teplov] test with server-side paging.
+        this.table.offset = Math.floor((this.table.rowCount - 1) / this.table.limit);
+      }
     });
   }
   showStatus() {
