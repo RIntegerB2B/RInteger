@@ -50,12 +50,12 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
    private localStorage: any, public dashboardService: DashBoardService, private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
     private localStorageService: LocalStorageService, private router: Router, private activeRoute: ActivatedRoute,
     private statusService: StatusService, elementRef: ElementRef) {
-      const hammertime = new Hammer(elementRef.nativeElement, {touchAction: 'auto'});
-      hammertime.on('swipe', (ev) => {
+      const hammertime = new Hammer(elementRef.nativeElement, { threshold: 0, pointers: 0 });
+      hammertime.on('panright', (ev) => {
           this.sidenav.open();
           console.log(this.sidenav);
       });
-      hammertime.on('swipe', (ev) => {
+      hammertime.on('panleft', (ev) => {
           this.sidenav.close();
       });
     this.mobileQuery = media.matchMedia('(max-width: 900px)');
