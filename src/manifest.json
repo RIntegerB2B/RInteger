@@ -1,11 +1,11 @@
 {
   "name": "rinteger",
-  "short_name": "rinteger",
+  "description": "complete online seller's solution & services",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/?welcome=1",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
