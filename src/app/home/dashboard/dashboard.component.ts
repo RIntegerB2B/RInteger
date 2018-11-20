@@ -3,7 +3,7 @@ import { Component, OnInit, Input, OnDestroy, ElementRef, ViewChild,
    AfterViewInit, ChangeDetectorRef, DoCheck , Inject} from '@angular/core';
 import { DashBoardService } from '../dashboard/dashboard.service';
 import { Subscription } from 'rxjs';
-/* import * as Hammer from 'hammerjs'; */
+import * as Hammer from 'hammerjs';
 import { Router, ChildActivationEnd } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import { MediaMatcher } from '@angular/cdk/layout';
@@ -50,14 +50,14 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
    private localStorage: any, public dashboardService: DashBoardService, private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
     private localStorageService: LocalStorageService, private router: Router, private activeRoute: ActivatedRoute,
     private statusService: StatusService, elementRef: ElementRef) {
-      /* const hammertime = new Hammer(elementRef.nativeElement, {});
-      hammertime.on('panright', (ev) => {
+      const hammertime = new Hammer(elementRef.nativeElement, {touchAction: 'auto'});
+      hammertime.on('swipe', (ev) => {
           this.sidenav.open();
           console.log(this.sidenav);
       });
-      hammertime.on('panleft', (ev) => {
+      hammertime.on('swipe', (ev) => {
           this.sidenav.close();
-      }); */
+      });
     this.mobileQuery = media.matchMedia('(max-width: 900px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
