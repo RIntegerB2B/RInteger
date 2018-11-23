@@ -94,11 +94,9 @@ import { DigitalMgmtComponent } from './home/product/digital-mgmt/digital-mgmt.c
 import { ItServicesComponent } from './home/product/it-services/it-services.component';
 import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account-mgmt-status.component';
 import { ProgressBarComponent } from './home/progress-bar/progress-bar.component';
-import { SeoComponent } from './seo/seo/seo.component';
 
 @NgModule({
   declarations: [
-    SeoComponent,
     AppComponent,
     BookingComponent,
     WelcomeComponent,
