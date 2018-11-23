@@ -10,7 +10,11 @@
     "deploy": "npm run pre-deployBat && npm run build && npm run deployBat && node deployScript",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:server:prod": "ng run rinteger:server && webpack --config webpack.server.config.js --progress --colors",
+    "build:browser:prod": "ng build --prod",
+    "build:prod": "npm run build:server:prod && npm run build:browser:prod",
+    "server": "node local.js"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +33,7 @@
     "@angular/router": "^6.0.3",
     "@angular/service-worker": "^6.0.3",
     "@ng-bootstrap/ng-bootstrap": "^2.2.1",
+    "@ng-toolkit/universal": "^1.1.47",
     "angular-font-awesome": "^3.1.2",
     "angular-image-slider": "0.0.8",
     "angular-webstorage-service": "^1.0.2",
@@ -48,7 +53,13 @@
     "ngx-webstorage": "^2.0.1",
     "owl.carousel": "^2.3.4",
     "rxjs": "^6.0.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "@angular/platform-server": "^6.0.3",
+    "@nguniversal/module-map-ngfactory-loader": "^6.0.3",
+    "webpack-cli": "^2.1.4",
+    "ts-loader": "4.2.0",
+    "@nguniversal/express-engine": "^6.0.3",
+    "cors": "~2.8.4"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^6.0.3",

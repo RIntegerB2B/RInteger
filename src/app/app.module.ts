@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule} from '@angular/forms';
@@ -7,6 +8,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { Ng2Webstorage, LocalStorageService } from 'ngx-webstorage';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap';
+import { Routes, RouterModule } from '@angular/router';
 import { AngularFontAwesomeModule} from 'angular-font-awesome';
 import { SliderModule } from 'angular-image-slider';
 import { DragScrollModule } from 'ngx-drag-scroll';
@@ -91,9 +93,12 @@ import { ViewScheduledModelComponent } from './scheduled-model-mgmt/view-schedul
 import { DigitalMgmtComponent } from './home/product/digital-mgmt/digital-mgmt.component';
 import { ItServicesComponent } from './home/product/it-services/it-services.component';
 import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account-mgmt-status.component';
+import { ProgressBarComponent } from './home/progress-bar/progress-bar.component';
+import { SeoComponent } from './seo/seo/seo.component';
 
 @NgModule({
   declarations: [
+    SeoComponent,
     AppComponent,
     BookingComponent,
     WelcomeComponent,
@@ -135,10 +140,11 @@ import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account
     DigitalMgmtComponent,
     ItServicesComponent,
     RegisterComponent,
-    AccountMgmtStatusComponent
+    AccountMgmtStatusComponent,
+    ProgressBarComponent
   ],
   imports: [
-    BrowserModule,
+ CommonModule,
     HttpModule,
     HttpClientModule,      // (Required) for share counts
     HttpClientJsonpModule,
@@ -169,6 +175,7 @@ import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account
     MatMenuModule,
     MatStepperModule,
     MatDatepickerModule,
+    MatProgressSpinnerModule,
     SlideshowModule,
     MatPaginatorModule,
     NgbModule.forRoot(),
@@ -177,7 +184,7 @@ import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account
   ],
   providers: [BookingService,
   LocalStorageService, DashBoardService],
-  entryComponents: [RegisterComponent],
-  bootstrap: [AppComponent]
+  entryComponents: [RegisterComponent, ProgressBarComponent],
+  exports: [RouterModule]
 })
 export class AppModule { }

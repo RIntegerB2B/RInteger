@@ -1,0 +1,12 @@
+{
+  "universal": {
+    "skipInstall": false,
+    "directory": ".",
+    "project": "rinteger"
+  },
+  "pwa": {
+    "directory": ".",
+    "skipInstall": true,
+    "project": "rinteger"
+  }
+}

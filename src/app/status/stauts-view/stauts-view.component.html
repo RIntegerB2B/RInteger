@@ -13,7 +13,23 @@
       <h6><strong>LIST OF ACTIVE BOOKING</strong></h6>
     </div>
 
+<<<<<<< HEAD
     
+=======
+   <!--  <div fxFlex="20%">
+      <div class="p-2" fxLayoutAlign="end center">
+          <select (change)="onLimitChange($event.target.value)">
+              <option
+                *ngFor="let option of pageLimitOptions"
+                [value]="option.value"
+                [selected]="option.value == currentPageLimit"
+              >
+                {{ option.value }} per page
+              </option>
+            </select> 
+      </div>
+    </div> -->
+>>>>>>> 1847400a3c4d926e0a7a415dffe48e2041028ac7
     <input class="form-control" hidden type="text" placeholder="Type the booking type" formControlName="filterText"
       [(ngModel)]="searchText" style="width:300px;" />
     <div class="row">
@@ -50,6 +66,7 @@
           <button class="btn btn-success btn-sm" (click)="statusView(statusViewForm,id.value,type.value)">View</button>
         </div>
       </div>
+<<<<<<< HEAD
     
       <button style="margin:20px;" class="btn" [routerLink]="['/welcome']">back</button>
       <mat-paginator #paginator [pageSize]="pageSize" 
@@ -58,6 +75,23 @@
         [length]="totalSize" 
         [pageIndex]="currentPage" (page)="handlePage($event)">
       </mat-paginator>
+=======
+      <div fxFlex="20%">
+          <div class="p-2" fxLayoutAlign="end center">
+              <select (change)="onLimitChange($event.target.value)">
+                  <option
+                    *ngFor="let option of pageLimitOptions"
+                    [value]="option.value"
+                    [selected]="option.value == currentPageLimit"
+                  >
+                    {{ option.value }} per page
+                  </option>
+                </select> 
+          </div>
+        </div>
+      <button style="margin:20px;" class="btn" [routerLink]="['/welcome']">back</button>
+
+>>>>>>> 1847400a3c4d926e0a7a415dffe48e2041028ac7
     </div>
     <div class="text-center " style="padding-bottom:20px" *ngIf="bookingStatus">
       <h6><strong>BOOKING DETAILS</strong></h6>

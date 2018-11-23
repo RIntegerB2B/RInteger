@@ -13,6 +13,13 @@ body {
 
 }
 
+.logo {
+  width: 100px;
+  height: 100px;
+  
+  background: url(./../images/logo.jpg) center center no-repeat; 
+}
+
 .dropdown-item {
   transition: 0.5s;
 }

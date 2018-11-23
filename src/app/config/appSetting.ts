@@ -4,6 +4,10 @@ export const AppSetting: AppSettingType = {
     local3010BuyerServiceUrl: 'http://localhost:3011/',
  serviceUrl: environment.serviceUrl,
   adminServiceUrl: environment.adminServiceUrl,
+<<<<<<< HEAD
 /*      serviceUrl: 'http://localhost:3011/',
+=======
+    /*   serviceUrl: 'http://localhost:3011/',
+>>>>>>> 1847400a3c4d926e0a7a415dffe48e2041028ac7
    adminServiceUrl: 'http://localhost:3012/' */
 };

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit, AfterViewInit , Inject} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
 import { Router } from '@angular/router';
 import { SwPush, SwUpdate } from '@angular/service-worker';
-import {MatSnackBar} from '@angular/material';
-
+import { MatSnackBar } from '@angular/material';
 import { Notification } from '../../shared/notification.model';
 import {mobileNumber} from '../../shared/validation';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
@@ -14,6 +14,7 @@ import {ScheduledBooking} from './scheduled-booking.model';
 import {Customer} from '../../shared/customer.model';
 import {Model} from '../view-scheduled-model/model-detail.model';
 import { Title, Meta } from '@angular/platform-browser';
+import { ProgressBarService } from '../../home/progress-bar/progress-bar.service';
 
 
 @Component({
@@ -21,8 +22,7 @@ import { Title, Meta } from '@angular/platform-browser';
   templateUrl: './scheduled-booking.component.html',
   styleUrls: ['./scheduled-booking.component.css']
 })
-export class ScheduledBookingComponent implements OnInit {
-
+export class ScheduledBookingComponent implements OnInit, AfterViewInit {
   message;
   action;
   id;
@@ -54,10 +54,11 @@ export class ScheduledBookingComponent implements OnInit {
     { id: 3, name: 'Measurements' },
   ];
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
-  constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any,
+   private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
     private scheduledService: ScheduledModelService, private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private swPush: SwPush , public snackBar: MatSnackBar , private dashBoardService: DashBoardService,
-     private metaService: Meta ) {
+     private metaService: Meta, private progressBarService: ProgressBarService ) {
       this.id = this.activatedRoute.snapshot.paramMap.get('modelId');
   }
 
@@ -73,6 +74,9 @@ export class ScheduledBookingComponent implements OnInit {
       description: 'appcomponent',
       image: 'https://rinteger.com/admin/images/SP_sprinteger_models/Farid/1.jpg',
     });
+  }
+  ngAfterViewInit() {
+    /* setTimeout(() => this.viewModel(this.id)); */
   }
   createForm() {
     this.bookScheduledModelForm = this.fb.group({
@@ -114,9 +118,11 @@ export class ScheduledBookingComponent implements OnInit {
     this.email = this.localStorageService.retrieve('emailId');
   }
   viewModel(id) {
+    /* this.progressBarService.open(); */
     this.scheduledService.modelDetail(id).subscribe(data => {
       this.Model = data;
       console.log(this.Model);
+      this.progressBarService.close();
     });
   }
   ecommerceImage() {

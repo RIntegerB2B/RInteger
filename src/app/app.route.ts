@@ -35,9 +35,11 @@ import { ScheduledBookingComponent } from './scheduled-model-mgmt/scheduled-book
 import { DigitalMgmtComponent } from './home/product/digital-mgmt/digital-mgmt.component';
 import { ItServicesComponent } from './home/product/it-services/it-services.component';
 import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account-mgmt-status.component';
-
+import { SeoComponent } from './seo/seo/seo.component';
+import { ProgressBarComponent } from './home/progress-bar/progress-bar.component';
 
 const routes: Routes = [
+  { path: 'seo', component: SeoComponent },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'aboutUs', component: AboutusComponent },
@@ -52,7 +54,6 @@ const routes: Routes = [
   { path: 'digitalmgmtservice', component: DigitalMgmtComponent },
   { path: 'itservicesdetails', component: ItServicesComponent },
   { path: 'pricing/:viewid', component: PricingComponent },
-  { path: 'banner', component: BannerComponent },
   {
     path: 'dashboard', component: DashboardComponent,
     children: [

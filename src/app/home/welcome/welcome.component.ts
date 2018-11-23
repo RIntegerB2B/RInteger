@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild , Inject, OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import { empty } from 'rxjs';
@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 
 import {DashboardComponent} from '../dashboard/dashboard.component';
 import {DashBoardService} from '../dashboard/dashboard.service';
+import { ProgressBarService  } from '../progress-bar/progress-bar.service';
 
 
 @Component({
@@ -16,10 +17,12 @@ import {DashBoardService} from '../dashboard/dashboard.service';
 })
 export class WelcomeComponent implements OnInit {
   fullImages = [ '../../../assets/images/services/slider1.jpg',
+  '../../../assets/images/services/slider2.jpg' ,
   '../../../assets/images/services/slider3.jpg',
    '../../../assets/images/services/slider4.jpg' ,
   '../../../assets/images/services/slider5.jpg',
   '../../../assets/images/services/slider6.jpg',
+  '../../../assets/images/services/slider7.jpg',
   '../../../assets/images/services/slider8.jpg' ,
   '../../../assets/images/services/slider9.jpg'
    ] ;
@@ -52,7 +55,9 @@ export class WelcomeComponent implements OnInit {
   clientImages = ['../../../assets/images/flf.png', '../../../assets/images/tcs.png',
   '../../../assets/images/arvind.png', '../../../assets/images/pothys.png', '../../../assets/images/lee.jpg'];
 
-  constructor(private router: Router, private localStorageService: LocalStorageService, private  dashBoard: DashboardComponent,
+  constructor( private router: Router, private localStorageService: LocalStorageService,
+  private progressBarService: ProgressBarService,
+  private  dashBoard: DashboardComponent,
     private dashBoardService: DashBoardService) {
       this.changeText = true;
       this.changeText1 = true;

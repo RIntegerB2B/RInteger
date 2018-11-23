@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit , Inject} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import {Model} from './model-detail.model';
 import {ScheduledModelService} from '../scheduled-model.service';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
 import { Title, Meta } from '@angular/platform-browser';
+import { ProgressBarService } from '../../home/progress-bar/progress-bar.service';
 
 @Component({
   selector: 'app-view-scheduled-model',
   templateUrl: './view-scheduled-model.component.html',
   styleUrls: ['./view-scheduled-model.component.css'],
 })
-export class ViewScheduledModelComponent implements OnInit {
+export class ViewScheduledModelComponent implements OnInit, AfterViewInit {
 
   viewModelForm: FormGroup;
   Detail: Model;
@@ -27,8 +28,10 @@ export class ViewScheduledModelComponent implements OnInit {
     { id: 3, name: 'Men National' },
     { id: 4, name: 'Women National' },
   ];
-  constructor(private fb: FormBuilder, private router: Router, private scheduledmodelService: ScheduledModelService,
-     private dashBoardService: DashBoardService, private metaService: Meta) {
+
+  constructor(
+   private fb: FormBuilder, private router: Router, private scheduledmodelService: ScheduledModelService,
+ private dashBoardService: DashBoardService, private metaService: Meta, private progressBarService: ProgressBarService) {
 
       }
 
@@ -47,6 +50,9 @@ export class ViewScheduledModelComponent implements OnInit {
     this.viewModelForm = this.fb.group({
       id: ['']
     });
+  }
+  ngAfterViewInit() {
+    /* setTimeout(() => this.allModels()); */
   }
   whatsappShare(imageShare) {
     this.imageUrl = 'https://rinteger.com/welcome';
@@ -68,7 +74,7 @@ export class ViewScheduledModelComponent implements OnInit {
         break;
       }
       case 2: {
-        this.interNationalWomenModels();
+      this.interNationalWomenModels();
         break;
       }
       case 3: {
@@ -86,7 +92,7 @@ export class ViewScheduledModelComponent implements OnInit {
     this.scheduledmodelService.getScheduledModelDetails().subscribe(data => {
       this.Detail = data;
       if (data.length === 0) {
-this.showMessage = true;
+    this.showMessage = true;
       } else if (data.length !== 0) {
         this.showMessage = false;
       }

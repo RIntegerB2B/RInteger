@@ -138,6 +138,7 @@ export class StautsViewComponent implements OnInit {
     'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Account Management Booking',
     'Scheduled Model Booking'];
   searchText: string;
+<<<<<<< HEAD
   /* arrayBuffer: any;
   file: File;
   @ViewChild('myTable') table: any;
@@ -157,6 +158,9 @@ export class StautsViewComponent implements OnInit {
   array: any;
   temp: any = [];
   constructor(private fb: FormBuilder,
+=======
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private fb: FormBuilder,
+>>>>>>> 1847400a3c4d926e0a7a415dffe48e2041028ac7
     private activatedRoute: ActivatedRoute, private dialog: MatDialog, private router: Router,
     private localStorageService: LocalStorageService,
      private statusService: StatusService, private dashBoardService: DashBoardService) {

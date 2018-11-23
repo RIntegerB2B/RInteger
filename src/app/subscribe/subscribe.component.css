@@ -43,7 +43,11 @@
 .jumbotron {
   position: relative;
   background: url("../../assets/images/subcriptionBanner.jpg");
+<<<<<<< HEAD
  /*  width: 100%;
+=======
+  /* width: 100%;
+>>>>>>> 1847400a3c4d926e0a7a415dffe48e2041028ac7
   height: 100%; */
   background-size: cover;
   overflow: hidden;
