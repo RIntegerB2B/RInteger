@@ -1,4 +1,3 @@
-import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 import { Component, OnInit , Inject} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -40,7 +39,7 @@ export class ItServicesBookingComponent implements OnInit {
   swPush: SwPush;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
 
-  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private fb: FormBuilder, private router: Router,
+  constructor( private fb: FormBuilder, private router: Router,
     private itService: ItServicesService, private localStorageService: LocalStorageService, private swUpdate: SwUpdate,
     public snackBar: MatSnackBar, private dashBoardService: DashBoardService) { }
   ngOnInit() {

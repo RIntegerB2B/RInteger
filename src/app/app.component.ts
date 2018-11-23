@@ -5,7 +5,6 @@ import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { DashBoardService } from './home/dashboard/dashboard.service';
-import { WINDOW, LOCAL_STORAGE } from '@ng-toolkit/universal';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,7 +13,7 @@ import { WINDOW, LOCAL_STORAGE } from '@ng-toolkit/universal';
 export class AppComponent implements OnInit {
   title = 'app';
   routerData: any;
-  constructor(@Inject(WINDOW) private window: Window,
+  constructor(
    private swUpdate: SwUpdate, private changeDetectorRef:
     ChangeDetectorRef, private route: Router, private metaService: Meta, private dashBoardService: DashBoardService) {
     this.routerData = this.route.config;

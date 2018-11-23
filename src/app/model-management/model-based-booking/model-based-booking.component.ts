@@ -1,4 +1,3 @@
-import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 import { Component, OnInit, AfterViewInit , Inject} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -52,10 +51,10 @@ export class ModelBasedBookingComponent implements OnInit {
     { id: 3, name: 'Measurements' },
   ];
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
-  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private activatedRoute: ActivatedRoute,
+  constructor( private activatedRoute: ActivatedRoute,
    private fb: FormBuilder, private router: Router,
     private modelService: ModelManagementService, private localStorageService: LocalStorageService,
-    private swUpdate: SwUpdate, private swPush: SwPush, public snackBar: MatSnackBar , private dashBoardService: DashBoardService, 
+    private swUpdate: SwUpdate, private swPush: SwPush, public snackBar: MatSnackBar , private dashBoardService: DashBoardService,
     private progressBarService: ProgressBarService
      ) {
     this.id = this.activatedRoute.snapshot.paramMap.get('modelId');

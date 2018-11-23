@@ -1,4 +1,3 @@
-import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 import { Component, OnInit , Inject} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -22,7 +21,7 @@ export class ContactComponent implements OnInit {
   mobileNo;
   message;
   action;
-  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private fb: FormBuilder, private router: Router, private localStorageService: LocalStorageService,
+  constructor( private fb: FormBuilder, private router: Router, private localStorageService: LocalStorageService,
     public snackBar: MatSnackBar,
     private contactService: ContactService,
     private dashboardService: DashBoardService ) { }

@@ -69,7 +69,7 @@ export class DigitalMgmtBookingComponent implements OnInit {
   selectedService;
   selected = 'b2cNationalValue';
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
-  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private fb: FormBuilder, private router: Router,
+  constructor( private fb: FormBuilder, private router: Router,
     private digitalService: DigitalMgmtService, private localStorageService: LocalStorageService, public snackBar: MatSnackBar,
     private swUpdate: SwUpdate, private dashboardService: DashBoardService) { }
 

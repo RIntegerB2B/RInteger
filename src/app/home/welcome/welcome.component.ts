@@ -17,12 +17,10 @@ import { ProgressBarService  } from '../progress-bar/progress-bar.service';
 })
 export class WelcomeComponent implements OnInit {
   fullImages = [ '../../../assets/images/services/slider1.jpg',
-  '../../../assets/images/services/slider2.jpg' ,
   '../../../assets/images/services/slider3.jpg',
    '../../../assets/images/services/slider4.jpg' ,
   '../../../assets/images/services/slider5.jpg',
   '../../../assets/images/services/slider6.jpg',
-  '../../../assets/images/services/slider7.jpg',
   '../../../assets/images/services/slider8.jpg' ,
   '../../../assets/images/services/slider9.jpg'
    ] ;

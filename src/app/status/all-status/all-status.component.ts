@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-=======
-import { LOCAL_STORAGE } from '@ng-toolkit/universal';
-import { Component, OnInit , Inject} from '@angular/core';
->>>>>>> 1847400a3c4d926e0a7a415dffe48e2041028ac7
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -132,7 +127,6 @@ export class AllStatusComponent implements OnInit {
   searchText: string;
   userLoggedInCheck;
   registeredMobileCheck;
-<<<<<<< HEAD
   public pageSize = 5;
   public currentPage = 0;
   public totalSize = 0;
@@ -140,9 +134,6 @@ export class AllStatusComponent implements OnInit {
   array: any;
   temp: any = [];
   constructor(private fb: FormBuilder,
-=======
-  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private fb: FormBuilder,
->>>>>>> 1847400a3c4d926e0a7a415dffe48e2041028ac7
     private activatedRoute: ActivatedRoute, private statusService: StatusService, private dialog: MatDialog, private router: Router,
      private dashBoardService: DashBoardService,
     private localStorageService: LocalStorageService) {

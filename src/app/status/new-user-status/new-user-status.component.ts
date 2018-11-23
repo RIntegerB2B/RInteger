@@ -1,4 +1,3 @@
-import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 import { Component, OnInit , Inject} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -114,7 +113,7 @@ export class NewUserStatusComponent implements OnInit {
   filterOption = ['Scheduled Model Booking', 'Model Booking', 'Product Booking', 'Creative Booking',
   'Editing Booking',  'Registration Booking', 'Catalog Booking', 'A+ Cataloging Booking', 'Account Management Booking',
    'Marketing  Booking',  'IT Services Booking'];
-  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private fb: FormBuilder, private router: Router,
+  constructor( private fb: FormBuilder, private router: Router,
     private statusService: StatusService, private localStorageService: LocalStorageService, private dashboardservice: DashBoardService) { }
 
   ngOnInit() {
