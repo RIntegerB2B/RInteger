@@ -92,8 +92,12 @@ export class ViewModelComponent implements OnInit {
     /* this.progressBarService.open(); */
     this.modelService.getAllModels().subscribe(data => {
       this.Detail = data;
+<<<<<<< Updated upstream
       /* this.progressBarService.close(); */
       console.log(data.length);
+=======
+      console.log(data);
+>>>>>>> Stashed changes
       if (data.length === 0) {
 this.showMessage = true;
       } else if (data.length !== 0) {
