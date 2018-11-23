@@ -1,4 +1,3 @@
-import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 import { Component, OnInit , Inject} from '@angular/core';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
@@ -21,7 +20,7 @@ export class SubscribeComponent implements OnInit {
   mobileNo;
   subscribeForm: FormGroup;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
-  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private localStorageService: LocalStorageService, private fb: FormBuilder, private router: Router,
+  constructor( private localStorageService: LocalStorageService, private fb: FormBuilder, private router: Router,
     private swUpdate: SwUpdate, private swPush: SwPush, private subscribeService: SubscribeService) { }
 
   ngOnInit() {
