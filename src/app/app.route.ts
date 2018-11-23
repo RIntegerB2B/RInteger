@@ -36,6 +36,7 @@ import { DigitalMgmtComponent } from './home/product/digital-mgmt/digital-mgmt.c
 import { ItServicesComponent } from './home/product/it-services/it-services.component';
 import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account-mgmt-status.component';
 import { ProgressBarComponent } from './home/progress-bar/progress-bar.component';
+import {ViewProjectionModelComponent} from './scheduled-model-mgmt/view-projection-model/view-projection-model.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -81,6 +82,7 @@ const routes: Routes = [
       { path: 'digitalmgmt/:viewid', component: DigitalMgmtBookingComponent },
       { path: 'pricing/:viewid', component: PricingComponent },
       { path: 'viewschedulemodel/:viewid', component: ViewScheduledModelComponent },
+      { path: 'viewprojectionmodel/:viewid', component: ViewProjectionModelComponent },
       { path: 'scheduledmodelBooking/:modelId', component: ScheduledBookingComponent },
     ]
   },

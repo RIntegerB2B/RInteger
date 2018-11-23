@@ -94,6 +94,7 @@ import { DigitalMgmtComponent } from './home/product/digital-mgmt/digital-mgmt.c
 import { ItServicesComponent } from './home/product/it-services/it-services.component';
 import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account-mgmt-status.component';
 import { ProgressBarComponent } from './home/progress-bar/progress-bar.component';
+import { ViewProjectionModelComponent } from './scheduled-model-mgmt/view-projection-model/view-projection-model.component';
 
 @NgModule({
   declarations: [
@@ -139,7 +140,8 @@ import { ProgressBarComponent } from './home/progress-bar/progress-bar.component
     ItServicesComponent,
     RegisterComponent,
     AccountMgmtStatusComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    ViewProjectionModelComponent
   ],
   imports: [
  CommonModule,

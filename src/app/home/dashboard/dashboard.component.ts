@@ -77,7 +77,8 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
       case 2:
       case 3:
       case 4:
-      case 5: {
+      case 5:
+      case 17: {
         this.selectedDashboardFirst(this.viewId);
         break;
       }

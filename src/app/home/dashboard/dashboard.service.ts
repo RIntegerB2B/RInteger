@@ -29,7 +29,6 @@ interface IBadge {
 @Injectable()
 
 export class DashBoardService {
-  
   menuTransparent: boolean;
   /*   hideTransparent: boolean; */
   iconMenu: IMenuItem[] = [

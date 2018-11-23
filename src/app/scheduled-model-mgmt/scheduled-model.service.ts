@@ -76,4 +76,33 @@ export class ScheduledModelService {
     const url: string = this.serviceUrl + statusUrl  ;
     return this.httpClient.get<Model>(url);
   }
+
+  // projection models
+
+  getProjectionModelDetails(): Observable<any> {
+    const statusUrl = 'projectionmodels/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
+  }
+
+  getProjectionNationalMenModels(): Observable<any> {
+    const statusUrl = 'projectionnationalmen/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
+  }
+  getProjectionNationalWomenModels(): Observable<any> {
+    const statusUrl = 'projectionnationalwomen/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
+  }
+  getProjectionInterNationalMenModels(): Observable<any> {
+    const statusUrl = 'projectioninternationalmen/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
+  }
+  getProjectionInterNationalWomenModels(): Observable<any> {
+    const statusUrl = 'projectioninternationalwomen/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
+  }
 }
