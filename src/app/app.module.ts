@@ -67,7 +67,8 @@ import {
   MatFormFieldModule,
   MatStepperModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatPaginatorModule
 } from '@angular/material';
 import {DashBoardService} from './home/dashboard/dashboard.service';
 import { ImageEditingBookingComponent } from './image-editing-booking/image-editing-booking.component';
@@ -169,6 +170,7 @@ import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account
     MatStepperModule,
     MatDatepickerModule,
     SlideshowModule,
+    MatPaginatorModule,
     NgbModule.forRoot(),
     CarouselModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })

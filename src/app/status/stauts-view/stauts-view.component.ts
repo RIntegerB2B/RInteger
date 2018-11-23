@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import {  Component, OnInit, Inject, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -20,6 +20,7 @@ import { Customer } from '../../shared/customer.model';
 import {RegisterCustomer} from './register-customer.model';
 import {mobileNumber} from '../../shared/validation';
 import {MatSnackBar} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-stauts-view',
@@ -27,6 +28,7 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./stauts-view.component.css']
 })
 export class StautsViewComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   shootProgress: boolean;
   shootTrue: boolean;
   shoot: boolean;
@@ -136,6 +138,24 @@ export class StautsViewComponent implements OnInit {
     'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Account Management Booking',
     'Scheduled Model Booking'];
   searchText: string;
+  /* arrayBuffer: any;
+  file: File;
+  @ViewChild('myTable') table: any;
+  temp = [];
+  currentPageLimit = 0;
+  pageLimitOptions = [
+    {value: 10},
+    {value: 25},
+    {value: 50},
+    {value: 100},
+  ]; */
+
+  public pageSize = 5;
+  public currentPage = 0;
+  public totalSize = 0;
+  dataSource: any = [];
+  array: any;
+  temp: any = [];
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private dialog: MatDialog, private router: Router,
     private localStorageService: LocalStorageService,
@@ -158,6 +178,17 @@ export class StautsViewComponent implements OnInit {
       filterText: [],
       test: []
     });
+  }
+  handlePage(e: any) {
+    this.currentPage = e.pageIndex;
+    this.pageSize = e.pageSize;
+    this.iterator();
+  }
+  iterator() {
+    const end = (this.currentPage + 1) * this.pageSize;
+    const start = this.currentPage * this.pageSize;
+    const part = this.array.slice(start, end);
+    this.dataSource = part;
   }
   showStatus() {
     this.hideStatus = false;
@@ -1269,12 +1300,18 @@ showAplusStatus(id) {
     }
   }
   activeBooking(no) {
-    this.statusService.getActiveBookings(no).subscribe(statusData => {
-      console.log(statusData);
-      this.Details = statusData;
-    }, error => {
-      console.log(error);
-    });
+    this.statusService.getActiveBookings(no)
+      .subscribe((response) => {
+        this.dataSource = new MatTableDataSource<Element>(response);
+        this.dataSource.paginator = this.paginator;
+        this.array = response;
+        this.Details = response;
+        this.totalSize = this.array.length;
+        this.temp = response;
+        this.iterator();
+      }, error => {
+        console.log(error);
+      });
   }
   cancelledBooking(no) {
     this.cancelledStatus = true;

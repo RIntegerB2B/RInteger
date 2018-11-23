@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -6,6 +6,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import {StatusService} from '../status.service';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
 import {CompletedBookings} from './completed-order.model';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-completed-order',
@@ -13,6 +14,7 @@ import {CompletedBookings} from './completed-order.model';
   styleUrls: ['./completed-order.component.css']
 })
 export class CompletedOrderComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   no: string;
   // statusDisplay: string;
@@ -54,6 +56,12 @@ filterOption = ['Model Booking', 'Product Booking', 'Catalog Booking', 'Registra
 'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Account Management Booking',
 'Scheduled Model Booking'];
  searchText: string;
+ public pageSize = 5;
+  public currentPage = 0;
+  public totalSize = 0;
+  dataSource: any = [];
+  array: any;
+  temp: any = [];
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService , private localStorageService: LocalStorageService,
     private dashBoardService: DashBoardService) {
@@ -96,12 +104,30 @@ filterOption = ['Model Booking', 'Product Booking', 'Catalog Booking', 'Registra
            console.log(error);
          });
   }
+  handlePage(e: any) {
+    this.currentPage = e.pageIndex;
+    this.pageSize = e.pageSize;
+    this.iterator();
+  }
+  iterator() {
+    const end = (this.currentPage + 1) * this.pageSize;
+    const start = this.currentPage * this.pageSize;
+    const part = this.array.slice(start, end);
+    this.dataSource = part;
+  }
   completedBooking() {
-    this.mobileNo = this.localStorageService.retrieve('mobileno');
-   console.log(this.mobileNo);
-       this.statusService.getCompletedOrders(this.mobileNo).subscribe(statusData => {
-      this.Details = statusData;
-      console.log(this.Details);
+
+         this.mobileNo = this.localStorageService.retrieve('mobileno');
+
+         this.statusService.getCancelledBookings(this.mobileNo)
+         .subscribe((response) => {
+           this.dataSource = new MatTableDataSource<Element>(response);
+           this.dataSource.paginator = this.paginator;
+           this.array = response;
+           this.Details = response;
+           this.totalSize = this.array.length;
+           this.temp = response;
+           this.iterator();
          }, error => {
            console.log(error);
          });

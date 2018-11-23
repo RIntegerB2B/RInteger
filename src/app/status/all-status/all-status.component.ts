@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,12 +15,14 @@ import {RegistrationStatus} from '../../shared/registration-status.model';
 import {AplusCatalogingStatus} from '../../shared/aplus-status.model';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import {RegisterComponent} from '../stauts-view/stauts-view.component';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 @Component({
   selector: 'app-all-status',
   templateUrl: './all-status.component.html',
   styleUrls: ['./all-status.component.css']
 })
 export class AllStatusComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   bookingmobileno;
  AplusDetails: AplusCatalogingStatus;
   shootPlanningTrue: boolean;
@@ -125,6 +127,12 @@ export class AllStatusComponent implements OnInit {
   searchText: string;
   userLoggedInCheck;
   registeredMobileCheck;
+  public pageSize = 5;
+  public currentPage = 0;
+  public totalSize = 0;
+  dataSource: any = [];
+  array: any;
+  temp: any = [];
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService, private dialog: MatDialog, private router: Router,
      private dashBoardService: DashBoardService,
@@ -1233,10 +1241,27 @@ export class AllStatusComponent implements OnInit {
       console.log(error);
     });
   }
+  handlePage(e: any) {
+    this.currentPage = e.pageIndex;
+    this.pageSize = e.pageSize;
+    this.iterator();
+  }
+  iterator() {
+    const end = (this.currentPage + 1) * this.pageSize;
+    const start = this.currentPage * this.pageSize;
+    const part = this.array.slice(start, end);
+    this.dataSource = part;
+  }
   status(no) {
-    this.statusService.getStatusByNum(no).subscribe(statusData => {
-      this.Details = statusData;
-      console.log(this.Details);
+    this.statusService.getStatusByNum(no)
+    .subscribe((response) => {
+      this.dataSource = new MatTableDataSource<Element>(response);
+      this.dataSource.paginator = this.paginator;
+      this.array = response;
+      this.Details = response;
+      this.totalSize = this.array.length;
+      this.temp = response;
+      this.iterator();
     }, error => {
       console.log(error);
     });

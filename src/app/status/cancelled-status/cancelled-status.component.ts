@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -6,6 +6,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import {StatusService} from '../status.service';
 import {CancelledBookingDetail} from './cancelled-booking.model';
 import {DashBoardService} from '../../home/dashboard/dashboard.service';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-cancelled-status',
@@ -13,6 +14,7 @@ import {DashBoardService} from '../../home/dashboard/dashboard.service';
   styleUrls: ['./cancelled-status.component.css']
 })
 export class CancelledStatusComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   no: string;
   // statusDisplay: string;
   Details: CancelledBookingDetail;
@@ -53,6 +55,12 @@ filterOption = ['Model Booking', 'Product Booking', 'Catalog Booking', 'Registra
 'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Account Management Booking',
 'Scheduled Model Booking'];
  searchText: string;
+ public pageSize = 5;
+  public currentPage = 0;
+  public totalSize = 0;
+  dataSource: any = [];
+  array: any;
+  temp: any = [];
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute, private statusService: StatusService , private localStorageService: LocalStorageService,
     private dashBoardService: DashBoardService) {
@@ -95,12 +103,29 @@ filterOption = ['Model Booking', 'Product Booking', 'Catalog Booking', 'Registra
            console.log(error);
          });
   }
+  handlePage(e: any) {
+    this.currentPage = e.pageIndex;
+    this.pageSize = e.pageSize;
+    this.iterator();
+  }
+  iterator() {
+    const end = (this.currentPage + 1) * this.pageSize;
+    const start = this.currentPage * this.pageSize;
+    const part = this.array.slice(start, end);
+    this.dataSource = part;
+  }
   cancelledBooking() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
-   console.log(this.mobileNo);
-       this.statusService.getCancelledBookings(this.mobileNo).subscribe(statusData => {
-      this.Details = statusData;
-      console.log(this.Details);
+
+         this.statusService.getCancelledBookings(this.mobileNo)
+         .subscribe((response) => {
+           this.dataSource = new MatTableDataSource<Element>(response);
+           this.dataSource.paginator = this.paginator;
+           this.array = response;
+           this.Details = response;
+           this.totalSize = this.array.length;
+           this.temp = response;
+           this.iterator();
          }, error => {
            console.log(error);
          });

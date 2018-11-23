@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
               <mat-form-field class="example-full-width"> 
-                <input matInput placeholder="EmailId" [(ngModel)]="email"  formControlName="emailId" type="text"
+                <input matInput placeholder="Email Id" [(ngModel)]="email"  formControlName="emailId" type="text"
                   #mailId [required]="false">
                 <button mat-button matSuffix mat-icon-button aria-label="Name">
                   <mat-icon>account_circle</mat-icon>
@@ -115,16 +115,16 @@
   
           <div class="row" *ngIf="showb2bNational">
            <!--  <label><strong>B2B National</strong></label> -->
-            <div class="form-group  col-md-4 mx-auto" *ngFor="let b2bnat of b2bNational">
-              <input type="checkbox" formControlName="b2bNat" [value]="b2bnat" (change)="getB2bNationalValue(registrationBookingForm,b2bnat,$event.target.checked)">
+            <div class="form-group  col-md-3 mx-auto" *ngFor="let b2bnat of b2bNational">
+              <input type="checkbox" formControlName="b2bNat" [value]="b2bnat" (change)="getB2NationalValue(registrationBookingForm,b2bnat,$event.target.checked)">
               {{b2bnat}}
             </div>
           </div>
   
   
-          <div class="row " *ngIf="showb2cNational">
+          <div class="row" *ngIf="showb2cNational">
            <!--  <label><strong>B2C National</strong></label> -->
-            <div class="form-group col-md-4 mx-auto" *ngFor="let b2cnat of b2cNational">
+            <div class="form-group col-md-3 mx-auto" *ngFor="let b2cnat of b2cNational">
               <input type="checkbox" formControlName="b2cNat" [value]="b2cnat" (change)="getB2cNationalValue(registrationBookingForm,b2cnat,$event.target.checked)">
               {{b2cnat}}
             </div>

@@ -36,7 +36,7 @@
               (click)="selectedDashboardFirst(1)">Scheduled
                 Models </a>
               <a class="dropdown-item"  [routerLink]="['/dashboard/models', 2]"
-              (click)="selectedDashboardFirst(2)">Available Models
+              (click)="selectedDashboardFirst(2)">All Models
               </a>
             </div>
           </li>
@@ -48,7 +48,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" [routerLink]="['/dashboard/viewschedulemodel', 1]"
                (click)="selectedDashboardFirst(1)">
-                Studio & Production</a>
+                PhotoShoot</a>
               <a class="dropdown-item" [routerLink]="['/dashboard/registrationSetup', 6]" 
               (click)="selectedDashboardSecond(6)">Digital-Business-Management</a>
               <a class="dropdown-item" [routerLink]="['/dashboard/itservices', 11]"
@@ -140,7 +140,7 @@
                   <a class="nav-link"
                   [class.activeLink]="2 === selectedMenuList"
                     [routerLink]="['models', 2]">
-                    Available Models
+                    All Models
                   </a>
                 </li>
                 <li class="nav-item text-center"

@@ -37,6 +37,9 @@ lookBookImages = ['../../../assets/images/lookbook/1.jpg', '../../../assets/imag
 '../../../assets/images/lookbook/7.jpg',
 '../../../assets/images/lookbook/8.jpg'
 ];
+testImages = ['../../../assets/images/test/1.jpg', '../../../assets/images/test/2.jpg',
+'../../../assets/images/test/3.jpg'
+];
 promotionalImages = ['../../../assets/images/promotional/1.jpg', '../../../assets/images/promotional/2.jpg'
 ];
 socialImages = ['../../../assets/images/social/1.jpg', '../../../assets/images/social/2.jpg',

@@ -38,7 +38,7 @@
     </div>
     <div *ngIf="!hideStatus">
       
-      <div class=" col-sm-12 status d-flex border-bottom  flex-row" *ngFor="let data of Details | dataFilter:searchText ">
+      <div class=" col-sm-12 status d-flex border-bottom  flex-row" *ngFor="let data of dataSource | dataFilter:searchText ">
          
         <div class="col-sm-3 col p-2 ">{{data.bookingOrderId}}</div>
         <div class="col-sm-3  col p-2 text-center ">{{data.bookingDate}}</div>
@@ -51,6 +51,12 @@
         </div>
       </div>
       <button style="margin:20px;" class="btn" [routerLink]="['/welcome']">back</button>
+      <mat-paginator #paginator [pageSize]="pageSize" 
+      [pageSizeOptions]="[5, 10, 20, 30, 40, 50]"
+        [showFirstLastButtons]="true" 
+        [length]="totalSize" 
+        [pageIndex]="currentPage" (page)="handlePage($event)">
+      </mat-paginator>
     </div>
     <div class="text-center " style="padding-bottom:20px" *ngIf="hideStatus">
         <h6><strong>BOOKING DETAILS</strong></h6>

@@ -15,16 +15,13 @@ import {DashBoardService} from '../dashboard/dashboard.service';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  fullImages = [ '../../../assets/images/services/silder1.jpg',
-  '../../../assets/images/services/silder2.jpg' ,
-  '../../../assets/images/services/silder3.jpg',
-   '../../../assets/images/services/silder4.jpg' ,
-  '../../../assets/images/services/silder5.jpg',
-  '../../../assets/images/services/silder6.jpg',
-  '../../../assets/images/services/silder7.jpg',
-  '../../../assets/images/services/silder8.jpg' ,
-  '../../../assets/images/services/silder9.jpg',
-  '../../../assets/images/services/silder10.jpg',
+  fullImages = [ '../../../assets/images/services/slider1.jpg',
+  '../../../assets/images/services/slider3.jpg',
+   '../../../assets/images/services/slider4.jpg' ,
+  '../../../assets/images/services/slider5.jpg',
+  '../../../assets/images/services/slider6.jpg',
+  '../../../assets/images/services/slider8.jpg' ,
+  '../../../assets/images/services/slider9.jpg'
    ] ;
   myCarouselOptions = { items: 5, dots: true, nav: true,
   };

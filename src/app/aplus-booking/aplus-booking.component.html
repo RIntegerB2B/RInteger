@@ -40,13 +40,13 @@
           </div>
           <div class="form-group">
             <mat-form-field class="example-full-width"> 
-              <input matInput placeholder="EmailId" [(ngModel)]="email" formControlName="emailId" type="text"
+              <input matInput placeholder="Email Id" [(ngModel)]="email" formControlName="emailId" type="text"
                 #mailId [required]="false">
               <button mat-button matSuffix mat-icon-button aria-label="Name">
                 <mat-icon>account_circle</mat-icon>
               </button>
               <mat-error *ngIf="aplusForm.controls['emailId'].errors?.required">
-                EmailId is
+                Email Id is
                 <strong>required</strong>
               </mat-error>
             </mat-form-field>

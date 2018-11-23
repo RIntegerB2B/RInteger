@@ -157,7 +157,7 @@
                 <mat-option value="Digital / Social Marketing">
                   <button mat-button (click)="onDigitalMarket()">Digital /Social Marketing</button>
                 </mat-option>
-                <mat-option value="Branding">
+               <!--  <mat-option value="Branding">
                   <button mat-button (click)="onBranding()">Branding</button>
                 </mat-option>
                 <mat-option value="Marketing">
@@ -165,7 +165,7 @@
                 </mat-option>
                 <mat-option value="Management Services">
                   <button mat-button (click)="onMgmtServices()">Management Services</button>
-                </mat-option>
+                </mat-option> -->
               </mat-select>
             </mat-form-field>
           </div>
@@ -181,7 +181,7 @@
                 (click)="onDigitalMarket('DigitalSocialMarketing')">
                     Digital / Social Marketing
                 </li>
-                <li class="sideMenu"
+               <!--  <li class="sideMenu"
                 [class.digitalSubSelected]="'Branding' === selectedSubDigital"
                  (click)="onBranding('Branding')">
                     Branding
@@ -194,7 +194,7 @@
                 <li [class.digitalSubSelected]="'ManagementServices' === selectedSubDigital"
                 class="sideMenu" (click)="onMgmtServices('ManagementServices')">
                     Management Services
-                </li>
+                </li> -->
               </ul>
       </div>
       <div *ngIf="marketPlaceService">
@@ -259,7 +259,7 @@
                 <mat-option value="Website Development">
                   <button mat-button (click)="onWebsite()">Website Development</button>
                 </mat-option>
-                <mat-option value="cloud services">
+               <!--  <mat-option value="cloud services">
                   <button mat-button (click)="onCloud()">Cloud Services </button>
                 </mat-option>
                 <mat-option value="Web application">
@@ -267,7 +267,7 @@
                 </mat-option>
                 <mat-option value="product development">
                   <button mat-button (click)="onProduct()">Product Development</button>
-                </mat-option>
+                </mat-option> -->
               </mat-select>
             </mat-form-field>
           </div>
@@ -278,7 +278,7 @@
                 (click)="onWebsite('WebsiteDevelopment')">
                 Website Development
                 </li>
-                <li class="sideMenu" 
+               <!--  <li class="sideMenu" 
                 [class.itSubSelected]="'CloudServices' === selectedSubIt"
                 (click)="onCloud('CloudServices')">
                 Cloud Services
@@ -292,7 +292,7 @@
                 [class.itSubSelected]="'ProductDevelopment' === selectedSubIt"
                 (click)="onProduct('ProductDevelopment')">
                 Product Development
-                </li>
+                </li> -->
               </ul>
       </div>
       <div *ngIf="showWebsite">

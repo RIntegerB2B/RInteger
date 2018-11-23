@@ -40,7 +40,7 @@
           </div>
           <div class="form-group">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="EmailId" [(ngModel)]="email" formControlName="emailId" type="text" #mailId
+              <input matInput placeholder="Email Id" [(ngModel)]="email" formControlName="emailId" type="text" #mailId
                 [required]="false">
               <button mat-button matSuffix mat-icon-button aria-label="Name">
                 <mat-icon>account_circle</mat-icon>
@@ -114,7 +114,7 @@
 
         <div class="row" *ngIf="showb2bNational">
           <!-- <label><strong>B2B National</strong></label> -->
-          <div class="form-group  col-md-4 mx-auto" *ngFor="let b2bnat of b2bNational">
+          <div class="form-group  col-md-3 mx-auto" *ngFor="let b2bnat of b2bNational">
             <input type="checkbox" formControlName="b2bNat" [value]="b2bnat" (change)="getB2bNationalValue(digitalMgmtForm,b2bnat,$event.target.checked)">
             {{b2bnat}}
           </div>

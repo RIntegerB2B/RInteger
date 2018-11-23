@@ -31,10 +31,10 @@
 
 @media screen and (min-width: 992px) {
   .image {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     margin-bottom: 15px;
-    padding-right: 5px;
+   /*  padding-right: 5px; */
   }
 
 
