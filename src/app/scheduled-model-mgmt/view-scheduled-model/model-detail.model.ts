@@ -30,6 +30,7 @@ export class Model {
     bottomsize: string;
     isScheduledBooking: boolean;
     scheduledDate: string;
+    scheduledLocation: string;
     constructor(
         userName: string,
         description: string,
