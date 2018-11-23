@@ -183,6 +183,7 @@ import { ProgressBarComponent } from './home/progress-bar/progress-bar.component
   providers: [BookingService,
   LocalStorageService, DashBoardService],
   entryComponents: [RegisterComponent, ProgressBarComponent],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
