@@ -105,4 +105,14 @@ export class ScheduledModelService {
     const url: string = this.serviceUrl + statusUrl  ;
     return this.httpClient.get<Model>(url);
   }
+  getProjectionKidModel(): Observable<any> {
+    const statusUrl = 'projectionkidsmodels/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
+  }
+  getScheduledKidModel(): Observable<any> {
+    const statusUrl = 'scheduledkidsmodels/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
+  }
 }

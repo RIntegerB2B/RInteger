@@ -28,6 +28,7 @@ export class ViewModelComponent implements OnInit {
     { id: 2, name: 'Women International' },
     { id: 3, name: 'Men National' },
     { id: 4, name: 'Women National' },
+    { id: 5, name: 'Kids' },
   ];
   constructor(private fb: FormBuilder, private router: Router, private modelService: ModelManagementService,
      private dashBoardService: DashBoardService, private progressBarService: ProgressBarService) { }
@@ -66,6 +67,10 @@ export class ViewModelComponent implements OnInit {
       }
       case 4: {
         this.nationalWomenModels();
+        break;
+      }
+      case 5: {
+        this.kidsModel();
         break;
       }
   }
@@ -113,7 +118,16 @@ this.showMessage = true;
   }
    */
 
-
+kidsModel() {
+  this.modelService.getKidsModels().subscribe(data => {
+    this.Detail = data;
+    if (data.length === 0) {
+this.showMessage = true;
+    } else if (data.length !== 0) {
+      this.showMessage = false;
+    }
+  });
+}
 
   nationalMenModels() {
     this.modelService.getNationalMenModels().subscribe(data => {

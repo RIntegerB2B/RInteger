@@ -63,6 +63,11 @@ export class ModelManagementService {
     const url: string = this.serviceUrl + statusUrl  ;
     return this.httpClient.get<Model>(url);
   } */
+  getKidsModels(): Observable<any> {
+    const statusUrl = 'kidsmodels/';
+    const url: string = this.serviceUrl + statusUrl  ;
+    return this.httpClient.get<Model>(url);
+  }
   getNationalMenModels(): Observable<any> {
     const statusUrl = 'nationalmenmodels/';
     const url: string = this.serviceUrl + statusUrl  ;
