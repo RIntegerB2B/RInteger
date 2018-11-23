@@ -15,7 +15,6 @@ import {Model} from '../view-scheduled-model/model-detail.model';
 import { Title, Meta } from '@angular/platform-browser';
 import { ProgressBarService } from '../../home/progress-bar/progress-bar.service';
 
-
 @Component({
   selector: 'app-scheduled-booking',
   templateUrl: './scheduled-booking.component.html',
@@ -57,7 +56,7 @@ export class ScheduledBookingComponent implements OnInit, AfterViewInit {
    private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router,
     private scheduledService: ScheduledModelService, private localStorageService: LocalStorageService,
     private swUpdate: SwUpdate, private swPush: SwPush , public snackBar: MatSnackBar , private dashBoardService: DashBoardService,
-     private metaService: Meta, private progressBarService: ProgressBarService ) {
+     private metaService: Meta, private progressBarService: ProgressBarService) {
       this.id = this.activatedRoute.snapshot.paramMap.get('modelId');
   }
 
