@@ -95,6 +95,7 @@ import { ItServicesComponent } from './home/product/it-services/it-services.comp
 import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account-mgmt-status.component';
 import { ProgressBarComponent } from './home/progress-bar/progress-bar.component';
 import { ViewProjectionModelComponent } from './scheduled-model-mgmt/view-projection-model/view-projection-model.component';
+import { StudioTourComponent } from './home/studio-tour/studio-tour.component';
 
 @NgModule({
   declarations: [
@@ -141,7 +142,8 @@ import { ViewProjectionModelComponent } from './scheduled-model-mgmt/view-projec
     RegisterComponent,
     AccountMgmtStatusComponent,
     ProgressBarComponent,
-    ViewProjectionModelComponent
+    ViewProjectionModelComponent,
+    StudioTourComponent
   ],
   imports: [
  CommonModule,
