@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  serviceUrl: 'https://rinteger.com/service/',
-  adminServiceUrl: 'https://rinteger.com/adminservice/'
+  serviceUrl: 'https://rinteger.com/qa/service/',
+  adminServiceUrl: 'https://rinteger.com/qa/adminservice/'
 };
