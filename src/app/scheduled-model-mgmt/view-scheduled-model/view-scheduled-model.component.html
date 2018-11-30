@@ -31,6 +31,9 @@
           <mat-option value="nationalwomen">
             <button mat-button (click)="nationalWomenModels()">Women National</button>
           </mat-option>
+          <mat-option value="kids">
+            <button mat-button (click)="kidsModels()">Kids</button>
+          </mat-option>
           <mat-option value="All">
             <button mat-button (click)="allModels()">All</button>
           </mat-option>
@@ -59,13 +62,19 @@
         <a (click)="bookModel(viewModelForm,modelId.value)">
           <mat-card class="example-card">
             <div class="row">
-              <div class="col-md-6 col-6">
+              <div class="col-md-4 col-4">
                 <h6 class="modelHeader">Model Name</h6>
                 <a class="modelName">{{model.userName | uppercase}}</a>
               </div>
-              <div class="col-md-6 col-6">
+              <div class="col-md-4 col-4">
                 <h6 class="modelHeader">Schedule Date</h6>
                 <a class="modelName">{{model.scheduledDate | uppercase}}</a>
+                <!-- <a (click)="whatsappShare(this.model?.primeImage)">
+                  SHARE</a> -->
+              </div>
+              <div class="col-md-4 col-4">
+                <h6 class="modelHeader">Location</h6>
+                <a class="modelName">{{model.scheduledLocation | uppercase}}</a>
                 <!-- <a (click)="whatsappShare(this.model?.primeImage)">
                   SHARE</a> -->
               </div>

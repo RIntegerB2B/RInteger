@@ -27,6 +27,7 @@ export class ViewProjectionModelComponent implements OnInit, AfterViewInit {
     { id: 2, name: 'Women International' },
     { id: 3, name: 'Men National' },
     { id: 4, name: 'Women National' },
+    { id: 5, name: 'Kids' },
   ];
 
 
@@ -69,6 +70,10 @@ export class ViewProjectionModelComponent implements OnInit, AfterViewInit {
         this.nationalWomenModels();
         break;
       }
+      case 5: {
+        this.kidsModel();
+        break;
+      }
   }
   this.selectedType = service;
 }
@@ -82,7 +87,16 @@ export class ViewProjectionModelComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
+  kidsModel() {
+    this.scheduledmodelService.getProjectionKidModel().subscribe(data => {
+      this.Detail = data;
+      if (data.length === 0) {
+  this.showMessage = true;
+      } else if (data.length !== 0) {
+        this.showMessage = false;
+      }
+    });
+  }
   nationalMenModels() {
     this.scheduledmodelService.getProjectionNationalMenModels().subscribe(data => {
       this.Detail = data;
