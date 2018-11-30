@@ -97,6 +97,7 @@ import { ProgressBarComponent } from './home/progress-bar/progress-bar.component
 import { ViewProjectionModelComponent } from './scheduled-model-mgmt/view-projection-model/view-projection-model.component';
 import { OurworkComponent } from './ourwork-management/ourwork/ourwork.component';
 import { ViewdetailsComponent } from './ourwork-management/viewdetails/viewdetails.component';
+import {StudioTourComponent} from './home/studio-tour/studio-tour.component';
 
 @NgModule({
   declarations: [
@@ -145,7 +146,8 @@ import { ViewdetailsComponent } from './ourwork-management/viewdetails/viewdetai
     ProgressBarComponent,
     ViewProjectionModelComponent,
     OurworkComponent,
-    ViewdetailsComponent
+    ViewdetailsComponent,
+    StudioTourComponent
   ],
   imports: [
  CommonModule,
