@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-md-3  col-12">
       <ul class="services">
-        <li *ngFor="let service of services" [class.subPrice]="service === selectedPrice" (click)="onSelect(service)"
+        <li *ngFor="let service of services" 
+        [class.subPrice]="service === selectedPrice" (click)="onSelect(service)"
           class="sideMenu">
           {{service.name}}
         </li>
@@ -23,27 +24,27 @@
           <tbody>
             <tr>
               <td> Top Wear</td>
-              <td> ₹200 - ₹250</td>
+              <td> ₹200</td>
               <td>₹350</td>
             </tr>
             <tr>
               <td>Bottom wear</td>
-              <td>₹200 - ₹250 </td>
+              <td>₹200</td>
               <td>₹350</td>
             </tr>
             <tr>
               <td> Indian & Festive wear</td>
-              <td>₹250 - ₹280</td>
+              <td>₹200</td>
               <td>₹400</td>
             </tr>
             <tr>
               <td> Clothing Accessories</td>
-              <td>₹200 - ₹250</td>
+              <td>₹200</td>
               <td> ₹350</td>
             </tr>
             <tr>
               <td> Sports wear</td>
-              <td>₹200 - ₹280</td>
+              <td>₹200</td>
               <td>₹400</td>
             </tr>
             <tr>

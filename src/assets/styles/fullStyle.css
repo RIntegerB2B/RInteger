@@ -12,12 +12,39 @@ body {
   padding-left: 0rem !important;
 
 }
+.displayNone {
+  display: none;
+}
+.displayBlock
+{
+  display: block
+}
 
 .logo {
   width: 100px;
   height: 100px;
   
   background: url(./../images/logo.jpg) center center no-repeat; 
+}
+.rowStyle
+{
+  background-color: #EEEEEE;
+}
+
+.selSubMenu
+{
+  background-color: lightslategray !important;
+  color: white !important;
+}
+.selMainMenu
+{
+  background-color: lightslategray !important;
+  color: white !important;
+}
+
+.gridPadding
+{
+  padding: 15px;
 }
 
 .dropdown-item {

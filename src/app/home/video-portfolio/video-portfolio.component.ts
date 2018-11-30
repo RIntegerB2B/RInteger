@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class VideoPortfolioComponent implements OnInit {
 
   modelImages = ['../../../assets/images/meghna.jpg', '../../../assets/images/meghna.jpg',
-  '../../../assets/images/meghna.jpg', '../../../assets/images/meghna.jpg'];
+    '../../../assets/images/meghna.jpg', '../../../assets/images/meghna.jpg'];
   saree: boolean;
   shirt: boolean;
   bottom: boolean;
@@ -21,19 +21,19 @@ export class VideoPortfolioComponent implements OnInit {
   }
   showOverView() {
     this.saree = false;
-this.shirt = false;
-this.bottom = false;
-this.interMen = false;
-this.interWomen = false;
-this.overview = true;
+    this.shirt = false;
+    this.bottom = false;
+    this.interMen = false;
+    this.interWomen = false;
+    this.overview = true;
   }
   showSaree() {
-this.saree = true;
-this.shirt = false;
-this.bottom = false;
-this.interMen = false;
-this.interWomen = false;
-this.overview = false;
+    this.saree = true;
+    this.shirt = false;
+    this.bottom = false;
+    this.interMen = false;
+    this.interWomen = false;
+    this.overview = false;
   }
   showShirt() {
     this.saree = false;
@@ -45,26 +45,26 @@ this.overview = false;
   }
   showBottom() {
     this.saree = false;
-this.shirt = false;
-this.bottom = true;
-this.interMen = false;
-this.interWomen = false;
-this.overview = false;
+    this.shirt = false;
+    this.bottom = true;
+    this.interMen = false;
+    this.interWomen = false;
+    this.overview = false;
   }
   showInternMen() {
     this.saree = false;
-this.shirt = false;
-this.bottom = false;
-this.interMen = true;
-this.interWomen = false;
-this.overview = false;
+    this.shirt = false;
+    this.bottom = false;
+    this.interMen = true;
+    this.interWomen = false;
+    this.overview = false;
   }
   showInterWomen() {
-  this.saree = false;
-this.shirt = false;
-this.bottom = false;
-this.interMen = false;
-this.interWomen = true;
-this.overview = false;
+    this.saree = false;
+    this.shirt = false;
+    this.bottom = false;
+    this.interMen = false;
+    this.interWomen = true;
+    this.overview = false;
   }
 }

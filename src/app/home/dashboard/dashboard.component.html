@@ -1,7 +1,7 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches"
 >
   <mat-toolbar class="example-toolbar">
-    <button mat-icon-button (click)="sidenav.toggle()">
+    <button mat-icon-button (click)="sidenav?.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <button class="navbar-toggler" type="button"
@@ -17,6 +17,10 @@
      
       <div id="navbarNavDropdown" class="navbar-collapse collapse sidebar">
         <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/studiotour']"
+                 (click)="collapseMenu()">Studio</a>
+              </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/subscribe']"
              (click)="collapseMenu()">Subscribe</a>
@@ -81,18 +85,20 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            <a class="nav-link"
+            [routerLink]="['/dashboard/ourwork', 18, this?.urlModel]"
+            
               aria-haspopup="true" aria-expanded="false">
               Our Work
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" [routerLink]="['/creativeportfolio']"
                (click)="collapseMenu()">Ecommerce
                 PortFolio
               </a>
               <a class="dropdown-item" [routerLink]="['/portfolio']"
                (click)="collapseMenu()">Creative PortFolio</a>
-            </div>
+            </div> -->
           </li>
 
           <li class="nav-item">
@@ -325,7 +331,8 @@
             <mat-icon class="menu-button" [ngClass]="{'rotated' : showFifthSubmenu}" 
             *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
           </mat-list-item>
-          <div class="submenu" [ngClass]="{'expanded' : showFifthSubmenu}" *ngIf="showFifthSubmenu">
+          <div class="submenu" [ngClass]="{'expanded' : showFifthSubmenu}" 
+          *ngIf="showFifthSubmenu">
             <div id="scroll-area" class="navigation-hold" fxLayout="column">
               <div class="sidenav-hold">
                 <ul class="navbar-nav">
@@ -343,11 +350,35 @@
               </div>
             </div>
           </div>
+          <mat-list-item (click)="selectedSix()" class="parent">
+              <div *ngIf="isExpanded || isShowing">Our Work</div>
+              <mat-icon class="menu-button"
+               [ngClass]="{'rotated' : showSixSubmenu}" 
+              *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
+            </mat-list-item>
+            <div class="submenu" [ngClass]="{'expanded' : showSixSubmenu}"
+             *ngIf="showSixSubmenu">
+              <div id="scroll-area" class="navigation-hold" fxLayout="column">
+                <div class="sidenav-hold">
+                      <ul class="navbar-nav">
+                        <li class="nav-item text-center" 
+                        *ngFor="let data of ourWorkModel; let i = index"
+                          >
+                          <a   [class.activeLink]="i+18 === selectedMenuList"
+                          (click)="onSelect(i+18);"
+                          [routerLink]="['ourwork', i+18, data._id]"
+                          class="nav-link text-center" ><a 
+                          >{{data.categoryName}}</a></a>
+                        </li>
+                      </ul>
+                    
+                </div>
+              </div>
+            </div>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
       <!--  <app-header></app-header> -->
-
       <router-outlet></router-outlet>
      
           <div class="container border-top border-dark">

@@ -1,7 +1,16 @@
-<div class="masterDiv">
-  <div class="jumbotron-fluid">
-    <img class="img-fluid" src="../../../assets/images/newbanner.jpg">
+<div class="jumbotron-fluid">
+  <owl-carousel 
+          [options]="{items: 1, dots: true, nav: false, loop: true, autoplay: true, autoplayTimeout: 5000}"
+          [items]="mainBanner"
+          [carouselClasses]="['owl-theme', 'row', 'sliding']">
+          <div  class="item" *ngFor="let image of mainBanner; let i = index">
+              <div class="jumbotron-fluid">
+                 <img [src]="image.bannerImage"/>
+               </div>
+            </div>
+          </owl-carousel>
   </div>
+<div class="masterDiv">
   <div class="container headerBox">
     <h2 class="display-1 text-center">Complete Booking Services for your Online Business</h2>
   </div>
@@ -17,11 +26,11 @@
               <div class="category">
                 <p class="text-center smallImage">
                   <img src="../../../assets/images/scheduled_booking.jpg">
-                  </p>
-                    <p class="text-center
+                </p>
+                <p class="text-center
           smallImageText text-muted">Scheduled Model</p>
-                    <p class="text-center bookingText">
-                      <a>Book Now</a></p>
+                <p class="text-center bookingText">
+                  <a>Book Now</a></p>
               </div>
             </a>
           </div>
@@ -30,26 +39,25 @@
               <div class="category display-small-none">
                 <p class="text-center smallImage">
                   <img src="../../../assets/images/model shoot booking.jpg">
-                  </p>
-                    <p class="text-center
+                </p>
+                <p class="text-center
           smallImageText text-muted">Available Model</p>
-                    <p class="text-center bookingText">
-                      <a>Book Now</a></p>
+                <p class="text-center bookingText">
+                  <a>Book Now</a></p>
               </div>
             </a>
           </div>
-          
+
           <div class="col-md-6 col-sm-12 headerSBox">
-            <a [routerLink]="['/dashboard/booking', 3]"
-            >
+            <a [routerLink]="['/dashboard/booking', 3]">
               <div class="category display-small-none">
                 <p class="text-center smallImage">
                   <img src="../../../assets/images/product shoot booking.jpg">
-                  </p>
-                    <p class="text-center
+                </p>
+                <p class="text-center
           smallImageText text-muted">Product Shoot</p>
-                    <p class="text-center bookingText">
-                      <a>Book Now</a></p>
+                <p class="text-center bookingText">
+                  <a>Book Now</a></p>
               </div>
             </a>
           </div>
@@ -58,11 +66,11 @@
               <div class="category display-small-none">
                 <p class="text-center smallImage">
                   <img src="../../../assets/images/Creative shoot booking.jpg">
-                  </p>
-                    <p class="text-center
+                </p>
+                <p class="text-center
           smallImageText text-muted">Creative Shoot</p>
-                    <p class="text-center bookingText">
-                      <a>Book Now</a></p>
+                <p class="text-center bookingText">
+                  <a>Book Now</a></p>
               </div>
             </a>
           </div>
@@ -71,11 +79,11 @@
               <div class="category display-small-none">
                 <p class="text-center smallImage">
                   <img src="../../../assets/images/Image Editing booking.jpg">
-                  </p>
-                    <p class="text-center
+                </p>
+                <p class="text-center
           smallImageText text-muted">Image Editing</p>
-                    <p class="text-center bookingText">
-                      <a>Book Now</a></p>
+                <p class="text-center bookingText">
+                  <a>Book Now</a></p>
               </div>
             </a>
           </div>
@@ -91,10 +99,10 @@
               <div class="category">
                 <p class="text-center smallImage">
                   <img src="../../../assets/images/registrations.jpg">
-                  </p>
-                    <p class="text-muted smallImageText">Registration&SetUp</p>
-                    <p class="text-center bookingText">
-                      <a>Book Now</a></p>
+                </p>
+                <p class="text-muted smallImageText">Registration&SetUp</p>
+                <p class="text-center bookingText">
+                  <a>Book Now</a></p>
               </div>
             </a>
           </div>
@@ -104,10 +112,10 @@
                 <p class="text-center smallImage">
                   <img src="../../../assets/images/catlog & listing booking.jpg">
                 </p>
-                    <p class="text-center
+                <p class="text-center
             smallImageText text-muted">Cataloging / Listing</p>
-                    <p class="text-center bookingText">
-                      <a>Book Now</a></p>
+                <p class="text-center bookingText">
+                  <a>Book Now</a></p>
               </div>
             </a>
           </div>
@@ -117,10 +125,10 @@
                 <p class="text-center smallImage">
                   <img src="../../../assets/images/a+ catlog.jpg">
                 </p>
-                    <p class="text-center
+                <p class="text-center
             smallImageText text-muted">A+ Cataloging</p>
-                    <p class="text-center bookingText">
-                      <a>Book Now</a></p>
+                <p class="text-center bookingText">
+                  <a>Book Now</a></p>
               </div>
             </a>
           </div>
@@ -129,11 +137,11 @@
               <div class="category">
                 <p class="text-center smallImage">
                   <img src="../../../assets/images/digital buisness.jpg">
-                  </p>
-                    <p class="text-center
+                </p>
+                <p class="text-center
             smallImageText text-muted">Account Management</p>
-                    <p class="text-center bookingText">
-                      <a>Book Now</a></p>
+                <p class="text-center bookingText">
+                  <a>Book Now</a></p>
               </div>
             </a>
           </div>
@@ -142,13 +150,13 @@
               <div class="category">
                 <p class="text-center smallImage">
                   <img src="../../../assets/images/marketing & service booking.jpg">
-                  </p>
-                    <p class="text-center
+                </p>
+                <p class="text-center
             smallImageText text-muted">
-                      Marketing Services
-                    </p>
-                    <p class="text-center bookingText">
-                      <a>Book Now</a></p>
+                  Marketing Services
+                </p>
+                <p class="text-center bookingText">
+                  <a>Book Now</a></p>
               </div>
             </a>
           </div>
@@ -164,11 +172,11 @@
               <div class="category">
                 <p class="text-center smallImage">
                   <img src="../../../assets/images/It service booking.jpg">
-                  </p>
-                    <p class="text-muted smallImageText">
-                      IT-Services</p>
-                    <p class="text-center bookingText">
-                      <a>Book Now</a></p>
+                </p>
+                <p class="text-muted smallImageText">
+                  IT-Services</p>
+                <p class="text-center bookingText">
+                  <a>Book Now</a></p>
               </div>
             </a>
           </div>
@@ -180,9 +188,9 @@
               <div class="hiddenText">
                 <p class="text-center smallImage">
                   <img src="../../../assets/images/Booking  status.jpg">
-                  </p>
-                    <p class="text-muted smallImageText">
-                      Booking Status</p>
+                </p>
+                <p class="text-muted smallImageText">
+                  Booking Status</p>
 
               </div>
               <h4 class="text-center pr-2 textSecondHeader">
@@ -235,7 +243,7 @@
           <img src="../../../assets/images/model shoot booking.jpg">
         </div>
         <div class="col-5 textMobile">
-            Available Model
+          Available Model
         </div>
         <div class="col-3 bookingText textMobile">
           <a>Book Now</a>
@@ -433,7 +441,9 @@
               <h4 class="textLarge">
                 1. Do a Booking
               </h4>
-              <p class="textFont">Select the right booking and post your requirement. The application will return a booking id to track the booking status. Click on the <b></b>SUBSCRIBE button for the booking notification. </p>
+              <p class="textFont">Select the right booking and post your requirement. The application will return a
+                booking id to track the booking status. Click on the <b></b>SUBSCRIBE button for the booking
+                notification. </p>
             </div>
           </div>
           <div class="col-12 d-md-none d-sm-none d-xs-none">
@@ -452,8 +462,9 @@
               <h4 class="textLarge">
                 2. Approve the Booking
               </h4>
-              
-              <p class="textFont">The booking is approved by rinteger team, after evaluating your booking with in 24 hours.
+
+              <p class="textFont">The booking is approved by rinteger team, after evaluating your booking with in 24
+                hours.
                 You can track the booking status using booking ID
               </p>
             </div>
@@ -480,8 +491,9 @@
               <h4 class="textLarge">
                 3. Execute the Booking
               </h4>
-              <p class="textFont">The booking is processed and communicated to the customer using push notification. The booking ID is used to track the different stages of  booking
-                </p>
+              <p class="textFont">The booking is processed and communicated to the customer using push notification.
+                The booking ID is used to track the different stages of booking
+              </p>
             </div>
           </div>
           <div class="col-12 d-md-none d-sm-none d-xs-none">
@@ -501,8 +513,8 @@
                 4. Deliver the Booking
               </h4>
               <p class="textFont">
-               
-Booking completion follows entire booking cycle and the feedback is collected to complete the delivery.
+
+                Booking completion follows entire booking cycle and the feedback is collected to complete the delivery.
               </p>
             </div>
           </div>
@@ -523,44 +535,36 @@ Booking completion follows entire booking cycle and the feedback is collected to
   </div>
   <div class="owl-carousel-holder display-small-none">
     <div class="carousel-section">
-            <owl-carousel
-                [options]="myCarouselOptions"
-                
-               >
-               <div  class="item" *ngFor="let image of fullImages;let i = index">
-                   
-                  <div>
-                      <a [routerLink]="['/studio']">
-                    <img src={{image}}/>
-                  </a>
-                  </div>
-               
-              </div>
-            </owl-carousel>
+      <owl-carousel [options]="myCarouselOptions">
+        <div class="item" *ngFor="let image of fullImages;let i = index">
+
+          <div>
+            <a [routerLink]="['/studio']">
+              <img src={{image}} />
+            </a>
+          </div>
+
+        </div>
+      </owl-carousel>
     </div>
-</div>
-<div class="owl-carousel-holder d-md-none d-xs-none">
-  <div class="carousel-section">
-    
-          <owl-carousel
-              [options]="myCarouselOptionsMobile">
-         
-              <div  class="item" *ngFor="let image of fullImages;let i = index">
-                   
-                  <div>
-                      <a [routerLink]="['/studio']">
-                    <img src={{image}}/>
-                  </a>
-                  </div>
-               
-              </div>
-              
-          </owl-carousel>
-       
+  </div>
+  <div class="owl-carousel-holder d-md-none d-xs-none">
+    <div class="carousel-section">
+
+      <owl-carousel [options]="myCarouselOptionsMobile">
+
+        <div class="item" *ngFor="let image of fullImages;let i = index">
+
+          <div>
+            <a [routerLink]="['/studio']">
+              <img src={{image}} />
+            </a>
+          </div>
+
+        </div>
+
+      </owl-carousel>
+
+    </div>
   </div>
 </div>
-</div>
-
-
-
-
