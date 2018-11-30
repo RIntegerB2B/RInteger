@@ -2,12 +2,15 @@ import { Component, OnInit, ViewChild , Inject, OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 import { empty } from 'rxjs';
-import {map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import {DashboardComponent} from '../dashboard/dashboard.component';
 import {DashBoardService} from '../dashboard/dashboard.service';
 import { ProgressBarService  } from '../progress-bar/progress-bar.service';
-
+import { HomeService } from '../../home/home.service';
+import { Banner } from './banner.model';
+import { OurWorkModel } from './../../shared/viewOurWork.model';
+import { OurworkManagementService } from './../../ourwork-management/ourwork-management.service';
 
 @Component({
   providers: [DashboardComponent],
@@ -24,12 +27,16 @@ export class WelcomeComponent implements OnInit {
   '../../../assets/images/services/slider8.jpg' ,
   '../../../assets/images/services/slider9.jpg'
    ] ;
+  allMainBanner = { items: 1, dots: true, nav: true,
+  };
   myCarouselOptions = { items: 5, dots: true, nav: true,
   };
   myCarouselOptionsMobile = { items: 3, dots: true, nav: true,
   };
-
+  urlModel: string;
+  mainBanner: Banner;
   color = 'red';
+  ourWorkModel: OurWorkModel;
   mobileNo: string;
   showIndicators = false;
   changeText: boolean;
@@ -55,8 +62,8 @@ export class WelcomeComponent implements OnInit {
 
   constructor( private router: Router, private localStorageService: LocalStorageService,
   private progressBarService: ProgressBarService,
-  private  dashBoard: DashboardComponent,
-    private dashBoardService: DashBoardService) {
+  private  dashBoard: DashboardComponent, private homeService: HomeService
+    , private dashBoardService: DashBoardService) {
       this.changeText = true;
       this.changeText1 = true;
       this.changeText2 = true;
@@ -77,6 +84,15 @@ export class WelcomeComponent implements OnInit {
       description: 'welcome',
       url: 'https://rinteger.com/',
       image: 'https://rinteger.com/assets/icons/icon-384x384.png'
+    });
+    this.getAllBanner();
+  }
+  getAllBanner() {
+    this.homeService.findBanner().subscribe(data => {
+      this.mainBanner = data;
+      console.log(this.mainBanner);
+    }, error => {
+      console.log(error);
     });
   }
   getStatus() {

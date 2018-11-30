@@ -37,6 +37,8 @@ import { ItServicesComponent } from './home/product/it-services/it-services.comp
 import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account-mgmt-status.component';
 import { ProgressBarComponent } from './home/progress-bar/progress-bar.component';
 import {ViewProjectionModelComponent} from './scheduled-model-mgmt/view-projection-model/view-projection-model.component';
+import { OurworkComponent } from './ourwork-management/ourwork/ourwork.component';
+import { ViewdetailsComponent } from './ourwork-management/viewdetails/viewdetails.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -84,6 +86,9 @@ const routes: Routes = [
       { path: 'viewschedulemodel/:viewid', component: ViewScheduledModelComponent },
       { path: 'viewprojectionmodel/:viewid', component: ViewProjectionModelComponent },
       { path: 'scheduledmodelBooking/:modelId', component: ScheduledBookingComponent },
+      /* { path: 'ourwork/:viewid', component: OurworkComponent}, */
+      { path: 'ourwork/:viewid/:subid', component: OurworkComponent},
+      { path: 'allourwork/:mainid/:subid', component: ViewdetailsComponent }
     ]
   },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
