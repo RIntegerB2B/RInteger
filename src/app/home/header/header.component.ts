@@ -41,11 +41,15 @@ export class HeaderComponent implements OnInit {
   }
   getAllCategory() {
     this.ourService.fullMainCategory().subscribe(data => {
+      if (data.length !== 0)       {
       this.ourWorkModel = data;
         this.urlModel = this.ourWorkModel[0]._id;
         console.log(this.router);
       console.log('dashboardcategory', this.ourWorkModel);
-    }, error => {
+    } else {
+      this.urlModel = '';
+    }
+  }, error => {
       console.log(error);
     });
   }

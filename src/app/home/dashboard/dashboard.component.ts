@@ -137,18 +137,22 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
    this.showSixSubmenu = false;
  }
  getAllCategory() {
-   this.ourService.fullMainCategory().subscribe(data => {
-     this.ourWorkModel = data;
-     const config = this.router.config;
-       config.push({path: 'ourwork/:mainid/:subid', component: OurworkComponent});
-       this.router.resetConfig(config);
-       this.urlModel = this.ourWorkModel[0]._id;
-       console.log(this.router);
-     console.log('dashboardcategory', this.ourWorkModel);
-   }, error => {
-     console.log(error);
-   });
- }
+  this.ourService.fullMainCategory().subscribe(data => {
+    if (data.length !== 0)       {
+    this.ourWorkModel = data;
+    const config = this.router.config;
+      config.push({path: 'ourwork/:mainid/:subid', component: OurworkComponent});
+      this.router.resetConfig(config);
+      this.urlModel = this.ourWorkModel[0]._id;
+      console.log(this.router);
+    console.log('dashboardcategory', this.ourWorkModel);
+   }     else     {
+     this.urlModel = '';
+   }
+  }, error => {
+    console.log(error);
+  });
+}
  selectedDashboardFirst(id)   {
    this.onSelect(id);
    this.sidenav.open();

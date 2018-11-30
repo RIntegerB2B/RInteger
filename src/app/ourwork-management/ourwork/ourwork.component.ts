@@ -14,7 +14,7 @@ export class OurworkComponent implements OnInit {
   imageUrl: string = AppSetting.imageOurWorkServerPath;
   selectedSubMenu: any;
   selectedMainMenu: any;
-  @Input()  parentCount: any;
+  noData = false;
   subService: any;
   imagePath1;
   imagePath2;
@@ -77,15 +77,19 @@ export class OurworkComponent implements OnInit {
     this.ourWorkModel = this.ourWorkModel;
     this.subid = this.activatedRoute.snapshot.params['subid'];
 } */
-  getSubCategory() {
-    this.ourService.fullSubCategory(this.subid).subscribe(data => {
-      this.ourWorkModel = data;
-      this.serviceModel = this.ourWorkModel[0].mainCategory[0];
-      console.log('category', this.ourWorkModel);
-      console.log('subid', this.subid);
-      this.onSelectSub(this.serviceModel);
-    }, error => {
-      console.log(error);
-    });
-  }
+getSubCategory() {
+  this.ourService.fullSubCategory(this.subid).subscribe(data => {
+    if (data.length !== 0)       {
+    this.ourWorkModel = data;
+    this.serviceModel = this.ourWorkModel[0].mainCategory[0];
+    console.log('category', this.ourWorkModel);
+    console.log('subid', this.subid);
+    this.onSelectSub(this.serviceModel);
+    }       else      {
+      this.noData = true;
+    }
+  }, error => {
+    console.log(error);
+  });
+}
 }
