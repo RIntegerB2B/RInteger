@@ -39,6 +39,7 @@ import { ProgressBarComponent } from './home/progress-bar/progress-bar.component
 import {ViewProjectionModelComponent} from './scheduled-model-mgmt/view-projection-model/view-projection-model.component';
 import { OurworkComponent } from './ourwork-management/ourwork/ourwork.component';
 import { ViewdetailsComponent } from './ourwork-management/viewdetails/viewdetails.component';
+import {StudioTourComponent} from './home/studio-tour/studio-tour.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -55,6 +56,7 @@ const routes: Routes = [
   { path: 'digitalmgmtservice', component: DigitalMgmtComponent },
   { path: 'itservicesdetails', component: ItServicesComponent },
   { path: 'pricing/:viewid', component: PricingComponent },
+  { path: 'studiotour', component: StudioTourComponent },
   {
     path: 'dashboard', component: DashboardComponent,
     children: [
