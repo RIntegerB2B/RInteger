@@ -1,8 +1,11 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit, Input, Inject  } from '@angular/core';
 import {  OurWorkModel } from '../../shared/viewOurWork.model';
 import { OurworkManagementService } from './../ourwork-management.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppSetting } from '../../config/appSetting';
+import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 @Component({
   selector: 'app-viewdetails',
   templateUrl: './viewdetails.component.html',
@@ -14,37 +17,13 @@ export class ViewdetailsComponent implements OnInit {
   ourWorkModel: OurWorkModel;
   message: any;
   mainid: string;
+  viewId;
   subid: string;
   constructor(private ourService: OurworkManagementService, private router: Router
-     , private activatedRoute: ActivatedRoute) { }
+     , private activatedRoute: ActivatedRoute, private dialog: MatDialog) { }
 
-  services = [{
-    id: 1, name: 'test3'
-  }, {
-    id: 2, name: 'test4'
-  },  {
-    id: 3, name: 'test5'
-  }];
-  totalImages =  [{
-    id: 1, name: '../../../assets/images/lookbook/1.jpg'
-  }, {
-    id: 2, name: '../../../assets/images/lookbook/2.jpg'
-  },  {
-    id: 3, name:  '../../../assets/images/lookbook/3.jpg'
-  },  {
-    id: 4, name: '../../../assets/images/lookbook/4.jpg'
-  },
-    {
-    id: 5, name: '../../../assets/images/lookbook/5.jpg'
-  },  {
-    id: 6, name: '../../../assets/images/lookbook/6.jpg'
-  },  {
-    id: 7, name: '../../../assets/images/lookbook/7.jpg'
-  },  {
-    id: 8, name: '../../../assets/images/lookbook/8.jpg'
-  }
-];
   ngOnInit() {
+    this.viewId = this.activatedRoute.snapshot.params['viewid'];
      this.mainid = this.activatedRoute.snapshot.params['mainid'];
      this.subid = this.activatedRoute.snapshot.params['subid'];
      console.log(this.ourWorkModel);
@@ -67,6 +46,36 @@ export class ViewdetailsComponent implements OnInit {
     });
   }
   backView()   {
-    this.router.navigate(['/dashboard/ourwork', this.mainid]);
+    this.router.navigate(['/dashboard/ourwork/', this.viewId, this.mainid]);
   }
+  public confirm(fullData: OurWorkModel = {}): Observable<boolean> {
+    const dialogRef = this.dialog.open(ZoomComponent, {
+      width: '640px',
+      disableClose: true,
+      data: [fullData, this.subid],
+    });
+    return dialogRef.afterClosed();
+  }
+
+}
+@Component({
+  selector: 'app-zoom',
+  templateUrl: './zoom.component.html'
+})
+export class ZoomComponent implements OnInit {
+  imageUrl: string = AppSetting.imageOurWorkServerPath;
+  myCarouselOptions = { items: 1, dots: true, nav: true,
+  };
+constructor(private router: Router
+  , private activatedRoute: ActivatedRoute, public dialogRef: MatDialogRef<ZoomComponent>,
+  @Inject(MAT_DIALOG_DATA) public fullData: OurWorkModel) {
+  console.log(fullData);
+  this.imageUrl = this.imageUrl;
+}
+cancel(): void {
+  this.dialogRef.close();
+}
+
+ngOnInit() {
+}
 }

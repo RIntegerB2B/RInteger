@@ -22,7 +22,7 @@
         </ul>
       </div>
       <div class="row">
-        <div class="col-md-3 col-sm-12" *ngFor="let mainImage of ourWorKModelView?.category">
+        <div class="col-md-3" *ngFor="let mainImage of ourWorKModelView?.category">
           <div class="gridRow">
             <a (click)="totalViewImage(data, mainImage._id)">
               <img class="img-fluid" [src]="this.imageUrl+ '/'+ data.categoryName +'/'+ this.ourWorKModelView.mainCategoryName +'/'+ mainImage.categoryName +'/'+ 'prime/' + mainImage.primeImage"></a>

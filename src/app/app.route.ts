@@ -38,7 +38,7 @@ import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account
 import { ProgressBarComponent } from './home/progress-bar/progress-bar.component';
 import {ViewProjectionModelComponent} from './scheduled-model-mgmt/view-projection-model/view-projection-model.component';
 import { OurworkComponent } from './ourwork-management/ourwork/ourwork.component';
-import { ViewdetailsComponent } from './ourwork-management/viewdetails/viewdetails.component';
+import { ViewdetailsComponent} from './ourwork-management/viewdetails/viewdetails.component';
 import { StudioTourComponent } from './home/studio-tour/studio-tour.component';
 
 const routes: Routes = [
@@ -90,7 +90,7 @@ const routes: Routes = [
       { path: 'viewschedulemodel/:viewid', component: ViewScheduledModelComponent },
       { path: 'viewprojectionmodel/:viewid', component: ViewProjectionModelComponent },
       { path: 'scheduledmodelBooking/:modelId', component: ScheduledBookingComponent },
-      { path: 'allourwork/:mainid/:subid', component: ViewdetailsComponent }
+      { path: 'allourwork/:viewid/:mainid/:subid', component: ViewdetailsComponent },
     ]
   },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },

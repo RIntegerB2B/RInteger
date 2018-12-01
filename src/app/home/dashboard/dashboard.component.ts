@@ -138,8 +138,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   }
   getAllCategory() {
     this.ourService.fullMainCategory().subscribe(data => {
-      if(data.length !== 0)
-      {
+      if(data.length !== 0)       {
       this.ourWorkModel = data;
       const config = this.router.config;
         config.push({path: 'ourwork/:mainid/:subid', component: OurworkComponent});

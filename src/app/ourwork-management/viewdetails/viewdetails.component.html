@@ -1,5 +1,5 @@
 <form style="padding-top:2%">
-  <div class="container-fluid">
+  <div class="container">
     <div class="row d-md-none d-lg-none">
       <!-- <div class="col-sm-12">
         <mat-form-field>
@@ -22,23 +22,29 @@
       </div> -->
       <div *ngFor="let test of data.mainCategory">
         <div *ngFor="let mainImage of test.category;">
+            
           <div class="row"  *ngIf="mainImage._id === this.subid">
-            <div class="text-center col-md-12 rowStyle navbar-expand-lg display-small-none">
-                <h5 class="p-2">{{mainImage.categoryName}}</h5>
+            <div class="col-md-12 rowStyle navbar-expand-lg display-small-none">
+              <div class="row p-2">
+                <div class="col-md-4">
+                    <button  class="btn selSubMenu" (click)="backView()">back</button>
+                </div>
+                <div class="col-md-4">
+                    <h5>{{mainImage.categoryName}}</h5>
+                </div>
               </div>
-            <div class="col-md-3" *ngFor="let subImage of mainImage.images;">
+              
+            </div>
+            <div class="col-md-3  col-6" *ngFor="let subImage of mainImage.images;">
               <div class="gridRow">
-                <a>
-                  <img class="img-fluid" [src]="this.imageUrl+ '/'+ data.categoryName +'/'+ test.mainCategoryName +'/'+ mainImage.categoryName +'/' + subImage"></a>
-
+                <a (click)="confirm(data)"><img class="img-fluid" 
+                  [src]="this.imageUrl+ '/'+ data.categoryName +'/'+ test.mainCategoryName +'/'+ mainImage.categoryName +'/' + subImage"></a>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <button style="margin:20px;" class="btn" (click)="backView()">back</button>
-        </div>
+        </div> 
       </div>
     </div>
+    
   </div>
 </form>

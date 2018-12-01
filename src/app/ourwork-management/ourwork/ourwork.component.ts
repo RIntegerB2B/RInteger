@@ -16,6 +16,7 @@ export class OurworkComponent implements OnInit {
   selectedMainMenu: any;
   subService: any;
   subid: string;
+  viewId;
   noData = false;
   serviceModel: any;
   ourWorkModel: OurWorkModel[] = [];
@@ -23,6 +24,7 @@ export class OurworkComponent implements OnInit {
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
      private ourService: OurworkManagementService) {
+      this.viewId = this.activatedRoute.snapshot.params['viewid'];
       this.subid = this.activatedRoute.snapshot.params['subid'];
       }
   services: any;
@@ -42,7 +44,7 @@ export class OurworkComponent implements OnInit {
     console.log(event);
   }
   totalViewImage(subImage, mainImage)   {
-    this.router.navigate(['/dashboard/allourwork', subImage._id, mainImage ]);
+    this.router.navigate(['/dashboard/allourwork', this.viewId, subImage._id, mainImage ]);
   }
  /*  ngDoCheck() {
     this.ourWorkModel = this.ourWorkModel;
