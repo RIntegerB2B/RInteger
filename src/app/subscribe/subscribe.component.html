@@ -5,7 +5,7 @@
               <div class="offset-md-4">
               </div>
               <div class="col-md-4 subscribeMasterDiv">
-                <form [formGroup]="subscribeForm" (ngSubmit)="subscribeForm.valid && subscribe(subscribeForm,mobileNum.value) "
+                <form [formGroup]="subscribeForm" (ngSubmit)="subscribeForm.valid && subscribe(subscribeForm,mobileNum.value,usersName.value) "
                   novalidate>
                   <div class="form-group">
                     <mat-form-field class="example-full-width">
@@ -21,6 +21,17 @@
                       </mat-error>
                       <mat-error *ngIf="!subscribeForm.controls['mobileNumber'].errors?.required">
                         Enter valid mobile Number is
+                        <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Name"  [(ngModel)]="userName" formControlName="name"
+                        #usersName required>
+                      <button mat-button matSuffix mat-icon-button aria-label="Name">
+                        <mat-icon>account_circle</mat-icon>
+                      </button>
+                      <mat-error *ngIf="subscribeForm.controls['name'].errors?.required">
+                        Name is
                         <strong>required</strong>
                       </mat-error>
                     </mat-form-field>

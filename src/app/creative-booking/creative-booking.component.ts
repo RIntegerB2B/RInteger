@@ -34,6 +34,7 @@ export class CreativeBookingComponent implements OnInit {
   videoShoot = ['Yes', 'No'];
   shootTypes = ['Indoor shoot', 'Outdoor shoot'];
   shooting = [];
+  username;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private fb: FormBuilder, private router: Router,
     private creativeService: CreativeBookingService, private localStorageService: LocalStorageService,
@@ -108,15 +109,17 @@ console.log(this.shooting);
       console.log(error);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.username = this.localStorageService.retrieve('name');
     this.saveCustomerDetail(creativeForm);
-    this.subscribe(this.mobileNo);
+    this.subscribe(this.mobileNo, this.username);
   }
-  subscribe(mobNo) {
+  subscribe(mobNo, name) {
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY
     })
       .then(sub => {
         this.notificationModel = new Notification();
+        this.notificationModel.name = name;
         this.notificationModel.isAdmin = false;
         this.notificationModel.userSubscriptions = sub;
         this.notificationModel.mobileNumber = mobNo;

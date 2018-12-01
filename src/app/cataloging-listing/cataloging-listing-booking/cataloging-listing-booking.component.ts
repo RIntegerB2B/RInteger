@@ -1,4 +1,4 @@
-import { Component, OnInit , Inject} from '@angular/core';
+import { Component, OnInit , Inject, Injector} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -72,10 +72,18 @@ export class CatalogingListingBookingComponent implements OnInit {
   ];
   swPush: SwPush;
   selected = 'b2cNationalValue';
+  username;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   constructor(private fb: FormBuilder, private router: Router,
     private catalogService: CatalogListingService, private localStorageService: LocalStorageService, public snackBar: MatSnackBar,
-    private swUpdate: SwUpdate, private dashBoardService: DashBoardService, private dashBoard: DashboardComponent) { }
+    private swUpdate: SwUpdate, private injector: Injector,
+     private dashBoardService: DashBoardService, private dashBoard: DashboardComponent) {
+      try {
+        this.swPush = this.injector.get(SwPush);
+      } catch (error) {
+        console.log(error);
+      }
+      }
 
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
@@ -257,15 +265,17 @@ export class CatalogingListingBookingComponent implements OnInit {
       console.log(error);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.username = this.localStorageService.retrieve('name');
     this.saveCustomerDetail(catalogListingForm);
-    this.subscribe(this.mobileNo);
+    this.subscribe(this.mobileNo, this.username);
   }
-  subscribe(mobNo) {
+  subscribe(mobNo, name) {
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY
     })
       .then(sub => {
         this.notificationModel = new Notification();
+        this.notificationModel.name = name;
         this.notificationModel.isAdmin = false;
         this.notificationModel.userSubscriptions = sub;
         this.notificationModel.mobileNumber = mobNo;
