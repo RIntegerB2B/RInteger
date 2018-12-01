@@ -19,6 +19,7 @@ export class ViewdetailsComponent implements OnInit {
   mainid: string;
   viewId;
   subid: string;
+  nextNoData = false;
   constructor(private ourService: OurworkManagementService, private router: Router
      , private activatedRoute: ActivatedRoute, private dialog: MatDialog) { }
 
@@ -45,14 +46,29 @@ export class ViewdetailsComponent implements OnInit {
       console.log(error);
     });
   }
-  backView()   {
-    this.router.navigate(['/dashboard/ourwork/', this.viewId, this.mainid]);
+  backView(back)   {
+    if (back !== null)     {
+      console.log(back);
+      this.router.navigate(['/dashboard/allourwork', this.viewId, this.mainid, back ]);
+     /*  this.router.navigate(['/dashboard/ourwork/', this.viewId, this.mainid]); */
+    } else   {
+      this.router.navigate(['/dashboard/ourwork/', this.viewId, this.mainid]);
+    }
   }
-  public confirm(fullData: OurWorkModel = {}): Observable<boolean> {
+  nextView(next)   {
+    if (next !== null)     {
+    console.log(next);
+    this.router.navigate(['/dashboard/allourwork', this.viewId, this.mainid, next ]);
+   /*  this.router.navigate(['/dashboard/ourwork/', this.viewId, this.mainid]); */
+  } else   {
+    this.nextNoData = true;
+  }
+  }
+  public confirm(fullData: OurWorkModel = {}, mainImage): Observable<boolean> {
     const dialogRef = this.dialog.open(ZoomComponent, {
       width: '540px',
       disableClose: true,
-      data: [fullData, this.subid],
+      data: [fullData, this.subid, mainImage],
     });
     return dialogRef.afterClosed();
   }
