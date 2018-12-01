@@ -1,24 +1,34 @@
-
+<div class="row mb-2">
+    <div class="col-md-12">
+      <button class="btn  float-right  selSubMenu"
+       (click)="cancel()">X</button>
+    </div>
+  </div>
 <div class="container" *ngFor="let all of fullData; let i = index">
   <div *ngFor="let test of all.mainCategory">
     <div *ngFor="let mainImage of test.category;">
-      <div class="row" *ngIf="mainImage._id === fullData[i+1]; else elseBlock">
-        <div class="text-center col-md-12 rowStyle navbar-expand-lg display-small-none">
-          <h5 class="p-2">{{mainImage.categoryName}}</h5>
+      <div class="row" *ngIf="mainImage._id === fullData[i+1];">
+        <div class="col-md-12 rowStyle navbar-expand-lg display-small-none">
+          <div class="row p-2">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4">
+              <h5>{{mainImage.categoryName}}</h5>
+            </div>
+
+          </div>
+
         </div>
         <div class="col-md-12 col-sm-12">
-        <owl-carousel [options]="myCarouselOptions">
-          <div class="gridRow mx-auto" *ngFor="let subImage of mainImage.images;">
-            <a><img class="img-fluid" [src]="this.imageUrl+ '/'+ 
+          <owl-carousel [options]="myCarouselOptions">
+            <div class="gridRow mx-auto" *ngFor="let subImage of mainImage.images;">
+              <a><img class="img-fluid" [src]="this.imageUrl+ '/'+ 
                 all.categoryName +'/'+ test.mainCategoryName +'/'+ mainImage.categoryName +'/' + subImage"></a>
-          </div>
-        </owl-carousel>
+            </div>
+          </owl-carousel>
         </div>
       </div>
-      <ng-template #elseBlock>No Image</ng-template>
-    </div>
-    <div class="row">
-      <button style="margin:20px;" class="btn" (click)="cancel()">Close</button>
     </div>
   </div>
 </div>
