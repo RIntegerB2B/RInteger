@@ -1,4 +1,4 @@
-import { Component, OnInit , Inject} from '@angular/core';
+import { Component, OnInit , Inject, Injector} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -37,12 +37,19 @@ export class MarketingServicesBookingComponent implements OnInit {
   email;
   mailId;
   swPush: SwPush;
+  username;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
 
 
   constructor( private fb: FormBuilder, private router: Router,
     private marketingService: MarketingServicesService, private localStorageService: LocalStorageService, private swUpdate: SwUpdate,
-    public snackBar: MatSnackBar , private dashBoardService: DashBoardService) { }
+    public snackBar: MatSnackBar , private injector: Injector,  private dashBoardService: DashBoardService) {
+      try {
+        this.swPush = this.injector.get(SwPush);
+      } catch (error) {
+        console.log(error);
+      }
+     }
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
     this.createForm();
@@ -99,15 +106,17 @@ export class MarketingServicesBookingComponent implements OnInit {
       console.log(error);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
+    this.username = this.localStorageService.retrieve('name');
     this.saveCustomerDetail(marketingBookingForm);
-    this.subscribe(this.mobileNo);
+    this.subscribe(this.mobileNo, this.username);
   }
-  subscribe(mobNo) {
+  subscribe(mobNo, name) {
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY
     })
       .then(sub => {
         this.notificationModel = new Notification();
+        this.notificationModel.name = name;
         this.notificationModel.isAdmin = false;
         this.notificationModel.userSubscriptions = sub;
         this.notificationModel.mobileNumber = mobNo;

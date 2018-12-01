@@ -51,6 +51,7 @@ export class ModelBasedBookingComponent implements OnInit {
     { id: 3, name: 'Measurements' },
   ];
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
+  username;
   constructor( private activatedRoute: ActivatedRoute,
    private fb: FormBuilder, private router: Router,
     private modelService: ModelManagementService, private localStorageService: LocalStorageService,
@@ -192,15 +193,17 @@ export class ModelBasedBookingComponent implements OnInit {
       console.log(error);
     });
     this.mobileNo = this.localStorageService.retrieve('mobileno');
-    this.subscribe(this.mobileNo);
+    this.username = this.localStorageService.retrieve('name');
+    this.subscribe(this.mobileNo, this.username);
   /*   this.sendNotification(); */
   }
-  subscribe(mobNo) {
+  subscribe(mobNo, name) {
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY
     })
       .then(sub => {
         this.notificationModel = new Notification();
+        this.notificationModel.name = name;
         this.notificationModel.isAdmin = false;
         this.notificationModel.userSubscriptions = sub;
         this.notificationModel.mobileNumber = mobNo;
