@@ -6,7 +6,7 @@ export const AppSetting: AppSettingType = {
      /* serviceUrl: 'http://localhost:4011/', */
    /* adminServiceUrl: 'http://localhost:3012/', */
    imageOurWorkServerPath: 'https://rinteger.com/admin/images/',
-   /*  imageOurWorkServerPath: 'http://localhost/RIntegerWorks/', */
+    /* imageOurWorkServerPath: 'http://localhost/RIntegerWorks/', */
     serviceUrl: environment.serviceUrl,
     adminServiceUrl: environment.adminServiceUrl
 };

@@ -50,7 +50,7 @@ export class ViewdetailsComponent implements OnInit {
   }
   public confirm(fullData: OurWorkModel = {}): Observable<boolean> {
     const dialogRef = this.dialog.open(ZoomComponent, {
-      width: '640px',
+      width: '540px',
       disableClose: true,
       data: [fullData, this.subid],
     });
