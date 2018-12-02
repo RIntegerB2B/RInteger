@@ -115,6 +115,7 @@ export class ViewScheduledModelComponent implements OnInit, AfterViewInit {
   }
    */
   kidsModels() {
+    this.progressBarService.open();
     this.scheduledmodelService.getScheduledKidModel().subscribe(data => {
       this.Detail = data;
       if (data.length === 0) {
@@ -122,9 +123,11 @@ this.showMessage = true;
       } else if (data.length !== 0) {
         this.showMessage = false;
       }
+      this.progressBarService.close();
     });
   }
   nationalMenModels() {
+    this.progressBarService.open();
     this.scheduledmodelService.getNationalMenModels().subscribe(data => {
       this.Detail = data;
       if (data.length === 0) {
@@ -132,9 +135,11 @@ this.showMessage = true;
       } else if (data.length !== 0) {
         this.showMessage = false;
       }
+      this.progressBarService.close();
     });
   }
   nationalWomenModels() {
+    this.progressBarService.open();
     this.scheduledmodelService.getNationalWomenModels().subscribe(data => {
       this.Detail = data;
       if (data.length === 0) {
@@ -142,9 +147,11 @@ this.showMessage = true;
       } else if (data.length !== 0) {
         this.showMessage = false;
       }
+      this.progressBarService.close();
     });
   }
   interNationalMenModels() {
+    this.progressBarService.open();
     this.scheduledmodelService.getInterNationalMenModels().subscribe(data => {
       this.Detail = data;
       if (data.length === 0) {
@@ -152,9 +159,11 @@ this.showMessage = true;
       } else if (data.length !== 0) {
         this.showMessage = false;
       }
+      this.progressBarService.close();
     });
   }
   interNationalWomenModels() {
+    this.progressBarService.open();
     this.scheduledmodelService.getInterNationalWomenModels().subscribe(data => {
       this.Detail = data;
       if (data.length === 0) {
@@ -162,6 +171,7 @@ this.showMessage = true;
       } else if (data.length !== 0) {
         this.showMessage = false;
       }
+      this.progressBarService.close();
     });
   }
   bookModel(viewModelForm: FormGroup, modelId: any) {

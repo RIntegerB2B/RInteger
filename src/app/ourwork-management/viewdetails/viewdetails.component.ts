@@ -1,11 +1,13 @@
 import { Component, OnInit, Input, Inject  } from '@angular/core';
 import {  OurWorkModel } from '../../shared/viewOurWork.model';
 import { OurworkManagementService } from './../ourwork-management.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, UrlTree } from '@angular/router';
 import { AppSetting } from '../../config/appSetting';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Location } from '@angular/common';
+import { ProgressBarService } from '../../home/progress-bar/progress-bar.service';
 @Component({
   selector: 'app-viewdetails',
   templateUrl: './viewdetails.component.html',
@@ -20,8 +22,11 @@ export class ViewdetailsComponent implements OnInit {
   viewId;
   subid: string;
   nextNoData = false;
+  backId: any;
+  nextId = [];
   constructor(private ourService: OurworkManagementService, private router: Router
-     , private activatedRoute: ActivatedRoute, private dialog: MatDialog) { }
+     , private activatedRoute: ActivatedRoute,
+      private dialog: MatDialog, private location: Location, private progressBarService: ProgressBarService) { }
 
   ngOnInit() {
     this.viewId = this.activatedRoute.snapshot.params['viewid'];
@@ -38,31 +43,40 @@ export class ViewdetailsComponent implements OnInit {
     console.log(event);
   }
   getSubCategory() {
+    this.progressBarService.open();
     this.ourService.fullSubCategory(this.mainid).subscribe(data => {
       this.ourWorkModel = data;
       console.log('category', this.ourWorkModel);
       console.log('subid', this.subid);
+      this.progressBarService.close();
     }, error => {
       console.log(error);
     });
   }
   backView(back)   {
     if (back !== null)     {
-      console.log(back);
-      this.router.navigate(['/dashboard/allourwork', this.viewId, this.mainid, back ]);
-     /*  this.router.navigate(['/dashboard/ourwork/', this.viewId, this.mainid]); */
+      this.nextNoData = false;
+      this.subid = back;
+      const url = this.router.createUrlTree(['/dashboard/allourwork/', this.viewId, this.mainid, back]).toString();
+      this.location.go(url);
     } else   {
       this.router.navigate(['/dashboard/ourwork/', this.viewId, this.mainid]);
     }
   }
   nextView(next)   {
     if (next !== null)     {
-    console.log(next);
-    this.router.navigate(['/dashboard/allourwork', this.viewId, this.mainid, next ]);
+      this.nextNoData = false;
+    this.nextId.push(next);
+    this.subid = next;
+    console.log('id', this.nextId);
+    const url = this.router.createUrlTree(['/dashboard/allourwork/', this.viewId, this.mainid, next]).toString();
+    this.location.go(url);
+    /* this.router.navigate(['/dashboard/allourwork', this.viewId, this.mainid, next ]); */
    /*  this.router.navigate(['/dashboard/ourwork/', this.viewId, this.mainid]); */
   } else   {
     this.nextNoData = true;
   }
+  this.progressBarService.close();
   }
   public confirm(fullData: OurWorkModel = {}, mainImage): Observable<boolean> {
     const dialogRef = this.dialog.open(ZoomComponent, {

@@ -3,7 +3,7 @@ import { OurWorkModel } from './../viewdetails/viewDetails.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OurworkManagementService } from './../ourwork-management.service';
 import { AppSetting } from '../../config/appSetting';
-
+import { ProgressBarService } from '../../home/progress-bar/progress-bar.service';
 
 @Component({
   selector: 'app-ourwork',
@@ -23,7 +23,7 @@ export class OurworkComponent implements OnInit {
   ourWorKModelView: OurWorkModel;
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
-     private ourService: OurworkManagementService) {
+     private ourService: OurworkManagementService, private progressBarService: ProgressBarService) {
       this.viewId = this.activatedRoute.snapshot.params['viewid'];
       this.subid = this.activatedRoute.snapshot.params['subid'];
       }
@@ -51,6 +51,7 @@ export class OurworkComponent implements OnInit {
     this.subid = this.activatedRoute.snapshot.params['subid'];
 } */
 getSubCategory() {
+  this.progressBarService.open();
   this.ourService.fullSubCategory(this.subid).subscribe(data => {
     if (data.length !== 0)       {
     this.ourWorkModel = data;
@@ -58,6 +59,7 @@ getSubCategory() {
     console.log('category', this.ourWorkModel);
     console.log('subid', this.subid);
     this.onSelectSub(this.serviceModel);
+    this.progressBarService.close();
     }       else      {
       this.noData = true;
     }

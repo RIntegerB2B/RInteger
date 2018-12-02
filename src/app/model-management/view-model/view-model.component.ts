@@ -94,16 +94,16 @@ export class ViewModelComponent implements OnInit {
   }
 
   allModels() {
-    /* this.progressBarService.open(); */
+    this.progressBarService.open();
     this.modelService.getAllModels().subscribe(data => {
       this.Detail = data;
-      /* this.progressBarService.close(); */
       console.log(data.length);
       if (data.length === 0) {
 this.showMessage = true;
       } else if (data.length !== 0) {
         this.showMessage = false;
       }
+      this.progressBarService.close();
     });
   }
   /* menModels() {
@@ -119,6 +119,7 @@ this.showMessage = true;
    */
 
 kidsModel() {
+  this.progressBarService.open();
   this.modelService.getKidsModels().subscribe(data => {
     this.Detail = data;
     if (data.length === 0) {
@@ -126,10 +127,12 @@ this.showMessage = true;
     } else if (data.length !== 0) {
       this.showMessage = false;
     }
+    this.progressBarService.close();
   });
 }
 
   nationalMenModels() {
+    this.progressBarService.open();
     this.modelService.getNationalMenModels().subscribe(data => {
       this.Detail = data;
       if (data.length === 0) {
@@ -137,9 +140,11 @@ this.showMessage = true;
       } else if (data.length !== 0) {
         this.showMessage = false;
       }
+      this.progressBarService.close();
     });
   }
   nationalWomenModels() {
+    this.progressBarService.open();
     this.modelService.getNationalWomenModels().subscribe(data => {
       this.Detail = data;
       if (data.length === 0) {
@@ -147,11 +152,14 @@ this.showMessage = true;
       } else if (data.length  !== 0) {
         this.showMessage = false;
       }
+      this.progressBarService.close();
     });
   }
   interNationalMenModels() {
+    this.progressBarService.open();
     this.modelService.getInterNationalMenModels().subscribe(data => {
       this.Detail = data;
+      this.progressBarService.close();
       if (data.length === 0) {
 this.showMessage = true;
       } else if (data.length  !== 0) {
@@ -160,6 +168,7 @@ this.showMessage = true;
     });
   }
   interNationalWomenModels() {
+    this.progressBarService.open();
     this.modelService.getInterNationalWomenModels().subscribe(data => {
       this.Detail = data;
       console.log(data.length);
@@ -168,6 +177,7 @@ this.showMessage = true;
       } else if (data.length !== 0) {
         this.showMessage = false;
       }
+      this.progressBarService.close();
     });
   }
 

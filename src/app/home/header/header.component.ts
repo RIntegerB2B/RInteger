@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit {
       if (data.length !== 0)       {
       this.ourWorkModel = data;
         this.urlModel = this.ourWorkModel[0]._id;
+        this.localStorageService.store('url', this.urlModel);
         console.log(this.router);
       console.log('dashboardcategory', this.ourWorkModel);
     } else {

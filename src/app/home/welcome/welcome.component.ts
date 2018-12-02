@@ -17,7 +17,6 @@ import { Banner } from './banner.model';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  
   fullImages = [ '../../../assets/images/services/slider1.jpg',
   '../../../assets/images/services/slider3.jpg',
    '../../../assets/images/services/slider4.jpg' ,
@@ -34,6 +33,7 @@ export class WelcomeComponent implements OnInit {
   };
   mainBanner: Banner;
   color = 'red';
+  urlModel: string;
   mobileNo: string;
   showIndicators = false;
   changeText: boolean;
@@ -75,6 +75,7 @@ export class WelcomeComponent implements OnInit {
       this.changeStatusText = true;
      }
   ngOnInit() {
+    this.urlModel = this.localStorageService.retrieve('url');
    /*  this.dashboardService.hideMenuTransparent(); */
      this.dashBoardService.generateTags({
       title: 'welcome',

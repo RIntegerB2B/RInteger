@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, OnDestroy, ElementRef, ViewChild,
    AfterViewInit, ChangeDetectorRef, DoCheck , Inject, OnChanges} from '@angular/core';
 import { DashBoardService } from '../dashboard/dashboard.service';
+import { ProgressBarService } from '../progress-bar/progress-bar.service';
+
 import { Subscription } from 'rxjs';
 import * as Hammer from 'hammerjs';
 import { Router, ChildActivationEnd } from '@angular/router';
@@ -13,7 +15,6 @@ import { StautsViewComponent } from '../../status/stauts-view/stauts-view.compon
 import { OurWorkModel } from './../../shared/viewOurWork.model';
 import { OurworkManagementService } from './../../ourwork-management/ourwork-management.service';
 import { OurworkComponent } from './../../ourwork-management/ourwork/ourwork.component';
-
 @Component({
   providers: [StautsViewComponent],
   selector: 'app-dashboard',
@@ -57,7 +58,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     private localStorageService: LocalStorageService, private router: Router,
      private activatedRoute: ActivatedRoute, private activeRoute: ActivatedRoute,
     private ourService: OurworkManagementService,
-    private statusService: StatusService, elementRef: ElementRef) {
+    private statusService: StatusService, elementRef: ElementRef, private progressBarService: ProgressBarService) {
       const hammertime = new Hammer(elementRef.nativeElement, { threshold: 30});
       hammertime.on('panright', (ev) => {
           this.sidenav.open();
@@ -78,6 +79,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.viewId = +this.activeRoute.snapshot.firstChild.params.viewid;
     console.log('viewId', this.viewId);
     this.onSelect(this.viewId);
+   /*  this.progressBarService.open(); */
     this.openDashboardMenu();
     this.getAllCategory();
   }
@@ -123,6 +125,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   }
   onSelect(id): void {
     this.selectedMenuList = id;
+    /* this.progressBarService.open(); */
   }
   collapseMenu() {
     this.toggleBar = this.toggleBar === 'colapseMenuBar' ? 'expandMenuBar' : 'colapseMenuBar';

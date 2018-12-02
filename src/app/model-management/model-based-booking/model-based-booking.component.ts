@@ -18,7 +18,7 @@ import { ProgressBarService } from '../../home/progress-bar/progress-bar.service
 @Component({
   selector: 'app-model-based-booking',
   templateUrl: './model-based-booking.component.html',
-  styleUrls: ['./model-based-booking.component.css']
+  styleUrls: ['./model-based-booking.component.css'],
 })
 export class ModelBasedBookingComponent implements OnInit {
   message;

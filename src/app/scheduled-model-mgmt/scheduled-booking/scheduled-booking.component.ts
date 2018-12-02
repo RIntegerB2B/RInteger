@@ -121,7 +121,7 @@ export class ScheduledBookingComponent implements OnInit, AfterViewInit {
     this.scheduledService.modelDetail(id).subscribe(data => {
       this.Model = data;
       console.log(this.Model);
-      this.progressBarService.close();
+      /* this.progressBarService.close(); */
     });
   }
   ecommerceImage() {

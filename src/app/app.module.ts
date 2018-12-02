@@ -94,10 +94,14 @@ import { DigitalMgmtComponent } from './home/product/digital-mgmt/digital-mgmt.c
 import { ItServicesComponent } from './home/product/it-services/it-services.component';
 import { AccountMgmtStatusComponent } from './status/account-mgmt-status/account-mgmt-status.component';
 import { ProgressBarComponent } from './home/progress-bar/progress-bar.component';
+import { ProgressBarService } from './home/progress-bar/progress-bar.service';
 import { ViewProjectionModelComponent } from './scheduled-model-mgmt/view-projection-model/view-projection-model.component';
 import { OurworkComponent } from './ourwork-management/ourwork/ourwork.component';
+import { OurworkManagementService } from './ourwork-management/ourwork-management.service';
 import { ViewdetailsComponent, ZoomComponent } from './ourwork-management/viewdetails/viewdetails.component';
 import { StudioTourComponent } from './home/studio-tour/studio-tour.component';
+import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -190,7 +194,7 @@ import { StudioTourComponent } from './home/studio-tour/studio-tour.component';
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [BookingService,
-  LocalStorageService, DashBoardService],
+  LocalStorageService, DashBoardService, ProgressBarService, OurworkManagementService],
   entryComponents: [RegisterComponent, ProgressBarComponent, ZoomComponent],
   exports: [RouterModule],
   bootstrap: [AppComponent]

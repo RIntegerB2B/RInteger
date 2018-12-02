@@ -3,40 +3,22 @@
       <div *ngIf="nextNoData" class="alert alert-danger">
           No Image Available
         </div>      
-    <div class="row d-md-none d-lg-none">
-      <!-- <div class="col-sm-12">
-        <mat-form-field>
-          <mat-select [(value)]="services[0].name" (selectionChange)="selectOption($event.value)">
-            <mat-option *ngFor="let test of services" [value]="test.name">
-              {{test.name}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div> -->
-    </div>
     <div *ngFor="let data of ourWorkModel">
-      <!-- <div class="navbar rowStyle navbar-expand-lg display-small-none">
-        <ul class="navbar-nav  mr-auto">
-          <li class="nav-item" *ngFor="let test of data.mainCategory" [class.selSubMenu]="test === selectedSubMenu"
-            (click)="onSelectView(test)">
-            <a class="nav-link text-center">{{test.mainCategoryName}}</a>
-          </li>
-        </ul>
-      </div> -->
       <div *ngFor="let test of data.mainCategory">
         <div *ngFor="let mainImage of test.category; let i=index">
           <div class="row"  *ngIf="mainImage._id === this.subid">
             <div class="col-md-12 rowStyle navbar-expand-lg">
               <div class="row p-2">
                 <div class="col-md-4 col">
-                    <button  class="btn selSubMenu" (click)="backView(test.category[i-1]?._id)">back</button>
+                    <button  class="btn selSubMenu"
+                     (click)="backView(test.category[i-1]?._id)">back</button>
                 </div>
                 <div class="col-md-4 col">
                     <h5>{{mainImage.categoryName}}</h5>
                 </div>
                 <div class="col-md-4 col">
                     <button  class="btn selSubMenu float-right" 
-                    (click)="nextView(test.category[i+1]?._id)">Next</button>
+                    (click)="nextView(test.category[i+1]?._id )">Next</button>
                 </div>
               </div> 
             </div>
