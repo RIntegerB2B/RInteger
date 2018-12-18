@@ -1,16 +1,16 @@
-import { Component, OnInit , Inject, Injector} from '@angular/core';
+import { Component, OnInit, Inject, Injector } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 import { mobileNumber } from '../../shared/validation';
 import { RegistrationBooking } from './registrationSetup.model';
 import { RegistrationSetupService } from '../registration-setup.service';
-import {DashBoardService} from '../../home/dashboard/dashboard.service';
+import { DashBoardService } from '../../home/dashboard/dashboard.service';
 import { SwPush, SwUpdate } from '@angular/service-worker';
-import {Notification} from '../../shared/notification.model';
-import {Customer} from '../../shared/customer.model';
+import { Notification } from '../../shared/notification.model';
+import { Customer } from '../../shared/customer.model';
 
 @Component({
   selector: 'app-registration-setup-booking',
@@ -29,19 +29,19 @@ export class RegistrationSetupBookingComponent implements OnInit {
   addLocation: string;
   customer: Customer;
   registrationBooking: RegistrationBooking;
-  b2bNational = ['Alibaba (www.alibaba.com)', 'Amazon India (www.amazonbusiness.in)', 'Meesho (www.meesho.com)', 'Reliance B2B',
-   'Udaan (www.udaan.com)', 'Paytm Wholesale', 'Flipkart',
-  'WholesaleBox (www.wholesalebox.in)', 'IndiaMART (www.indiamart.com)', 'Trade India (www.tradeindia.com)'];
+  b2bNational = ['Amazon India (www.amazonbusiness.in)', 'Reliance B2B', 'Meesho (www.meesho.com)', 'Flipkart',
+    'Udaan (www.udaan.com)', 'Paytm Wholesale', 'Alibaba (www.alibaba.com)',
+    'WholesaleBox (www.wholesalebox.in)', /* 'IndiaMART (www.indiamart.com)', 'Trade India (www.tradeindia.com)' */];
   b2bInternational = ['Alibaba (www.alibaba.com)'];
-  b2cNational = ['Amazon India (www.amazon.in)', 'LimeRoad (www.limeroad.com)' ,
-  'Shopclues (www.shopclues.com)', 'Jabong (www.jabong.com)',
-  'Flipkart (www.flipkart.com)', 'Voonik (www.voonik.com)', 'SnapDeal (www.snapdeal.com)', 'Myntra (www.myntra.com)',
-   'PaytmMall (www.paytmmall.com)',  'Mr.Voonik (www.voonik.com)',  'Wooplr (www.wooplr.com)',  'Koovs (www.koovs.com)',
- ];
+  b2cNational = ['Amazon India (www.amazon.in)', 'LimeRoad (www.limeroad.com)',
+    'Shopclues (www.shopclues.com)', 'Jabong (www.jabong.com)',
+    'Flipkart (www.flipkart.com)', 'Voonik (www.voonik.com)', 'SnapDeal (www.snapdeal.com)', 'Myntra (www.myntra.com)',
+    'PaytmMall (www.paytmmall.com)', 'Mr.Voonik (www.voonik.com)', 'Wooplr (www.wooplr.com)', 'Koovs (www.koovs.com)',
+  ];
   b2cInternational = ['Amazon US (www.amazon.com)', 'Amazon UK (www.amazon.co.uk)',
-  'Cbazaar (www.cbazaar.com)', 'Amazon Australia (www.amazon.com.au)',
-   'Ebay (www.ebay.com)',  'Utsav (www.utsavfashion.com)'];
-  socialmedia = ['Facebook',  'Google' , 'Pintrest', 'Instagram', 'WhatsApp', 'Twitter'];
+    'Cbazaar (www.cbazaar.com)', 'Amazon Australia (www.amazon.com.au)',
+    'Ebay (www.ebay.com)', 'Utsav (www.utsavfashion.com)'];
+  socialmedia = ['Facebook', 'Google', 'Pintrest', 'Instagram', 'WhatsApp', 'Twitter'];
   showb2bNational: boolean;
   showb2cNational: boolean;
   showb2bInternational: boolean;
@@ -70,15 +70,15 @@ export class RegistrationSetupBookingComponent implements OnInit {
   username;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
 
-  constructor( private fb: FormBuilder, private router: Router,
+  constructor(private fb: FormBuilder, private router: Router,
     private registrationService: RegistrationSetupService, private localStorageService: LocalStorageService, private swUpdate: SwUpdate,
     public snackBar: MatSnackBar, private injector: Injector, private dashBoardService: DashBoardService) {
-      try {
-        this.swPush = this.injector.get(SwPush);
-      } catch (error) {
-        console.log(error);
-      }
-     }
+    try {
+      this.swPush = this.injector.get(SwPush);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
@@ -109,30 +109,30 @@ export class RegistrationSetupBookingComponent implements OnInit {
     this.email = this.localStorageService.retrieve('emailId');
   }
 
-  onSelect(service)   {
+  onSelect(service) {
     switch (service.id) {
-    case 0: {
-      this.viewb2bNational();
-      break;
+      case 0: {
+        this.viewb2bNational();
+        break;
+      }
+      case 1: {
+        this.viewb2bInterNational();
+        break;
+      }
+      case 2: {
+        this.viewb2cNational();
+        break;
+      }
+      case 3: {
+        this.viewb2cInterNational();
+        break;
+      }
+      case 4: {
+        this.viewSocialMedia();
+        break;
+      }
     }
-    case 1: {
-      this.viewb2bInterNational();
-      break;
-    }
-    case 2: {
-      this.viewb2cNational();
-      break;
-    }
-    case 3: {
-      this.viewb2cInterNational();
-      break;
-    }
-    case 4: {
-      this.viewSocialMedia();
-      break;
-    }
-  }
-  this.selectedService = service;
+    this.selectedService = service;
   }
 
 
