@@ -29,8 +29,8 @@ export class RegistrationSetupBookingComponent implements OnInit {
   addLocation: string;
   customer: Customer;
   registrationBooking: RegistrationBooking;
-  b2bNational = ['Alibaba (www.alibaba.com)', 'Amazon India (www.amazon.in)', 'Meesho (www.meesho.com)', 'Reliance',
-   'Udaan (www.udaan.com)',
+  b2bNational = ['Alibaba (www.alibaba.com)', 'Amazon India (www.amazonbusiness.in)', 'Meesho (www.meesho.com)', 'Reliance B2B',
+   'Udaan (www.udaan.com)', 'Paytm Wholesale', 'Flipkart',
   'WholesaleBox (www.wholesalebox.in)', 'IndiaMART (www.indiamart.com)', 'Trade India (www.tradeindia.com)'];
   b2bInternational = ['Alibaba (www.alibaba.com)'];
   b2cNational = ['Amazon India (www.amazon.in)', 'LimeRoad (www.limeroad.com)' ,
