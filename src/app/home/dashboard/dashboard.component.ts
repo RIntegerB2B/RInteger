@@ -141,7 +141,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   }
   getAllCategory() {
     this.ourService.fullMainCategory().subscribe(data => {
-      if(data.length !== 0)       {
+      if (data.length !== 0)       {
       this.ourWorkModel = data;
       const config = this.router.config;
         config.push({path: 'ourwork/:mainid/:subid', component: OurworkComponent});
@@ -312,6 +312,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
       this.router.navigate(['/dashboard/newUser', 12]);
     } else if (this.mobileNo != null) {
       this.mobileNo = this.localStorageService.retrieve('mobileno');
+      console.log(this.mobileNo);
       this.router.navigate(['/dashboard/statusView', 12, this.mobileNo]);
     }
     /* this.selectedDashboardFourth(); */

@@ -56,13 +56,13 @@ export class RegistrationSetupBookingComponent implements OnInit {
   bookingId;
   mailId;
   email;
-  selected = 'b2cNationalValue';
+  selected = 'b2bNationalValue';
   selectedService;
   services = [
-    { id: 0, name: 'B2C National' },
-    { id: 1, name: 'B2C International' },
-    { id: 2, name: 'B2B National' },
-    { id: 3, name: 'B2B International' },
+    { id: 0, name: 'B2B National' },
+    { id: 1, name: 'B2B International' },
+    { id: 2, name: 'B2C National' },
+    { id: 3, name: 'B2C International' },
     { id: 4, name: 'Social Media' }
   ];
   notificationModel: Notification;
@@ -85,7 +85,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
     this.createForm();
     this.checkData();
     this.onSelect(this.services[0]);
-    this.showb2cNational = true;
+    this.showb2bNational = true;
   }
   createForm() {
     this.registrationBookingForm = this.fb.group({
@@ -112,19 +112,19 @@ export class RegistrationSetupBookingComponent implements OnInit {
   onSelect(service)   {
     switch (service.id) {
     case 0: {
-      this.viewb2cNational();
-      break;
-    }
-    case 1: {
-      this.viewb2cInterNational();
-      break;
-    }
-    case 2: {
       this.viewb2bNational();
       break;
     }
-    case 3: {
+    case 1: {
       this.viewb2bInterNational();
+      break;
+    }
+    case 2: {
+      this.viewb2cNational();
+      break;
+    }
+    case 3: {
+      this.viewb2cInterNational();
       break;
     }
     case 4: {
