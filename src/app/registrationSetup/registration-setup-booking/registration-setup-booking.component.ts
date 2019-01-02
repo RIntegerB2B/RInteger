@@ -11,6 +11,8 @@ import { DashBoardService } from '../../home/dashboard/dashboard.service';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import { Notification } from '../../shared/notification.model';
 import { Customer } from '../../shared/customer.model';
+import {AdsModel} from '../../shared/ads.model';
+import {SharedService} from '../../shared/shared.service';
 
 @Component({
   selector: 'app-registration-setup-booking',
@@ -68,11 +70,13 @@ export class RegistrationSetupBookingComponent implements OnInit {
   notificationModel: Notification;
   swPush: SwPush;
   username;
+  adsModel: AdsModel;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
 
   constructor(private fb: FormBuilder, private router: Router,
     private registrationService: RegistrationSetupService, private localStorageService: LocalStorageService, private swUpdate: SwUpdate,
-    public snackBar: MatSnackBar, private injector: Injector, private dashBoardService: DashBoardService) {
+    public snackBar: MatSnackBar, private injector: Injector, private dashBoardService: DashBoardService,
+     private sharedService: SharedService) {
     try {
       this.swPush = this.injector.get(SwPush);
     } catch (error) {
@@ -85,6 +89,7 @@ export class RegistrationSetupBookingComponent implements OnInit {
     this.createForm();
     this.checkData();
     this.onSelect(this.services[0]);
+    this.getAdsDetails();
     this.showb2bNational = true;
   }
   createForm() {
@@ -108,7 +113,14 @@ export class RegistrationSetupBookingComponent implements OnInit {
     this.locat = this.localStorageService.retrieve('location');
     this.email = this.localStorageService.retrieve('emailId');
   }
-
+getAdsDetails() {
+  this.sharedService.getAdsDetails().subscribe(data => {
+this.adsModel = data;
+console.log(data);
+  }, err => {
+    console.log(err);
+  });
+}
   onSelect(service) {
     switch (service.id) {
       case 0: {

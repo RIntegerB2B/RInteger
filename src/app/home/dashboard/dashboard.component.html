@@ -91,16 +91,16 @@
               aria-haspopup="true" aria-expanded="false">
               Our Work
             </a>
-            <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" [routerLink]="['/creativeportfolio']"
-               (click)="collapseMenu()">Ecommerce
-                PortFolio
-              </a>
-              <a class="dropdown-item" [routerLink]="['/portfolio']"
-               (click)="collapseMenu()">Creative PortFolio</a>
-            </div> -->
+           
           </li>
-
+          <li class="nav-item dropdown">
+            <a class="nav-link"
+            [routerLink]="['/dashboard/videoportfolio', 19, this?.videoUrlModel]"
+            
+              aria-haspopup="true" aria-expanded="false">
+              Video
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/dashboard/pricing', 16]" 
             (click)="selectedDashboardFifth(16)">Pricing</a>
@@ -114,12 +114,7 @@
           <li class="nav-item">
 
             <a class="nav-link" href="http://rinteger.com:8082/blog/" target="_blank">Blog</a>
-
-
           </li>
-
-
-
         </ul>
       </div>
 
@@ -373,6 +368,32 @@
                           <a   [class.activeLink]="i+18 === selectedMenuList"
                           (click)="onSelect(i+18);"
                           [routerLink]="['ourwork', i+18, data._id]"
+                          class="nav-link text-center" ><a 
+                          >{{data.categoryName}}</a></a>
+                        </li>
+                      </ul>
+                    
+                </div>
+              </div>
+            </div>
+
+           <!--  <mat-list-item (click)="selectedSeven()" class="parent">
+              <div *ngIf="isExpanded || isShowing">Video</div>
+              <mat-icon class="menu-button"
+               [ngClass]="{'rotated' : showSeventhSubMenu}" 
+              *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
+            </mat-list-item> -->
+            <div class="submenu" [ngClass]="{'expanded' : showSeventhSubMenu}"
+             *ngIf="showSeventhSubMenu">
+              <div id="scroll-area" class="navigation-hold" fxLayout="column">
+                <div class="sidenav-hold">
+                      <ul class="navbar-nav">
+                        <li class="nav-item text-center" 
+                        *ngFor="let data of videoModel; let i = index"
+                          >
+                          <a   [class.activeLink]="i+19 === selectedMenuList"
+                          (click)="onSelect(i+19);"
+                          [routerLink]="['videoportfolio', i+19, data._id]"
                           class="nav-link text-center" ><a 
                           >{{data.categoryName}}</a></a>
                         </li>

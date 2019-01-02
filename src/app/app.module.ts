@@ -81,7 +81,6 @@ import { AllStatusComponent } from './status/all-status/all-status.component';
 import { CompletedOrderComponent } from './status/completed-order/completed-order.component';
 import { PortfolioComponent } from './home/portfolio/portfolio.component';
 import { CreativePortfolioComponent } from './home/creative-portfolio/creative-portfolio.component';
-import { VideoPortfolioComponent } from './home/video-portfolio/video-portfolio.component';
 import { MarketplacePortfolioComponent } from './home/marketplace-portfolio/marketplace-portfolio.component';
 import { DigitalMarketingPortfolioComponent } from './home/digital-marketing-portfolio/digital-marketing-portfolio.component';
 import { ItServicesPortfolioComponent } from './home/it-services-portfolio/it-services-portfolio.component';
@@ -101,6 +100,9 @@ import { OurworkManagementService } from './ourwork-management/ourwork-managemen
 import { ViewdetailsComponent, ZoomComponent } from './ourwork-management/viewdetails/viewdetails.component';
 import { StudioTourComponent } from './home/studio-tour/studio-tour.component';
 import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
+import {VideoPortfolioComponent} from './video-portfolio-management/video-portfolio/video-portfolio.component';
+import {SafePipe} from './shared/safe.pipe';
+import { VideoFullViewComponent } from './video-portfolio-management/video-full-view/video-full-view.component';
 
 
 @NgModule({
@@ -134,7 +136,6 @@ import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
     CompletedOrderComponent,
     PortfolioComponent,
     CreativePortfolioComponent,
-    VideoPortfolioComponent,
     MarketplacePortfolioComponent,
     DigitalMarketingPortfolioComponent,
     ItServicesPortfolioComponent,
@@ -152,7 +153,10 @@ import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
     OurworkComponent,
     ViewdetailsComponent,
     ZoomComponent,
-    StudioTourComponent
+    StudioTourComponent,
+    VideoPortfolioComponent,
+    SafePipe,
+    VideoFullViewComponent
   ],
   imports: [
  CommonModule,

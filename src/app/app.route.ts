@@ -24,7 +24,6 @@ import { AllStatusComponent } from './status/all-status/all-status.component';
 import { CompletedOrderComponent } from './status/completed-order/completed-order.component';
 import { PortfolioComponent } from './home/portfolio/portfolio.component';
 import { CreativePortfolioComponent } from './home/creative-portfolio/creative-portfolio.component';
-import { VideoPortfolioComponent } from './home/video-portfolio/video-portfolio.component';
 import { ItServicesPortfolioComponent } from './home/it-services-portfolio/it-services-portfolio.component';
 import { DigitalMarketingPortfolioComponent } from './home/digital-marketing-portfolio/digital-marketing-portfolio.component';
 import { AplusBookingComponent } from './aplus-booking/aplus-booking.component';
@@ -40,6 +39,7 @@ import {ViewProjectionModelComponent} from './scheduled-model-mgmt/view-projecti
 import { OurworkComponent } from './ourwork-management/ourwork/ourwork.component';
 import { ViewdetailsComponent} from './ourwork-management/viewdetails/viewdetails.component';
 import { StudioTourComponent } from './home/studio-tour/studio-tour.component';
+import {VideoPortfolioComponent} from './video-portfolio-management/video-portfolio/video-portfolio.component';
 
 const routes: Routes = [
   { path: 'ourwork/:mainid/:subid', component: OurworkComponent },
@@ -52,7 +52,6 @@ const routes: Routes = [
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'digitalmarketingportfolio', component: DigitalMarketingPortfolioComponent },
   { path: 'creativeportfolio', component: CreativePortfolioComponent },
-  { path: 'videoportfolio', component: VideoPortfolioComponent },
   { path: 'itportfolio', component: ItServicesPortfolioComponent },
   { path: 'digitalmgmtservice', component: DigitalMgmtComponent },
   { path: 'itservicesdetails', component: ItServicesComponent },
@@ -87,6 +86,7 @@ const routes: Routes = [
       { path: 'digitalmgmt/:viewid', component: DigitalMgmtBookingComponent },
       { path: 'pricing/:viewid', component: PricingComponent },
       { path: 'ourwork/:viewid/:subid', component: OurworkComponent},
+      { path: 'videoportfolio/:viewid/:subid', component: VideoPortfolioComponent },
       { path: 'viewschedulemodel/:viewid', component: ViewScheduledModelComponent },
       { path: 'viewprojectionmodel/:viewid', component: ViewProjectionModelComponent },
       { path: 'scheduledmodelBooking/:modelId', component: ScheduledBookingComponent },

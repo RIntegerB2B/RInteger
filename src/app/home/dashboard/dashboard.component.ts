@@ -15,6 +15,9 @@ import { StautsViewComponent } from '../../status/stauts-view/stauts-view.compon
 import { OurWorkModel } from './../../shared/viewOurWork.model';
 import { OurworkManagementService } from './../../ourwork-management/ourwork-management.service';
 import { OurworkComponent } from './../../ourwork-management/ourwork/ourwork.component';
+import {VideoPortfolioService} from './../../video-portfolio-management/video-portfolio.service';
+import {VideoPortfolioComponent} from './../../video-portfolio-management/video-portfolio/video-portfolio.component';
+import {VideoModel} from './../../shared/viewVideos.model';
 @Component({
   providers: [StautsViewComponent],
   selector: 'app-dashboard',
@@ -26,6 +29,8 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   public sidenav?: MatSidenav;
   ourWorkModel: OurWorkModel;
   ourWorkModelView: OurWorkModel;
+  videoModel: VideoModel;
+  videoModelView: VideoModel;
   subMenus: boolean;
   menuItems: any[];
   public hasIconTypeMenuItem: boolean;
@@ -45,10 +50,12 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   showFourthSubmenu = false;
   showFifthSubmenu = false;
   showSixSubmenu = false;
+  showSeventhSubMenu = false;
   selectedMenu;
   messageTest: string;
   isShowing = false;
   urlModel: string;
+  videoUrlModel: string;
   viewId;
   toggleBar = 'collapseMenuBar';
   selectedMenuList;
@@ -57,7 +64,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   constructor( public dashboardService: DashBoardService, private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
     private localStorageService: LocalStorageService, private router: Router,
      private activatedRoute: ActivatedRoute, private activeRoute: ActivatedRoute,
-    private ourService: OurworkManagementService,
+    private ourService: OurworkManagementService, private videoService: VideoPortfolioService,
     private statusService: StatusService, elementRef: ElementRef, private progressBarService: ProgressBarService) {
       const hammertime = new Hammer(elementRef.nativeElement, { threshold: 30});
       hammertime.on('panright', (ev) => {
@@ -79,9 +86,9 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.viewId = +this.activeRoute.snapshot.firstChild.params.viewid;
     console.log('viewId', this.viewId);
     this.onSelect(this.viewId);
-   /*  this.progressBarService.open(); */
     this.openDashboardMenu();
     this.getAllCategory();
+    this.getAllVideoCategory();
   }
   openDashboardMenu() {
     switch (this.viewId) {
@@ -117,8 +124,12 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
         this.selectedDashboardFifth(this.viewId);
         break;
       }
-      case this.viewId: {
+      case 18: {
         this.selectedDashboardSix(this.viewId);
+        break;
+      }
+      case 19: {
+        this.selectedDashboardSeven(this.viewId);
         break;
       }
     }
@@ -138,6 +149,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = false;
     this.showSixSubmenu = false;
+    this.showSeventhSubMenu = false;
   }
   getAllCategory() {
     this.ourService.fullMainCategory().subscribe(data => {
@@ -156,6 +168,23 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
       console.log(error);
     });
   }
+  getAllVideoCategory() {
+    this.videoService.fullVideoMainCategory().subscribe(data => {
+      if (data.length !== 0)       {
+      this.videoModel = data;
+      const config = this.router.config;
+        config.push({path: 'videoportfolio/:mainid/:subid', component: VideoPortfolioComponent});
+        this.router.resetConfig(config);
+        this.videoUrlModel = this.videoModel[0]._id;
+       /*  console.log(this.videoUrlModel, ' url id'); */
+      console.log('dashboardvideocategory', this.videoModel);
+     }     else     {
+       this.urlModel = '';
+     }
+    }, error => {
+      console.log(error);
+    });
+  }
   selectedDashboardFirst(id)   {
     this.onSelect(id);
     this.sidenav.open();
@@ -165,6 +194,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = false;
     this.showSixSubmenu = false;
+    this.showSeventhSubMenu = false;
     this.collapseMenu();
   }
   selectedSecond() {
@@ -174,7 +204,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = false;
     this.showSixSubmenu = false;
-
+    this.showSeventhSubMenu = false;
   }
   selectedDashboardSecond(id)   {
     this.onSelect(id);
@@ -186,6 +216,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showFifthSubmenu = false;
     this.showSixSubmenu = false;
     this.collapseMenu();
+    this.showSeventhSubMenu = false;
   }
   selectedThird() {
     this.showThirdSubmenu = !this.showThirdSubmenu;
@@ -194,6 +225,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = false;
     this.showSixSubmenu = false;
+    this.showSeventhSubMenu = false;
   }
   selectedDashboardThird(id) {
     this.onSelect(id);
@@ -204,6 +236,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = false;
     this.showSixSubmenu = false;
+    this.showSeventhSubMenu = false;
     this.collapseMenu();
   }
   selectedFourth() {
@@ -213,6 +246,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showThirdSubmenu = false;
     this.showFifthSubmenu = false;
     this.showSixSubmenu = false;
+    this.showSeventhSubMenu = false;
   }
   selectedDashboardFourth(id) {
     this.onSelect(id);
@@ -223,6 +257,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showFourthSubmenu = true;
     this.showFifthSubmenu = false;
     this.showSixSubmenu = false;
+    this.showSeventhSubMenu = false;
     this.collapseMenu();
   }
   selectedFifth() {
@@ -232,6 +267,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showThirdSubmenu = false;
     this.showFourthSubmenu = false;
     this.showSixSubmenu = false;
+    this.showSeventhSubMenu = false;
   }
   selectedDashboardFifth(id) {
     this.onSelect(id);
@@ -242,6 +278,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = true;
     this.showSixSubmenu = false;
+    this.showSeventhSubMenu = false;
     this.collapseMenu();
   }
   selectedSix() {
@@ -251,6 +288,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showThirdSubmenu = false;
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = false;
+    this.showSeventhSubMenu = false;
   }
   selectedDashboardSix(id)   {
     this.onSelect(id);
@@ -261,6 +299,28 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.showFourthSubmenu = false;
     this.showFifthSubmenu = false;
     this.showSixSubmenu = true;
+    this.showSeventhSubMenu = false;
+    this.collapseMenu();
+  }
+  selectedSeven() {
+    this.showSeventhSubMenu = !this.showSeventhSubMenu;
+    this.showSixSubmenu = false;
+    this.showSubmenu = false;
+    this.showSecondSubmenu = false;
+    this.showThirdSubmenu = false;
+    this.showFourthSubmenu = false;
+    this.showFifthSubmenu = false;
+  }
+  selectedDashboardSeven(id)   {
+    this.onSelect(id);
+    this.sidenav.open();
+    this.showSubmenu = false;
+    this.showSecondSubmenu = false;
+    this.showThirdSubmenu = false;
+    this.showFourthSubmenu = false;
+    this.showFifthSubmenu = false;
+    this.showSixSubmenu = false;
+    this.showSeventhSubMenu = true;
     this.collapseMenu();
   }
   ngDoCheck() {

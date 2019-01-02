@@ -163,13 +163,13 @@
 </div>
 
 <div class="col-md-4">
-   <div class="col-md-12 mx-auto  ">
-     <a [routerLink]="['/dashboard/viewschedulemodel', 1]"><img src="../../../assets/images/final women.jpg" style="width :90%;padding-top: 20px; height:300px;"></a>
+   <div class="col-md-12 mx-auto " *ngFor="let data of adsModel">
+     <a [routerLink]="['/dashboard/viewschedulemodel', 1]"><img [src]="data.adImageName" style="width :90%;padding-top: 20px; height:300px;"></a>
 
    </div>
-   <div class="col-md-12 mx-auto  ">
+   <!-- <div class="col-md-12 mx-auto  ">
       <a [routerLink]="['/dashboard/viewschedulemodel', 1]"> <img src="../../../assets/images/final men.jpg" style="width :90%;padding-top: 50px;  height:300px;"></a>
-    </div>
+    </div> -->
     </div>
       </div>
     </div>
