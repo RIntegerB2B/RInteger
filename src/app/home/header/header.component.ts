@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   videoModel: VideoModel;
   urlModel: string;
   url1Model: string;
+  videoIdModel: string;
   readonly VAPID_PUBLIC_KEY = 'BEe66AvTCe_qowysFNV2QsGWzgEDnUWAJq1ytVSXxtwqjcf0bnc6d5USXmZOnIu6glj1BFcj87jIR5eqF2WJFEY';
   toggleBar = 'colapseMenuBar';
   constructor(  private localStorageService: LocalStorageService,  private ourService: OurworkManagementService,
@@ -30,6 +31,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.getAllCategory();
+    this.getAllVideoCategory();
   }
 
   collapseMenu() {
@@ -61,14 +63,15 @@ export class HeaderComponent implements OnInit {
   }
   getAllVideoCategory() {
     this.videoPortfolioService.fullVideoMainCategory().subscribe(data => {
+      console.log('video data', data);
       if (data.length !== 0)       {
       this.videoModel = data;
-        this.url1Model = this.videoModel[0]._id;
-        this.localStorageService.store('url1', this.videoModel);
-        console.log(this.router);
+        this.videoIdModel = this.videoModel[0]._id;
+        this.localStorageService.store('url1', this.videoIdModel);
+        /* console.log(this.router); */
       console.log('dashboardvideocategory', this.videoModel);
     } else {
-      this.urlModel = '';
+      this.videoIdModel = '';
     }
   }, error => {
       console.log(error);

@@ -29,7 +29,7 @@ export class VideoPortfolioService {
   constructor(private http: Http, private httpClient: HttpClient) { }
 
   fullVideoMainCategory(): Observable<any> {
-    const addurl = 'videofullmainCategory/';
+    const addurl = 'videofullmainCategory';
     const url: string = this.serviceUrl + addurl;
     return this.httpClient.get<VideoModel>(url);
   }

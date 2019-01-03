@@ -103,6 +103,8 @@ import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
 import {VideoPortfolioComponent} from './video-portfolio-management/video-portfolio/video-portfolio.component';
 import {SafePipe} from './shared/safe.pipe';
 import { VideoFullViewComponent } from './video-portfolio-management/video-full-view/video-full-view.component';
+import { MatVideoModule } from 'mat-video';
+
 
 
 @NgModule({
@@ -193,6 +195,7 @@ import { VideoFullViewComponent } from './video-portfolio-management/video-full-
     MatProgressSpinnerModule,
     SlideshowModule,
     MatPaginatorModule,
+    MatVideoModule,
     NgbModule.forRoot(),
     CarouselModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })

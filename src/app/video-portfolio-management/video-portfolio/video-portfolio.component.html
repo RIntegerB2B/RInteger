@@ -23,17 +23,19 @@
         </ul>
       </div>
       <div class="row">
-        <div class="col-md-3 col-6" *ngFor="let mainImage of videoModelView?.category">
-          <!-- <a [routerLink]="mainImage.videosUrl | safe"> -->
+        <div class="col-md-4 col-12" *ngFor="let mainImage of videoModelView?.category">
             <div >
-                <iframe class="resp-iframe"
-                [src]="mainImage.videosUrl | safe" (onLoad)="test()">
+                <iframe class="resp-iframe resp-container"  allowfullscreen frameborder="0" height="230px" width="310px"
+                [src]="mainImage.videosUrl | safe" >
                 </iframe>
             </div>
+            
+           <!--  <mat-video [autoplay]="true" [preload]="true" [fullscreen]="true" [download]="false" color="accent" spinner="spin"> 
+                <source matVideoSource [src]="mainImage.videosUrl | safe"  type="video/mp4">
+            </mat-video> -->
             <div class="text-center selSubMenu">
               <h6 class="p-1">{{mainImage.videoName}}</h6>
             </div>
-          <!-- </a> -->
         </div>
       </div>
     </div>

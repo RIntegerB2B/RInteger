@@ -179,7 +179,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
        /*  console.log(this.videoUrlModel, ' url id'); */
       console.log('dashboardvideocategory', this.videoModel);
      }     else     {
-       this.urlModel = '';
+       this.videoUrlModel = '';
      }
     }, error => {
       console.log(error);
