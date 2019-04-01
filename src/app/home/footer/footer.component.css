@@ -1,0 +1,20 @@
+a{
+    color: #777;
+}
+ul li:not(:last-child)
+{
+    padding-bottom: 10px;
+    font-size: 12px;
+    line-height: 120%;
+    color: #777;
+}
+ul li a
+{
+    font-size: 12px;
+    line-height: 120%;
+    color: #777;
+}
+.footerHead
+{
+    margin-top: 1.5%;
+}

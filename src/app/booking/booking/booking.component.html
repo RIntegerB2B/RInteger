@@ -1,0 +1,106 @@
+<form  [formGroup]="onBookInForm" 
+  novalidate style="padding-bottom:60px">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 bookingMasterDiv mx-auto">
+        <div class="container">
+          <h5 class="textTopHeader">PRODUCT SHOOT BOOKING</h5>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Mobile Number" maxlength="10" [(ngModel)]="mobileNo" formControlName="mobileNumber"
+                type="phone" #mobileNum required>
+              <button mat-button matSuffix mat-icon-button aria-label="Mobile Number">
+                <mat-icon>phone</mat-icon>
+              </button>
+              <mat-hint color="primary">Ex: 9988776655</mat-hint>
+              <mat-error *ngIf="onBookInForm.controls['mobileNumber'].errors?.required">
+                Mobile Number is
+                <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="!onBookInForm.controls['mobileNumber'].errors?.required">
+                Enter valid mobile Number is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Name" [(ngModel)]="userName" maxlength="20" formControlName="name" type="text"
+                #name [required]="false">
+              <button mat-button matSuffix mat-icon-button aria-label="Name">
+                <mat-icon>account_circle</mat-icon>
+              </button>
+              <mat-error *ngIf="onBookInForm.controls['name'].errors?.required">
+                Name is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Email Id" [(ngModel)]="email" formControlName="emailId" type="text"
+                #mailId [required]="false">
+              <button mat-button matSuffix mat-icon-button aria-label="Name">
+                <mat-icon>account_circle</mat-icon>
+              </button>
+              <mat-error *ngIf="onBookInForm.controls['emailId'].errors?.required">
+                Email Id is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Location" maxlength="20" [(ngModel)]="locat" style="margin-bottom:5px"
+                formControlName="location" type="text" [required]="false" #location>
+              <button mat-button matSuffix mat-icon-button aria-label="Name">
+                <mat-icon>location_on</mat-icon>
+              </button>
+              <mat-error *ngIf="onBookInForm.controls['location'].errors?.required">
+                Location is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <label>Product Shoot</label>
+          <div class="col-sm-12 radio">
+            <label class="pr-2" *ngFor="let productType of productTypes">
+              <input type="radio" formControlName="productType" [value]="productType">&nbsp;&nbsp;{{productType}}
+            </label>
+          </div>
+          <label>Type of Category</label>
+          <div class="col-sm-12 radio">
+            <label class="pr-2 " *ngFor="let shootType of shootTypes">
+              <input type="radio" formControlName="shootType" [value]="shootType">&nbsp;&nbsp;{{ shootType}}
+            </label>
+          </div>
+          <label>Type of Model</label>
+          <div class="col-sm-12 radio">
+            <label class="pr-4" *ngFor="let modelType of modelTypes">
+              <input type="radio" formControlName="modelType" [value]="modelType">&nbsp;&nbsp;{{modelType}}
+            </label>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Product Description</mat-label>
+              <input matInput formControlName="productDescription" type="text">
+              <mat-hint>Ex: Shirts, Pants, Sarees</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Quantity Description</mat-label>
+              <input matInput formControlName="quantityDescription" type="text">
+              <mat-hint>Ex: 10 shirts, 10 pants, 10 sarees</mat-hint>
+            </mat-form-field>
+          </div>
+
+          <button class="btn booking btn-block text-white"
+           (click)="onBookInForm.valid && bookSubmit(onBookInForm, mobileNum.value, name.value,location.value,mailId.value)">Book Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

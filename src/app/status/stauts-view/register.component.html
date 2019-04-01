@@ -1,0 +1,55 @@
+<form [formGroup]="registerForm">
+  <div fxLayout="row wrap"  fxLayout.lt-sm="column">
+      <h3 class="text-center" *ngIf="!register">Login</h3>
+      <h3 class="text-center" *ngIf="register">Register</h3>
+    <div fxFlex="100" class="pr-1" >
+      <mat-form-field class="full-width">
+        <input matInput formControlName="mobileNo" [(ngModel)]="storedMobileNo" disabled maxlength="10"  placeholder="Mobile Number" >
+        <mat-error *ngIf="registerForm.controls['mobileNo'].errors?.required" required>
+          Enter Mobile Number
+          <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="!registerForm.controls['mobileNo'].errors?.required">
+          Enter valid mobile Number is
+            <strong>required</strong>
+          </mat-error>
+      </mat-form-field>
+    </div>
+    <div fxFlex="100" class="pr-1">
+      <mat-form-field class="full-width">
+        <input matInput formControlName="password" placeholder="Enter the password" required>
+        <mat-error *ngIf="registerForm.controls['password'].errors?.required" required>
+          Enter Password
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="100" class="pr-1" *ngIf="showError">
+   Incorrect Password
+    </div>
+    <div fxFlex="100" class="pr-1" *ngIf="showError2">
+      Mobile Number is not registered
+      </div>
+    <div fxFlex="80" class="pr-1">
+            
+            <div fxLayout="row" fxLayoutAlign="space-around stretch" >
+                  <div *ngIf="register">
+                        <button mat-raised-button color="primary" (click)="registerForm.valid && save(registerForm)" >Register</button> 
+                  </div> 
+                  <div *ngIf="!register">
+                        <button mat-raised-button color="primary" (click)="registerForm.valid && login(registerForm)">Login</button> 
+                  </div>
+            
+                    <button mat-raised-button mat-button color="warn" type="button"  (click)="cancel()">Cancel</button>
+                 </div>
+    </div>
+  
+    <div fxFlex="100" class="pr-1" *ngIf="!register">
+      <a (click)="showRegister()">Register?</a>
+    </div>
+    <div fxFlex="100" class="pr-1" *ngIf="register">
+            <a (click)="showLogin()">Login?</a>
+          </div>
+  </div>
+</form>

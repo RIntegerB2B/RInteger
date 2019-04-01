@@ -1,0 +1,98 @@
+<form  [formGroup]="aplusForm" (ngSubmit)="aplusForm.valid && bookSubmit(aplusForm,mobileNum.value,name.value,location.value,mailId.value)"
+  novalidate style="padding-bottom:60px">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 mx-auto bookingMasterDiv">
+        <div class="container">
+            <h5 class="textTopHeader">A+ CATALOG BOOKING</h5>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Mobile Number" maxlength="10" [(ngModel)]="mobileNo" formControlName="mobileNumber"
+                type="phone" #mobileNum required>
+              <button mat-button matSuffix mat-icon-button aria-label="Mobile Number">
+                <mat-icon>phone</mat-icon>
+              </button>
+              <mat-hint color="primary">Ex: 9988776655</mat-hint>
+              <mat-error *ngIf="aplusForm.controls['mobileNumber'].errors?.required">
+                Mobile Number is
+                <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="!aplusForm.controls['mobileNumber'].errors?.required">
+                Enter valid mobile Number is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Name" [(ngModel)]="userName" maxlength="20" formControlName="name" type="text"
+                #name [required]="false">
+              <button mat-button matSuffix mat-icon-button aria-label="Name">
+                <mat-icon>account_circle</mat-icon>
+              </button>
+              <mat-error *ngIf="aplusForm.controls['name'].errors?.required">
+                Name is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width"> 
+              <input matInput placeholder="Email Id" [(ngModel)]="email" formControlName="emailId" type="text"
+                #mailId [required]="false">
+              <button mat-button matSuffix mat-icon-button aria-label="Name">
+                <mat-icon>account_circle</mat-icon>
+              </button>
+              <mat-error *ngIf="aplusForm.controls['emailId'].errors?.required">
+                Email Id is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Location" maxlength="20" [(ngModel)]="locat" style="margin-bottom:5px"
+                formControlName="location" type="text" [required]="false" #location>
+              <button mat-button matSuffix mat-icon-button aria-label="Name">
+                <mat-icon>location_on</mat-icon>
+              </button>
+              <mat-error *ngIf="aplusForm.controls['location'].errors?.required">
+                Location is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Product Description</mat-label>
+              <input matInput formControlName="productDescription" type="text">
+              <mat-hint>Ex: Shirts, Pants, Sarees</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Quantity Description</mat-label>
+              <input matInput formControlName="quantityDescription" type="text">
+              <mat-hint>Ex: 10 shirts, 10 pants, 10 sarees</mat-hint>
+            </mat-form-field>
+            <div class="col-sm-12 radio">
+              <label>Do you want photo shoot?</label>
+              <label class="pr-2" *ngFor="let data of photoShoot">
+                <input type="radio" formControlName="isPhotoShoot" [value]="data">&nbsp;&nbsp;{{data}}
+              </label>
+            </div>
+            <div class="col-sm-12 radio">
+              <label>Do you want video shoot?</label>
+              <label class="pr-2" *ngFor="let data of videoShoot">
+                <input type="radio" formControlName="isVideoShoot" [value]="data">&nbsp;&nbsp;{{data}}
+              </label>
+            </div>
+          </div>
+          <input class="btn booking btn-block text-white" value="Book Now" type="submit">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

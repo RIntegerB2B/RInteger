@@ -1,0 +1,161 @@
+<nav class="navbar navbar-expand-lg  border-bottom border-dark">
+  <a [routerLink]="['/welcome']" class="navbar-brand">
+    <img src="../../../assets/images/logos/logos.png" class="navbar-logos"><img src="../../../assets/images/logos/Text rinteger png.png" class="navbar-logo">
+  </a>
+  <button class="navbar-toggler" type="button" (click)="collapseMenu()">
+    <span class=""><i class="fa fa-navicon"></i></span>
+  </button>
+  <div id="navbarNavDropdown" class="navbar-collapse collapse sidebar" [ngClass]="toggleBar">
+    <ul class="navbar-nav mr-auto">
+
+    </ul>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/studiotour']" (click)="collapseMenu()">Studio</a>
+          </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/subscribe']" (click)="collapseMenu()">Subscribe</a>
+      </li>
+     
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/studio']" (click)="collapseMenu()">Services</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Models
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" [routerLink]="['/dashboard/viewschedulemodel', 1]" (click)="collapseMenu()">Scheduled
+            Models </a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/models', 2]" (click)="collapseMenu()">All Models </a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/viewprojectionmodel',17]" (click)="collapseMenu()">Projection Models</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Booking
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" [routerLink]="['/dashboard/viewschedulemodel', 1]" (click)="collapseMenu()">
+            PhotoShoot</a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/registrationSetup', 6]" (click)="collapseMenu()">Digital-Business-Management</a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/itservices', 11]" (click)="collapseMenu()">IT-Services</a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/bookingstatus', 15]">Booking Status</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Booking Status
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" [routerLink]="'./'" (click)="getActive()">Active Booking</a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/completed', 13]" (click)="collapseMenu()">Completed Order</a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/cancelled', 14]" (click)="collapseMenu()">Cancelled Booking</a>
+          <a class="dropdown-item" [routerLink]="['/dashboard/bookingstatus', 15]" (click)="collapseMenu()">All Booking</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" [routerLink]="['/dashboard/ourwork', 18, this?.urlModel]"
+          aria-expanded="false">
+          Our Work
+        </a>
+        <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" [routerLink]="['/creativeportfolio']" (click)="collapseMenu()">Ecommerce PortFolio
+          </a>
+          <a class="dropdown-item" [routerLink]="['/portfolio']" (click)="collapseMenu()">Creative PortFolio</a>
+        </div> -->
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link" [routerLink]="['/dashboard/videoportfolio', 19, this?.videoIdModel]"
+          aria-expanded="false">
+          Videos
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/dashboard/pricing', 16]" (click)="collapseMenu()">Pricing</a>
+      </li>
+
+      <li class="nav-item">
+
+        <a class="nav-link" (click)="collapseMenu()" [routerLink]="['contact']">Contact</a>
+
+      </li>
+      <li class="nav-item">
+
+        <a class="nav-link" href="http://rinteger.com:8082/blog/" target="_blank">Blog</a>
+
+      </li>
+    </ul>
+
+  </div>
+</nav>
+<!--  <li class="nav-item">
+            <div class="dropdown">
+                <a class="nav-link">Booking</a>
+                <div class="dropdown-content">
+                    <a [routerLink]="['/dashboard/viewschedulemodel']" (click)="collapseMenu()">Scheduled Model  </a>
+                  <a [routerLink]="['/dashboard/models']" (click)="collapseMenu()">Model Shoot </a>
+                  <a [routerLink]="['/dashboard/booking']" (click)="collapseMenu()">Product Shoot</a>
+                  <a [routerLink]="['/dashboard/creative']" (click)="collapseMenu()">Creative Shoot</a>
+                  <a [routerLink]="['/dashboard/editing']" (click)="collapseMenu()">Image Editing</a>
+  
+                  <a [routerLink]="['/dashboard/registrationSetup']" (click)="collapseMenu()">Registration & Setup</a>
+                  <a [routerLink]="['/dashboard/cataloging']" (click)="collapseMenu()">Cataloging / Listing</a>
+                  <a [routerLink]="['/dashboard/aplus']" (click)="collapseMenu()">A+ Cataloging</a>
+                  <a [routerLink]="['/dashboard/digitalmgmt']" (click)="collapseMenu()">Account-Management</a>
+                  <a [routerLink]="['/dashboard/marketingservices']" (click)="collapseMenu()">Marketing Services</a>
+                 
+                  <a [routerLink]="['/dashboard/itservices']" (click)="collapseMenu()">IT-Services</a>
+              
+                </div>
+              </div>
+        </li>       -->
+<!-- <li class="nav-item">
+                  <a class="nav-link" (click)="collapseMenu()">Blog</a>
+            </li> -->
+<!-- <li class="nav-item">
+          <div class="dropdown">
+            <a class="nav-link">Booking Status</a>
+            <div class="dropdown-content">
+              <a (click)="getActive()">Active Booking </a>
+              <a [routerLink]="['/dashboard/completed']">Completed Order</a>
+              <a [routerLink]="['/dashboard/cancelled']">Cancelled Booking</a>
+              <a [routerLink]="['/dashboard/bookingstatus']">All Booking</a>
+            </div>
+          </div>
+        </li> -->
+<!--    <li class="nav-item">
+          <div class="dropdown">
+            <a [routerLink]="['/portfolio']" class="nav-link">Our Work</a>
+            <div class="dropdown-content">
+              <a [routerLink]="['/creativeportfolio']" (click)="collapseMenu()">Ecommerce PortFolio </a>
+              <a [routerLink]="['/portfolio']" (click)="collapseMenu()">Creative PortFolio</a>
+           <a [routerLink]="['/videoportfolio']" (click)="collapseMenu()">Video PortFolio </a>
+              <a [routerLink]="['/portfolio']" (click)="collapseMenu()">MarketPlace</a>
+              <a [routerLink]="['/digitalmarketingportfolio']" (click)="collapseMenu()">Digital Marketing & Services</a>
+              <a [routerLink]="['/itportfolio']" (click)="collapseMenu()">IT Services </a> 
+            </div>
+          </div>
+        </li>-->
+<!--  <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/pricing']" (click)="collapseMenu()">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="collapseMenu()">Blog</a>
+        </li> -->
+<!--  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/pricing']" (click)="collapseMenu()">Market Place</a>
+                  </li> -->
+<!-- (click)="collapseMenu()" -->
+<!-- <li class="nav-item">
+          <a class="nav-link" (click)="collapseMenu()" [routerLink]="['contact']">Contact</a>
+        </li>
+   -->
+<!-- <li class="nav-item">
+                  <a class="nav-link" (click)="collapseMenu()">Blog</a>
+            </li> -->

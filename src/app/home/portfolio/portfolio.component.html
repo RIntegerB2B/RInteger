@@ -1,0 +1,196 @@
+<!--Ecommerce Portfolio-->
+<div class="container" style="margin-top: 60px; margin-bottom: 250px;">
+  <div class="row">
+    <div class="col-md-3" style="padding-bottom:20px;">
+      <div class="col-md-12 ">
+        <p class="heading">CREATIVE PORTFOLIO</p>
+       <!--  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores saepe vitae consequatur laboriosam
+          explicabo enim dicta sint dolor totam reiciendis, voluptatum, ipsa deserunt animi iusto culpa similique
+          possimus adipisci. Et?</p> -->
+      </div>
+      <div class="col-md-12 ">
+        <ul class="newBar">
+          <!-- <li class="nav-item  sub-heading menu">
+            <a class="nav-link" (click)="showOverView()">PORTFOLIO OVERVIEW</a>
+          </li> -->
+          <li class="nav-item  sub-heading menu">
+            <a class="nav-link" (click)="showAd()">AD</a>
+          </li>
+          <li class="nav-item  sub-heading menu">
+              <a class="nav-link" (click)="showBannerSocial()">BANNER SOCIAL</a>
+            </li>
+            <li class="nav-item  sub-heading menu">
+                <a class="nav-link" (click)="showBrandImage()">BRAND IMAGE</a>
+              </li>
+          <li class="nav-item  sub-heading menu">
+            <a class="nav-link" (click)="showBrochure()">BROCHURE </a>
+          </li>
+          <li class="nav-item  sub-heading menu">
+            <a class="nav-link" (click)="showCatalog()">CATALOG</a>
+          </li>
+          <li class="nav-item  sub-heading menu">
+              <a class="nav-link" (click)="showExhibition()">EXHIBITION PAGES</a>
+            </li>
+            <li class="nav-item  sub-heading menu">
+      <a class="nav-link" (click)="showFashion()">FASHION</a>
+              </li>
+              <li class="nav-item  sub-heading menu">
+                  <a class="nav-link" (click)="showLookBook()">LOOKBOOK</a>
+                </li>
+                <li class="nav-item  sub-heading menu">
+                    <a class="nav-link" (click)="showPromotional()">PROMOTIONAL IMAGES</a>
+                  </li>
+                  <li class="nav-item  sub-heading menu">
+                      <a class="nav-link" (click)="showSocialPosting()">SOCIAL POSTING</a>
+                    </li>
+        </ul>
+      </div>
+      <div class="col-md-12 text-center d-md-none d-lg-none">
+          <div class="form-group">
+
+            <mat-form-field>
+              <mat-select  placeholder="PORTFOLIO" >
+               <!--  <mat-option value="Overview">
+                  <button mat-button (click)="showOverView()">PORTFOLIO OVERVIEW</button>
+                </mat-option> -->
+                <mat-option value="Ad">
+                  <button mat-button (click)="showAd()">AD</button>
+                </mat-option>
+                <mat-option value="BANNER SOCIAL">
+                    <button mat-button (click)="showBannerSocial()">BANNER SOCIAL</button>
+                  </mat-option>
+                  <mat-option value="Bottom">
+                      <button mat-button (click)="showBrandImage()">BRAND IMAGE</button>
+                    </mat-option>
+                    <mat-option value="Bottom">
+                        <button mat-button (click)="showBrochure()">BROCHURE</button>
+                      </mat-option>
+                      <mat-option value="Bottom">
+                          <button mat-button (click)="showCatalog()">CATALOG</button>
+                        </mat-option>
+                        <mat-option value="Bottom">
+                          <button mat-button (click)="showExhibition()">EXHIBITION PAGES</button>
+                        </mat-option>
+                        <mat-option value="Bottom">
+                          <button mat-button (click)="showFashion()">FASHION</button>
+                        </mat-option>
+                        <mat-option value="Bottom">
+                          <button mat-button (click)="showLookBook()">LOOKBOOK</button>
+                        </mat-option>
+                        <mat-option value="Bottom">
+                          <button mat-button (click)="showPromotional()">PROMOTIONAL IMAGES</button>
+                        </mat-option>
+                        <mat-option value="Bottom">
+                          <button mat-button (click)="showSocialPosting()">SOCIAL POSTING</button>
+                        </mat-option>
+              </mat-select>
+
+            </mat-form-field>
+          </div>
+        </div><br>
+    </div>
+    <div class="col-md-9">
+
+      <div class="row">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-11">
+            <div  *ngIf="overview">
+                <p class="heading">OVERVIEW</p>
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let data of modelImages">
+                        <img class="image"  mat-card-image   [src]="data" alt="first slide" >
+                    </div>
+                </div>
+              </div>
+          <div  *ngIf="ad">
+            <p class="heading">AD</p>
+            <div class="row">
+                <div class="col-md-6" *ngFor="let data of adImages">
+                    <img class="image"  mat-card-image   [src]="data" alt="first slide" >
+                </div>
+            </div>
+          </div>
+          <div *ngIf="bannersocial">
+              <p class="heading">BANNER SOCIAL</p>
+              <div class="row">
+                  <div class="col-md-6" *ngFor="let data of bannersocialImages">
+                      <img class="image"  mat-card-image   [src]="data" alt="first slide" >
+                  </div>
+              </div>
+
+          </div>
+          <div *ngIf="brandimage">
+            <p class="heading">BRAND IMAGE</p>
+            <div class="row">
+              <div class="col-md-4" *ngFor="let data of brandImages">
+                  <img class="image"  mat-card-image   [src]="data" alt="first slide" >
+              </div>
+          </div>
+          </div>
+          <div *ngIf="brochure">
+            <p class="heading">BROCHURE</p>
+            <div class="row">
+              <div class="col-md-4" *ngFor="let data of brochureImages">
+                  <img class="image"  mat-card-image   [src]="data" alt="first slide" >
+              </div>
+          </div>
+          </div>
+          <div *ngIf="catalog">
+            <p class="heading">CATALOG</p>
+            <div class="row">
+              <div class="col-md-4" *ngFor="let data of catalogImages">
+                  <img class="image"  mat-card-image   [src]="data" alt="first slide" >
+              </div>
+          </div>
+          </div>
+          <div *ngIf="exhibition">
+            <p class="heading">EXHIBITION PAGES</p>
+            <div class="row">
+              <div class="col-md-4" *ngFor="let data of exhibitionImages">
+                  <img class="image"  mat-card-image   [src]="data" alt="first slide" >
+              </div>
+          </div>
+          </div>
+          <div *ngIf="fashion">
+            <p class="heading">FASHION</p>
+            <div class="row">
+              <div class="col-md-4" *ngFor="let data of fashionImages">
+                  <img class="image"  mat-card-image   [src]="data" alt="first slide" >
+              </div>
+          </div>
+          </div>
+          <div *ngIf="lookbook">
+            <p class="heading">LOOKBOOK</p>
+            <div class="row">
+              <div class="col-md-4" *ngFor="let data of lookBookImages">
+                  <img class="image"  mat-card-image   [src]="data" alt="first slide" >
+              </div>
+          </div>
+          </div>
+          <div *ngIf="promotional">
+            <p class="heading">PROMOTIONAL IMAGES</p>
+            <div class="row">
+              <div class="col-md-4" *ngFor="let data of promotionalImages">
+                  <img class="image"  mat-card-image   [src]="data" alt="first slide" >
+              </div>
+          </div>
+          
+        </div>
+        <div *ngIf="socialposting">
+            <h1></h1>
+            <p class="heading">SOCIAL POSTING</p>
+            <div class="row">
+              <div class="col-md-4" *ngFor="let data of socialImages">
+                  <img class="image"  mat-card-image   [src]="data" alt="first slide" >
+              </div>
+          </div>
+        </div>  
+      </div>
+
+    </div>
+
+  </div><br>
+
+</div>

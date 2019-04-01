@@ -1,0 +1,111 @@
+<div class="container" style="margin-top: 10px; margin-bottom: 100px;">
+  <div class="container">
+    <h5 class="textTopHeader">SCHEDULED MODELS</h5>
+  </div>
+  <div class="row display-small-none">
+    <div class="col-md-12">
+      <ul class="navbar-nav">
+        <li class="navbar-item" *ngFor="let service of services"
+         [class.subPrice]="service === selectedType" (click)="onSelect(service)">
+
+          <a class="nav-link">
+            {{service.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-12 text-center d-md-none d-lg-none">
+    <div class="form-group">
+
+      <mat-form-field>
+        <mat-select [(value)]="selected">
+          <mat-option value="internationalmen">
+            <button mat-button (click)="interNationalMenModels()">Men International</button>
+          </mat-option>
+          <mat-option value="internationalwomen">
+            <button mat-button (click)="interNationalWomenModels()">Women International</button>
+          </mat-option>
+          <mat-option value="nationalmen">
+            <button mat-button (click)="nationalMenModels()">Men National</button>
+          </mat-option>
+          <mat-option value="nationalwomen">
+            <button mat-button (click)="nationalWomenModels()">Women National</button>
+          </mat-option>
+          <mat-option value="kids">
+            <button mat-button (click)="kidsModels()">Kids</button>
+          </mat-option>
+          <mat-option value="All">
+            <button mat-button (click)="allModels()">All</button>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <br>
+  <div class=row *ngIf="!showMessage"  >
+    <div class="col-md-12">
+      <h4 class="text-center">Click on the Scheduled Model for Booking</h4>
+    </div>
+  </div><br>
+  <div class=row *ngIf="showMessage">
+    <div class="col-md-12">
+      <h4 class="text-center">Currently no models available</h4>
+    </div>
+  </div>
+  <form [formGroup]="viewModelForm" novalidate
+  >
+    <div class="row">
+      <div class="col-md-4" *ngFor="let model of Detail"
+      >
+      
+        <input type="text" hidden [value]="model._id" formControlName="id" #modelId>
+        <a (click)="bookModel(viewModelForm,modelId.value)">
+          <mat-card class="example-card">
+            <div class="row">
+              <div class="col-md-4 col-4">
+                <h6 class="modelHeader">Model Name</h6>
+                <a class="modelName">{{model.userName | uppercase}}</a>
+              </div>
+              <div class="col-md-4 col-4">
+                <h6 class="modelHeader">Schedule Date</h6>
+                <a class="modelName">{{model.scheduledDate | uppercase}}</a>
+                <!-- <a (click)="whatsappShare(this.model?.primeImage)">
+                  SHARE</a> -->
+              </div>
+              <div class="col-md-4 col-4">
+                <h6 class="modelHeader">Location</h6>
+                <a class="modelName">{{model.scheduledLocation | uppercase}}</a>
+                <!-- <a (click)="whatsappShare(this.model?.primeImage)">
+                  SHARE</a> -->
+              </div>
+            </div>
+            <img mat-card-image 
+            [src]="this.model?.primeImage">
+            <div class="row">
+              <div class="col-md-3 col-3">
+                <h6 class="modelHeader">Height</h6>
+                <a class="modelMeasurement">{{model.height | uppercase}}</a>
+              </div>
+              <div class="col-md-3 col-3">
+                <h6 class="modelHeader">Waist</h6>
+                <a class="modelMeasurement">{{model.waist | uppercase}}</a>
+              </div>
+              <div class="col-md-3 col-3"  *ngIf="model.categoryType == 'Men'">
+                <h6 class="modelHeader">Chest</h6>
+                <a class="modelMeasurement">{{model.chest | uppercase}}</a>
+              </div>
+              <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Women'">
+                <h6 class="modelHeader">Bust</h6>
+                <a class="modelMeasurement">{{model.bust | uppercase}}</a>
+              </div>
+              <div class="col-md-3 col-3">
+                        <h6 class="modelHeader">Hips</h6>
+                        <a class="modelMeasurement">{{model.hips | uppercase}}</a>
+                </div>
+            </div>
+          </mat-card>
+        </a>
+      </div>
+    </div>
+  </form>
+</div>

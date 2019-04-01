@@ -1,0 +1,56 @@
+.mat-form-field {
+    display: block;
+    position: relative;
+    text-align: left;
+  }
+  .mat-form-field-appearance-legacy .mat-hint
+{
+  color: red;
+}
+
+.subscribeMasterDiv {
+  width: 80%;
+  background: white;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  margin: auto;
+ /*  margin-bottom:10px; */
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.responsive {
+  max-width: 100%;
+  height: auto;
+}
+.backgroundImageDiv
+{
+  margin-bottom: 20%;
+}
+.subscribeDiv
+ {
+  width: 80%;
+  background: white;
+  color: #777;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  position: relative;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.jumbotron {
+  position: relative;
+  background: url("../../assets/images/subcriptionBanner.jpg");
+<<<<<<< HEAD
+ /*  width: 100%;
+=======
+  /* width: 100%;
+>>>>>>> 1847400a3c4d926e0a7a415dffe48e2041028ac7
+  height: 100%; */
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 0% !important;
+  margin-bottom: 0% !important;
+}

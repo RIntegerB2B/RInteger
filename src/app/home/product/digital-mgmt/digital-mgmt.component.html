@@ -1,0 +1,102 @@
+<div class="container" style="margin-top: 20px">
+  <h5 class="text-center">DIGITAL BUSINESS MANAGEMENT</h5>
+  <div class="row navbar newBar">
+    <div class="nav-item text-white">
+      <a class="nav-link"><button mat-button class="menuBtn" (click)="onMarketPlace()">MARKET PLACE SERVICES</button></a>
+    </div>
+    <div class="nav-item text-white">
+      <a class="nav-link"><button mat-button class="menuBtn" (click)="onDigitalMarket()">DIGITAL / SOCIAL MARKETING</button></a>
+    </div>
+    <div class="nav-item text-white">
+      <a class="nav-link"><button mat-button class="menuBtn" (click)="onBranding()">BRANDING</button></a>
+    </div>
+    <div class="nav-item text-white">
+      <a class="nav-link"><button mat-button class="menuBtn" (click)="onMarketing()">MARKETING</button></a>
+    </div>
+    <div class="nav-item text-white">
+      <a class="nav-link"><button mat-button class="menuBtn" (click)="onMgmtServices()">MANAGEMENT SERVICES</button></a>
+    </div>
+  </div>
+  <div class="col-md-12 text-center d-md-none d-lg-none">
+    <div class="form-group">
+      <mat-form-field>
+        <mat-select [(value)]="selected">
+          <mat-option value="MarketPlace Services">
+            <button mat-button (click)="onMarketPlace()">MARKET PLACE SERVICES</button>
+          </mat-option>
+          <mat-option value="Digital / Social Marketing">
+            <button mat-button (click)="onDigitalMarket()">DIGITAL/SOCIAL MARKETING</button>
+          </mat-option>
+          <mat-option value="Branding">
+            <button mat-button (click)="onBranding()">BRANDING</button>
+          </mat-option>
+          <mat-option value="Marketing">
+            <button mat-button (click)="onMarketing()">MARKETING</button>
+          </mat-option>
+          <mat-option value="Management Services">
+            <button mat-button (click)="onMgmtServices()">MANAGEMENT SERVICES</button>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div class="row" style="padding-top: 40px;">
+    <div class="col-md-12">
+      <div *ngIf="marketPlaceService">
+        <h5 class="text-center">MARKET PLACE SERVICES</h5>
+        <h6 class="text-center"> Amazon Service provider, Flipkart Service Provider, Marketplace Service provider,
+          Listing services, Onboarding Services, Imaging Services, FBA, Fulfillment services, FA ,</h6>
+          <h6 class="text-center">Flipkart Advantage,Cataloging , online business, seller services</h6> 
+        
+        <p>RInteger is one of the leading online service provider in India located at bangalore. RInteger is an
+          authorized Amazon, Flipkart, PayTM service provider. Servicing more than 5000 plus customers, we take the
+          learning as the beginning of digital transition phase.
+        </p>
+        <p>Under marketplace services RInteger provides wide variety of services like
+        </p>
+        <ol>
+          <li>Registration with different marketplace </li>
+          <li>Listing of products </li>
+          <li>Fulfillment services </li>
+          <li>Banner and Poster Content</li>
+          <li>Promotion Management Services</li>
+          <li>Inventory Updation Services </li>
+          <li>Account Management services </li>
+        </ol>
+        <p>RInteger also provides complete marketplace managed services from Branding to Sales of a Brand. The digital
+          strategy required for the brand with respect to Marketplace is defined and driven by RInteger account
+          management team. Multiple portal registrations, listings of all the products across all the platforms and
+          managing the promotions of all the marketplace is done from RIntegers Digital business account manager.
+        </p>
+      </div>
+      <div *ngIf="digitalMktg">
+        <h5 class="text-center">DIGITAL / SOCIAL MARKETING</h5>
+        <h6 class="text-center">Social Media , Digital Marketing services in Bangalore, Facebook management, Instagram
+          management, PInterest, LinkedIn, Twitter Management. Google Ads, Facebook campaigns
+        </h6>
+        <p>RInteger Digital Management Team will plan the digital marketing strategy of a brand and execute it across
+          all the platforms. Digital setup of Social media, Website, Blog etc are also covered under the digital
+          business management.
+        </p>
+
+        <p>RInteger’s dedicated creative content team will create the required contents for different mediums and the
+          management team will be driving the campaigns and analytics. The activity log and the ROI chart with
+          automated system will simplify the communication the customer and Digital business account management team.
+        </p>
+        <p>The services offered under digital business management services are
+        </p>
+        <ol>
+          <li>Digital business Strategy Preparation </li>
+          <li>SEO </li>
+          <li>SMO </li>
+          <li>Content Creation</li>
+          <li>Content Management</li>
+          <li>Campaigns & Ad Management </li>
+          <li>Data & Business Insight </li>
+          <li>ROI Analysis</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

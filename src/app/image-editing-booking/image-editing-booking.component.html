@@ -1,0 +1,97 @@
+<form  [formGroup]="editingForm" novalidate style="padding-bottom:60px">
+    <div class="container-fluid">
+      <div class="row" >
+        <div class="col-md-6 mx-auto bookingMasterDiv">
+            <div class="container">
+                <h5 class="textTopHeader">IMAGE EDITING BOOKING</h5>
+              </div>
+              <div class="col-md-12">
+                  <div class="form-group">
+                      <mat-form-field class="example-full-width">
+                          <input matInput  placeholder="Mobile Number"  maxlength="10"  [(ngModel)]="mobileNo"
+                          formControlName="mobileNumber" type="phone" #mobileNum required>
+                       <button mat-button  matSuffix mat-icon-button aria-label="Mobile Number">
+                           <mat-icon>phone</mat-icon>
+                         </button>
+                         <mat-hint color="primary">Ex: 9988776655</mat-hint>
+                       <mat-error *ngIf="editingForm.controls['mobileNumber'].errors?.required">
+                       Mobile Number is
+                         <strong>required</strong>
+                       </mat-error>
+                       <mat-error *ngIf="!editingForm.controls['mobileNumber'].errors?.required">
+                          Enter valid mobile Number is
+                            <strong>required</strong>
+                          </mat-error>
+                     </mat-form-field>
+                   </div>
+                      <div class="form-group">
+                          <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Name" [(ngModel)]="userName" maxlength="20" formControlName="name"
+                          type="text" #name [required]="false">
+                          <button mat-button  matSuffix mat-icon-button aria-label="Name">
+                              <mat-icon>account_circle</mat-icon>
+                            </button>
+                          <mat-error *ngIf="editingForm.controls['name'].errors?.required">
+                            Name is
+                            <strong>required</strong>
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                      <div class="form-group">
+                        <mat-form-field class="example-full-width"> 
+                          <input matInput placeholder="Email Id" [(ngModel)]="email"  formControlName="emailId" type="text"
+                            #mailId [required]="false">
+                          <button mat-button matSuffix mat-icon-button aria-label="Name">
+                            <mat-icon>account_circle</mat-icon>
+                          </button>
+                          <mat-error *ngIf="editingForm.controls['emailId'].errors?.required">
+                            EmailId is
+                            <strong>required</strong>
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                      <div class="form-group">
+                          <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Location" maxlength="20"    [(ngModel)]="locat"  style="margin-bottom:5px" formControlName="location"
+                          type="text" [required]="false" #location >
+                          <button mat-button  matSuffix mat-icon-button aria-label="Name">
+                              <mat-icon>location_on</mat-icon>
+                            </button>
+                          <mat-error *ngIf="editingForm.controls['location'].errors?.required">
+                            Location is
+                            <strong>required</strong>
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                      <div class="form-group">
+                          <mat-form-field appearance="outline">
+                              <mat-label>Image Description</mat-label>
+                         <input matInput formControlName="imageDescription" type="text">
+                         <mat-hint>Ex: Shirt Images, Pant Images, Saree Images</mat-hint>
+                         </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Image Quantity </mat-label>
+                                <input matInput  formControlName="quantityDescription" type="text">
+                                  <mat-hint>Ex: 10 Shirt Images, 10 Pants Images</mat-hint>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                              <mat-label>Image Requirements </mat-label>
+                              <input matInput  formControlName="imageRequirements" type="text">
+                                <mat-hint>Ex: White Background, Creative Background</mat-hint>
+                          </mat-form-field>
+                        </div>
+                    
+                        <button class="btn booking btn-block text-white"
+                         (click)="editingForm.valid && bookSubmit(editingForm,mobileNum.value,name.value,location.value,mailId.value)">Book Now
+                        </button>
+                  </div>
+              </div>
+            </div>
+        </div>
+      
+  </form>
+  
+  
+  
+  
+  

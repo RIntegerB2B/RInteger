@@ -1,0 +1,77 @@
+<div class="container" style = "margin-top: 60px; margin-bottom: 250px;">
+  <div class="row" >
+      <div class="col-md-6">
+      <p class="text-secondary "><strong>RInteger Technology</strong></p>
+      <ul class="list-unstyled">
+        <li class="font-weight-light"># 23, Gunasheela Layout,</li>
+        <li class="font-weight-light">19th Cross, 24th main road,</li>
+        <li class="font-weight-light">J P Nagar 5th Phase ,</li>
+        <li class="font-weight-light">Bengaluru, Karnataka 560078</li>
+        <li class="font-weight-light"> Email:<a class="text-primary" href="mailto:rintegeroperations@gmail.com"> rintegeroperations@gmail.com</a></li>
+        <li class="font-weight-light">Phone: <strong class="text-dark">+91-9035671666</strong></li>
+        <li class="font-weight-light">Landline: <strong class="text-dark">080-48663511</strong></li>
+        </ul>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+        <form [formGroup]="onSendInForm" (ngSubmit)="sendSubmit(onSendInForm)" novalidate>
+            
+            <div class="form-group">
+                <mat-form-field class="example-full-width">
+                    <input matInput  placeholder="Mobile Number"  maxlength="10"  [(ngModel)]="mobileNo"
+                    formControlName="mobileNumber" type="phone" #mobileNum required>
+                 <button mat-button  matSuffix mat-icon-button aria-label="Mobile Number">
+                     <mat-icon>phone</mat-icon>
+                   </button>
+                   <mat-hint color="primary">Ex: 9988776655</mat-hint>
+                 <mat-error *ngIf="onSendInForm.controls['mobileNumber'].errors?.required">
+                 Mobile Number is
+                   <strong>required</strong>
+                 </mat-error>
+                 <mat-error *ngIf="!onSendInForm.controls['mobileNumber'].errors?.required">
+                    Enter valid mobile Number is
+                      <strong>required</strong>
+                    </mat-error>
+               </mat-form-field>
+              </div>
+              <div class="form-group">
+                  <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Name" [(ngModel)]="userName" maxlength="20" formControlName="name"
+                  type="text" #name [required]="false">
+                  <button mat-button  matSuffix mat-icon-button aria-label="Name">
+                      <mat-icon>account_circle</mat-icon>
+                    </button>
+                  <mat-error *ngIf="onSendInForm.controls['name'].errors?.required">
+                    Name is
+                    <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="form-group">
+                <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email Id" [(ngModel)]="email"  formControlName="emailId"
+                type="text" [required]="false">
+                <button mat-button  matSuffix mat-icon-button aria-label="Name">
+                    <mat-icon>account_circle</mat-icon>
+                  </button>
+              
+              </mat-form-field>
+            </div>
+                  <div class="form-group">
+                      <mat-form-field appearance="outline">
+                          <mat-label>Type your message.</mat-label>
+                     <input matInput formControlName="typeYourMessage" type="text">
+                     </mat-form-field>   
+                  </div>
+                        
+                      <input class="btn booking btn-block text-white"  value="Send" type="submit" [disabled]='!onSendInForm.valid'>
+                      
+                  
+          </form>
+        </div>
+</div><br>
+  <div class="row" >
+  <div class="col-md-12">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.1603897891623!2d77.58473501450962!3d12.897406219992362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15159a223f11%3A0x7c758fa0f5b27776!2sRInteger+Technologies!5e0!3m2!1sen!2sin!4v1535112303972" width="92%" height="200%" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </div>
+  </div>
+</div>

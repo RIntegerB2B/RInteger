@@ -1,0 +1,114 @@
+.mat-form-field {
+    display: block;
+    position: relative;
+    text-align: left;
+  }
+  .mat-form-field-appearance-legacy .mat-hint
+{
+  color: red;
+}
+.mat-form-field-appearance-outline .mat-hint
+{
+  color: red;
+}
+.mat-form-field {
+  display: block;
+  position: relative;
+  text-align: left;
+}
+.item {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),
+     0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+     margin-bottom: 2%;
+      background-color: #EEEEEE !important;
+}
+.modelRow {
+margin-left: 3%;
+margin-right: 3%;
+padding-top: 1.5%;
+}
+.measurementHeader
+{
+    font-size: 1em;
+   color: lightslategrey;
+   padding: 3%;
+   
+}
+.measurementSize
+{
+    font-size: 1em;
+    color: lightslategrey;
+    padding: 3%;
+    font-weight: 700;
+}
+
+.measurementRow
+{
+    border: 1px solid lightslategray;
+    margin: 15px;
+}
+
+@media screen and (max-width: 992px) {
+    .images{
+        height:330px;
+        width: 330px;
+        margin: auto;
+        margin-bottom: 35px;  
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .images{
+        height: 300px;
+        width: 400px;
+    }
+
+}
+.navbar-nav
+{
+    flex-direction: row;
+    background-color: #EEEEEE;
+    padding:0px;
+}
+.navbar-nav li
+{
+    padding-right:5px;
+    padding-left:5px;
+
+}
+.image{
+    height: 400px;
+    width:400px;
+
+}
+
+.mat-card-image {
+     margin: 0px !important; 
+}
+
+.mat-card {
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block !important;
+    position: relative;
+    padding: 0px !important;
+    border-radius: 2px;
+}
+.icon-prev.carousel-control-prev-icon{
+background-color: black;
+}
+.subPrice {
+    background-color: lightslategray !important;
+    color: white;
+  }
+.services li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin-bottom: .5em;
+    padding: 0 16px;
+  }
+.owl-carousel .img {
+    display: block;
+    /* width: 100%; */
+}

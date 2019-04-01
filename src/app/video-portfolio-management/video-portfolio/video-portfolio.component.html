@@ -1,0 +1,43 @@
+<form style="padding-top:2%">
+  <div class="container-fluid">
+     <div class="row d-md-none d-lg-none" 
+    *ngFor="let data of videoModel">
+      <div class="col-sm-12">
+        <mat-form-field>
+          <mat-select [(value)]="serviceModel" (selectionChange)="onSelectSub($event.value)">
+            <mat-option *ngFor="let test of data.mainCategory" [value]="test">
+              {{test.mainCategoryName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div *ngFor="let data of videoModel">
+      <div class="navbar rowStyle navbar-expand-lg display-small-none">
+        <ul class="navbar-nav  mr-auto">
+          <li class="nav-item" *ngFor="let test of data.mainCategory" 
+          [class.selSubMenu]="test === selectedSubMenu"
+            (click)="onSelectSub(test)">
+            <a class="nav-link text-center">{{test.mainCategoryName}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-12" *ngFor="let mainImage of videoModelView?.category">
+            <div >
+                <iframe class="resp-iframe resp-container"  allowfullscreen frameborder="0" height="230px" width="310px"
+                [src]="mainImage.videosUrl | safe" >
+                </iframe>
+            </div>
+            
+           <!--  <mat-video [autoplay]="true" [preload]="true" [fullscreen]="true" [download]="false" color="accent" spinner="spin"> 
+                <source matVideoSource [src]="mainImage.videosUrl | safe"  type="video/mp4">
+            </mat-video> -->
+            <div class="text-center selSubMenu">
+              <h6 class="p-1">{{mainImage.videoName}}</h6>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

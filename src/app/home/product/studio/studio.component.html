@@ -1,0 +1,310 @@
+<div class="container-fluid" style="margin-top: 20px">
+    <h5 class="text-center textSecondHeader">{{studioProduction}}</h5>
+  <div class="row fullServices">
+    <div class="col-md-3  col-12">
+        <ul class="services">
+          <li *ngFor="let service of services"
+            [class.selected]="service === selectedHero"
+            (click)="onSelect(service)" class="sideMenu">
+             {{service.name}}
+          </li>
+        </ul>
+    </div>
+    <div *ngIf="fullEcommerce" class="col-md-9 col-12">
+        <div class="form-group text-center d-md-none d-lg-none">
+            <mat-form-field>
+                
+              <mat-select [(value)]="selectedEcommerce">
+                <mat-option value="ecommerce">
+                  <button mat-button (click)="onEcommerce()">Ecommerce Production</button>
+                </mat-option>
+                <mat-option value="creative">
+                  <button mat-button (click)="onCreative()">Creative Production</button>
+                </mat-option>
+                <mat-option value="preproduction">
+                    <button mat-button (click)="onPreProduction()">Pre Production</button>
+                  </mat-option>
+                <mat-option value="postproduction">
+                  <button mat-button (click)="onPostProduction()">Post Production</button>
+                </mat-option>
+                <mat-option value="studio">
+                  <button mat-button (click)="onStudio()">Studio</button>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        <div class="row display-small-none">
+            <ul class="headerService">
+                <li class="sideMenu" 
+                [class.subSelected]="'EcommerceProduction' === selectedSub"
+                (click)="onEcommerce('EcommerceProduction')">
+                    Ecommerce Production
+                </li>
+                <li [class.subSelected]="'CreativeProduction' === selectedSub" class="sideMenu" (click)="onCreative('CreativeProduction')">
+                    Creative Production
+                </li>
+                <li [class.subSelected]="'PreProduction' === selectedSub" class="sideMenu" (click)="onPreProduction('PreProduction')">
+                    Pre Production
+                </li>
+                <li [class.subSelected]="'PostProduction' === selectedSub"  class="sideMenu" (click)="onPostProduction('PostProduction')">
+                    Post Production
+                </li>
+                <li [class.subSelected]="'Studio' === selectedSub" class="sideMenu" (click)="onStudio('Studio')">
+                    Studio
+                </li>
+              </ul>
+      </div>
+      <div *ngIf="hideEcommerce">
+        <h5 class="text-center textSecondHeader p-3">Ecommerce Production - Photo & Video</h5>
+        <h6 class="text-center text-muted smallImageText">Ecommerce product and model photography and videography Studio Service in Bangalore.</h6>
+        <p>RInteger Ecommerce productions objective is to create different products digital copy through photography
+          and videography. The converted digital forms are used across different marketplaces like Amazon, Flipkart,
+          PayTM, Snapdeal, Myntra, Jabong, Voonik and more. RInteger Ecommerce Studio understands the marketplace
+          standards and ensures that the production objectives are met according to customer requirements based on the
+          marketplace.
+        </p>
+        <p>Imaging standards for different marketplace is well understood by the production team to produce the ideal
+          result for smooth image approval across different portals.
+        </p>
+        <p>RInteger Ecommerce Studio uses live national and international models to based on the product and customers
+          requirement. RInteger also do table top , mannequin, ghost mannequin shoots.</p>
+        <p>At RInteger Ecommerce Studio we do photography and videography of almost all the products. In case of large
+          size products we also provide client location shoot.
+        </p>
+
+      </div>
+      <div *ngIf="hideCreative">
+        <h5 class="text-center textSecondHeader p-3">Creative Production - Photo & Video</h5>
+        <h6 class="text-center text-muted smallImageText">Creative product and model photography and videography studio services in bangalore
+        </h6>
+        <p>Unique designs and creations are displayed to the customers with more value using creative shoot services.
+          Adding more visual content to a product through outdoor shoots, adding creative background , adding
+          additional information for product image, showcase a product design with detailed shoots etc are extensively
+          developed in RInteger creative studios. </p>
+        <p>Brand launch , Product launch,Category launch , Event contents, Social contents, Digital Contents, etc
+          required for a business is supported with both Photography and Videography services under Ripsil Creative
+          studios.
+        </p>
+        <p>The creative team prepares the required concepts, storyboards, designs, themes, visuals etc required for a
+          corresponding service. Speaking images and Understandable product contents are created under Ripsil Creative
+          studio.
+        </p>
+        <p>The approach and methodology followed by the team to understand the requirement and to generate the desired
+          and imaginary results are the best part of our creative team.
+        </p>
+        <p>RInteger Creative content team is focused towards preparing product content, brand content and sales related
+          content for all business verticals. Contents forms the presentation face of a product with respect to
+          customer and understanding the above Rinteger Creative studio delivers the right content form for the right
+          business mediums.
+        </p>
+        <p>Business mediums could be for branding, marketing , sales or even brand recall, we are committed to deliver
+          the right medium of content for the corresponding business mediums.
+        </p>
+        <p>
+          RInteger Creative Studio provides the following content creation services
+
+        </p>
+        <ol>
+          <li>Logo Creation </li>
+          <li>Brochure Content Creation
+            </li>
+          <li>Catalog Book Content Creation</li>
+          <li>Banner and Poster Content
+            </li>
+          <li>Lookbook Content Preparation</li>
+          <li>Hoarding Content Preparation</li>
+          <li>Brand Launch videos
+            </li>
+          <li>Product Launch videos</li>
+          <li>Product explanatory videos and more
+            </li>
+        </ol>
+      </div>
+
+      <div *ngIf="hidePreProduction ">
+        <h5 class="text-center textSecondHeader p-3">Pre Production</h5>
+        <h6 class="text-center text-muted smallImageText">Model Agency , Studio setup ,  product and model photography and videography pre production  services in bangalore
+          </h6>
+        <p>Rinteger pre production unit organizes the entire resources required for both Ecommerce shoot and Creative Shoot, be it either indoor shoot or outdoor shoot. The team is well connected with multiple model agencies across the country to work with leading international and national models and artist. Leading photographers , stylist, art directors, makeup artist can also be engaged based on the requirement of the shoot. 
+          </p>
+
+      </div>
+      <div *ngIf="hidePostProduction">
+        <h5 class="text-center textSecondHeader p-3">Post Production</h5>
+        <h6 class="text-center text-muted smallImageText">Photo Editing Services, Photo Enhancement services, Video Editing Services , Ecommerce photo editing, White background Image Editing, Image Background Removal 
+          </h6>
+        <p>Rinteger post production team has indeed strong experience across image and video post production work for different domains. Image editing services from background removal to image enhancement is done under rinteger editing services. 
+
+          </p>
+      </div>
+      <div *ngIf="hideStudio">
+          <h5 class="text-center textSecondHeader p-3">Studio</h5>
+          <h6 class="text-center text-muted smallImageText">Studio rental in Bangalore, Ecommerce Studio Rental in Bangalore, Studio Rental with Equipments, Studio Rental with accessories, Accessories for model shoot, Shoot Props
+
+            </h6>
+          <p>RInteger Studio is located at JP Nagar Bangalore, and the studio is equipped with accessories, backdrop, equipments required for photoshoot and video shoot. The studio is around 1500 Sq feet space and is available for 24/7 across the calendar year. 
+            </p>
+        </div>
+    </div>
+    <!-- digital management  -->
+    <div *ngIf="fullDigital"  class="col-md-9 col-12">
+        <div class="form-group text-center d-md-none d-lg-none">
+            <mat-form-field>
+              <mat-select [(value)]="selectedDigital">
+                <mat-option value="MarketPlace Services">
+                  <button mat-button (click)="onMarketPlace()">Market Place Services</button>
+                </mat-option>
+                <mat-option value="Digital / Social Marketing">
+                  <button mat-button (click)="onDigitalMarket()">Digital /Social Marketing</button>
+                </mat-option>
+               <!--  <mat-option value="Branding">
+                  <button mat-button (click)="onBranding()">Branding</button>
+                </mat-option>
+                <mat-option value="Marketing">
+                  <button mat-button (click)="onMarketing()">Markeing</button>
+                </mat-option>
+                <mat-option value="Management Services">
+                  <button mat-button (click)="onMgmtServices()">Management Services</button>
+                </mat-option> -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+        <div class="row display-small-none">
+            <ul class="headerService">
+                <li class="sideMenu" 
+                [class.digitalSubSelected]="'MarketPlaceServices' === selectedSubDigital"
+                (click)="onMarketPlace('MarketPlaceServices')">
+                    Market Place Services
+                </li>
+                <li class="sideMenu" 
+                [class.digitalSubSelected]="'DigitalSocialMarketing' === selectedSubDigital"
+                (click)="onDigitalMarket('DigitalSocialMarketing')">
+                    Digital / Social Marketing
+                </li>
+               <!--  <li class="sideMenu"
+                [class.digitalSubSelected]="'Branding' === selectedSubDigital"
+                 (click)="onBranding('Branding')">
+                    Branding
+                </li>
+                <li class="sideMenu" 
+                [class.digitalSubSelected]="'Marketing' === selectedSubDigital"
+                (click)="onMarketing('Marketing')">
+                    Marketing
+                </li>
+                <li [class.digitalSubSelected]="'ManagementServices' === selectedSubDigital"
+                class="sideMenu" (click)="onMgmtServices('ManagementServices')">
+                    Management Services
+                </li> -->
+              </ul>
+      </div>
+      <div *ngIf="marketPlaceService">
+        <h5 class="text-center textSecondHeader p-3">Market Place Services</h5>
+        <h6 class="text-center text-muted smallImageText"> Amazon Service provider, Flipkart Service Provider, Marketplace Service provider,
+          Listing services, Onboarding Services, Imaging Services, FBA, Fulfillment services, FA ,</h6>
+        <h6 class="text-center text-muted smallImageText">Flipkart Advantage,Cataloging , online business, seller services</h6> 
+        
+        <p>RInteger is one of the leading online service provider in India located at bangalore. RInteger is an
+          authorized Amazon, Flipkart, PayTM service provider. Servicing more than 5000 plus customers, we take the
+          learning as the beginning of digital transition phase.
+        </p>
+        <p>Under marketplace services RInteger provides wide variety of services like
+        </p>
+        <ol>
+          <li>Registration with different marketplace </li>
+          <li>Listing of products </li>
+          <li>Fulfillment services </li>
+          <li>Banner and Poster Content</li>
+          <li>Promotion Management Services</li>
+          <li>Inventory Updation Services </li>
+          <li>Account Management services </li>
+        </ol>
+        <p>RInteger also provides complete marketplace managed services from Branding to Sales of a Brand. The digital
+          strategy required for the brand with respect to Marketplace is defined and driven by RInteger account
+          management team. Multiple portal registrations, listings of all the products across all the platforms and
+          managing the promotions of all the marketplace is done from RIntegers Digital business account manager.
+        </p>
+      </div>
+      <div *ngIf="digitalMktg">
+        <h5 class="text-center textSecondHeader p-3">Digital / Social Marketing</h5>
+        <h6 class="text-center text-muted smallImageText">Social Media , Digital Marketing services in Bangalore, Facebook management, Instagram
+          management, PInterest, LinkedIn, Twitter Management. Google Ads, Facebook campaigns
+        </h6>
+        <p>RInteger Digital Management Team will plan the digital marketing strategy of a brand and execute it across
+          all the platforms. Digital setup of Social media, Website, Blog etc are also covered under the digital
+          business management.
+        </p>
+
+        <p>RInteger’s dedicated creative content team will create the required contents for different mediums and the
+          management team will be driving the campaigns and analytics. The activity log and the ROI chart with
+          automated system will simplify the communication the customer and Digital business account management team.
+        </p>
+        <p>The services offered under digital business management services are
+        </p>
+        <ol>
+          <li>Digital business Strategy Preparation </li>
+          <li>SEO </li>
+          <li>SMO </li>
+          <li>Content Creation</li>
+          <li>Content Management</li>
+          <li>Campaigns & Ad Management </li>
+          <li>Data & Business Insight </li>
+          <li>ROI Analysis</li>
+        </ol>
+      </div>
+    </div>
+    <div *ngIf="fullItService"  class="col-md-9 col-12">
+        <div class="form-group text-center d-md-none d-lg-none">
+            <mat-form-field>
+              <mat-select [(value)]="selected">
+                <mat-option value="Website Development">
+                  <button mat-button (click)="onWebsite()">Website Development</button>
+                </mat-option>
+               <!--  <mat-option value="cloud services">
+                  <button mat-button (click)="onCloud()">Cloud Services </button>
+                </mat-option>
+                <mat-option value="Web application">
+                  <button mat-button (click)="onWebApp()">Web Application Development</button>
+                </mat-option>
+                <mat-option value="product development">
+                  <button mat-button (click)="onProduct()">Product Development</button>
+                </mat-option> -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+        <div class="row display-small-none">
+            <ul class="headerService">
+                <li class="sideMenu" 
+                [class.itSubSelected]="'WebsiteDevelopment' === selectedSubIt"
+                (click)="onWebsite('WebsiteDevelopment')">
+                Website Development
+                </li>
+               <!--  <li class="sideMenu" 
+                [class.itSubSelected]="'CloudServices' === selectedSubIt"
+                (click)="onCloud('CloudServices')">
+                Cloud Services
+                </li>
+                <li class="sideMenu"
+                [class.itSubSelected]="'WebApplicationDevelopment' === selectedSubIt"
+                 (click)="onWebApp('WebApplicationDevelopment')">
+                 Web Application Development
+                </li>
+                <li class="sideMenu" 
+                [class.itSubSelected]="'ProductDevelopment' === selectedSubIt"
+                (click)="onProduct('ProductDevelopment')">
+                Product Development
+                </li> -->
+              </ul>
+      </div>
+      <div *ngIf="showWebsite">
+          <h5 class="text-center textSecondHeader p-3"> Website Development</h5>
+          <h5 class="text-center text-muted smallImageText"> RInteger provides technology support for its customer across various domain. We setup website, blog, automation softwares for our customer
+            </h5>  
+        <h6 class="text-center text-muted smallImageText">At RInteger we build application from the core using Web2.0 technologies. MEAN Stack is used to develop SPA (Single Page Application). PWS (Progressive Web Apps),
+        Flipkart Advantage,Cataloging , online business, seller services</h6>
+      </div>
+      
+    </div>
+
+
+  </div>
+  

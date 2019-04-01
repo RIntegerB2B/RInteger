@@ -1,0 +1,317 @@
+
+<form [formGroup]="bookModelForm" novalidate style="padding-top:20px; margin-bottom:200px">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6" *ngFor="let model of Model">
+            
+          <div class="row display-small-none">
+            <div class="col-md-12">               
+                <ul class="navbar-nav">
+                  <li class="navbar-item" *ngFor="let service of services"
+                   [class.subPrice]="service === selectedType"
+                    (click)="onSelect(service)">
+                      <a class="nav-link"> 
+                         {{service.name}}</a>
+                    </li>
+          </ul>         
+            </div>
+          </div>
+          <div class="col-md-12 text-center d-md-none d-lg-none">
+              <div class="row">
+                  <div class="col-md-12 text-center">
+                    <h6>
+                      <strong>MODEL ENQUIRY</strong>
+                    </h6>
+                  </div>
+                </div>
+            <div class="form-group">
+  
+              <mat-form-field>
+                <mat-select [(value)]="selected">
+  
+                  <mat-option value="ecommerce">
+                    <button mat-button (click)="ecommerceImage()">Ecommerce</button>
+                  </mat-option>
+                  <!-- <mat-option>
+                    <button mat-button (click)="portraitImage()">Portrait</button>
+                  </mat-option>-->
+                  <mat-option  value="product">
+                    <button mat-button (click)="productImage()">Product</button>
+                  </mat-option>
+                  <mat-option value="Portfolio">
+                    <button mat-button (click)="portFolioImage()">Portfolio</button>
+                  </mat-option>
+                  <mat-option value="Measurements">
+                      <button mat-button (click)="measurements()">Measurements</button>
+                    </mat-option>
+                </mat-select>
+  
+              </mat-form-field>
+            </div>
+          </div>
+          <br>
+  
+          <div class="row">
+            <div class="col-md-12 owl-carousel-holder " >
+                    <div class="carousel-section images" *ngIf="showEcommerce">
+                            <owl-carousel  [options]="myCarouselOptions">
+                                <div  class="item" *ngFor="let images of this.model?.ecommerceImageName;let i = index">
+                                    <div class="row modelRow">
+                                        <div class="col-md-6 col-6">
+                                          <h6 class="modelHeader">Model Name</h6>
+                                          <a class="modelName">{{model.userName | uppercase}}</a>
+                                        </div>
+                                        <div class="col-md-6 col-6">
+                                          <!-- <h6 class="modelHeader">Schedule Date</h6>
+                                          <a class="modelName">{{model.scheduledDate | uppercase}}</a> -->
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-12 col-12">
+                                          <img mat-card-image [src]=this.images />
+                                        </div>
+                                      </div>
+                                      <div class="row modelRow">
+                                        <div class="col-md-3 col-3">
+                                          <h6 class="modelHeader">Height</h6>
+                                          <a class="modelMeasurement">{{model.height | uppercase}}</a>
+                                        </div>
+                                        <div class="col-md-3 col-3">
+                                          <h6 class="modelHeader">Waist</h6>
+                                          <a class="modelMeasurement">{{model.waist | uppercase}}</a>
+                                        </div>
+                                        <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Men'">
+                                          <h6 class="modelHeader">Chest</h6>
+                                          <a class="modelMeasurement">{{model.chest | uppercase}}</a>
+                                        </div>
+                                        <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Women'">
+                                          <h6 class="modelHeader">Bust</h6>
+                                          <a class="modelMeasurement">{{model.bust | uppercase}}</a>
+                                        </div>
+                                        <div class="col-md-3 col-3">
+                                          <h6 class="modelHeader">Hips</h6>
+                                          <a class="modelMeasurement">{{model.hips | uppercase}}</a>
+                                        </div>
+                                      </div>
+                                </div>
+                            </owl-carousel>
+                    </div>
+
+                    <div class="carousel-section images" *ngIf="showPortFolio">
+                      <div>
+                        
+                      </div>
+                        <owl-carousel  [options]="myCarouselOptions">
+                            <div  class="item" *ngFor="let images of this.model?.portFolioImageName;let i = index">
+                                <div class="row modelRow">
+                                    <div class="col-md-6 col-6">
+                                      <h6 class="modelHeader">Model Name</h6>
+                                      <a class="modelName">{{model.userName | uppercase}}</a>
+                                    </div>
+                                  <!--   <div class="col-md-6 col-6">
+                                      <h6 class="modelHeader">Schedule Date</h6>
+                                      <a class="modelName">{{model.scheduledDate | uppercase}}</a>
+                                    </div> -->
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-12 col-12">
+                                      <img mat-card-image [src]=this.images />
+                                    </div>
+                                  </div>
+                                  <div class="row modelRow">
+                                    <div class="col-md-3 col-3">
+                                      <h6 class="modelHeader">Height</h6>
+                                      <a class="modelMeasurement">{{model.height | uppercase}}</a>
+                                    </div>
+                                    <div class="col-md-3 col-3">
+                                      <h6 class="modelHeader">Waist</h6>
+                                      <a class="modelMeasurement">{{model.waist | uppercase}}</a>
+                                    </div>
+                                    <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Men'">
+                                      <h6 class="modelHeader">Chest</h6>
+                                      <a class="modelMeasurement">{{model.chest | uppercase}}</a>
+                                    </div>
+                                    <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Women'">
+                                      <h6 class="modelHeader">Bust</h6>
+                                      <a class="modelMeasurement">{{model.bust | uppercase}}</a>
+                                    </div>
+                                    <div class="col-md-3 col-3">
+                                      <h6 class="modelHeader">Hips</h6>
+                                      <a class="modelMeasurement">{{model.hips | uppercase}}</a>
+                                    </div>
+                                  </div>
+                            </div>
+                        </owl-carousel>
+                </div>
+                <div class="carousel-section images" *ngIf="showProduct">
+                    <owl-carousel  [options]="myCarouselOptions">
+                        <div  class="item" *ngFor="let images of this.model?.productImageName;let i = index">
+                            <div class="row modelRow">
+                                <div class="col-md-6 col-6">
+                                  <h6 class="modelHeader">Model Name</h6>
+                                  <a class="modelName">{{model.userName | uppercase}}</a>
+                                </div>
+                              <!--   <div class="col-md-6 col-6">
+                                  <h6 class="modelHeader">Schedule Date</h6>
+                                  <a class="modelName">{{model.scheduledDate | uppercase}}</a>
+                                </div> -->
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12 col-12">
+                                  <img mat-card-image [src]=this.images />
+                                </div>
+                              </div>
+                              <div class="row modelRow">
+                                <div class="col-md-3 col-3">
+                                  <h6 class="modelHeader">Height</h6>
+                                  <a class="modelMeasurement">{{model.height | uppercase}}</a>
+                                </div>
+                                <div class="col-md-3 col-3">
+                                  <h6 class="modelHeader">Waist</h6>
+                                  <a class="modelMeasurement">{{model.waist | uppercase}}</a>
+                                </div>
+                                <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Men'">
+                                  <h6 class="modelHeader">Chest</h6>
+                                  <a class="modelMeasurement">{{model.chest | uppercase}}</a>
+                                </div>
+                                <div class="col-md-3 col-3" *ngIf="model.categoryType == 'Women'">
+                                  <h6 class="modelHeader">Bust</h6>
+                                  <a class="modelMeasurement">{{model.bust | uppercase}}</a>
+                                </div>
+                                <div class="col-md-3 col-3">
+                                  <h6 class="modelHeader">Hips</h6>
+                                  <a class="modelMeasurement">{{model.hips | uppercase}}</a>
+                                </div>
+                              </div>
+                        </div>
+                    </owl-carousel>
+            </div>  
+                <div class="row measurementRow" *ngIf="showMeasurements">
+                    <div class="col-md-6 col">
+                      <h6 class="measurementHeader">Height</h6>
+                      <h6 class="measurementHeader">Waist</h6>
+                      <h6 class="measurementHeader" 
+                      *ngIf="model.categoryType == 'Men'">Chest</h6>
+                      <h6 class="measurementHeader" 
+                      *ngIf="model.categoryType == 'Women'">Bust</h6>
+                      <h6 class="measurementHeader">Hips</h6>
+                      <h6 class="measurementHeader">Shoe Size</h6>
+                      <h6 class="measurementHeader">Hair</h6>
+                      <h6 class="measurementHeader">Shoulder</h6>
+                      <h6 class="measurementHeader">Top Size</h6>
+                      <h6 class="measurementHeader">Bottom Size</h6>
+                    </div>
+                    <div class="col-md-6 col">
+                        <h6 class="measurementSize">{{model.height | uppercase}}</h6>
+                        <h6 class="measurementSize">{{model.waist | uppercase}}</h6>
+                        <h6 class="measurementSize" *ngIf="model.categoryType == 'Men'">
+                            {{model.chest | uppercase}}
+                        </h6>
+                        <h6 class="measurementSize" *ngIf="model.categoryType == 'Women'">
+                            {{model.bust | uppercase}}
+                        </h6>
+                        <h6 class="measurementSize">
+                            {{model.hips | uppercase}}
+                        </h6>
+                        <h6 class="measurementSize">
+                            {{model.shoeSize | uppercase}}
+                        </h6>
+                        <h6 class="measurementSize"> {{model.hair | uppercase}}</h6>
+                        <h6 class="measurementSize"> {{model.shoulder | uppercase}}</h6>
+                        <h6 class="measurementSize">{{model.topSize | uppercase}}</h6>
+                        <h6 class="measurementSize">{{model.bottomSize | uppercase}}</h6>
+                    </div>
+                  </div>
+                
+              </div>
+          </div>
+        </div>
+  
+        <div class="col-md-5 col-md-offset-1">
+          <div class="row">
+            <div class="col-md-12  display-small-none text-center">
+              <h6>
+                <strong>MODEL ENQUIRY</strong>
+              </h6>
+            </div>
+          </div>
+          <br>
+          <div class="form-group mt-2">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Mobile Number" maxlength="10" [(ngModel)]="mobileNo" formControlName="mobileNumber" type="phone"
+                #mobileNum required>
+              <button mat-button matSuffix mat-icon-button aria-label="Mobile Number">
+                <mat-icon>phone</mat-icon>
+              </button>
+              <mat-hint color="primary">Ex: 9988776655</mat-hint>
+              <mat-error *ngIf="bookModelForm.controls['mobileNumber'].errors?.required">
+                Mobile Number is
+                <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="!bookModelForm.controls['mobileNumber'].errors?.required">
+                Enter valid mobile Number is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Name" [(ngModel)]="userName" maxlength="20" formControlName="name" type="text" #name [required]="false">
+              <button mat-button matSuffix mat-icon-button aria-label="Name">
+                <mat-icon>account_circle</mat-icon>
+              </button>
+              <mat-error *ngIf="bookModelForm.controls['name'].errors?.required">
+                Name is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Email Id" [(ngModel)]="email" formControlName="emailId" type="text" #mailId [required]="false">
+              <button mat-button matSuffix mat-icon-button aria-label="Name">
+                <mat-icon>account_circle</mat-icon>
+              </button>
+              <mat-error *ngIf="bookModelForm.controls['emailId'].errors?.required">
+                EmailId is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Location" maxlength="20" [(ngModel)]="locat" style="margin-bottom:5px" formControlName="location"
+                type="text" [required]="false" #location>
+              <button mat-button matSuffix mat-icon-button aria-label="Name">
+                <mat-icon>location_on</mat-icon>
+              </button>
+              <mat-error *ngIf="bookModelForm.controls['location'].errors?.required">
+                Location is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Product Description</mat-label>
+              <input matInput formControlName="productDescription" type="text">
+              <mat-hint>Ex: Shirts, Pants, Sarees</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Quantity Description</mat-label>
+              <input matInput formControlName="qtyDescription" type="text">
+              <mat-hint>Ex: 10 shirts, 10 pants, 10 Sarees</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="form-group" style="margin-top:40px;" *ngFor="let model of Model">
+            <input type="text" formControlName="id" hidden [value]="model._id" #modelsId>
+            <input type="text" formControlName="modelsname" hidden [value]="model.userName" #modelNm>
+            <button class="btn booking btn-block text-white" (click)="bookModelForm.valid && bookSubmit(bookModelForm,modelsId.value,modelNm.value,mailId.value)">Book Now
+            </button>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </form>
+
