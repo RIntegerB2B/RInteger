@@ -24,7 +24,7 @@ body {
   width: 100px;
   height: 100px;
   
-  background: url(/../images/logos/LogoRinteger.jpg) center center no-repeat; 
+  background: url('/../images/logos/LogoRinteger.jpg') center center no-repeat; 
 }
 .rowStyle
 {
