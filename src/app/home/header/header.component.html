@@ -92,7 +92,7 @@
         <a class="nav-link" href="http://rinteger.com:8082/blog/" target="_blank">Blog</a>
 
       </li>
-      <li class="nav-item" *ngIf = "loginData === 'false'">
+      <li class="nav-item" *ngIf = "loginData !== 'true'">
         <a class="nav-link" [routerLink]="['/login']" (click)="collapseMenu()">Login</a>
       </li>
       <li class="nav-item" *ngIf = "loginData === 'true'">
