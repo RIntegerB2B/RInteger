@@ -1,5 +1,7 @@
 export const environment = {
   production: true,
   serviceUrl: 'https://rinteger.com/service/',
-  adminServiceUrl: 'https://rinteger.com/adminservice/'
+  adminServiceUrl: 'https://rinteger.com/adminservice/',
+  operationUrl: 'https://rinteger-operation-service.appspot.com/'
+/*  operationUrl: 'http://localhost:3041/' */
 };

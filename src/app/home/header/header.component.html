@@ -16,6 +16,7 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/subscribe']" (click)="collapseMenu()">Subscribe</a>
       </li>
+      
      
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/studio']" (click)="collapseMenu()">Services</a>
@@ -51,11 +52,12 @@
           aria-expanded="false">
           Booking Status
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
           <a class="dropdown-item" [routerLink]="'./'" (click)="getActive()">Active Booking</a>
           <a class="dropdown-item" [routerLink]="['/dashboard/completed', 13]" (click)="collapseMenu()">Completed Order</a>
           <a class="dropdown-item" [routerLink]="['/dashboard/cancelled', 14]" (click)="collapseMenu()">Cancelled Booking</a>
           <a class="dropdown-item" [routerLink]="['/dashboard/bookingstatus', 15]" (click)="collapseMenu()">All Booking</a>
+          <a class="dropdown-item" *ngIf="loginData==='true'" [routerLink]="['/dashboard/activitylog', 20]" (click)="collapseMenu()">Activity Log</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -89,6 +91,12 @@
 
         <a class="nav-link" href="http://rinteger.com:8082/blog/" target="_blank">Blog</a>
 
+      </li>
+      <li class="nav-item" *ngIf = "loginData === 'false'">
+        <a class="nav-link" [routerLink]="['/login']" (click)="collapseMenu()">Login</a>
+      </li>
+      <li class="nav-item" *ngIf = "loginData === 'true'">
+        <a class="nav-link" [routerLink]="['/login']" (click)="collapseMenu();logout()" >Logout</a>
       </li>
     </ul>
 

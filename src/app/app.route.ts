@@ -40,6 +40,8 @@ import { OurworkComponent } from './ourwork-management/ourwork/ourwork.component
 import { ViewdetailsComponent} from './ourwork-management/viewdetails/viewdetails.component';
 import { StudioTourComponent } from './home/studio-tour/studio-tour.component';
 import {VideoPortfolioComponent} from './video-portfolio-management/video-portfolio/video-portfolio.component';
+import { CustomerLoginComponent } from './ripsil-customer/customer-login/customer-login.component';
+import { ActivityLogComponent } from './ripsil-customer/activity-log/activity-log.component';
 
 const routes: Routes = [
   { path: 'ourwork/:mainid/:subid', component: OurworkComponent },
@@ -49,6 +51,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'studio', component: StudioComponent },
   { path: 'subscribe', component: SubscribeComponent },
+  { path: 'login', component: CustomerLoginComponent},
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'digitalmarketingportfolio', component: DigitalMarketingPortfolioComponent },
   { path: 'creativeportfolio', component: CreativePortfolioComponent },
@@ -70,6 +73,7 @@ const routes: Routes = [
       { path: 'cancelled/:viewid', component: CancelledStatusComponent },
       { path: 'bookingstatus/:viewid', component: AllStatusComponent },
       { path: 'statusView/:viewid', component: StautsViewComponent },
+      { path: 'activitylog/:viewid', component: ActivityLogComponent},
       { path: 'newUser/:viewid', component: NewUserStatusComponent },
       /* { path: 'aboutUs', component: AboutusComponent }, */
       /*   { path: 'contact', component: ContactComponent }, */

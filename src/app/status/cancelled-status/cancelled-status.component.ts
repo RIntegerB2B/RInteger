@@ -1,11 +1,11 @@
-import { Component, OnInit, Inject, ViewChild} from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
 
-import {StatusService} from '../status.service';
-import {CancelledBookingDetail} from './cancelled-booking.model';
-import {DashBoardService} from '../../home/dashboard/dashboard.service';
+import { StatusService } from '../status.service';
+import { CancelledBookingDetail } from './cancelled-booking.model';
+import { DashBoardService } from '../../home/dashboard/dashboard.service';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 @Component({
@@ -18,7 +18,7 @@ export class CancelledStatusComponent implements OnInit {
   no: string;
   // statusDisplay: string;
   Details: CancelledBookingDetail;
-orders;
+  orders;
   statusViewForm: FormGroup;
   progress: boolean;
   completed: boolean;
@@ -42,34 +42,34 @@ orders;
   materialReturnTrue: boolean;
   materialReturnProgress: boolean;
   hideStatus: boolean;
- bookingStatusApproved: boolean;
- bookingStatusWaiting: boolean;
- bookingStatusCompleted: boolean;
- bookingCancelled: boolean;
- message: boolean;
- datacheck;
- cancelledStatus: boolean;
- activeStatus: boolean;
- mobileNo;
-filterOption = ['Model Booking', 'Product Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
-'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Account Management Booking',
-'Scheduled Model Booking'];
- searchText: string;
- public pageSize = 5;
+  bookingStatusApproved: boolean;
+  bookingStatusWaiting: boolean;
+  bookingStatusCompleted: boolean;
+  bookingCancelled: boolean;
+  message: boolean;
+  datacheck;
+  cancelledStatus: boolean;
+  activeStatus: boolean;
+  mobileNo;
+  filterOption = ['Model Booking', 'Product Booking', 'Catalog Booking', 'Registration Booking', 'Editing Booking',
+    'Marketing  Booking', 'Creative Booking', 'A+ Cataloging Booking', 'IT Services Booking', 'Account Management Booking',
+    'Scheduled Model Booking'];
+  searchText: string;
+  public pageSize = 5;
   public currentPage = 0;
   public totalSize = 0;
   dataSource: any = [];
   array: any;
   temp: any = [];
   constructor(private fb: FormBuilder,
-    private activatedRoute: ActivatedRoute, private statusService: StatusService , private localStorageService: LocalStorageService,
+    private activatedRoute: ActivatedRoute, private statusService: StatusService, private localStorageService: LocalStorageService,
     private dashBoardService: DashBoardService) {
-     }
+  }
 
   ngOnInit() {
     this.dashBoardService.makeMenuTransparent();
     this.createForm();
- this.cancelledBooking();
+    this.cancelledBooking();
   }
 
   createForm() {
@@ -94,14 +94,14 @@ filterOption = ['Model Booking', 'Product Booking', 'Catalog Booking', 'Registra
     console.log(value);
   }
   filterType(value) {
-    console.log( this.datacheck);
+    console.log(this.datacheck);
   }
   statusDetail(num, type) {
     this.statusService.getBookingDetail(num, type).subscribe(statusData => {
       this.Details = statusData;
-         }, error => {
-           console.log(error);
-         });
+    }, error => {
+      console.log(error);
+    });
   }
   handlePage(e: any) {
     this.currentPage = e.pageIndex;
@@ -116,19 +116,18 @@ filterOption = ['Model Booking', 'Product Booking', 'Catalog Booking', 'Registra
   }
   cancelledBooking() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
-
-         this.statusService.getCancelledBookings(this.mobileNo)
-         .subscribe((response) => {
-           this.dataSource = new MatTableDataSource<Element>(response);
-           this.dataSource.paginator = this.paginator;
-           this.array = response;
-           this.Details = response;
-           this.totalSize = this.array.length;
-           this.temp = response;
-           this.iterator();
-         }, error => {
-           console.log(error);
-         });
+    this.statusService.getCancelledBookings(this.mobileNo)
+      .subscribe((response) => {
+        this.dataSource = new MatTableDataSource<Element>(response);
+        this.dataSource.paginator = this.paginator;
+        this.array = response;
+        this.Details = response;
+        this.totalSize = this.array.length;
+        this.temp = response;
+        this.iterator();
+      }, error => {
+        console.log(error);
+      });
   }
 
 }

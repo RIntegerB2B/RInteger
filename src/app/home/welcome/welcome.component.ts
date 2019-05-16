@@ -88,14 +88,14 @@ export class WelcomeComponent implements OnInit {
   getAllBanner() {
     this.homeService.findBanner().subscribe(data => {
       this.mainBanner = data;
-      console.log(this.mainBanner);
+     /*  console.log(this.mainBanner); */
     }, error => {
       console.log(error);
     });
   }
   getStatus() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
-    console.log(this.mobileNo);
+ /*    console.log(this.mobileNo); */
     if ( this.mobileNo === null) {
       this.router.navigate(['/dashboard/newUser', 12]);
     } else if (this.mobileNo != null) {

@@ -61,6 +61,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   selectedMenuList;
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
   fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
+  loginData: any;
   constructor( public dashboardService: DashBoardService, private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
     private localStorageService: LocalStorageService, private router: Router,
      private activatedRoute: ActivatedRoute, private activeRoute: ActivatedRoute,
@@ -78,13 +79,15 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
   ngOnInit() {
+    this.getLogin();
+   /*  this.getLoginValue(); */
     this.menuItemsSub = this.dashboardService.menuItems$.subscribe(menuItem => {
       this.menuItems = menuItem.filter(item => item.type !== 'icon' && item.type !== 'separator');
       this.hasIconTypeMenuItem = !!this.menuItems.filter(item => item.type === 'icon').length;
     });
     this.logout();
     this.viewId = +this.activeRoute.snapshot.firstChild.params.viewid;
-    console.log('viewId', this.viewId);
+    /* console.log('viewId', this.viewId); */
     this.onSelect(this.viewId);
     this.openDashboardMenu();
     this.getAllCategory();
@@ -116,7 +119,8 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
       case 12:
       case 13:
       case 14:
-      case 15: {
+      case 15:
+      case 20: {
         this.selectedDashboardFourth(this.viewId);
         break;
       }
@@ -139,6 +143,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     /* this.progressBarService.open(); */
   }
   collapseMenu() {
+    this.getLogin();
     this.toggleBar = this.toggleBar === 'colapseMenuBar' ? 'expandMenuBar' : 'colapseMenuBar';
   }
 
@@ -159,7 +164,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
         config.push({path: 'ourwork/:mainid/:subid', component: OurworkComponent});
         this.router.resetConfig(config);
         this.urlModel = this.ourWorkModel[0]._id;
-        console.log(this.router);
+     /*    console.log(this.router); */
       console.log('dashboardcategory', this.ourWorkModel);
      }     else     {
        this.urlModel = '';
@@ -325,7 +330,10 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   }
   ngDoCheck() {
     this.mobileNo = this.localStorageService.retrieve('mobileno');
-}
+  }
+  getLogin() {
+  this.loginData = this.localStorageService.retrieve('userloggedin');
+  }
   mouseenter() {
     if (!this.isExpanded) {
       this.isShowing = true;
@@ -381,4 +389,13 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   /*   getCompleted() {
       this.router.navigate(['/dashboard/completed']);
     } */
+
+    /* getLoginValue() {
+      this.loginData = this.localStorageService.retrieve('userloggedin');
+      } */
+    logoutValu() {
+        this.localStorageService.clear('mobileNumber');
+        this.localStorageService.store('userLoggedIn', 'false');
+        this.getLogin();
+      }
 }

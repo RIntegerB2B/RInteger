@@ -1,0 +1,47 @@
+<div class="container">
+  <form style="padding-top:80px; margin-bottom:300px;" novalidate>
+    <div class="textContainer">
+      <select #selectElem (change)="UnitWise(selectElem.value)" style="width:250px">
+        <option disabled>---Select Unit---</option>
+        <option *ngFor="let data of filterOption">
+          {{data}}
+        </option>
+        <option>All</option>
+      </select>
+    </div>
+    <div class="text-center " style="padding-bottom:20px">
+      <h6><strong>ACTIVITY LOG STATUS</strong></h6>
+    </div>
+    <div class="row">
+      <div class=" col-sm-12 d-flex  flex-row">
+        <div class=" col-sm-2 col p-2 text-center border">
+          <b>Date</b>
+        </div>
+        <div class="col-sm-2 col p-2 text-center border">
+          <b>Title</b>
+        </div>
+        <div class=" col-sm-4 col p-2 text-center border">
+          <b>Description</b>
+        </div>
+        <div class="col-sm-2 col p-2 text-center border">
+          <b>Unit</b>
+        </div>
+        <div class="col-sm-2 col p-2 text-center border">
+          <b>Status</b>
+        </div>
+      </div>
+    </div>
+    <div *ngFor="let data of holdValue">
+      <div class=" col-sm-12 status d-flex border-bottom  flex-row">
+        <div class="col-sm-2 col p-2 text-center"><strong>{{data.dateTime}}</strong></div>
+        <div class="col-sm-2  col p-2 text-center "><strong>{{data.taskTitle}}</strong></div>
+        <div class="col-sm-4  col p-2 text-center"><strong>{{data.taskDescription}}</strong></div>
+        <div class="col-sm-2  col p-2 text-center "><strong>{{data.units}}</strong></div>
+        <div class="col-sm-2  col p-2 text-center "><strong>{{data.status}}</strong></div>
+      </div>
+    </div>
+    <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[1, 5, 10, 20, 30, 40, 50]"
+      [showFirstLastButtons]="true" [length]="totalSize" [pageIndex]="currentPage" (page)="handlePage($event)">
+    </mat-paginator>
+  </form>
+</div>

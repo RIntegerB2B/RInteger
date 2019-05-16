@@ -4,4 +4,5 @@ interface AppSettingType {
     serviceUrl: string;
     adminServiceUrl: string;
     imageOurWorkServerPath: string;
+    operationUrl: string;
 }

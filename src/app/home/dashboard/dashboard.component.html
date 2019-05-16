@@ -1,33 +1,28 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches"
->
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar class="example-toolbar">
     <button mat-icon-button (click)="sidenav?.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <button class="navbar-toggler" type="button"
-    [routerLink]="['/welcome']">
-     <mat-icon>home</mat-icon>
-   </button>
-   <a [routerLink]="['/welcome']" class="navbar-brand">
-     <img src="../../../assets/images/logos/logos.png">
-     <img src="../../../assets/images/logos/Text rinteger png.png" class="navbar-logo">
-   </a>
-   <span fxFlex></span>
+    <button class="navbar-toggler" type="button" [routerLink]="['/welcome']">
+      <mat-icon>home</mat-icon>
+    </button>
+    <a [routerLink]="['/welcome']" class="navbar-brand">
+      <img src="../../../assets/images/logos/logos.png">
+      <img src="../../../assets/images/logos/Text rinteger png.png" class="navbar-logo">
+    </a>
+    <span fxFlex></span>
     <nav class="navbar navbar-expand-lg">
-     
+
       <div id="navbarNavDropdown" class="navbar-collapse collapse sidebar">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/studiotour']"
-                 (click)="collapseMenu()">Studio</a>
-              </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/subscribe']"
-             (click)="collapseMenu()">Subscribe</a>
+            <a class="nav-link" [routerLink]="['/studiotour']" (click)="collapseMenu()">Studio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/studio']"
-             (click)="collapseMenu()">Services</a>
+            <a class="nav-link" [routerLink]="['/subscribe']" (click)="collapseMenu()">Subscribe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/studio']" (click)="collapseMenu()">Services</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -35,15 +30,14 @@
               Models
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item"  
-              [routerLink]="['/dashboard/viewschedulemodel', 1]" 
-              (click)="selectedDashboardFirst(1)">Scheduled
+              <a class="dropdown-item" [routerLink]="['/dashboard/viewschedulemodel', 1]"
+                (click)="selectedDashboardFirst(1)">Scheduled
                 Models </a>
-              <a class="dropdown-item"  [routerLink]="['/dashboard/models', 2]"
-              (click)="selectedDashboardFirst(2)">All Models
+              <a class="dropdown-item" [routerLink]="['/dashboard/models', 2]" (click)="selectedDashboardFirst(2)">All
+                Models
               </a>
-              <a class="dropdown-item"  [routerLink]="['/dashboard/viewprojectionmodel', 17]"
-              (click)="selectedDashboardFirst(17)">Projection Models
+              <a class="dropdown-item" [routerLink]="['/dashboard/viewprojectionmodel', 17]"
+                (click)="selectedDashboardFirst(17)">Projection Models
               </a>
             </div>
           </li>
@@ -54,15 +48,14 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" [routerLink]="['/dashboard/viewschedulemodel', 1]"
-               (click)="selectedDashboardFirst(1)">
+                (click)="selectedDashboardFirst(1)">
                 PhotoShoot</a>
-              <a class="dropdown-item" [routerLink]="['/dashboard/registrationSetup', 6]" 
-              (click)="selectedDashboardSecond(6)">Digital-Business-Management</a>
+              <a class="dropdown-item" [routerLink]="['/dashboard/registrationSetup', 6]"
+                (click)="selectedDashboardSecond(6)">Digital-Business-Management</a>
               <a class="dropdown-item" [routerLink]="['/dashboard/itservices', 11]"
-              (click)="selectedDashboardThird(11)">IT-Services</a>
+                (click)="selectedDashboardThird(11)">IT-Services</a>
               <a class="dropdown-item" [routerLink]="['/dashboard/bookingstatus', 15]"
-              (click)="selectedDashboardFourth(15)"
-              >Booking Status</a>
+                (click)="selectedDashboardFourth(15)">Booking Status</a>
             </div>
           </li>
 
@@ -73,37 +66,34 @@
               Booking Status
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" [routerLink]="'./'"
-               (click)="getActive(12)">Active Booking</a>
+              <a class="dropdown-item" [routerLink]="'./'" (click)="getActive(12)">Active Booking</a>
               <a class="dropdown-item" [routerLink]="['/dashboard/completed', 13]"
-               (click)="selectedDashboardFourth(13)">Completed Order</a>
+                (click)="selectedDashboardFourth(13)">Completed Order</a>
               <a class="dropdown-item" [routerLink]="['/dashboard/cancelled', 14]"
-               (click)="selectedDashboardFourth(14)">Cancelled
+                (click)="selectedDashboardFourth(14)">Cancelled
                 Booking</a>
               <a class="dropdown-item" [routerLink]="['/dashboard/bookingstatus', 15]"
-               (click)="selectedDashboardFourth(15)">All Booking</a>
+                (click)="selectedDashboardFourth(15)">All Booking</a>
+              <a class="dropdown-item" *ngIf="loginData === 'true'" [routerLink]="['/dashboard/activitylog', 20]"
+                (click)="selectedDashboardFourth(20)">Activity Log</a>
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link"
-            [routerLink]="['/dashboard/ourwork', 18, this?.urlModel]"
-            
-              aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link" [routerLink]="['/dashboard/ourwork', 18, this?.urlModel]" aria-haspopup="true"
+              aria-expanded="false">
               Our Work
             </a>
-           
+
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link"
-            [routerLink]="['/dashboard/videoportfolio', 19, this?.videoUrlModel]"
-            
+            <a class="nav-link" [routerLink]="['/dashboard/videoportfolio', 19, this?.videoUrlModel]"
               aria-haspopup="true" aria-expanded="false">
               Video
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/dashboard/pricing', 16]" 
-            (click)="selectedDashboardFifth(16)">Pricing</a>
+            <a class="nav-link" [routerLink]="['/dashboard/pricing', 16]"
+              (click)="selectedDashboardFifth(16)">Pricing</a>
           </li>
 
           <li class="nav-item">
@@ -115,80 +105,62 @@
 
             <a class="nav-link" href="http://rinteger.com:8082/blog/" target="_blank">Blog</a>
           </li>
+          <li class="nav-item" *ngIf="loginData === 'false'">
+            <a class="nav-link" [routerLink]="['/login']" (click)="collapseMenu()">Login</a>
+          </li>
+          <li class="nav-item" *ngIf="loginData === 'true'">
+            <a class="nav-link" [routerLink]="['/login']" (click)="collapseMenu();logoutValu()">Logout</a>
+          </li>
         </ul>
       </div>
 
     </nav>
   </mat-toolbar>
-  <mat-sidenav-container class="example-sidenav-container" 
-  [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #sidenav  [mode]="mobileQuery.matches ? 'over' : 'side'"
-     [fixedInViewport]="mobileQuery.matches"
-      fixedTopGap="56" [opened]="true"
-      >
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56" [opened]="true">
       <mat-nav-list>
         <mat-list-item (click)="selectedFirst()" class="parent">
           <div *ngIf="isExpanded || isShowing">Shoot Booking</div>
-          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">
+            keyboard_arrow_right</mat-icon>
         </mat-list-item>
         <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="showSubmenu">
           <div id="scroll-area" class="navigation-hold" fxLayout="column">
             <div class="sidenav-hold">
-              <ul class="navbar-nav" >
-                <li class="nav-item text-center"
-                 (click)="onSelect(1)">
-                  <a class="nav-link" 
-                  [class.activeLink]=" 1 === selectedMenuList"
-                  [routerLink]="['viewschedulemodel', 1]"
-                    >
+              <ul class="navbar-nav">
+                <li class="nav-item text-center" (click)="onSelect(1)">
+                  <a class="nav-link" [class.activeLink]=" 1 === selectedMenuList"
+                    [routerLink]="['viewschedulemodel', 1]">
                     Scheduled Models
                   </a>
                 </li>
-                <li class="nav-item text-center"
-                (click)="onSelect(2)">
+                <li class="nav-item text-center" (click)="onSelect(2)">
 
-                  <a class="nav-link"
-                  [class.activeLink]="2 === selectedMenuList"
-                    [routerLink]="['models', 2]">
+                  <a class="nav-link" [class.activeLink]="2 === selectedMenuList" [routerLink]="['models', 2]">
                     All Models
                   </a>
                 </li>
-                <li class="nav-item text-center"
-                (click)="onSelect(17)">
+                <li class="nav-item text-center" (click)="onSelect(17)">
 
-                  <a class="nav-link"
-                  [class.activeLink]="17 === selectedMenuList"
+                  <a class="nav-link" [class.activeLink]="17 === selectedMenuList"
                     [routerLink]="['viewprojectionmodel', 17]">
-                   Projection Models
+                    Projection Models
                   </a>
                 </li>
-                <li class="nav-item text-center"
-                (click)="onSelect(3)"
-                >
-                  <a class="nav-link" 
-                    [routerLink]="['booking', 3]"
-                    [class.activeLink]="3 === selectedMenuList"
-                    >
+                <li class="nav-item text-center" (click)="onSelect(3)">
+                  <a class="nav-link" [routerLink]="['booking', 3]" [class.activeLink]="3 === selectedMenuList">
                     Product Shoot
                   </a>
                 </li>
-                <li class="nav-item text-center"
-                (click)="onSelect(4)"
-                >
+                <li class="nav-item text-center" (click)="onSelect(4)">
 
-                  <a class="nav-link" 
-                    [routerLink]="['creative', 4]"
-                    [class.activeLink]="4 === selectedMenuList"
-                    >
+                  <a class="nav-link" [routerLink]="['creative', 4]" [class.activeLink]="4 === selectedMenuList">
                     Creative Shoot
                   </a>
                 </li>
-                <li class="nav-item text-center"
-                (click)="onSelect(5)"
-                >
-                  <a 
-                  [class.activeLink]="5 === selectedMenuList"
-                    [routerLink]="['editing', 5]" class="nav-link">
+                <li class="nav-item text-center" (click)="onSelect(5)">
+                  <a [class.activeLink]="5 === selectedMenuList" [routerLink]="['editing', 5]" class="nav-link">
                     Image Editing
                   </a>
                 </li>
@@ -198,57 +170,41 @@
         </div>
         <mat-list-item (click)="selectedSecond()" class="parent">
           <div *ngIf="isExpanded || isShowing">Digital-Business-Mgmt Booking</div>
-          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSecondSubmenu}" *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSecondSubmenu}" *ngIf="isExpanded || isShowing">
+            keyboard_arrow_right</mat-icon>
         </mat-list-item>
         <div class="submenu" [ngClass]="{'expanded' : showSecondSubmenu}" *ngIf="showSecondSubmenu">
           <div id="scroll-area" class="navigation-hold" fxLayout="column">
             <div class="sidenav-hold">
               <ul class="navbar-nav">
-                <li class="nav-item text-center"
-                (click)="onSelect(6)"
-                >
-                  <a class="nav-link"
-                  [class.activeLink]="6 === selectedMenuList"
+                <li class="nav-item text-center" (click)="onSelect(6)">
+                  <a class="nav-link" [class.activeLink]="6 === selectedMenuList"
                     [routerLink]="['registrationSetup', 6]">
                     Registration & Setup
                   </a>
                 </li>
-                <li class="nav-item text-center"
-                (click)="onSelect(7)"
-                >
+                <li class="nav-item text-center" (click)="onSelect(7)">
 
-                  <a class="nav-link" 
-                  [class.activeLink]="7 === selectedMenuList"
-                    [routerLink]="['cataloging', 7]">
+                  <a class="nav-link" [class.activeLink]="7 === selectedMenuList" [routerLink]="['cataloging', 7]">
                     Cataloging / Listing
                   </a>
                 </li>
-                <li class="nav-item text-center"
-                (click)="onSelect(8)"
-                >
-                  <a class="nav-link"
-                  [class.activeLink]="8 === selectedMenuList"
-                    [routerLink]="['aplus', 8]">
+                <li class="nav-item text-center" (click)="onSelect(8)">
+                  <a class="nav-link" [class.activeLink]="8 === selectedMenuList" [routerLink]="['aplus', 8]">
 
                     A+ Cataloging
                   </a>
                 </li>
-                <li class="nav-item text-center"
-                (click)="onSelect(9)"
-                >
+                <li class="nav-item text-center" (click)="onSelect(9)">
 
-                  <a class="nav-link" 
-                  [class.activeLink]="9 === selectedMenuList"
-                    [routerLink]="['digitalmgmt', 9]">
+                  <a class="nav-link" [class.activeLink]="9 === selectedMenuList" [routerLink]="['digitalmgmt', 9]">
 
                     Account-Management
                   </a>
                 </li>
-                <li class="nav-item text-center"
-                (click)="onSelect(10)"
-                >
-                  <a  [class.activeLink]="10 === selectedMenuList"
-                    [routerLink]="['marketingservices', 10]" class="nav-link">
+                <li class="nav-item text-center" (click)="onSelect(10)">
+                  <a [class.activeLink]="10 === selectedMenuList" [routerLink]="['marketingservices', 10]"
+                    class="nav-link">
 
                     Marketing & Services
                   </a>
@@ -259,18 +215,15 @@
         </div>
         <mat-list-item (click)="selectedThird()" class="parent">
           <div *ngIf="isExpanded || isShowing">IT-Services Booking</div>
-          <mat-icon class="menu-button" [ngClass]="{'rotated' : showThirdSubmenu}" *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showThirdSubmenu}" *ngIf="isExpanded || isShowing">
+            keyboard_arrow_right</mat-icon>
         </mat-list-item>
         <div class="submenu" [ngClass]="{'expanded' : showThirdSubmenu}" *ngIf="showThirdSubmenu">
           <div id="scroll-area" class="navigation-hold" fxLayout="column">
             <div class="sidenav-hold">
               <ul class="navbar-nav">
-                <li class="nav-item text-center"
-                (click)="onSelect(11)"
-                >
-                  <a class="nav-link" 
-                  [class.activeLink]="11 === selectedMenuList"
-                    [routerLink]="['itservices', 11]">
+                <li class="nav-item text-center" (click)="onSelect(11)">
+                  <a class="nav-link" [class.activeLink]="11 === selectedMenuList" [routerLink]="['itservices', 11]">
                     IT - Services
                   </a>
                 </li>
@@ -280,47 +233,37 @@
         </div>
         <mat-list-item (click)="selectedFourth()" class="parent">
           <div *ngIf="isExpanded || isShowing">Booking Status</div>
-          <mat-icon class="menu-button" [ngClass]="{'rotated' : showFourthSubmenu}" *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showFourthSubmenu}" *ngIf="isExpanded || isShowing">
+            keyboard_arrow_right</mat-icon>
         </mat-list-item>
         <div class="submenu" [ngClass]="{'expanded' : showFourthSubmenu}" *ngIf="showFourthSubmenu">
           <div id="scroll-area" class="navigation-hold" fxLayout="column">
             <div class="sidenav-hold">
               <ul class="navbar-nav">
-                <li class="nav-item text-center"
-                (click)="onSelect(12)"
-                >
-                  <a class="nav-link" 
-                  [class.activeLink]="12 === selectedMenuList"
-                    [routerLink]= "mobileNo === null ? ['newUser']: ['statusView', 4, mobileNo]"
-                  >
+                <li class="nav-item text-center" (click)="onSelect(12)">
+                  <a class="nav-link" [class.activeLink]="12 === selectedMenuList"
+                    [routerLink]="mobileNo === null ? ['newUser']: ['statusView', 4, mobileNo]">
                     Active Booking
                   </a>
                 </li>
-                <li class="nav-item text-center"
-                (click)="onSelect(13)"
-                >
-                  <a class="nav-link" 
-                  [class.activeLink]="13 === selectedMenuList"
-                      [routerLink]="['completed', 13 ]">
+                <li class="nav-item text-center" (click)="onSelect(13)">
+                  <a class="nav-link" [class.activeLink]="13 === selectedMenuList" [routerLink]="['completed', 13 ]">
                     Completed Order
                   </a>
                 </li>
-                <li class="nav-item text-center"
-                (click)="onSelect(14)"
-                >
-                  <a class="nav-link"
-                  [class.activeLink]="14 === selectedMenuList"
-                  [routerLink]="['cancelled', 14 ]">
+                <li class="nav-item text-center" (click)="onSelect(14)">
+                  <a class="nav-link" [class.activeLink]="14 === selectedMenuList" [routerLink]="['cancelled', 14 ]">
                     Cancelled Booking
                   </a>
                 </li>
-                <li class="nav-item text-center"
-                (click)="onSelect(15)"
-                >
-                  <a class="nav-link" 
-                  [class.activeLink]="15 === selectedMenuList"
-                          [routerLink]="['bookingstatus', 15]">
+                <li class="nav-item text-center" (click)="onSelect(15)">
+                  <a class="nav-link" [class.activeLink]="15 === selectedMenuList" [routerLink]="['bookingstatus', 15]">
                     All Booking
+                  </a>
+                </li>
+                <li class="nav-item text-center" (click)="onSelect(20)" *ngIf="loginData === 'true'">
+                  <a class="nav-link" [class.activeLink]="20 === selectedMenuList" [routerLink]="['activitylog', 20]">
+                    Activity Log
                   </a>
                 </li>
               </ul>
@@ -328,135 +271,121 @@
           </div>
         </div>
         <mat-list-item (click)="selectedFifth()" class="parent">
-            <div *ngIf="isExpanded || isShowing">Pricing</div>
-            <mat-icon class="menu-button" [ngClass]="{'rotated' : showFifthSubmenu}" 
-            *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
-          </mat-list-item>
-          <div class="submenu" [ngClass]="{'expanded' : showFifthSubmenu}" 
-          *ngIf="showFifthSubmenu">
-            <div id="scroll-area" class="navigation-hold" fxLayout="column">
-              <div class="sidenav-hold">
-                <ul class="navbar-nav">
-                  <li class="nav-item text-center"
-                  (click)="onSelect(16)"
-                  >
-                    <a class="nav-link" 
-                      [class.activeLink]="16 === selectedMenuList"
-                      [routerLink]="['pricing', 16]"
-                       >
-                       All
-                    </a>
-                  </li>
-                </ul>
-              </div>
+          <div *ngIf="isExpanded || isShowing">Pricing</div>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showFifthSubmenu}" *ngIf="isExpanded || isShowing">
+            keyboard_arrow_right</mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showFifthSubmenu}" *ngIf="showFifthSubmenu">
+          <div id="scroll-area" class="navigation-hold" fxLayout="column">
+            <div class="sidenav-hold">
+              <ul class="navbar-nav">
+                <li class="nav-item text-center" (click)="onSelect(16)">
+                  <a class="nav-link" [class.activeLink]="16 === selectedMenuList" [routerLink]="['pricing', 16]">
+                    All
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
-          <mat-list-item (click)="selectedSix()" class="parent">
-              <div *ngIf="isExpanded || isShowing">Our Work</div>
-              <mat-icon class="menu-button"
-               [ngClass]="{'rotated' : showSixSubmenu}" 
-              *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
-            </mat-list-item>
-            <div class="submenu" [ngClass]="{'expanded' : showSixSubmenu}"
-             *ngIf="showSixSubmenu">
-              <div id="scroll-area" class="navigation-hold" fxLayout="column">
-                <div class="sidenav-hold">
-                      <ul class="navbar-nav">
-                        <li class="nav-item text-center" 
-                        *ngFor="let data of ourWorkModel; let i = index"
-                          >
-                          <a   [class.activeLink]="i+18 === selectedMenuList"
-                          (click)="onSelect(i+18);"
-                          [routerLink]="['ourwork', i+18, data._id]"
-                          class="nav-link text-center" ><a 
-                          >{{data.categoryName}}</a></a>
-                        </li>
-                      </ul>
-                    
-                </div>
-              </div>
-            </div>
+        </div>
+        <mat-list-item (click)="selectedSix()" class="parent">
+          <div *ngIf="isExpanded || isShowing">Our Work</div>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSixSubmenu}" *ngIf="isExpanded || isShowing">
+            keyboard_arrow_right</mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showSixSubmenu}" *ngIf="showSixSubmenu">
+          <div id="scroll-area" class="navigation-hold" fxLayout="column">
+            <div class="sidenav-hold">
+              <ul class="navbar-nav">
+                <li class="nav-item text-center" *ngFor="let data of ourWorkModel; let i = index">
+                  <a [class.activeLink]="i+18 === selectedMenuList" (click)="onSelect(i+18);"
+                    [routerLink]="['ourwork', i+18, data._id]"
+                    class="nav-link text-center"><a>{{data.categoryName}}</a></a>
+                </li>
+              </ul>
 
-            <mat-list-item (click)="selectedSeven()" class="parent">
-              <div *ngIf="isExpanded || isShowing">Video</div>
-              <mat-icon class="menu-button"
-               [ngClass]="{'rotated' : showSeventhSubMenu}" 
-              *ngIf="isExpanded || isShowing">keyboard_arrow_right</mat-icon>
-            </mat-list-item>
-            <div class="submenu" [ngClass]="{'expanded' : showSeventhSubMenu}"
-             *ngIf="showSeventhSubMenu">
-              <div id="scroll-area" class="navigation-hold" fxLayout="column">
-                <div class="sidenav-hold">
-                      <ul class="navbar-nav">
-                        <li class="nav-item text-center" 
-                        *ngFor="let data of videoModel; let i = index"
-                          >
-                          <a   [class.activeLink]="i+19 === selectedMenuList"
-                          (click)="onSelect(i+19);"
-                          [routerLink]="['videoportfolio', i+19, data._id]"
-                          class="nav-link text-center" ><a 
-                          >{{data.categoryName}}</a></a>
-                        </li>
-                      </ul>
-                    
-                </div>
-              </div>
             </div>
+          </div>
+        </div>
+
+        <mat-list-item (click)="selectedSeven()" class="parent">
+          <div *ngIf="isExpanded || isShowing">Video</div>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSeventhSubMenu}" *ngIf="isExpanded || isShowing">
+            keyboard_arrow_right</mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showSeventhSubMenu}" *ngIf="showSeventhSubMenu">
+          <div id="scroll-area" class="navigation-hold" fxLayout="column">
+            <div class="sidenav-hold">
+              <ul class="navbar-nav">
+                <li class="nav-item text-center" *ngFor="let data of videoModel; let i = index">
+                  <a [class.activeLink]="i+19 === selectedMenuList" (click)="onSelect(i+19);"
+                    [routerLink]="['videoportfolio', i+19, data._id]"
+                    class="nav-link text-center"><a>{{data.categoryName}}</a></a>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
       <!--  <app-header></app-header> -->
       <router-outlet></router-outlet>
-          <div class="container border-top border-dark">
-            <div class="row footerHead">
-              <div class=" col-md-2 col-4">
-                <p class="text-secondary"><strong>Company</strong></p>
-                <ul class="list-unstyled">
-                  <li class="font-weight-light"><a [routerLink]="['/aboutUs']">About us</a></li>
-                  <li class="font-weight-light"><a [routerLink]="['/contact']">Contact</a></li>
-                  <li class="font-weight-light"><a [routerLink]="['/studio']">Services</a></li>
-                  <li class="font-weight-light"><a [routerLink]="['/portfolio']">Our Work</a></li>
-                </ul>
-              </div>
-              <div class="col-md-2 col-4">
-                <p class="text-secondary"><strong>Booking</strong></p>
-                <ul class="list-unstyled">
-                    <li class="font-weight-light"><a [routerLink]="['/subscribe']">Subscribe</a></li>
-                  <li class="font-weight-light" (click)="selectedDashboardFirst(2)"><a [routerLink]="['/dashboard/models', 2]">Bookings</a></li>
-                  <li class="font-weight-light" (click)="selectedDashboardFourth(15)"><a [routerLink]="['/dashboard/bookingstatus', 15]">Booking Status</a></li>
-                  <li class="font-weight-light" (click)="selectedDashboardFifth(16)"><a [routerLink]="['/dashboard/pricing', 16]">Pricing</a></li>
-              
-                </ul>
-              </div>
-              <div class="col-md-2 col-4">
-                <p class="text-secondary"><strong>Community</strong></p>
-                <ul class="list-unstyled">
-                    <li class="font-weight-light"><a [routerLink]="['/blog']">Blog</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 col-6">
-                <p class="text-secondary"><strong>Contact</strong></p>
-                <ul class="list-unstyled">
-                  <li class="font-weight-light">+91-9035671333</li>
-                  <li class="font-weight-light">+91-9035671666</li>
-                  <li><a href="mailto:rintegeroperations@gmail.com">rintegeroperations@gmail.com</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 col-6">
-                <a href="https://www.facebook.com/profile.php?id=100010000981104" target="_blank" style="padding-right:3%;"><i class="fa fa-facebook-official fa-2x"
-                    aria-hidden="true"></i></a>
-                <a href="https://www.instagram.com/rinteger/" target="_blank" style="padding-right:3%;"><i class="fa fa-instagram fa-2x"
-                    aria-hidden="true"></i></a>
-        
-                <a href="https://in.pinterest.com/rinteger/" target="_blank" style="padding-right:3%"><i class="fa fa-pinterest  fa-2x" aria-hidden="true"></i></a>
-                <a href="https://plus.google.com/u/0/112907421362305810294" target="_blank" style="padding-right:3%"><i class="fa fa-google-plus fa-2x"
-                    aria-hidden="true"></i></a>
-                    <a href="https://twitter.com/RintegerS" target="_blank" style="padding-right:3%"><i class="fa fa-twitter fa-2x"
-                      aria-hidden="true"></i></a>
-              </div>
-            </div>
+      <div class="container border-top border-dark">
+        <div class="row footerHead">
+          <div class=" col-md-2 col-4">
+            <p class="text-secondary"><strong>Company</strong></p>
+            <ul class="list-unstyled">
+              <li class="font-weight-light"><a [routerLink]="['/aboutUs']">About us</a></li>
+              <li class="font-weight-light"><a [routerLink]="['/contact']">Contact</a></li>
+              <li class="font-weight-light"><a [routerLink]="['/studio']">Services</a></li>
+              <li class="font-weight-light"><a [routerLink]="['/portfolio']">Our Work</a></li>
+            </ul>
           </div>
-      
+          <div class="col-md-2 col-4">
+            <p class="text-secondary"><strong>Booking</strong></p>
+            <ul class="list-unstyled">
+              <li class="font-weight-light"><a [routerLink]="['/subscribe']">Subscribe</a></li>
+              <li class="font-weight-light" (click)="selectedDashboardFirst(2)"><a
+                  [routerLink]="['/dashboard/models', 2]">Bookings</a></li>
+              <li class="font-weight-light" (click)="selectedDashboardFourth(15)"><a
+                  [routerLink]="['/dashboard/bookingstatus', 15]">Booking Status</a></li>
+              <li class="font-weight-light" (click)="selectedDashboardFifth(16)"><a
+                  [routerLink]="['/dashboard/pricing', 16]">Pricing</a></li>
+
+            </ul>
+          </div>
+          <div class="col-md-2 col-4">
+            <p class="text-secondary"><strong>Community</strong></p>
+            <ul class="list-unstyled">
+              <li class="font-weight-light"><a [routerLink]="['/blog']">Blog</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-6">
+            <p class="text-secondary"><strong>Contact</strong></p>
+            <ul class="list-unstyled">
+              <li class="font-weight-light">+91-9035671333</li>
+              <li class="font-weight-light">+91-9035671666</li>
+              <li><a href="mailto:rintegeroperations@gmail.com">rintegeroperations@gmail.com</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-6">
+            <a href="https://www.facebook.com/profile.php?id=100010000981104" target="_blank"
+              style="padding-right:3%;"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/rinteger/" target="_blank" style="padding-right:3%;"><i
+                class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+
+            <a href="https://in.pinterest.com/rinteger/" target="_blank" style="padding-right:3%"><i
+                class="fa fa-pinterest  fa-2x" aria-hidden="true"></i></a>
+            <a href="https://plus.google.com/u/0/112907421362305810294" target="_blank" style="padding-right:3%"><i
+                class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a>
+            <a href="https://twitter.com/RintegerS" target="_blank" style="padding-right:3%"><i
+                class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+
 
     </mat-sidenav-content>
 
