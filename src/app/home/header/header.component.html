@@ -92,7 +92,6 @@
         <a class="nav-link" href="http://rinteger.com:8082/blog/" target="_blank">Blog</a>
 
       </li>
-<<<<<<< HEAD
       <li class="nav-item" *ngIf = "loginData === 'false'">
         <a class="nav-link" [routerLink]="['/login']" (click)="collapseMenu()">Login</a>
       </li>
@@ -109,13 +108,6 @@
           <a class="dropdown-item" [routerLink]="['/updateuserdetail']" (click)="collapseMenu()">Change Password</a>
           <a class="dropdown-item" [routerLink]="['/login']" (click)="collapseMenu();logout()">Logout</a>
         </div>
-=======
-      <li class="nav-item" *ngIf = "loginData !== 'true'">
-        <a class="nav-link" [routerLink]="['/login']" (click)="collapseMenu()">Login</a>
-      </li>
-      <li class="nav-item" *ngIf = "loginData === 'true'">
-        <a class="nav-link" [routerLink]="['/login']" (click)="collapseMenu();logout()" >Logout</a>
->>>>>>> 6e70ca93e7cd2472a70f9b3f837a8fb54bcb95f5
       </li>
     </ul>
 
