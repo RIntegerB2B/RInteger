@@ -70,7 +70,9 @@ import {
   MatStepperModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatDialogRef,
+  MAT_DIALOG_DATA
 } from '@angular/material';
 import {DashBoardService} from './home/dashboard/dashboard.service';
 import { ImageEditingBookingComponent } from './image-editing-booking/image-editing-booking.component';
@@ -104,6 +106,9 @@ import {VideoPortfolioComponent} from './video-portfolio-management/video-portfo
 import {SafePipe} from './shared/safe.pipe';
 import { VideoFullViewComponent } from './video-portfolio-management/video-full-view/video-full-view.component';
 import { MatVideoModule } from 'mat-video';
+import { CustomerLoginComponent } from './ripsil-customer/customer-login/customer-login.component';
+import { ActivityLogComponent } from './ripsil-customer/activity-log/activity-log.component';
+import { EditCustomerComponent } from './ripsil-customer/edit-customer/edit-customer.component';
 
 
 
@@ -158,7 +163,10 @@ import { MatVideoModule } from 'mat-video';
     StudioTourComponent,
     VideoPortfolioComponent,
     SafePipe,
-    VideoFullViewComponent
+    VideoFullViewComponent,
+    CustomerLoginComponent,
+    ActivityLogComponent,
+    EditCustomerComponent
   ],
   imports: [
  CommonModule,
@@ -201,7 +209,9 @@ import { MatVideoModule } from 'mat-video';
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [BookingService,
-  LocalStorageService, DashBoardService, ProgressBarService, OurworkManagementService],
+  LocalStorageService, DashBoardService, ProgressBarService, OurworkManagementService,
+  { provide: MatDialogRef, useValue: {} },
+  { provide: MAT_DIALOG_DATA, useValue: [] }],
   entryComponents: [RegisterComponent, ProgressBarComponent, ZoomComponent],
   exports: [RouterModule],
   bootstrap: [AppComponent]

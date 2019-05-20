@@ -1,0 +1,41 @@
+<div class="jumbotron">
+  <div class="backgroundImageDiv">
+    <div class="row">
+      <div class="offset-md-4">
+      </div>
+      <div class="col-md-4 subscribeMasterDiv">
+        <form [formGroup]="customerloginForm" (ngSubmit)="customerloginForm.valid && update(mobile.value, pass.value) "
+          novalidate>
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Mobile Number" maxlength="10" 
+              [(ngModel)]= "customerValue.mobileNumber" [readonly]=true #mobile
+               formControlName="mobileNumber" #mobileNum>
+              <button mat-button matSuffix mat-icon-button aria-label="Mobile Number">
+                <mat-icon>phone</mat-icon>
+              </button>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Old Password" formControlName="password" [(ngModel)]= "customerValue.password"
+               >
+              <button mat-button matSuffix mat-icon-button aria-label="Name">
+                <mat-icon>vpn_key</mat-icon>
+              </button>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="New Password" #pass
+               required>
+              <button mat-button matSuffix mat-icon-button aria-label="Name">
+                <mat-icon>vpn_key</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+          <input class="btn booking btn-block text-white" value="Update" type="submit">
+          <input class="btn booking btn-block text-white" value="Cancel" (click)="back()" type="submit">
+        </form>
+      </div>
+      <div class="offset-md-1">
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Observable, of } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
+import { LocalStorageService } from 'ngx-webstorage';
 interface IMenuItem {
   type: string; // Possible values: link/dropDown/icon/separator/extLink
   name?: string;     // Used as display text for item and title for separator type
@@ -50,7 +51,7 @@ export class DashBoardService {
   menuItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
   // navigation component has subscribed to this Observable
   menuItems$ = this.menuItems.asObservable();
-  constructor(private meta: Meta) { }
+  constructor(private meta: Meta, private localStorageService: LocalStorageService) { }
   makeMenuTransparent() {
     this.menuTransparent = true;
   }
@@ -79,4 +80,8 @@ export class DashBoardService {
     this.meta.updateTag({ property: 'og:image', content: config.image });
   }
 
+  getLogin() {
+    return this.localStorageService.retrieve('userloggedin');
+  /*   console.log(this.loginData); */
+    }
 }

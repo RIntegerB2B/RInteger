@@ -1,0 +1,45 @@
+<div class="jumbotron">
+  <div class="backgroundImageDiv">
+    <div class="row">
+      <div class="offset-md-4">
+      </div>
+      <div class="col-md-4 subscribeMasterDiv">
+        <form [formGroup]="customerloginForm" (ngSubmit)="customerloginForm.valid && login(customerloginForm) "
+          novalidate>
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Mobile Number" maxlength="10" formControlName="mobileNumber" #mobileNum>
+              <button mat-button matSuffix mat-icon-button aria-label="Mobile Number">
+                <mat-icon>phone</mat-icon>
+              </button>
+              <mat-hint color="primary">Ex: 9889899898</mat-hint>
+              <mat-error *ngIf="customerloginForm.controls['mobileNumber'].errors?.required">
+                Mobile Number is
+                <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="!customerloginForm.controls['mobileNumber'].errors?.required">
+                Enter valid mobile Number is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Password" formControlName="password" #usersName required>
+              <button mat-button matSuffix mat-icon-button aria-label="Name">
+                <mat-icon>vpn_key</mat-icon>
+              </button>
+              <div fxFlex="100" class="pr-1" *ngIf="showError">
+                Incorrect Password
+              </div>
+              <div fxFlex="100" class="pr-1" *ngIf="showError2">
+                Mobile Number is not registered
+              </div>
+            </mat-form-field>
+          </div>
+          <input class="btn booking btn-block text-white" value="Login" type="submit">
+        </form>
+      </div>
+      <div class="offset-md-1">
+      </div>
+    </div>
+  </div>
+</div>
