@@ -142,7 +142,6 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     /* this.progressBarService.open(); */
   }
   collapseMenu() {
-    this.getLogin();
     this.toggleBar = this.toggleBar === 'colapseMenuBar' ? 'expandMenuBar' : 'colapseMenuBar';
   }
 
@@ -353,10 +352,10 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     }
   }
   logout() {
-    this.logoutValue = this.localStorageService.retrieve('userLoggedIn');
-    if (this.logoutValue === 'true') {
+     this.dashboardService.getLogout();
+    /* if (this.logoutValue === 'true') {
       this.showLogout = true;
-    }
+    } */
   }
   homePage() {
     this.router.navigate(['/welcome']);
@@ -393,9 +392,11 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
       this.loginData = this.localStorageService.retrieve('userloggedin');
       } */
     logoutValu() {
-        this.localStorageService.clear('mobileNumber');
+      this.localStorageService.clear('mobileNumber');
+        sessionStorage.setItem('loginUser', 'false');
         this.localStorageService.store('userLoggedIn', 'false');
         sessionStorage.removeItem('token');
-        this.getLogin();
+        this.dashboardService.getLogout();
+        /* this.getLogin(); */
       }
 }

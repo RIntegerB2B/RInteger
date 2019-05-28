@@ -32,13 +32,13 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getLogin();
+    
     this.getAllCategory();
     this.getAllVideoCategory();
   }
 
   collapseMenu() {
-    this.getLogin();
+    
     this.toggleBar = this.toggleBar === 'colapseMenuBar' ? 'expandMenuBar' : 'colapseMenuBar';
   }
   getActive() {
@@ -80,13 +80,13 @@ export class HeaderComponent implements OnInit {
   }
 
     getLogin() {
-      this.loginData = this.localStorageService.retrieve('userloggedin');
+      return this.loginData = JSON.parse(this.localStorageService.retrieve('userloggedin'));
     /*   console.log(this.loginData); */
       }
       logout() {
+        this.homeservice.getLogout();
         this.localStorageService.clear('mobileNumber');
         this.localStorageService.store('userLoggedIn', 'false');
         sessionStorage.removeItem('token');
-        this.getLogin();
       }
 }

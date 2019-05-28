@@ -31,7 +31,12 @@ export class HomeService {
     return this.httpClient.get<Banner[]>(url);
   }
   getLogin() {
-    return this.localStorageService.retrieve('userloggedin');
+    return JSON.parse(sessionStorage.getItem('loginUser'));
   /*   console.log(this.loginData); */
     }
+  getLogout() {
+    sessionStorage.setItem('loginUser', 'false');
+    return sessionStorage.getItem('loginUser');
+    /*   console.log(this.loginData); */
+      }
 }
