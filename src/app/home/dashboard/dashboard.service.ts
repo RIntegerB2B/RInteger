@@ -81,7 +81,7 @@ export class DashBoardService {
   }
 
   getLogin() {
-    return this.localStorageService.retrieve('userloggedin');
+    return JSON.parse(this.localStorageService.retrieve('userloggedin'));
   /*   console.log(this.loginData); */
     }
 }

@@ -2,7 +2,6 @@ import { Component, OnInit , Inject} from '@angular/core';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import {SubscribeService} from './subscribe.service';
 import { LocalStorageService } from 'ngx-webstorage';
 import {Subscribe} from './subscribe.model';
@@ -43,7 +42,6 @@ checkData() {
  /*    console.log(this.mobNo); */
     this.localStorageService.store('mobileno', this.mobNo);
     this.localStorageService.store('name', name);
-   this.router.navigate(['/welcome']);
      this.swPush.requestSubscription({
        serverPublicKey: this.VAPID_PUBLIC_KEY
      })
@@ -53,7 +51,8 @@ checkData() {
          this.subscribeModel.isAdmin = false;
          this.subscribeModel.userSubscriptions = sub;
          this.subscribeModel.mobileNumber = this.mobNo;
-         this.subscribeService.addPushSubscriber(this.subscribeModel).subscribe();
+         /* this.subscribeService.addPushSubscriber(this.subscribeModel).subscribe(); */
+         this.subscribeService.addPushSubscriberOperation(this.subscribeModel).subscribe();
        })
        .catch(err => console.error('Could not subscribe to notifications', err));
    }

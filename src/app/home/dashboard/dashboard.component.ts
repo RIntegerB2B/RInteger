@@ -395,6 +395,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     logoutValu() {
         this.localStorageService.clear('mobileNumber');
         this.localStorageService.store('userLoggedIn', 'false');
+        sessionStorage.removeItem('token');
         this.getLogin();
       }
 }

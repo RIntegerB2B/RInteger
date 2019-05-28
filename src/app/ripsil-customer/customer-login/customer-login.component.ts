@@ -10,6 +10,7 @@ import { Notification } from '../../shared/notification.model';
 import { LocalStorageService } from 'ngx-webstorage';
 import { CustomerLogIn } from '../../shared/customer-login.model';
 import { mobileNumber } from '../../shared/validation';
+import { AuthenticationService } from '../../shared/auth-service/authentication.service';
 import { MatSnackBar } from '@angular/material';
 
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
@@ -34,7 +35,7 @@ export class CustomerLoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private ripsilCustomerService: RipsilCustomerService,
     private router: Router, public snackBar: MatSnackBar, private swUpdate: SwUpdate,
     private localStorageService: LocalStorageService, private swPush: SwPush,
-    @Inject(MAT_DIALOG_DATA) public data) {
+    @Inject(MAT_DIALOG_DATA) public data, private authenticationService: AuthenticationService) {
   }
 
   ngOnInit() {
@@ -57,7 +58,7 @@ export class CustomerLoginComponent implements OnInit {
     this.registerCustomer = new CustomerLogIn();
     this.registerCustomer.mobileNumber = customerloginForm.controls.mobileNumber.value;
     this.registerCustomer.password = customerloginForm.controls.password.value;
-    this.ripsilCustomerService.signIn(this.registerCustomer).subscribe(data => {
+    this.authenticationService.login(this.registerCustomer.mobileNumber, this.registerCustomer.password ).subscribe(data => {
       this.dataValue = data;
       if (data === null) {
         this.showError = false;
@@ -70,7 +71,9 @@ export class CustomerLoginComponent implements OnInit {
         this.showError = true;
       } else if (data !== null) {
         this.localStorageService.store('userLoggedIn', 'true');
-        this.localStorageService.store('mobileNumber', customerloginForm.controls.mobileNumber.value);
+        sessionStorage.setItem('loginUser', 'true');
+        this.localStorageService.store('mobileNumber', data.mobileNumber);
+        sessionStorage.setItem('token', data.token);
         this.subscribe(data.mobileNumber);
         this.router.navigate(['activitylog']);
       }

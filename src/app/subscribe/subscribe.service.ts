@@ -13,6 +13,7 @@ import {Subscribe} from './subscribe.model';
 export class SubscribeService {
   serviceUrl: string = AppSetting.serviceUrl;
   adminServiceUrl: string = AppSetting.adminServiceUrl;
+  operationServiceUrl: string = AppSetting.operationServiceUrl;
   headers: Headers = new Headers({
     'Content-Type': 'application/json; charset=utf-8'
   });
@@ -29,6 +30,11 @@ export class SubscribeService {
   addPushSubscriber(subscribe: Subscribe) {
     const notificationUrl = 'pushnotificationsubscribe';
     const url: string = this.adminServiceUrl + notificationUrl;
+    return this.http.post(url, subscribe);
+  }
+  addPushSubscriberOperation(subscribe: Subscribe) {
+    const notificationUrl = 'pushnotificationsubscribe';
+    const url: string = this.operationServiceUrl + notificationUrl;
     return this.http.post(url, subscribe);
   }
 }

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule} from '@angular/forms';
 import { BookingService} from './booking/booking.service';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Ng2Webstorage, LocalStorageService } from 'ngx-webstorage';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap';
@@ -109,6 +109,9 @@ import { MatVideoModule } from 'mat-video';
 import { CustomerLoginComponent } from './ripsil-customer/customer-login/customer-login.component';
 import { ActivityLogComponent } from './ripsil-customer/activity-log/activity-log.component';
 import { EditCustomerComponent } from './ripsil-customer/edit-customer/edit-customer.component';
+import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
+import { ErrorInterceptor } from './shared/helpers/error.interceptor';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 
 
@@ -169,10 +172,9 @@ import { EditCustomerComponent } from './ripsil-customer/edit-customer/edit-cust
     EditCustomerComponent
   ],
   imports: [
- CommonModule,
+  CommonModule,
     HttpModule,
     HttpClientModule,      // (Required) for share counts
-    HttpClientJsonpModule,
     Routing,
     FormsModule,
     ReactiveFormsModule,
@@ -211,7 +213,11 @@ import { EditCustomerComponent } from './ripsil-customer/edit-customer/edit-cust
   providers: [BookingService,
   LocalStorageService, DashBoardService, ProgressBarService, OurworkManagementService,
   { provide: MatDialogRef, useValue: {} },
-  { provide: MAT_DIALOG_DATA, useValue: [] }],
+  { provide: MAT_DIALOG_DATA, useValue: [] },
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+],
   entryComponents: [RegisterComponent, ProgressBarComponent, ZoomComponent],
   exports: [RouterModule],
   bootstrap: [AppComponent]

@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   serviceUrl: 'http://localhost:3011/',
   adminServiceUrl: 'http://localhost:3012/',
-  operationUrl: 'http://localhost:3041/'
+  operationServiceUrl: 'http://localhost:3041/'
 };
 
 /*

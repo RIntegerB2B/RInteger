@@ -43,6 +43,7 @@ import {VideoPortfolioComponent} from './video-portfolio-management/video-portfo
 import { CustomerLoginComponent } from './ripsil-customer/customer-login/customer-login.component';
 import { ActivityLogComponent } from './ripsil-customer/activity-log/activity-log.component';
 import { EditCustomerComponent } from './ripsil-customer/edit-customer/edit-customer.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   { path: 'ourwork/:mainid/:subid', component: OurworkComponent },
@@ -75,7 +76,7 @@ const routes: Routes = [
       { path: 'statusView/:viewid/:no', component: StautsViewComponent },
       { path: 'cancelled/:viewid', component: CancelledStatusComponent },
       { path: 'bookingstatus/:viewid', component: AllStatusComponent },
-      { path: 'statusView/:viewid', component: StautsViewComponent },
+      { path: 'statusView/:viewid', component: StautsViewComponent},
       
       { path: 'newUser/:viewid', component: NewUserStatusComponent },
       /* { path: 'aboutUs', component: AboutusComponent }, */
