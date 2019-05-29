@@ -17,6 +17,7 @@ import { OurworkComponent } from './../../ourwork-management/ourwork/ourwork.com
 import {VideoPortfolioService} from './../../video-portfolio-management/video-portfolio.service';
 import {VideoPortfolioComponent} from './../../video-portfolio-management/video-portfolio/video-portfolio.component';
 import {VideoModel} from './../../shared/viewVideos.model';
+import { HomeService} from './../home.service';
 @Component({
   providers: [StautsViewComponent],
   selector: 'app-dashboard',
@@ -60,8 +61,9 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   selectedMenuList;
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
   fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
-  loginData: any;
-  constructor( public dashboardService: DashBoardService, private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
+  loginData: boolean;
+  constructor( public dashboardService: DashBoardService,
+    public homeService: HomeService, private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
     private localStorageService: LocalStorageService, private router: Router,
      private activatedRoute: ActivatedRoute, private activeRoute: ActivatedRoute,
     private ourService: OurworkManagementService, private videoService: VideoPortfolioService,
@@ -78,13 +80,12 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
   ngOnInit() {
-    this.getLogin();
+    /* this.getLogin(); */
    /*  this.getLoginValue(); */
     this.menuItemsSub = this.dashboardService.menuItems$.subscribe(menuItem => {
       this.menuItems = menuItem.filter(item => item.type !== 'icon' && item.type !== 'separator');
       this.hasIconTypeMenuItem = !!this.menuItems.filter(item => item.type === 'icon').length;
     });
-    this.logout();
     this.viewId = +this.activeRoute.snapshot.firstChild.params.viewid;
     /* console.log('viewId', this.viewId); */
     this.onSelect(this.viewId);
@@ -137,6 +138,12 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
       }
     }
   }
+
+  
+  getLoginSession() {
+    this.loginData = JSON.parse(sessionStorage.getItem('loginUser'));
+  /*   console.log(this.loginData); */
+    }
   onSelect(id): void {
     this.selectedMenuList = id;
     /* this.progressBarService.open(); */
@@ -393,10 +400,10 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
       } */
     logoutValu() {
       this.localStorageService.clear('mobileNumber');
-        sessionStorage.setItem('loginUser', 'false');
         this.localStorageService.store('userLoggedIn', 'false');
         sessionStorage.removeItem('token');
         this.dashboardService.getLogout();
+        sessionStorage.setItem('loginUser', 'false');
         /* this.getLogin(); */
       }
 }

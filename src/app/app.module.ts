@@ -75,6 +75,7 @@ import {
   MAT_DIALOG_DATA
 } from '@angular/material';
 import {DashBoardService} from './home/dashboard/dashboard.service';
+import { HomeService} from './home/home.service';
 import { ImageEditingBookingComponent } from './image-editing-booking/image-editing-booking.component';
 import { CreativeBookingComponent } from './creative-booking/creative-booking.component';
 import {DataFilter} from './status/stauts-view/data-filter.pipe';
@@ -210,7 +211,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
     CarouselModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [BookingService,
+  providers: [BookingService, HomeService,
   LocalStorageService, DashBoardService, ProgressBarService, OurworkManagementService,
   { provide: MatDialogRef, useValue: {} },
   { provide: MAT_DIALOG_DATA, useValue: [] },

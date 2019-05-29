@@ -29,7 +29,7 @@ export class RipsilCustomerService {
       return of(result as T);
     };
   }
-  constructor(private http: Http, private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
   signIn(cust: CustomerLogIn) {
     const statusUrl = 'login';
     const url: string = this.operationServiceUrl + statusUrl;
@@ -43,7 +43,7 @@ export class RipsilCustomerService {
   addPushSubscriber(notificationModel: Notification) {
     const notificationUrl = 'pushnotificationsubscribeforcustomer';
     const url: string = this.operationServiceUrl + notificationUrl;
-    return this.http.post(url, notificationModel);
+    return this.httpClient.post(url, notificationModel);
   }
   getSelectedCustomer(mob): Observable<CustomerLogIn> {
     const notificationUrl = 'getselectedcustomerforchange/';

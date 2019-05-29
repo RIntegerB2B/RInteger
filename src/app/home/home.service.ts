@@ -10,20 +10,8 @@ import { Banner } from './welcome/banner.model';
   providedIn: 'root'
 })
 export class HomeService {
-
+  loginData: boolean;
   serviceUrl: string = AppSetting.serviceUrl;
-  headers: Headers = new Headers({
-    'Content-Type': 'application/json; charset=utf-8'
-  });
-  requestOptions: RequestOptions = new RequestOptions({ headers: this.headers });
-  loginData: any;
-
-  handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.log(error);
-      return of(result as T);
-    };
-  }
   constructor(private http: Http, private httpClient: HttpClient, private localStorageService: LocalStorageService) { }
   findBanner(): Observable<any> {
     const addUrl = 'allmainbannerImage';
@@ -31,7 +19,7 @@ export class HomeService {
     return this.httpClient.get<Banner[]>(url);
   }
   getLogin() {
-    return JSON.parse(sessionStorage.getItem('loginUser'));
+   return this.loginData = JSON.parse(sessionStorage.getItem('loginUser'));
   /*   console.log(this.loginData); */
     }
   getLogout() {

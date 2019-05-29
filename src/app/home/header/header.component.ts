@@ -27,18 +27,16 @@ export class HeaderComponent implements OnInit {
   toggleBar = 'colapseMenuBar';
   loginData ;
   constructor(private localStorageService: LocalStorageService, private ourService: OurworkManagementService,
-    private videoPortfolioService: VideoPortfolioService, public homeservice: HomeService,
+    private videoPortfolioService: VideoPortfolioService, public homeService: HomeService,
     private swUpdate: SwUpdate, private swPush: SwPush, private router: Router) {
   }
 
   ngOnInit() {
-    
     this.getAllCategory();
     this.getAllVideoCategory();
   }
 
   collapseMenu() {
-    
     this.toggleBar = this.toggleBar === 'colapseMenuBar' ? 'expandMenuBar' : 'colapseMenuBar';
   }
   getActive() {
@@ -84,7 +82,7 @@ export class HeaderComponent implements OnInit {
     /*   console.log(this.loginData); */
       }
       logout() {
-        this.homeservice.getLogout();
+        this.homeService.getLogout();
         this.localStorageService.clear('mobileNumber');
         this.localStorageService.store('userLoggedIn', 'false');
         sessionStorage.removeItem('token');
