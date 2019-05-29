@@ -139,7 +139,6 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
     }
   }
 
-  
   getLoginSession() {
     this.loginData = JSON.parse(sessionStorage.getItem('loginUser'));
   /*   console.log(this.loginData); */
@@ -404,6 +403,7 @@ export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
         sessionStorage.removeItem('token');
         this.dashboardService.getLogout();
         sessionStorage.setItem('loginUser', 'false');
+        this.homeService.getLogout();
         /* this.getLogin(); */
       }
 }
