@@ -1,16 +1,41 @@
 <div class="container">
   <form style="padding-top:80px; margin-bottom:300px;" novalidate>
-    <div class="textContainer">
-      <select #selectElem (change)="UnitWise(selectElem.value)" style="width:250px">
-        <option disabled>---Select Unit---</option>
-        <option *ngFor="let data of filterOption">
-          {{data}}
-        </option>
-        <option>All</option>
-      </select>
-    </div>
+   
+    
     <div class="text-center " style="padding-bottom:20px">
       <h6><strong>ACTIVITY LOG STATUS</strong></h6>
+    </div>
+    <div class="row">
+      <div class=" col-sm-12 d-flex  flex-row">
+        <div class=" col-sm-2 col p-2">
+            <select #selectElem (change)="UnitWise(selectElem.value)" style="width:250px">
+              <option disabled>---Select Unit---</option>
+              <option *ngFor="let data of filterOption">
+                {{data}}
+              </option>
+              <option>All</option>
+            </select>
+        </div>
+        <div class="col-sm-2 col p-2 text-center">
+            <select #status (change)="statusWise(status.value)" style="width:250px">
+                <option disabled>---Select Status---</option>
+                <option *ngFor="let data of statusOption">
+                  {{data}}
+                </option>
+                <option>All</option>
+              </select>
+         
+        </div>
+        <div class=" col-sm-4 col p-2 text-center">
+         
+        </div>
+        <div class="col-sm-2 col p-2 text-center">
+         
+        </div>
+        <div class="col-sm-2 col p-2 text-center">
+         
+        </div>
+      </div>
     </div>
     <div class="row">
       <div class=" col-sm-12 d-flex  flex-row">

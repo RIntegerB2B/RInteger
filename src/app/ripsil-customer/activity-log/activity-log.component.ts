@@ -16,6 +16,7 @@ export class ActivityLogComponent implements OnInit {
   mobValue: any;
   holdData: any;
   filterOption = ['Studio', 'BSS', 'Technologies'];
+  statusOption = ['Started', 'In-Progress', 'Completed', 'Onhold', 'Stopped', 'Assigned'];
   holdValue: any;
   public pageSize = 5;
   public currentPage = 0;
@@ -47,6 +48,26 @@ export class ActivityLogComponent implements OnInit {
   }
   getMobileNumber() {
     this.mobValue =  this.localStorageService.retrieve('mobileNumber');
+  }
+  statusWise(status)   {
+    if (status === 'All') {
+      this.holdValue = this.holdData;
+      this.valueData = this.holdData;
+      this.holdValue = this.holdData;
+      this.holdValue = new MatTableDataSource<Element>(this.valueData);
+      this.holdValue.paginator = this.paginator;
+      this.array = this.valueData;
+      this.totalSize = this.array.length;
+      this.iterator();
+    } else {
+      this.valueData = this.holdData.filter(value => value.status === status);
+      this.holdValue = this.valueData;
+      this.holdValue = new MatTableDataSource<Element>(this.valueData);
+      this.holdValue.paginator = this.paginator;
+      this.array = this.valueData;
+      this.totalSize = this.array.length;
+      this.iterator();
+    }
   }
   UnitWise(unit) {
     if (unit === 'All') {
